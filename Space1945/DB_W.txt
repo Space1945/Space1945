@@ -1,0 +1,16 @@
+pilot 10 0 8 1111111110
+money 500000
+lastship 1
+boughtparts 01000100010000000110
+config 000
+ship 1 1 8 0 6 
+parts 1 5 9 0 0 
+point 1111010110 
+ship 2 0 1 0 0 
+parts 0 0 0 0 
+point 1000000000 
+ship 3 1 1 0 0 
+parts 1 1 1 
+point 1000000000 
+chapter 1 11110
+chapter 2 0000000

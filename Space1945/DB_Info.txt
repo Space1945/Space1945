@@ -1,0 +1,27 @@
+pilot_name, pilot_level, pilot_exp, pilot_skill(추가해야됨) 
+max_level, max_exp // 1렙 200부터 시작
+gold(int)		// 돈
+// 일단 보류 >> curship_name, curship_atk, curship_def, curship_sub1, curship_sub2		// 첫 로드시에 표시할 개체
+
+//--- using, unlocked, locked 로 구분---
+Ship1(using)
+Atk1(using), Atk2(locked), Atk3(locked), Atk4(locked), Atk5(locked)
+Def1(locked), Def2(locked)
+Sub1(locked), Sub2(locked), Sub3(locked),
+Sub4(locked), Sub5(locked), Sub6(locked), Sub7(locked) >> using_left, using_right로 using 구분
+*** 템 삭제할 때는 playerprefs 에서 지워줘야함, 추가는 프리팹을 만들어놓으면 자동으로 추가됨
+//-------------------------------------------
+
+chapter1  10000	// 챕터 인덱스, stage는 5개(패스: 1, 논패: 0)
+chapter2 	 00000	// 챕터 인덱스, stage는 7개(패스: 1, 논패: 0)
+
+bgm true/false
+es true/false
+
+refresh 20200101120000 (yyyyMMddHHmmss) // default
+
+Stage1_1Type >> Robot/Alien
+Stage1_1NormalSeq >> 12121
+Stage1_1NormalTime >> 22222(2초 간격으로 생성)
+Stage1_1Elite >> 1(나올 엘리트 프리팹 인덱스)
+Stage1_5Boss >> 1(나올 보스 프리팹 인덱스)챕터 마지막 스테이지에서만 보스 출현

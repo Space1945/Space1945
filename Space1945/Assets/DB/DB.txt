@@ -1,0 +1,15 @@
+sound off on
+refresh 20210929011932
+pilot 10 16900 1111111110
+gold 14492000
+cur_ship player_1 Bullet_2 Hp_1
+atk_parts 11000
+def_parts 11
+sub_parts 1100000
+ship player_1 True Bullet_5 Hp_1
+ship player_2 False Bullet_3 Hp_1
+ship player_3 True Bullet_3 Hp_1
+chapter 1 10000
+chapter 2 00000
+chapter 3 00000
+chapter 4 00000
