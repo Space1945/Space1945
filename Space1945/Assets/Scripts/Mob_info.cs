@@ -32,13 +32,14 @@ public class Mob_info : MonoBehaviour
         invincible_time++;
         if (hp <= 0) // 사망
         {
-            Camera.main.GetComponent<Ingame_manager>().enemy_cnt--;
-            Debug.Log(Camera.main.GetComponent<Ingame_manager>().enemy_cnt);
+ //           Camera.main.GetComponent<Ingame_manager>().enemy_cnt--;
+ //           Debug.Log(Camera.main.GetComponent<Ingame_manager>().enemy_cnt);
             ParticleSystem par = Instantiate(par_die);
             par.transform.position = this.transform.position; // 적 사망 효과
 
             Camera.main.GetComponent<Ingame_manager>().Plus_ultimate_guage(add_guage);
             Camera.main.GetComponent<Ingame_manager>().Add_point(score, exp, gold);
+            Camera.main.GetComponent<Ingame_manager>().enemys.Remove(gameObject);
             //사운드 출력
             //일정몹이 아이템 뿌리기
             Destroy(gameObject);
@@ -62,8 +63,8 @@ public class Mob_info : MonoBehaviour
         }
         else if (collision.gameObject.tag == "end_line")
         {
-            Camera.main.GetComponent<Ingame_manager>().enemy_cnt--;
-            Debug.Log(Camera.main.GetComponent<Ingame_manager>().enemy_cnt);
+//            Camera.main.GetComponent<Ingame_manager>().enemy_cnt--;
+ //           Debug.Log(Camera.main.GetComponent<Ingame_manager>().enemy_cnt);
             Destroy(this.gameObject);
         }
     }

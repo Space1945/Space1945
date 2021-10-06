@@ -21,7 +21,7 @@ es true/false
 refresh 20200101120000 (yyyyMMddHHmmss) // default
 
 Stage1_1Type >> Robot/Alien
-Stage1_1NormalSeq >> 12121
-Stage1_1NormalTime >> 22222(2초 간격으로 생성)
-Stage1_1Elite >> 1(나올 엘리트 프리팹 인덱스)
-Stage1_5Boss >> 1(나올 보스 프리팹 인덱스)챕터 마지막 스테이지에서만 보스 출현
+Stage1_1Normals >> Normal1 Normal2
+Stage1_1NormalsTime >> 100 100 100 100 100(2초 간격으로 생성)
+Stage1_1Elites >> Elite1(나올 엘리트 프리팹 인덱스)
+Stage1_5Boss >> Boss1(나올 보스 프리팹 인덱스)챕터 마지막 스테이지에서만 보스 출현

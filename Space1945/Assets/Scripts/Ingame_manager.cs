@@ -10,17 +10,17 @@ public class Ingame_manager : MonoBehaviour
 
     public GameObject[] spwan_points;
 
-    public List<GameObject> Enemy { get; set; } = new List<GameObject>();
-    public HashSet<GameObject> e = new HashSet<GameObject>();
-    public int enemy_cnt { get; set; } // 적 수 생성할때 ++, 죽을때 --
-    float time = 0;
+    public HashSet<GameObject> enemys { get; set; }
 
-    GameObject[] normals;
-    GameObject elites;
-    GameObject boss; // 보스 개체는 하나
+    int time = 0;
+    int idx = 0;
 
     string selected_chapter;
     string selected_stage;
+    List<GameObject> normals; // 출현할 일반몹
+    List<int> normals_time; // 출현할 일반몹 시간 
+    List<GameObject> elites; // 출현할 엘리트
+    GameObject boss;
 
     GameObject[] BG;
 
@@ -44,15 +44,8 @@ public class Ingame_manager : MonoBehaviour
         selected_chapter = DB_Manager.Instance.selected_chapter.ToString();
         selected_stage = DB_Manager.Instance.selected_stage.ToString();
 
-        string dir = "stage_" + selected_chapter + "_" + selected_stage;
-        int mob_cnt = PlayerPrefs.GetString(dir + "_name").Length;
-
-        normals = Resources.LoadAll<GameObject>("Enemy/Normal/" + PlayerPrefs.GetString(dir + "_type") + "/");
-        elites = Resources.Load<GameObject>("Enemy/Elite/" + PlayerPrefs.GetString(dir + "_type") + "/Elite" + selected_chapter);
-        if (PlayerPrefs.GetString("Chapter" + selected_chapter).Length == DB_Manager.Instance.selected_stage)
-            boss = Resources.Load<GameObject>("Enemy/Boss/" + PlayerPrefs.GetString(dir + "_type") + "/Boss" + selected_chapter);
-
-        BG = Resources.LoadAll<GameObject>("Maps/BG/");
+        Initiate();
+        ReadStage();
 
         player = DB_Manager.Instance.using_airframe;
         player_clone = Instantiate(player); // 복제
@@ -63,21 +56,42 @@ public class Ingame_manager : MonoBehaviour
         foreach (GameObject obj in BG)
             Instantiate(obj);
 
-        /*
-        int i;
-        for (i = 0; i < mob_cnt; i++)
-            Invoke("Mob_count", mob_list[i].mob_time);
-        time = mob_list[i - 1].mob_time * 50f;
-
         Ultimate.onClick.AddListener(Use_ultimate);
-        Ultimate.enabled = false;*/
+        Ultimate.enabled = false;
     }
-    void Mob_count() // 일반 몹
-    {/*
-        Set_point(normal_mobs[mob_list[index].mob_num - 1]);
-        Fly f = gameObject.AddComponent<Fly>();
-        f.Mobs_fly(start_point, player_point, rand, normal_mobs[mob_list[index].mob_num - 1], 0.5f, mob_position);
-        index++;*/
+
+    void Initiate()
+    {
+        enemys = new HashSet<GameObject>();
+
+        normals = new List<GameObject>();
+        normals_time = new List<int>();
+        elites = new List<GameObject>();
+    }
+
+    void ReadStage()
+    {
+        string stage = "Stage" + selected_chapter + "_" + selected_stage;
+        string stage_type = PlayerPrefs.GetString(stage + "Type");
+
+        string[] normals = PlayerPrefs.GetString(stage + "Normals").Split(' ');
+        for (int i = 0; i < normals.Length; i++)
+            this.normals.Add(Resources.Load<GameObject>("Enemy/Normal/" + stage_type + "/" + normals[i]));
+        string[] normals_time = PlayerPrefs.GetString(stage + "NormalsTime").Split(' ');
+        for (int i = 0; i < normals_time.Length; i++)
+            this.normals_time.Add(int.Parse(normals_time[i]));
+
+        string[] elites = PlayerPrefs.GetString(stage + "Elites").Split(' ');
+        for (int i = 0; i < elites.Length; i++)
+            this.elites.Add(Resources.Load<GameObject>("Enemy/Elite/" + stage_type + "/" + elites[i]));
+
+        if (PlayerPrefs.HasKey(stage + "Boss"))
+        {
+            string boss = PlayerPrefs.GetString(stage + "Boss");
+            this.boss = Resources.Load<GameObject>("Enemy/Boss/" + stage_type + "/" + boss);
+        }
+
+        BG = Resources.LoadAll<GameObject>("Maps/BG/");
     }
 
     /*                 궁극기                  */
@@ -140,59 +154,18 @@ public class Ingame_manager : MonoBehaviour
             SceneManager.LoadScene("GameEnd");
         }
         time--;*/
-    }
-}
-class Fly : MonoBehaviour // 하나의 군집 비행 -> 한 군집이므로 전부 비행 패턴이 동일해야함.
-{
-    Vector2 start;
-    Vector2 player_point;
-    int area;
-    GameObject mob;
 
-    int count = 0; // mob info에서 정해줌
-    int pattern_number;
-    float mob_position;
-    int speed;
-
-    public void Mobs_fly(Vector2 start_point, Vector2 player_point, int rand, GameObject mobs, float time, float mob_position) // 군집비행, 이 함수는 function() 호출
-    {
-        start = start_point;
-        this.player_point = player_point;
-        area = rand - 1;
-        mob = Instantiate(mobs);
-        mob.transform.position = start;
-        this.mob_position = mob_position;
-
-        // 몹마다 고유한 이동 패턴, 공격 패턴을 가지고 있음
-//        int idx = Random.Range(0, mob.GetComponent<Mob_info>().pattern.Length);
-//        pattern_number = mob.GetComponent<Mob_info>().pattern[idx];
-//        speed = mob.GetComponent<Mob_info>().speed;
-        for (int i = 0; i < mob.GetComponent<Mob_info>().instantiate_count; i++)
-            Invoke("function", time * i);
-    }
-    public void function()
-    {
-        count++;
-        GameObject mob_temp = Instantiate(mob); // 복제
-        switch (mob_temp.GetComponent<Mob_info>().kind)
+        if (time > normals_time[idx])
         {
-            case "normal":
-                mob_temp.GetComponent<Normal_Patterns>().SetPattern(area, start, player_point, mob_position, speed);
-                break;
-            case "elite":
-//                mob_temp.GetComponent<Elite_Patterns>().SetPattern(area, start, player_point, mob_position, speed);
-                break;
-            case "boss":
-                break;
+            int rand_idx = Random.Range(0, normals.Count);
+            int rand_point_idx = Random.Range(0, spwan_points.Length);
+
+            while (spwan_points[rand_point_idx].GetComponent<InstantiateThread>().Creating())
+                rand_point_idx = Random.Range(0, spwan_points.Length);
+            spwan_points[rand_point_idx].GetComponent<InstantiateThread>().SetObject(normals[rand_idx], 5, 25);
+            idx++;
+            time = 0;
         }
-
-        mob_temp.layer = GV.ENEMY_LAYER;
-
-        Camera.main.GetComponent<Ingame_manager>().Enemy.Add(mob_temp);
-        Camera.main.GetComponent<Ingame_manager>().enemy_cnt++;
-
-        // 원본을 해당 개수만큼 복제했으면 삭제
-        if (count == mob.GetComponent<Mob_info>().instantiate_count)
-            Destroy(mob);
+        time++;
     }
 }

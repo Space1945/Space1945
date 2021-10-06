@@ -97,9 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b86c13de6c31048a87f0770018319f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  boom_damage: 0
-  percent: 100
+  max_range: 7
+  boom_damage: 200
 --- !u!60 &2680486615078314384
 PolygonCollider2D:
   m_ObjectHideFlags: 0

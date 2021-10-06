@@ -20,7 +20,7 @@ public class BulletPatterns : MonoBehaviour
         init = false;
     }
     public void Guided_init()
-    {
+    {/*
         float min = 999999999;
         Vector2 bullet_p = transform.position;
         foreach (GameObject enemy in Camera.main.GetComponent<Ingame_manager>().Enemy)
@@ -34,7 +34,7 @@ public class BulletPatterns : MonoBehaviour
                     min = dis;
                 }
             }
-        init = false;
+        init = false;*/
     }
     public void Guided()
     {

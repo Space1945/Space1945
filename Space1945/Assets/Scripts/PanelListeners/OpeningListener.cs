@@ -38,10 +38,10 @@ public class OpeningListener : MonoBehaviour
         PlayerPrefs.SetString("refresh", "20200101120000");
 
         PlayerPrefs.SetString("Stage1_1Type", "Robot");
-        PlayerPrefs.SetString("Stage1_1NormalSeq", "12121");
-        PlayerPrefs.SetString("Stage1_1NormalTime", "22222");
-        PlayerPrefs.SetString("Stage1_1Elite", "1");
-        PlayerPrefs.SetString("Stage1_5Boss", "1");
+        PlayerPrefs.SetString("Stage1_1Normals", "Normal1 Normal2");
+        PlayerPrefs.SetString("Stage1_1NormalsTime", "2 2 2 2 2");
+        PlayerPrefs.SetString("Stage1_1Elites", "Elite1");
+        PlayerPrefs.SetString("Stage1_5Boss", "Boss1");
 
         PlayerPrefs.SetString("Atk1", "using");
         PlayerPrefs.SetString("Ship1", "using");
