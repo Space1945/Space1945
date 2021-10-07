@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class Ingame_manager : MonoBehaviour
 {
-    public int elite_appear_score { get; set; } // 일정 점수를 획득하면 엘리트 몹 소환
-
     public GameObject[] spwan_points;
 
     public HashSet<GameObject> enemys { get; set; }
 
     int time = 0;
     int idx = 0;
+    public int count { get; set; }
 
     string selected_chapter;
     string selected_stage;
@@ -35,17 +34,16 @@ public class Ingame_manager : MonoBehaviour
     float cUg; // 현재 궁극기 게이지 양
 
     public Image HealthBar; // 플레이어 체력바
-   
-    Vector2 player_point;
-    
+
     // Start is called before the first frame update
     void Start() 
     {
         selected_chapter = DB_Manager.Instance.selected_chapter.ToString();
         selected_stage = DB_Manager.Instance.selected_stage.ToString();
 
-        Initiate();
+        Allocate();
         ReadStage();
+        DB_Manager.Instance.InitStageDB();
 
         player = DB_Manager.Instance.using_airframe;
         player_clone = Instantiate(player); // 복제
@@ -56,11 +54,10 @@ public class Ingame_manager : MonoBehaviour
         foreach (GameObject obj in BG)
             Instantiate(obj);
 
-        Ultimate.onClick.AddListener(Use_ultimate);
         Ultimate.enabled = false;
     }
 
-    void Initiate()
+    void Allocate()
     {
         enemys = new HashSet<GameObject>();
 
@@ -95,76 +92,86 @@ public class Ingame_manager : MonoBehaviour
     }
 
     /*                 궁극기                  */
-    public void Plus_ultimate_guage(float ultimate_guage) // 궁극기 게이지 추가
+    public void AddUltimateGuage(float ultimate_guage) // 궁극기 게이지 추가
     {
         cUg = (cUg + ultimate_guage) < mUg ? cUg + ultimate_guage : mUg;
 
-        Ultimate.GetComponent<Image>().fillAmount = (float)cUg / (float)mUg;
+        DisplayUltimateBar();
 
-        if (cUg == 100)
+        if (cUg >= 100)
         {
             //특정 이미지 출력
             Ultimate.enabled = true;
         }
     }
-
-    void Use_ultimate() // 궁극기 사용
+    public void UseUltimate() // 궁극기 사용
     {
         cUg = 0;
-        Ultimate.GetComponent<Image>().fillAmount = 0;
+        DisplayUltimateBar();
         Ultimate.enabled = false;
     }
+    private void DisplayUltimateBar()
+    {
+        Ultimate.GetComponent<Image>().fillAmount = cUg / mUg;
+    }
+
     /*                 체력바                  */
-    public void Player_attacked() // 플레이어 피격판정 등 플레이어의 체력의 변동 발생
+    public void DisplayPlayersHP() // 플레이어 피격판정 등 플레이어의 체력의 변동 발생
     {
         HealthBar.fillAmount = (float)player_clone.GetComponent<Player>().curHp / player_clone.GetComponent<AirframeScript>().maxHp;
     }
-    /*                 스코어, 경험치, 돈                  */
-    public void Add_point(int score,int exp,int gold)
-    {/*
-        DB_Manager.Instance.score_earned += score;
-        elite_appear_score += score;
-        if (elite_appear_score >= GV.Elite_Appear_Score) // 500점 당 엘리트 한마리씩 출현
-        {
-            elite_appear_score -= GV.Elite_Appear_Score;
-            // 엘리트 호출
-            Set_point(elite_mobs[0]);
-            Fly f = gameObject.AddComponent<Fly>();
-            f.Mobs_fly(start_point, player_point, rand, elite_mobs[0], 0, mob_position);
-        }
 
+    /*                 스코어, 경험치, 돈                  */
+    public void KillEnemy(int score, int exp, int gold)
+    {
+        DB_Manager.Instance.score_earned += score;
         DB_Manager.Instance.exp_earned += exp;
-        DB_Manager.Instance.gold_earned += gold;*/
+        DB_Manager.Instance.gold_earned += gold;
+        DB_Manager.Instance.enemy_killed_cnt++;
+
+        if (DB_Manager.Instance.enemy_killed_cnt >= PlayerPrefs.GetInt("Stage1_1ElitesEmerCnt")) // 일반몹 10킬당 엘리트 한마리씩 출현
+        {
+            DB_Manager.Instance.enemy_killed_cnt = 0;
+            // 엘리트 호출
+            int rand_idx = Random.Range(0, elites.Count);
+            int rand_point_idx = Random.Range(0, spwan_points.Length);
+
+            while (spwan_points[rand_point_idx].GetComponent<InstantiateThread>().Ready())
+                rand_point_idx = Random.Range(0, spwan_points.Length);
+            spwan_points[rand_point_idx].GetComponent<InstantiateThread>().SetObject(elites[rand_idx], 50);
+        }
     }
+
     public GameObject GetPlayer() // 포대 회전위해서 만들었는데 static 어케쓰는지 모르겠음 Butt 클래스에서 사용
     {
         return player_clone != null ? player_clone : null;
     }
 
     private void FixedUpdate() // 인게임의 종료조건을 계속 확인
-    {/*
+    {
         if (player_clone == null) // 사망
         {
             DB_Manager.Instance.stage_clear = false;
             SceneManager.LoadScene("GameEnd");
         }
-        else if (enemy_cnt == 0 && time <= 0)
+        else if (enemys.Count == 0 && time >= 500)
         {
             DB_Manager.Instance.stage_clear = true;
             SceneManager.LoadScene("GameEnd");
         }
-        time--;*/
 
-        if (time > normals_time[idx])
+        if (idx < normals_time.Count && time > normals_time[idx])
         {
+            time = 0;
+
             int rand_idx = Random.Range(0, normals.Count);
             int rand_point_idx = Random.Range(0, spwan_points.Length);
 
-            while (spwan_points[rand_point_idx].GetComponent<InstantiateThread>().Creating())
+            while (spwan_points[rand_point_idx].GetComponent<InstantiateThread>().Ready())
                 rand_point_idx = Random.Range(0, spwan_points.Length);
-            spwan_points[rand_point_idx].GetComponent<InstantiateThread>().SetObject(normals[rand_idx], 5, 25);
+            spwan_points[rand_point_idx].GetComponent<InstantiateThread>().SetObject(normals[rand_idx], 50);
+
             idx++;
-            time = 0;
         }
         time++;
     }

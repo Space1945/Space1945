@@ -30,18 +30,20 @@ public class MainPanelListener : MonoBehaviour
         for (int i = 0; i < ch_list.Length; i++)
         {
             string chapter = PlayerPrefs.GetString("chapter" + (i + 1).ToString());
-
-            if (chapter[i] == '1' || i == 0) // 현재 스테이지를 클리어 했거나 첫 스테이지거나
+            if (chapter[chapter.Length - 1] == '1') // 현재 챕터를 클리어 
             {
-                ch_list[i].gameObject.SetActive(true); // 현재 스테이지 보임
-                if (chapter[i] == '0') // 첫 스테이지를 클리어 못했을때
-                    ch_list[i].image.color = new Color(220, 0, 0);// 빨간색
+                ch_list[i].gameObject.SetActive(true); // 현재 챕터 보임
+                ch_list[i].GetComponent<ChapterButtonListener>().clear = true;
             }
-            else // 현재 클리어 못함 
+            else // 현재 클리어 못함
             {
-                ch_list[i].gameObject.SetActive(chapter[i - 1] == '1'); // 전 스테이지를 클리어 여부에 따라 버튼 활성화 비활성화
-                if (chapter[i - 1] == '1') // 전 스테이지를 클리어 했을 경우
-                    ch_list[i].image.color = new Color(220, 0, 0); // 현재 스테이지 빨간색
+                if (i == 0 || ch_list[i - 1].GetComponent<ChapterButtonListener>().clear) // 전 챕터를 클리어 했거나 첫 챕터거나
+                {
+                    ch_list[i].gameObject.SetActive(true);
+                    ch_list[i].image.color = new Color(220, 0, 0); // 현재 챕터 빨간색
+                }
+                else
+                    ch_list[i].gameObject.SetActive(false);
             }
         }
     }

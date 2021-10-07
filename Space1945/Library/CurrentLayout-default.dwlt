@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Project
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 880, y: 492}
   m_MaxSize: {x: 16005, y: 14042}
   vertical: 0
-  controlID: 56
+  controlID: 43
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 492}
   m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 89
+  controlID: 44
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 90
+  controlID: 45
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -379,9 +379,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b8810000
-      m_LastClickedID: 33208
-      m_ExpandedIDs: 34e4ffffb8ebffff16ecffff3cfbfffffe5800005c7b00003e7d0000307e0000ae810000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 3cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -441,9 +441,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 6, y: 0, z: -10}
+    m_Target: {x: 1.834358, y: 0.95066816, z: -25.504341}
     speed: 2
-    m_Value: {x: 6, y: 0, z: -10}
+    m_Value: {x: 1.834358, y: 0.95066816, z: -25.504341}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -494,9 +494,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10
+    m_Target: 12.860297
     speed: 2
-    m_Value: 10
+    m_Value: 12.860297
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -673,36 +673,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scripts/PanelListeners
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scripts/PanelListeners
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\ssigg\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\project\\Space1945\\Space1945"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 888}
-    m_SelectedIDs: 0e5e0000
-    m_LastClickedID: 24078
-    m_ExpandedIDs: 00000000fc5d0000fe5d0000005e0000025e0000045e0000065e0000085e00000a5e00000c5e00000e5e0000105e0000125e0000145e0000165e0000185e00001a5e00001c5e00001e5e0000205e0000225e0000245e0000265e0000ea5f0000ee5f00000460000000ca9a3b
+    scrollPos: {x: 0, y: 760}
+    m_SelectedIDs: 2a5f0000
+    m_LastClickedID: 24362
+    m_ExpandedIDs: 00000000fe5d0000005e0000025e0000045e0000065e0000085e00000a5e00000c5e00000e5e0000105e0000125e0000145e0000165e0000185e00001a5e00001c5e00001e5e0000205e0000225e0000245e0000265e0000285e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Attack
-      m_OriginalName: Attack
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 24552
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
     m_SearchString: 
@@ -716,7 +716,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fc5d0000fe5d0000005e0000025e0000045e0000065e0000085e00000a5e00000c5e00000e5e0000105e0000125e0000145e0000165e0000185e00001a5e00001c5e00001e5e0000205e0000225e0000245e0000265e0000
+    m_ExpandedIDs: 00000000fe5d0000005e0000025e0000045e0000065e0000085e00000a5e00000c5e00000e5e0000105e0000125e0000145e0000165e0000185e00001a5e00001c5e00001e5e0000205e0000225e0000245e0000265e0000285e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

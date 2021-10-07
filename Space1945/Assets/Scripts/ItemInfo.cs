@@ -35,9 +35,8 @@ public class ItemInfo : MonoBehaviour
             float cHp = collision.gameObject.GetComponent<Player>().curHp;
  //           float mHp = collision.gameObject.GetComponent<Player>().maxHp;
  //           collision.gameObject.GetComponent<Player>().curHp = (cHp + hp) < mHp ? cHp + hp : mHp;
-            Camera.main.GetComponent<Ingame_manager>().Player_attacked();
-
-            Camera.main.GetComponent<Ingame_manager>().Plus_ultimate_guage(ultimate_guage);
+            Camera.main.GetComponent<Ingame_manager>().DisplayPlayersHP();
+            Camera.main.GetComponent<Ingame_manager>().AddUltimateGuage(ultimate_guage);
 
             Destroy(this.gameObject);
         }

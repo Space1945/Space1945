@@ -7,6 +7,8 @@ public class ChapterButtonListener : MonoBehaviour
 {
     public GameObject chapter_scrollview;
     public int chapter_name;
+    public bool clear { get; set; } = false;
+
     public void SaveChapterName()
     {
         DB_Manager.Instance.selected_chapter = chapter_name;

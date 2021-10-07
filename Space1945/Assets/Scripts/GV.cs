@@ -34,9 +34,6 @@ public class GV : MonoBehaviour
     public static int EAST_WALL = 2;
     public static int WEST_WALL = 3;
 
-    // mob_info에서 사용
-    public static int INVINCIBLE_TIME = 50; // 무적시간(1초)
-
     // 라디안을 각도로 변환
     public static float radian_to_degree(float radian) {
         return radian * 180f / Mathf.PI;

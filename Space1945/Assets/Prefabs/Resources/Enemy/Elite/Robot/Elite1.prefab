@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 2425569745768753802}
   - component: {fileID: 886046506823352944}
   - component: {fileID: 3352274907715795008}
-  m_Layer: 14
+  m_Layer: 7
   m_Name: Elite1
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6431195958698600481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.635262, y: 1.4345345, z: 0}
+  m_LocalPosition: {x: -6, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6563860354927063596}
@@ -361,7 +361,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5357842813024714320, guid: 5d61c7dff94b693489e3a2a03fc16532, type: 3}
-  bullet_cnt_per_shot: 1
   fire_rate: 50
 --- !u!1 &6546526948804676787
 GameObject:

@@ -39,8 +39,10 @@ public class OpeningListener : MonoBehaviour
 
         PlayerPrefs.SetString("Stage1_1Type", "Robot");
         PlayerPrefs.SetString("Stage1_1Normals", "Normal1 Normal2");
-        PlayerPrefs.SetString("Stage1_1NormalsTime", "2 2 2 2 2");
+        PlayerPrefs.SetString("Stage1_1NormalsTime", "100 100 100 100 100");
         PlayerPrefs.SetString("Stage1_1Elites", "Elite1");
+        PlayerPrefs.SetInt("Stage1_1ElitesEmerCnt", 10);
+        PlayerPrefs.SetInt("Stage1_1Score", 0);
         PlayerPrefs.SetString("Stage1_5Boss", "Boss1");
 
         PlayerPrefs.SetString("Atk1", "using");

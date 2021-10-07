@@ -19,8 +19,6 @@ public class MainCanvasListener : MonoBehaviour
 
     void Start()
     {
-        AddListenerOnButtons();
-
         // 초기 화면
         main_panel.SetActive(true);
         basement_panel.SetActive(false);
@@ -29,14 +27,8 @@ public class MainCanvasListener : MonoBehaviour
 
         state_panel.SetActive(true); // 항상 보임
         button_panel.SetActive(true); // 항상 보임
-    }
 
-    public void AddListenerOnButtons()
-    {
-        to_main.onClick.AddListener(ActivateMain);
-        to_basement.onClick.AddListener(ActivateBasement);
-        to_store.onClick.AddListener(ActivateStore);
-        to_configuration.onClick.AddListener(ActivateConfiguration);
+        state_panel.GetComponent<StatePanelListener>().DisplayStateInfo();
     }
 
     public void ActivateMain()

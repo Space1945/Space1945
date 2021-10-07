@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
         if(coll.gameObject.tag == "enemy_bullet")
         {
             curHp -= coll.GetComponent<BulletInfo>().crash_damage;
-            Camera.main.GetComponent<Ingame_manager>().Player_attacked();
+            Camera.main.GetComponent<Ingame_manager>().DisplayPlayersHP();
             Destroy(coll.gameObject);
         }
     }

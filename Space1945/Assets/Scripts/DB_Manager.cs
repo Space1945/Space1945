@@ -37,6 +37,7 @@ public class DB_Manager
     public int score_earned { get; set; }
     public int exp_earned { get; set; }
     public int gold_earned { get; set; }
+    public int enemy_killed_cnt { get; set; }
     public bool stage_clear { get; set; }
 
     public int selected_chapter { get; set; } // 현재 선택한 챕터
@@ -72,6 +73,14 @@ public class DB_Manager
     }
     public ex_status total = new ex_status();
 
+    public void InitStageDB()
+    {
+        score_earned = 0;
+        exp_earned = 0;
+        gold_earned = 0;
+        enemy_killed_cnt = 0;
+        stage_clear = false;
+    }
     private void LoadAllParts()
     {
         airframes = Resources.LoadAll<GameObject>("Player/Airframes/");
