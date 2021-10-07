@@ -13,8 +13,7 @@ public class Mob_info : MonoBehaviour
     public int invincible_time; int it = 0;
     public int instantiate_count; // 원본을 몇개까지 복제할건지
     public string kind; // 몹이 무슨 종류인지 >> normal, elite, boss로 구분 
-
-    public string instantiate_point { get; set; }
+    public string instantiate_point;
 
     Rigidbody2D rigid;
     PolygonCollider2D col;

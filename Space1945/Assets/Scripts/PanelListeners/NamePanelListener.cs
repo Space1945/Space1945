@@ -7,10 +7,12 @@ public class NamePanelListener : MonoBehaviour
 {
     public InputField name_field;
     public Button submit_btn;
+
     void Start()
     {
         gameObject.SetActive(false);
     }
+
     public void Initiate()
     {
         PlayerPrefs.SetString("pilot_name", name_field.text);
@@ -30,13 +32,16 @@ public class NamePanelListener : MonoBehaviour
         PlayerPrefs.SetString("refresh", "20200101120000");
 
         PlayerPrefs.SetString("Stage1_1Type", "Robot");
-        PlayerPrefs.SetString("Stage1_1NormalSeq", "12121");
-        PlayerPrefs.SetString("Stage1_1NormalTime", "22222");
-        PlayerPrefs.SetString("Stage1_1Elite", "1");
+        PlayerPrefs.SetString("Stage1_1Normals", "Normal1 Normal2");
+        PlayerPrefs.SetString("Stage1_1NormalsTime", "2 2 2 2 2");
+        PlayerPrefs.SetString("Stage1_1Elites", "Elite1");
+        PlayerPrefs.SetInt("Stage1_1ElitesEmerCnt ", 10);
         PlayerPrefs.SetString("Stage1_5Boss", "1");
+        PlayerPrefs.SetInt("Stage1_1Score ", 0);
 
         PlayerPrefs.SetString("Atk1", "using");
         PlayerPrefs.SetString("Ship1", "using");
+
         gameObject.SetActive(false);
     }
 }

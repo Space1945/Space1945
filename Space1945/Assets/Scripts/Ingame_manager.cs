@@ -11,8 +11,6 @@ public class Ingame_manager : MonoBehaviour
     public HashSet<GameObject> enemys { get; set; }
 
     int time = 0;
-    int idx = 0;
-    public int count { get; set; }
 
     string selected_chapter;
     string selected_stage;
@@ -55,6 +53,8 @@ public class Ingame_manager : MonoBehaviour
             Instantiate(obj);
 
         Ultimate.enabled = false;
+
+        StartCoroutine(CreateEnemy());
     }
 
     void Allocate()
@@ -136,15 +136,40 @@ public class Ingame_manager : MonoBehaviour
             int rand_idx = Random.Range(0, elites.Count);
             int rand_point_idx = Random.Range(0, spwan_points.Length);
 
-            while (spwan_points[rand_point_idx].GetComponent<InstantiateThread>().Ready())
-                rand_point_idx = Random.Range(0, spwan_points.Length);
-            spwan_points[rand_point_idx].GetComponent<InstantiateThread>().SetObject(elites[rand_idx], 50);
+            StartCoroutine(InstantiateEnemy(elites[rand_idx], spwan_points[rand_point_idx], 1, 0f));
         }
     }
 
     public GameObject GetPlayer() // 포대 회전위해서 만들었는데 static 어케쓰는지 모르겠음 Butt 클래스에서 사용
     {
         return player_clone != null ? player_clone : null;
+    }
+
+    IEnumerator CreateEnemy()
+    {
+        for (int i = 0; i < normals_time.Count; i++)
+        {
+            int rand_idx = Random.Range(0, normals.Count);
+            int rand_point_idx = Random.Range(0, spwan_points.Length);
+
+            GameObject enemy = normals[rand_idx];
+
+            StartCoroutine(InstantiateEnemy(enemy, spwan_points[rand_point_idx], enemy.GetComponent<Mob_info>().instantiate_count, 0.5f));
+
+            yield return new WaitForSeconds(normals_time[i]);
+        }
+    }
+    IEnumerator InstantiateEnemy(GameObject enemy, GameObject point, int cnt, float interval_sec)
+    {
+        for (int i = 0; i < cnt; i++)
+        {
+            enemy.GetComponent<Transform>().position = point.GetComponent<Transform>().position;
+            enemy.GetComponent<Mob_info>().instantiate_point = point.tag;
+            enemy.layer = GV.ENEMY_LAYER;
+            Camera.main.GetComponent<Ingame_manager>().enemys.Add(Instantiate(enemy));
+
+            yield return new WaitForSeconds(interval_sec);
+        }
     }
 
     private void FixedUpdate() // 인게임의 종료조건을 계속 확인
@@ -158,20 +183,6 @@ public class Ingame_manager : MonoBehaviour
         {
             DB_Manager.Instance.stage_clear = true;
             SceneManager.LoadScene("GameEnd");
-        }
-
-        if (idx < normals_time.Count && time > normals_time[idx])
-        {
-            time = 0;
-
-            int rand_idx = Random.Range(0, normals.Count);
-            int rand_point_idx = Random.Range(0, spwan_points.Length);
-
-            while (spwan_points[rand_point_idx].GetComponent<InstantiateThread>().Ready())
-                rand_point_idx = Random.Range(0, spwan_points.Length);
-            spwan_points[rand_point_idx].GetComponent<InstantiateThread>().SetObject(normals[rand_idx], 50);
-
-            idx++;
         }
         time++;
     }

@@ -12,17 +12,17 @@ public class Straight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string instantiate_point = GetComponent<Mob_info>().instantiate_point;
+        string instantiate_point = gameObject.GetComponent<Mob_info>().instantiate_point;
 
         if (instantiate_point == "LEFT")
         {
-            velocity_x = -speed;
+            velocity_x = speed;
             velocity_y = 0;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
         }
         else if (instantiate_point == "RIGHT")
         {
-            velocity_x = speed;
+            velocity_x = -speed;
             velocity_y = 0;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
         }
