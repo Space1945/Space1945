@@ -60,7 +60,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Scripts\Mob_info.cs" />
-    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Explosion\Explosion.cs" />
+    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Explosion.cs" />
     <Compile Include="Assets\Scripts\PanelListeners\NamePanelListener.cs" />
     <Compile Include="Assets\Scripts\PanelListeners\RepairshopPanelListener.cs" />
     <Compile Include="Assets\Scripts\PanelListeners\OpeningListener.cs" />
@@ -86,7 +86,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Explosion\Boom.cs" />
+    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Boom.cs" />
     <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\Move\Elite\Fix.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\NormalMobInfo.cs" />

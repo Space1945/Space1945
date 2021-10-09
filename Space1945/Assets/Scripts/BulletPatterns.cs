@@ -50,7 +50,7 @@ public class BulletPatterns : MonoBehaviour
         else // 타겟이 없으면
         {
             if (GetComponent<Rigidbody2D>().velocity.x == 0 && GetComponent<Rigidbody2D>().velocity.y == 0)
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             GetComponent<Rigidbody2D>().AddForce(GetComponent<Rigidbody2D>().velocity, ForceMode2D.Force);
         }
     }

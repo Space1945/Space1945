@@ -96,6 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a394a60e168081439e691601db98362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire_rate: 10
+  fire_rate: 0.2
   gold: 130000
   bullet: {fileID: 5357842813024714320, guid: 45fe7a50491b6f342b3af1deb374914e, type: 3}

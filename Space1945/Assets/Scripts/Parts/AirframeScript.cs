@@ -15,19 +15,28 @@ public class AirframeScript : MonoBehaviour
 
     Transform[] butts;
     GameObject bullet;
-    float fire_rate;
-    float fr;
+    float fire_rate; // 초 단위
     bool ready = false; // 준비완료
 
     private void Start()
     {
         butts = GetComponentsInChildren<Transform>();
+
+        StartCoroutine(Attack());
     }
 
-    private void FixedUpdate()
+    IEnumerator Attack()
     {
-        if (ready)
-            Attack();
+        while (ready)
+        {
+            foreach (Transform butt in butts)
+                if (butt.gameObject.tag != "player")
+                {
+                    bullet.transform.position = new Vector2(butt.position.x, butt.position.y);
+                    Instantiate(bullet);
+                }
+            yield return new WaitForSeconds(fire_rate);
+        }
     }
 
     public void SetReady()
@@ -41,20 +50,5 @@ public class AirframeScript : MonoBehaviour
         bullet = atk.GetComponent<AtkScript>().bullet;
 
         ready = true;
-    }
-
-    void Attack()
-    {
-        fr++;
-        if (fr >= fire_rate)
-        {
-            foreach (Transform butt in butts)
-                if (butt.gameObject.tag != "player")
-                {
-                    bullet.transform.position = new Vector2(butt.position.x, butt.position.y);
-                    Instantiate(bullet);
-                }
-            fr = 0;
-        }
     }
 }

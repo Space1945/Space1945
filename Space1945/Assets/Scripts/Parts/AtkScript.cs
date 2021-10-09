@@ -7,7 +7,7 @@ public class AtkScript : MonoBehaviour
     public float crash_damage { get; set; }
     public float speed { get; set; }
 
-    public float fire_rate; // 프레임당
+    public float fire_rate; // 초당
     public int gold;
 
     public GameObject bullet;
