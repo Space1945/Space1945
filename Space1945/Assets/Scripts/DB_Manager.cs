@@ -98,7 +98,7 @@ public class DB_Manager
         unlocked_atks = new List<GameObject>();
         unlocked_defs = new List<GameObject>();
         unlocked_subs = new List<GameObject>();
-
+        
         locked_airframes = new List<GameObject>();
         locked_atks = new List<GameObject>();
         locked_defs = new List<GameObject>();

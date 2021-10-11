@@ -368,6 +368,7 @@
 "Assets/Scripts/PanelListeners/ConfigurationPanelListener.cs"
 "Assets/Scripts/PanelListeners/ExitButtonListener.cs"
 "Assets/Scripts/PanelListeners/ItemInfoPanelListener.cs"
+"Assets/Scripts/PanelListeners/ItemsPanelListener.cs"
 "Assets/Scripts/PanelListeners/LaboratoryPanelListener.cs"
 "Assets/Scripts/PanelListeners/MainPanelListener.cs"
 "Assets/Scripts/PanelListeners/NamePanelListener.cs"

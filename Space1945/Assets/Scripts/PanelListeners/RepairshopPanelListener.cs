@@ -13,6 +13,8 @@ public class RepairshopPanelListener : MonoBehaviour
 
     public Sprite none;
 
+    public GameObject items_panel;
+
     private void Start()
     {
         if (DB_Manager.Instance.using_airframe != null)
@@ -39,5 +41,33 @@ public class RepairshopPanelListener : MonoBehaviour
             sub2_button.transform.Find("Sub2Image").GetComponent<Image>().sprite = DB_Manager.Instance.using_sub_right.GetComponent<SpriteRenderer>().sprite;
         else
             sub2_button.transform.Find("Sub2Image").GetComponent<Image>().sprite = none;
+
+        items_panel.SetActive(false);
+    }
+
+    public void AirframeButtonClicked(int idx)
+    {
+        items_panel.SetActive(true);
+        items_panel.GetComponent<ItemsPanelListener>().button_number = idx;
+    }
+    public void AtkButtonClicked(int idx)
+    {
+        items_panel.SetActive(true);
+        items_panel.GetComponent<ItemsPanelListener>().button_number = idx;
+    }
+    public void DefButtonClicked(int idx)
+    {
+        items_panel.SetActive(true);
+        items_panel.GetComponent<ItemsPanelListener>().button_number = idx;
+    }
+    public void Sub1ButtonClicked(int idx)
+    {
+        items_panel.SetActive(true);
+        items_panel.GetComponent<ItemsPanelListener>().button_number = idx;
+    }
+    public void Sub2ButtonClicked(int idx)
+    {
+        items_panel.SetActive(true);
+        items_panel.GetComponent<ItemsPanelListener>().button_number = idx;
     }
 }
