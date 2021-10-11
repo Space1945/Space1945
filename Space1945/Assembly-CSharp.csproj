@@ -125,6 +125,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Parts\AtkScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\Scripts\PanelListeners\ItemsPanelListener.cs" />
     <Compile Include="Assets\Scripts\PanelListeners\StageButtonListener.cs" />
     <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\Move\Elite\MoveStop.cs" />
     <Compile Include="Assets\Scripts\Parts\SubScript.cs" />
@@ -137,7 +138,6 @@
     <Compile Include="Assets\Scripts\MainCameraListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\MainCanvasListener.cs" />
-    <Compile Include="Assets\Scripts\PanelListeners\ItemsPanelListener.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
