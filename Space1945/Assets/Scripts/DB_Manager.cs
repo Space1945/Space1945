@@ -34,6 +34,7 @@ public class DB_Manager
     public List<GameObject> locked_defs;
     public List<GameObject> locked_subs;
 
+    public int total_prefab_cnt { get; set; }
     public int score_earned { get; set; }
     public int exp_earned { get; set; }
     public int gold_earned { get; set; }
@@ -158,5 +159,7 @@ public class DB_Manager
             else
                 locked_subs.Add(subs[i]);
         }
+
+        total_prefab_cnt = airframes.Length + atks.Length + defs.Length + subs.Length;
     }
 }

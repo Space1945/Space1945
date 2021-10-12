@@ -355,6 +355,7 @@
 "Assets/Scripts/Gamemanager.cs"
 "Assets/Scripts/GV.cs"
 "Assets/Scripts/Ingame_manager.cs"
+"Assets/Scripts/ItemButtonsObject.cs"
 "Assets/Scripts/ItemInfo.cs"
 "Assets/Scripts/MainCameraListener.cs"
 "Assets/Scripts/MainCanvasListener.cs"
