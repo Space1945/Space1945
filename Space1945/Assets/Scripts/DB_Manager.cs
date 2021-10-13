@@ -44,21 +44,6 @@ public class DB_Manager
     public int selected_chapter { get; set; } // 현재 선택한 챕터
     public int selected_stage { get; set; }
 
-    DB_Manager()
-    {
-        LoadAllParts();
-    }
-
-    public static DB_Manager Instance
-    {
-        get
-        {
-            if (DBM == null)
-                DBM = new DB_Manager();
-            return DBM;
-        }
-    }
-
     public struct ex_status
     {
         public float ex_hp;
@@ -72,7 +57,23 @@ public class DB_Manager
         public float ex_exp;
         public float ex_drop;
     }
-    public ex_status total = new ex_status();
+    public ex_status total;
+
+    DB_Manager()
+    {
+        LoadAllParts();
+        total = new ex_status();
+    }
+
+    public static DB_Manager Instance
+    {
+        get
+        {
+            if (DBM == null)
+                DBM = new DB_Manager();
+            return DBM;
+        }
+    }
 
     public void InitStageDB()
     {

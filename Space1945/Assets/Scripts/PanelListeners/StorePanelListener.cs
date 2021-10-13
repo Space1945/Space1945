@@ -299,7 +299,7 @@ public class StorePanelListener : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
         DateTime refresh = DateTime.ParseExact(PlayerPrefs.GetString("refresh"), "yyyyMMddHHmmss", null);
         TimeSpan remaining_time;

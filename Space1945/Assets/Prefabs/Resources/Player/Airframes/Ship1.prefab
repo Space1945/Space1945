@@ -213,10 +213,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82be894c018dd04bb9962badffc7be9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 500
+  max_hp: 250
   crash_damage: 25
-  bullet_cnt_per_shot: 1
   gold: 0
+  butts:
+  - {fileID: 1271470449822965913}
+  - {fileID: 747328338611937789}
 --- !u!114 &4514299220261809202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,3 +231,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ad9475727e24840af2da42f5727bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invincible_time: 1

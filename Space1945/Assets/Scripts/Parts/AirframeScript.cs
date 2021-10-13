@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class AirframeScript : MonoBehaviour
 {
-    public float maxHp;
-    public int crash_damage;
+    public float max_hp;
+    public float crash_damage;
     public int gold;
+    public Transform[] butts;
 
     GameObject atk;
     GameObject def;
     GameObject sub_left;
     GameObject sub_right;
 
-    Transform[] butts;
     GameObject bullet;
     float fire_rate; // 초 단위
     bool ready = false; // 준비완료
 
-    private void Start()
+    void Start()
     {
-        butts = GetComponentsInChildren<Transform>();
-
         StartCoroutine(Attack());
     }
 
@@ -30,11 +28,10 @@ public class AirframeScript : MonoBehaviour
         while (ready)
         {
             foreach (Transform butt in butts)
-                if (butt.gameObject.tag != "player")
-                {
-                    bullet.transform.position = new Vector2(butt.position.x, butt.position.y);
-                    Instantiate(bullet);
-                }
+            {
+                bullet.transform.position = new Vector2(butt.position.x, butt.position.y);
+                Instantiate(bullet);
+            }
             yield return new WaitForSeconds(fire_rate);
         }
     }

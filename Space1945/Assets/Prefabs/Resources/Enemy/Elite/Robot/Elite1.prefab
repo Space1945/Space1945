@@ -164,7 +164,6 @@ GameObject:
   - component: {fileID: 7059165496970178694}
   - component: {fileID: 2425569745768753802}
   - component: {fileID: 886046506823352944}
-  - component: {fileID: 3352274907715795008}
   m_Layer: 7
   m_Name: Elite1
   m_TagString: enemy
@@ -326,15 +325,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8134ef961487fa4eb225a8cd5dcdfde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1500
+  hp: 1000
   crash_damage: 100
   score: 200
-  exp: 300
-  gold: 300
+  exp: 250
+  gold: 550
   add_guage: 5
-  invincible_time: 50
+  invincible_time: 1
   instantiate_count: 1
   kind: Elite
+  instantiate_point: 
+  butts:
+  - {fileID: 4715340615752915881}
+  - {fileID: 1278648425238095581}
+  - {fileID: 994958025996984801}
+  - {fileID: 2352179559579860619}
+  - {fileID: 3295712745520283317}
+  - {fileID: 8818365710695305133}
+  - {fileID: 8544626244805162400}
+  - {fileID: 6546526948804676787}
+  bullet: {fileID: 5357842813024714320, guid: 5d61c7dff94b693489e3a2a03fc16532, type: 3}
+  fire_rate: 2
 --- !u!114 &886046506823352944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,21 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5cb27e5d8f56d24aacfad8f34d58e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
---- !u!114 &3352274907715795008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6431195958698600481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d9f9ca406a9a04b8a4c2eb59f1d052, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 5357842813024714320, guid: 5d61c7dff94b693489e3a2a03fc16532, type: 3}
-  fire_rate: 50
+  speed: 3.5
 --- !u!1 &6546526948804676787
 GameObject:
   m_ObjectHideFlags: 0

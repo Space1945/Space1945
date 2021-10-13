@@ -6,15 +6,36 @@ public class Penetrate : MonoBehaviour
 {
     //관통 탄환
     //충돌해도 계속 직진
+    float speed;
+    int crash_damage;
 
-    private void FixedUpdate()
+    void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.up * GetComponent<BulletInfo>().speed * Time.deltaTime;
+        speed = GetComponent<BulletInfo>().speed;
+        crash_damage = GetComponent<BulletInfo>().crash_damage;
+
+        GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.gameObject.tag == "end_line")
-            Destroy(gameObject);
+        switch (col.gameObject.tag)
+        {
+            case "end_line":
+                Destroy(gameObject);
+                break;
+            case "enemy":
+                col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
+                break;
+        }
+    }
+    void OnTriggerStay2D(Collider2D col)
+    {
+        switch (col.gameObject.tag)
+        {
+            case "enemy":
+                col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
+                break;
+        }
     }
 }

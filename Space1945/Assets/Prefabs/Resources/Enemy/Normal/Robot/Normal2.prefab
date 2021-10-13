@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3568829350928575808}
   - component: {fileID: 6537281439564848768}
-  - component: {fileID: 4081055463190461336}
   - component: {fileID: 2070223707403968529}
   - component: {fileID: 3593198785275821880}
+  - component: {fileID: 4081055463190461336}
   - component: {fileID: 2330925753230994827}
   m_Layer: 7
   m_Name: Normal2
@@ -87,27 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4081055463190461336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7326284153719248628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8134ef961487fa4eb225a8cd5dcdfde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
-  crash_damage: 20
-  score: 80
-  exp: 50
-  gold: 50
-  add_guage: 1
-  invincible_time: 50
-  instantiate_count: 5
-  kind: Normal
 --- !u!50 &2070223707403968529
 Rigidbody2D:
   serializedVersion: 4
@@ -217,6 +196,28 @@ PolygonCollider2D:
       - {x: -0.11, y: -0.545}
       - {x: -0.099999994, y: -0.53999996}
       - {x: -0.074999996, y: -0.525}
+--- !u!114 &4081055463190461336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326284153719248628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8134ef961487fa4eb225a8cd5dcdfde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 80
+  crash_damage: 30
+  score: 40
+  exp: 20
+  gold: 40
+  add_guage: 0.5
+  invincible_time: 1
+  instantiate_count: 8
+  kind: Normal
+  instantiate_point: 
 --- !u!114 &2330925753230994827
 MonoBehaviour:
   m_ObjectHideFlags: 0

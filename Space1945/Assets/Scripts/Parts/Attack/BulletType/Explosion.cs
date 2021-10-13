@@ -8,23 +8,32 @@ public class Explosion : MonoBehaviour
     //충돌시 일정 범위 내의 적에게 데미지
     //해당 탄환은 탄두로 적에게 데미지를 입힐 수 없음 Mob info의 충돌보다 아래의 충돌이 더 빠르기 때문에
     //따라서 탄두 자체의 crash_damage로는 적에게 데미지를 입힐 수 없으므로 Boom클래스 내의 폭파데미지로 적에게 데미지를 입혀야함
-
     public GameObject boom;
 
-    private void FixedUpdate()
+    float speed;
+    int crash_damage;
+
+    void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.up * GetComponent<BulletInfo>().speed * Time.deltaTime;
+        speed = GetComponent<BulletInfo>().speed;
+        crash_damage = GetComponent<BulletInfo>().crash_damage;
+
+        GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.gameObject.tag == "enemy")
+        switch (col.gameObject.tag)
         {
-            boom.transform.position = gameObject.transform.position;
-            Instantiate(boom);
-            Destroy(gameObject);
+            case "end_line":
+                Destroy(gameObject);
+                break;
+            case "enemy":
+                col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
+                boom.transform.position = gameObject.transform.position;
+                Instantiate(boom);
+                Destroy(gameObject);
+                break;
         }
-        else if (collision.gameObject.tag == "end_line")
-            Destroy(gameObject);
     }
 }

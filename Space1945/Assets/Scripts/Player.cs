@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float curHp { get; set; }
+    public float cur_hp { get; set; }
+    public float invincible_time; // 해당 시간동안 무적
     
     Rigidbody2D rigid;
     PolygonCollider2D col;
+    public bool invincible { get; set; }
 
     GameObject airframe;
+    float airframe_crash_damage;
 
     Vector2 touch_began;
     Touch touch;
@@ -19,24 +22,48 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Initiate();
+    }
+
+    void Initiate()
+    {
         rigid = GetComponent<Rigidbody2D>();
         col = GetComponent<PolygonCollider2D>();
 
         airframe = DB_Manager.Instance.using_airframe;
+        airframe_crash_damage = airframe.GetComponent<AirframeScript>().crash_damage;
 
-        curHp = airframe.GetComponent<AirframeScript>().maxHp;
+        cur_hp = airframe.GetComponent<AirframeScript>().max_hp;
         touch_began = new Vector2(0, 0);
+
+        invincible = false;
+    }
+
+    IEnumerator Invincible()
+    {
+        yield return new WaitForSeconds(invincible_time);
+
+        invincible = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (curHp <= 0)
+        if (cur_hp <= 0)
         {
             // 사운드 출력
             Destroy(gameObject);
         }
+
         Move();
+    }
+
+    public void Attacked(float crash_damage)
+    {
+        invincible = true;
+        StartCoroutine(Invincible());
+        cur_hp -= crash_damage;
+        Camera.main.GetComponent<Ingame_manager>().UpdatePlayersHP();
     }
 
     void Move()
@@ -59,13 +86,13 @@ public class Player : MonoBehaviour
             rigid.velocity = new Vector2(0, 0);
     }
 
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerStay2D(Collider2D col)
     {
-        if(coll.gameObject.tag == "enemy_bullet")
+        switch (col.gameObject.tag)
         {
-            curHp -= coll.GetComponent<BulletInfo>().crash_damage;
-            Camera.main.GetComponent<Ingame_manager>().DisplayPlayersHP();
-            Destroy(coll.gameObject);
+            case "enemy":
+                col.gameObject.GetComponent<Mob_info>().Attacked(airframe_crash_damage);
+                break;
         }
     }
 }

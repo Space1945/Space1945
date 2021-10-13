@@ -20,7 +20,7 @@ public class ItemInfo : MonoBehaviour
         rigid.velocity = new Vector2(10, 10) * speed * Time.deltaTime;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) // 벽충돌
+    void OnCollisionEnter2D(Collision2D collision) // 벽충돌
     {
         if (collision.gameObject.tag == "game_line")
         {
@@ -32,10 +32,10 @@ public class ItemInfo : MonoBehaviour
             Destroy(this.gameObject);
         if (collision.gameObject.tag == "player")
         {
-            float cHp = collision.gameObject.GetComponent<Player>().curHp;
+            float cHp = collision.gameObject.GetComponent<Player>().cur_hp;
  //           float mHp = collision.gameObject.GetComponent<Player>().maxHp;
  //           collision.gameObject.GetComponent<Player>().curHp = (cHp + hp) < mHp ? cHp + hp : mHp;
-            Camera.main.GetComponent<Ingame_manager>().DisplayPlayersHP();
+            Camera.main.GetComponent<Ingame_manager>().UpdatePlayersHP();
             Camera.main.GetComponent<Ingame_manager>().AddUltimateGuage(ultimate_guage);
 
             Destroy(this.gameObject);

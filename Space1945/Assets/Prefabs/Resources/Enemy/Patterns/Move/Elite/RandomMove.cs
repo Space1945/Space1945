@@ -16,7 +16,7 @@ public class RandomMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (gameObject.GetComponent<Rigidbody2D>().position == end_point)
         {
@@ -30,7 +30,7 @@ public class RandomMove : MonoBehaviour
         }
     }
 
-    public bool ChangeDir()
+    public bool ChangingDir()
     {
         return change_dir;
     }

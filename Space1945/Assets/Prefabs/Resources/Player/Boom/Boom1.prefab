@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_range: 10
-  boom_damage: 400
+  boom_damage: 250
 --- !u!60 &2680486615078314384
 PolygonCollider2D:
   m_ObjectHideFlags: 0

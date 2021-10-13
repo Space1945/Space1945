@@ -17,6 +17,7 @@ public class Ingame_manager : MonoBehaviour
     List<GameObject> normals; // 출현할 일반몹
     List<int> normals_time; // 출현할 일반몹 시간 
     List<GameObject> elites; // 출현할 엘리트
+    int elite_emer_cnt; // 엘리트 출현 마릿수
     GameObject boss;
 
     GameObject[] BG;
@@ -34,7 +35,7 @@ public class Ingame_manager : MonoBehaviour
     public Image HealthBar; // 플레이어 체력바
 
     // Start is called before the first frame update
-    void Start() 
+    void Start()
     {
         selected_chapter = DB_Manager.Instance.selected_chapter.ToString();
         selected_stage = DB_Manager.Instance.selected_stage.ToString();
@@ -54,7 +55,7 @@ public class Ingame_manager : MonoBehaviour
 
         Ultimate.enabled = false;
 
-        StartCoroutine(CreateEnemy());
+        StartCoroutine(CreateNormalEnemy());
     }
 
     void Allocate()
@@ -64,6 +65,7 @@ public class Ingame_manager : MonoBehaviour
         normals = new List<GameObject>();
         normals_time = new List<int>();
         elites = new List<GameObject>();
+        elite_emer_cnt = PlayerPrefs.GetInt("Stage1_1ElitesEmerCnt");
     }
 
     void ReadStage()
@@ -96,7 +98,7 @@ public class Ingame_manager : MonoBehaviour
     {
         cUg = (cUg + ultimate_guage) < mUg ? cUg + ultimate_guage : mUg;
 
-        DisplayUltimateBar();
+        UpdateUltimateBar();
 
         if (cUg >= 100)
         {
@@ -107,18 +109,18 @@ public class Ingame_manager : MonoBehaviour
     public void UseUltimate() // 궁극기 사용
     {
         cUg = 0;
-        DisplayUltimateBar();
+        UpdateUltimateBar();
         Ultimate.enabled = false;
     }
-    private void DisplayUltimateBar()
+    public void UpdateUltimateBar()
     {
         Ultimate.GetComponent<Image>().fillAmount = cUg / mUg;
     }
 
     /*                 체력바                  */
-    public void DisplayPlayersHP() // 플레이어 피격판정 등 플레이어의 체력의 변동 발생
+    public void UpdatePlayersHP() // 플레이어 피격판정 등 플레이어의 체력의 변동 발생
     {
-        HealthBar.fillAmount = (float)player_clone.GetComponent<Player>().curHp / player_clone.GetComponent<AirframeScript>().maxHp;
+        HealthBar.fillAmount = (float)player_clone.GetComponent<Player>().cur_hp / player_clone.GetComponent<AirframeScript>().max_hp;
     }
 
     /*                 스코어, 경험치, 돈                  */
@@ -129,7 +131,7 @@ public class Ingame_manager : MonoBehaviour
         DB_Manager.Instance.gold_earned += gold;
         DB_Manager.Instance.enemy_killed_cnt++;
 
-        if (DB_Manager.Instance.enemy_killed_cnt >= PlayerPrefs.GetInt("Stage1_1ElitesEmerCnt")) // 일반몹 10킬당 엘리트 한마리씩 출현
+        if (DB_Manager.Instance.enemy_killed_cnt >= elite_emer_cnt) // 일반몹 10킬당 엘리트 한마리씩 출현
         {
             DB_Manager.Instance.enemy_killed_cnt = 0;
             // 엘리트 호출
@@ -145,7 +147,7 @@ public class Ingame_manager : MonoBehaviour
         return player_clone != null ? player_clone : null;
     }
 
-    IEnumerator CreateEnemy()
+    IEnumerator CreateNormalEnemy()
     {
         for (int i = 0; i < normals_time.Count; i++)
         {
@@ -159,6 +161,7 @@ public class Ingame_manager : MonoBehaviour
             yield return new WaitForSeconds(normals_time[i]);
         }
     }
+
     IEnumerator InstantiateEnemy(GameObject enemy, GameObject point, int cnt, float interval_sec)
     {
         for (int i = 0; i < cnt; i++)
@@ -172,14 +175,14 @@ public class Ingame_manager : MonoBehaviour
         }
     }
 
-    private void FixedUpdate() // 인게임의 종료조건을 계속 확인
+    void FixedUpdate() // 인게임의 종료조건을 계속 확인
     {
         if (player_clone == null) // 사망
         {
             DB_Manager.Instance.stage_clear = false;
             SceneManager.LoadScene("GameEnd");
         }
-        else if (enemys.Count == 0 && time >= 500)
+        else if (enemys.Count == 0 && time >= 500) // 클리어
         {
             DB_Manager.Instance.stage_clear = true;
             SceneManager.LoadScene("GameEnd");
