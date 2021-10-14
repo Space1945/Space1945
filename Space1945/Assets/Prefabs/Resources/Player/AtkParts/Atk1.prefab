@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a394a60e168081439e691601db98362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire_rate: 0.5
+  fire_rate: 0.25
   gold: 0
   explanation: "\uC77C\uBC18 \uACF5\uACA9 \uD0C0\uC785"
-  bullet: {fileID: 5357842813024714320, guid: 45fe7a50491b6f342b3af1deb374914e, type: 3}
+  bullet: {fileID: 5357842813024714320, guid: 64c1b18d9194ce04494ab18cd199a792, type: 3}

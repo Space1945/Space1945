@@ -57,7 +57,7 @@ public class Normal_Patterns : MonoBehaviour
             velocity_x = (float)(area * speed) / 1.414f;
             velocity_y = (float)(-speed) / 1.414f;
         }
-        z_angle = GV.radian_to_degree(-GV.GetRadian(velocity_x, velocity_y));
+//        z_angle = GV.radian_to_degree(-GV.GetRadian(velocity_x, velocity_y));
     }
     public void Wave()
     {
@@ -65,17 +65,17 @@ public class Normal_Patterns : MonoBehaviour
         {
             velocity_x = Mathf.Sin(this.gameObject.GetComponent<Rigidbody2D>().position.y) * 2;
             velocity_y = -speed;
-            z_angle = GV.radian_to_degree(-GV.GetRadian(velocity_x, velocity_y));
+//            z_angle = GV.radian_to_degree(-GV.GetRadian(velocity_x, velocity_y));
         }
         else
         {
             velocity_x = speed * area;
             velocity_y = Mathf.Sin(this.gameObject.GetComponent<Rigidbody2D>().position.x) * 2;
 
-            if (area > 0) // 왼쪽에서 나오는 경우
+/*            if (area > 0) // 왼쪽에서 나오는 경우
                 z_angle = GV.radian_to_degree(GV.GetRadian(velocity_y, velocity_x)) + 90f;
             else
-                z_angle = 270f - GV.radian_to_degree(GV.GetRadian(velocity_y, -velocity_x));
+                z_angle = 270f - GV.radian_to_degree(GV.GetRadian(velocity_y, -velocity_x));*/
         }
     }
     public void Rush() // 플레이어에게 돌진
@@ -87,10 +87,10 @@ public class Normal_Patterns : MonoBehaviour
         velocity_x = dx / scalar * speed;
         velocity_y = dy / scalar * speed;
 
-        if (velocity_x == 0) // 일직선으로 내려올 때
+ /*       if (velocity_x == 0) // 일직선으로 내려올 때
             z_angle = 0;
         else
-            z_angle = GV.radian_to_degree(GV.GetRadian(velocity_x, velocity_y));
+            z_angle = GV.radian_to_degree(GV.GetRadian(velocity_x, velocity_y));*/
     }
 
     private void FixedUpdate()

@@ -34,12 +34,12 @@ public class GV : MonoBehaviour
     public static int EAST_WALL = 2;
     public static int WEST_WALL = 3;
 
-    // 라디안을 각도로 변환
-    public static float radian_to_degree(float radian) {
-        return radian * 180f / Mathf.PI;
-    }
     // x변화량, y변화량
-    public static float GetRadian(float variance_x, float variance_y) {
-        return Mathf.Atan(variance_y / variance_x);
+    public static float GetDegree(float variance_x, float variance_y) {
+        return Mathf.Atan(variance_y / variance_x) * Mathf.Rad2Deg;
+    }
+    public static float GetDegree(Vector2 vector)
+    {
+        return Mathf.Atan(vector.y / vector.x) * Mathf.Rad2Deg;
     }
 }

@@ -29,7 +29,7 @@ public class AirframeScript : MonoBehaviour
         {
             foreach (Transform butt in butts)
             {
-                bullet.transform.position = new Vector2(butt.position.x, butt.position.y);
+                bullet.transform.position = butt.position;
                 Instantiate(bullet);
             }
             yield return new WaitForSeconds(fire_rate);

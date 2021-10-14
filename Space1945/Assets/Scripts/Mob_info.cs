@@ -15,15 +15,14 @@ public class Mob_info : MonoBehaviour
     public string kind; // 몹이 무슨 종류인지 >> normal, elite, boss로 구분 
     public string instantiate_point; // prefab에서 건들지 말것
     public bool invincible { get; set; }
-    public GameObject[] butts;
+    public Transform[] butts; // 총구있는 오브젝트만 사용
     public GameObject bullet;
     public float fire_rate;
 
     Rigidbody2D rigid;
     PolygonCollider2D col;
     ParticleSystem par_die;
-
-    Vector2 dis;
+    float[] angles; // 총구있는 오브젝트만 사용
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +30,10 @@ public class Mob_info : MonoBehaviour
         Initiate();
 
         if (butts.Length > 0)
+        {
+            CalcAngleOfButts();
             StartCoroutine(Attack());
+        }
     }
 
     void Initiate()
@@ -40,6 +42,13 @@ public class Mob_info : MonoBehaviour
         col = GetComponent<PolygonCollider2D>();
         par_die = Resources.Load<ParticleSystem>("Particle/Enemy_die_particle");
         invincible = false;
+    }
+
+    void CalcAngleOfButts()
+    {
+        angles = new float[butts.Length];
+        for (int i = 0; i < butts.Length; i++)
+            angles[i] = Vector2.Angle(gameObject.transform.position, butts[i].transform.position);
     }
 
     IEnumerator Invincible()
@@ -52,13 +61,10 @@ public class Mob_info : MonoBehaviour
     {
         while (true)
         {
-            foreach (GameObject butt in butts)
+            for (int i = 0; i < butts.Length; i++)
             {
-                bullet.transform.position = new Vector2(butt.transform.position.x, butt.transform.position.y);
-                GameObject bullet_clone = Instantiate(bullet);
-                dis = butt.transform.position - gameObject.transform.position;
-                bullet_clone.GetComponent<Rigidbody2D>().velocity = dis.normalized * bullet_clone.GetComponent<BulletInfo>().speed;
-                bullet_clone.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90 + GV.radian_to_degree(GV.GetRadian(dis.x, dis.y))));
+                bullet.transform.position = butts[i].position;
+                Instantiate(bullet).GetComponent<NormalEnemy>().SetBullet((butts[i].position - gameObject.transform.position).normalized, angles[i]);
             }
             yield return new WaitForSeconds(fire_rate);
         }

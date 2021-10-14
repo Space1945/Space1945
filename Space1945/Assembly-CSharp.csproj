@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\PanelListeners\ButtonPanelListener.cs" />
     <Compile Include="Assets\Scripts\ItemButtonsObject.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\BulletType\NormalEnemy.cs" />
     <Compile Include="Assets\Scripts\Gamemanager.cs" />
     <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Penetrate.cs" />
     <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\Move\Elite\RandomMove.cs" />
@@ -138,7 +139,8 @@
     <Compile Include="Assets\Scripts\MainCameraListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\MainCanvasListener.cs" />
-    <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\BulletType\NormalEnemy.cs" />
+    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Guided.cs" />
+    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\NormalRush.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
