@@ -74,8 +74,8 @@
     <Compile Include="Assets\Scripts\PanelListeners\ExitButtonListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\PanelListeners\LaboratoryPanelListener.cs" />
-    <Compile Include="Assets\Scripts\Butt.cs" />
     <Compile Include="Assets\Scripts\Normal_Patterns.cs" />
+    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Guided.cs" />
     <Compile Include="Assets\Scripts\PanelListeners\MainPanelListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\PanelListeners\ButtonPanelListener.cs" />
@@ -108,6 +108,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Scripts\BGI_info.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\NormalRush.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Normal.cs" />
@@ -139,8 +140,7 @@
     <Compile Include="Assets\Scripts\MainCameraListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\MainCanvasListener.cs" />
-    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Guided.cs" />
-    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\NormalRush.cs" />
+    <Compile Include="Assets\Scripts\ButtInfo.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

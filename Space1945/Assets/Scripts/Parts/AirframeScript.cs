@@ -27,11 +27,9 @@ public class AirframeScript : MonoBehaviour
     {
         while (ready)
         {
-            foreach (Transform butt in butts)
-            {
-                bullet.transform.position = butt.position;
-                Instantiate(bullet);
-            }
+            for (int i = 0; i < butts.Length; i++)
+                Instantiate(bullet, butts[i].position, Quaternion.identity, butts[i]);
+            
             yield return new WaitForSeconds(fire_rate);
         }
     }

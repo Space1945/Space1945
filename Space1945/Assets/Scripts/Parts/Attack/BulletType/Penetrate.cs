@@ -8,13 +8,43 @@ public class Penetrate : MonoBehaviour
     //面倒秦档 拌加 流柳
     float speed;
     int crash_damage;
+    Vector3 player_pos;
+    Vector3 target_pos;
+    bool complete;
 
     void Start()
     {
         speed = GetComponent<BulletInfo>().speed;
         crash_damage = GetComponent<BulletInfo>().crash_damage;
+        player_pos = Camera.main.GetComponent<Ingame_manager>().player_clone.transform.position;
+
+        complete = false;
+        if (transform.parent.GetComponent<ButtInfo>().butt_idx == 0) // 哭率 醚备
+        {
+            target_pos.x = player_pos.x - 1;
+            target_pos.y = player_pos.y - 1;
+        }
+        else // 坷弗率 醚备
+        {
+            target_pos.x = player_pos.x + 1;
+            target_pos.y = player_pos.y - 1;
+        }
+
+        StartCoroutine(MoveForward());
+    }
+
+    IEnumerator MoveForward()
+    {
+        yield return new WaitWhile(() => !complete);
 
         GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
+    }
+
+    void FixedUpdate()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, target_pos, 0.05f);
+        if (transform.position == target_pos)
+            complete = true;
     }
 
     void OnTriggerEnter2D(Collider2D col)

@@ -14,7 +14,6 @@ public class Mob_info : MonoBehaviour
     public int instantiate_count; // 원본을 몇개까지 복제할건지
     public string kind; // 몹이 무슨 종류인지 >> normal, elite, boss로 구분 
     public string instantiate_point; // prefab에서 건들지 말것
-    public bool invincible { get; set; }
     public Transform[] butts; // 총구있는 오브젝트만 사용
     public GameObject bullet;
     public float fire_rate;
@@ -22,7 +21,7 @@ public class Mob_info : MonoBehaviour
     Rigidbody2D rigid;
     PolygonCollider2D col;
     ParticleSystem par_die;
-    float[] angles; // 총구있는 오브젝트만 사용
+    bool invincible;
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +29,7 @@ public class Mob_info : MonoBehaviour
         Initiate();
 
         if (butts.Length > 0)
-        {
-            CalcAngleOfButts();
             StartCoroutine(Attack());
-        }
     }
 
     void Initiate()
@@ -44,14 +40,7 @@ public class Mob_info : MonoBehaviour
         invincible = false;
     }
 
-    void CalcAngleOfButts()
-    {
-        angles = new float[butts.Length];
-        for (int i = 0; i < butts.Length; i++)
-            angles[i] = Vector2.Angle(gameObject.transform.position, butts[i].transform.position);
-    }
-
-    IEnumerator Invincible()
+    IEnumerator InvincibleTime()
     {
         yield return new WaitForSeconds(invincible_time);
 
@@ -62,11 +51,18 @@ public class Mob_info : MonoBehaviour
         while (true)
         {
             for (int i = 0; i < butts.Length; i++)
-            {
-                bullet.transform.position = butts[i].position;
-                Instantiate(bullet).GetComponent<NormalEnemy>().SetBullet((butts[i].position - gameObject.transform.position).normalized, angles[i]);
-            }
+                Instantiate(bullet, butts[i].position, Quaternion.identity, butts[i]);
             yield return new WaitForSeconds(fire_rate);
+        }
+    }
+
+    public void Attacked(float crash_damage)
+    {
+        if (!invincible)
+        {
+            invincible = true;
+            StartCoroutine(InvincibleTime());
+            hp -= crash_damage;
         }
     }
 
@@ -88,20 +84,16 @@ public class Mob_info : MonoBehaviour
         }
     }
 
-    public void Attacked(float crash_damage)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        invincible = true;
-        StartCoroutine(Invincible());
-        hp -= crash_damage;
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        switch (collision.gameObject.tag)
+        switch (col.gameObject.tag)
         {
             case "end_line":
                 Camera.main.GetComponent<Ingame_manager>().enemys.Remove(gameObject);
                 Destroy(gameObject);
+                break;
+            case "player":
+                col.gameObject.GetComponent<Player>().Attacked(crash_damage);
                 break;
         }
     }

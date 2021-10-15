@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NormalRush : MonoBehaviour
 {
-    // 그냥 아무런 효과가 없는 탄환
+    // 가장 가까운 적을 타겟으로 직선 공격
     // 충돌시 데미지
     float speed;
     int crash_damage;

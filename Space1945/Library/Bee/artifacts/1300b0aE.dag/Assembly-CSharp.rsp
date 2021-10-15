@@ -349,7 +349,7 @@
 "Assets/Prefabs/Resources/Enemy/Patterns/Move/Normal/Straight.cs"
 "Assets/Scripts/BGI_info.cs"
 "Assets/Scripts/BulletPatterns.cs"
-"Assets/Scripts/Butt.cs"
+"Assets/Scripts/ButtInfo.cs"
 "Assets/Scripts/DB_Manager.cs"
 "Assets/Scripts/GameEndSceneScripts/GameEndListener.cs"
 "Assets/Scripts/Gamemanager.cs"

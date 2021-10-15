@@ -142,11 +142,6 @@ public class Ingame_manager : MonoBehaviour
         }
     }
 
-    public GameObject GetPlayer() // 포대 회전위해서 만들었는데 static 어케쓰는지 모르겠음 Butt 클래스에서 사용
-    {
-        return player_clone != null ? player_clone : null;
-    }
-
     IEnumerator CreateNormalEnemy()
     {
         for (int i = 0; i < normals_time.Count; i++)

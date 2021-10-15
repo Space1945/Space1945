@@ -11,10 +11,9 @@ public class Player : MonoBehaviour
     
     Rigidbody2D rigid;
     PolygonCollider2D col;
-    public bool invincible { get; set; }
-
     GameObject airframe;
     float airframe_crash_damage;
+    bool invincible;
 
     Vector2 touch_began;
     Touch touch;
@@ -39,31 +38,22 @@ public class Player : MonoBehaviour
         invincible = false;
     }
 
-    IEnumerator Invincible()
+    IEnumerator InvincibleTime()
     {
         yield return new WaitForSeconds(invincible_time);
 
         invincible = false;
     }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (cur_hp <= 0)
-        {
-            // 사운드 출력
-            Destroy(gameObject);
-        }
-
-        Move();
-    }
-
+    
     public void Attacked(float crash_damage)
     {
-        invincible = true;
-        StartCoroutine(Invincible());
-        cur_hp -= crash_damage;
-        Camera.main.GetComponent<Ingame_manager>().UpdatePlayersHP();
+        if (!invincible)
+        {
+            invincible = true;
+            StartCoroutine(InvincibleTime());
+            cur_hp -= crash_damage;
+            Camera.main.GetComponent<Ingame_manager>().UpdatePlayersHP();
+        }
     }
 
     void Move()
@@ -86,6 +76,28 @@ public class Player : MonoBehaviour
             rigid.velocity = new Vector2(0, 0);
     }
 
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (cur_hp <= 0)
+        {
+            // 사운드 출력
+            Destroy(gameObject);
+        }
+
+        Move();
+    }
+
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        switch (col.gameObject.tag)
+        {
+            case "enemy":
+                col.gameObject.GetComponent<Mob_info>().Attacked(airframe_crash_damage);
+                break;
+        }
+    }
     void OnTriggerStay2D(Collider2D col)
     {
         switch (col.gameObject.tag)
