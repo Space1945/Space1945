@@ -46,7 +46,6 @@ public class Ingame_manager : MonoBehaviour
 
         player = DB_Manager.Instance.using_airframe;
         player_clone = Instantiate(player); // 복제
-        player_clone.GetComponent<AirframeScript>().SetReady();
         
         mUg = 100; // 플레이어의 기체에 맞게 수정할것
 

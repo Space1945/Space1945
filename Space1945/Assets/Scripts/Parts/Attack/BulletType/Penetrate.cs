@@ -6,45 +6,56 @@ public class Penetrate : MonoBehaviour
 {
     //관통 탄환
     //충돌해도 계속 직진
+    public Vector2 abs_dis_from_body;
+    public float backward_speed;
+
+    Vector2 normalized_angle;
     float speed;
     int crash_damage;
     Vector3 player_pos;
-    Vector3 target_pos;
-    bool complete;
 
     void Start()
     {
+        normalized_angle = GV.GetVector2(transform.parent.GetComponent<ButtInfo>().angle).normalized;
         speed = GetComponent<BulletInfo>().speed;
         crash_damage = GetComponent<BulletInfo>().crash_damage;
         player_pos = Camera.main.GetComponent<Ingame_manager>().player_clone.transform.position;
 
-        complete = false;
+        StartCoroutine(MoveBackward());
+    }
+
+    IEnumerator MoveBackward()
+    {
+        Vector3 target_pos = Vector3.zero;
+
         if (transform.parent.GetComponent<ButtInfo>().butt_idx == 0) // 왼쪽 총구
         {
-            target_pos.x = player_pos.x - 1;
-            target_pos.y = player_pos.y - 1;
+            target_pos.x = player_pos.x - abs_dis_from_body.x;
+            target_pos.y = player_pos.y - abs_dis_from_body.y;
         }
         else // 오른쪽 총구
         {
-            target_pos.x = player_pos.x + 1;
-            target_pos.y = player_pos.y - 1;
+            target_pos.x = player_pos.x + abs_dis_from_body.x;
+            target_pos.y = player_pos.y - abs_dis_from_body.y;
+        }
+
+        while (transform.position != target_pos)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target_pos, backward_speed);
+
+            yield return null;
         }
 
         StartCoroutine(MoveForward());
     }
-
     IEnumerator MoveForward()
     {
-        yield return new WaitWhile(() => !complete);
+        while (true)
+        {
+            GetComponent<Rigidbody2D>().AddForce(normalized_angle * speed);
 
-        GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
-    }
-
-    void FixedUpdate()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, target_pos, 0.05f);
-        if (transform.position == target_pos)
-            complete = true;
+            yield return null;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -54,15 +65,6 @@ public class Penetrate : MonoBehaviour
             case "end_line":
                 Destroy(gameObject);
                 break;
-            case "enemy":
-                col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
-                break;
-        }
-    }
-    void OnTriggerStay2D(Collider2D col)
-    {
-        switch (col.gameObject.tag)
-        {
             case "enemy":
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
                 break;

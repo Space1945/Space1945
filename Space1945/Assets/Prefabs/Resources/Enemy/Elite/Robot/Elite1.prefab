@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   butt_idx: 2
-  angle_from_object: 270
+  shot_angle: 0
 --- !u!1 &1278648425238095581
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   butt_idx: 1
-  angle_from_object: 0
+  shot_angle: 0
 --- !u!1 &2352179559579860619
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   butt_idx: 3
-  angle_from_object: 180
+  shot_angle: 0
 --- !u!1 &3295712745520283317
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   butt_idx: 4
-  angle_from_object: 135
+  shot_angle: 0
 --- !u!1 &4715340615752915881
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   butt_idx: 0
-  angle_from_object: 90
+  shot_angle: 0
 --- !u!1 &6431195958698600481
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
   exp: 250
   gold: 550
   add_guage: 5
-  invincible_time: 1
+  invincible_time: 0.2
   instantiate_count: 1
   kind: Elite
   instantiate_point: 
@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   butt_idx: 7
-  angle_from_object: 225
+  shot_angle: 0
 --- !u!1 &8544626244805162400
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   butt_idx: 6
-  angle_from_object: 315
+  shot_angle: 0
 --- !u!1 &8818365710695305133
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,4 +568,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   butt_idx: 5
-  angle_from_object: 45
+  shot_angle: 0

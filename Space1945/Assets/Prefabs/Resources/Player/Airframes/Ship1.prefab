@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   butt_idx: 0
-  angle_from_object: 180
+  shot_angle: 90
 --- !u!1 &2600999045904205396
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   butt_idx: 1
-  angle_from_object: 0
+  shot_angle: 90
 --- !u!1 &9041209992465218530
 GameObject:
   m_ObjectHideFlags: 0

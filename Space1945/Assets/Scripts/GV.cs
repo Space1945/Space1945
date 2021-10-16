@@ -42,4 +42,8 @@ public class GV : MonoBehaviour
     {
         return Mathf.Atan(vector.y / vector.x) * Mathf.Rad2Deg;
     }
+    public static Vector2 GetVector2(float degree)
+    {
+        return new Vector2(Mathf.Cos(degree * Mathf.Deg2Rad), Mathf.Sin(degree * Mathf.Deg2Rad));
+    }
 }

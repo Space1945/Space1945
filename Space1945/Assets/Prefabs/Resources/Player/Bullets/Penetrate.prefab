@@ -167,3 +167,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77cb4e9dba93bbf4a9c05a3f036268ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abs_dis_from_body: {x: 0.5, y: 0.5}
+  backward_speed: 0.05

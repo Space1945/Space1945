@@ -100,3 +100,5 @@ MonoBehaviour:
   gold: 190000
   explanation: "\uB808\uC774\uC800 \uACF5\uACA9 \uD0C0\uC785"
   bullet: {fileID: 2222983133428698887, guid: 4ce7ea56237186e429b6fe9291db0e2c, type: 3}
+  angles:
+  - 90

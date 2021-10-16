@@ -214,10 +214,13 @@ MonoBehaviour:
   exp: 20
   gold: 40
   add_guage: 0.5
-  invincible_time: 1
+  invincible_time: 0.2
   instantiate_count: 8
   kind: Normal
   instantiate_point: 
+  butts: []
+  bullet: {fileID: 0}
+  fire_rate: 0
 --- !u!114 &2330925753230994827
 MonoBehaviour:
   m_ObjectHideFlags: 0
