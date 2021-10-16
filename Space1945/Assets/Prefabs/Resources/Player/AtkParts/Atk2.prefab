@@ -96,11 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a394a60e168081439e691601db98362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire_rate: 1
+  fire_rate: 1.5
   gold: 70000
   explanation: "\uC0F7\uAC74 \uACF5\uACA9 \uD0C0\uC785"
   bullet: {fileID: 5357842813024714320, guid: 45fe7a50491b6f342b3af1deb374914e, type: 3}
-  angles:
-  - 60
-  - 90
-  - 120
+  fire_cnt_per_shot: 5
+  max_angle: 135
+  min_angle: 45

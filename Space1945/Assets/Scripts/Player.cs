@@ -45,15 +45,19 @@ public class Player : MonoBehaviour
         invincible = false;
     }
     
-    public void Attacked(float crash_damage)
+    public void BodyAttacked(float crash_damage)
     {
         if (!invincible)
         {
             invincible = true;
             StartCoroutine(InvincibleTime());
-            cur_hp -= crash_damage;
-            Camera.main.GetComponent<Ingame_manager>().UpdatePlayersHP();
+            Attacked(crash_damage);
         }
+    }
+    public void Attacked(float crash_damage)
+    {
+        cur_hp -= crash_damage;
+        Camera.main.GetComponent<Ingame_manager>().UpdatePlayersHP();
     }
 
     void Move()
@@ -89,21 +93,21 @@ public class Player : MonoBehaviour
     }
 
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col) // 적 개체와의 충돌만 담당
     {
         switch (col.gameObject.tag)
         {
             case "enemy":
-                col.gameObject.GetComponent<Mob_info>().Attacked(airframe_crash_damage);
+                col.gameObject.GetComponent<Mob_info>().BodyAttacked(airframe_crash_damage);
                 break;
         }
     }
-    void OnTriggerStay2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col) // 적 개체와의 충돌만 담당
     {
         switch (col.gameObject.tag)
         {
             case "enemy":
-                col.gameObject.GetComponent<Mob_info>().Attacked(airframe_crash_damage);
+                col.gameObject.GetComponent<Mob_info>().BodyAttacked(airframe_crash_damage);
                 break;
         }
     }

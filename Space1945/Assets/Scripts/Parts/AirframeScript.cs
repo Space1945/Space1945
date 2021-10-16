@@ -15,7 +15,9 @@ public class AirframeScript : MonoBehaviour
     GameObject sub_right;
 
     GameObject bullet;
-    float[] angles;
+    int fire_cnt_per_shot;
+    float max_angle;
+    float min_angle;
     float fire_rate; // 초 단위
     bool ready = false; // 준비완료
 
@@ -23,25 +25,10 @@ public class AirframeScript : MonoBehaviour
     {
         SetReady();
 
-        if (angles.Length > 0)
+        if (butts.Length > 0)
             StartCoroutine(Attack());
         else
             Debug.Log("AirframeScript/instantiate_cnt Error");
-    }
-
-    IEnumerator Attack()
-    {
-        while (ready)
-        {
-            for (int i = 0; i < butts.Length; i++)
-                for (int j = 0; j < angles.Length; j++)
-                {
-                    butts[i].GetComponent<ButtInfo>().angle = angles[i];
-                    Instantiate(bullet, butts[i].position, Quaternion.identity, butts[i]);
-                }
-
-            yield return new WaitForSeconds(fire_rate);
-        }
     }
 
     void SetReady()
@@ -52,9 +39,23 @@ public class AirframeScript : MonoBehaviour
         sub_right = DB_Manager.Instance.using_sub_right;
 
         bullet = atk.GetComponent<AtkScript>().bullet;
-        angles = atk.GetComponent<AtkScript>().angles;
+        fire_cnt_per_shot = atk.GetComponent<AtkScript>().fire_cnt_per_shot;
+        max_angle = atk.GetComponent<AtkScript>().max_angle;
+        min_angle = atk.GetComponent<AtkScript>().min_angle;
         fire_rate = atk.GetComponent<AtkScript>().fire_rate;
 
         ready = true;
+    }
+
+    IEnumerator Attack()
+    {
+        while (ready)
+        {
+            for (int i = 0; i < butts.Length; i++)
+                for (int j = 0; j < fire_cnt_per_shot; j++)
+                    Instantiate(bullet, butts[i].position, Quaternion.identity, butts[i]).transform.GetComponent<BulletInfo>().shot_angle = Random.Range(min_angle, max_angle);
+
+            yield return new WaitForSeconds(fire_rate);
+        }
     }
 }

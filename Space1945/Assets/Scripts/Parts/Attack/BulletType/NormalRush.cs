@@ -18,7 +18,7 @@ public class NormalRush : MonoBehaviour
         FindTarget();
         if (target != null)
         {
-            transform.rotation = Quaternion.Euler(0, 0, GV.GetDegree(target.transform.position - gameObject.transform.position) + 90);
+            transform.rotation = Quaternion.Euler(0, 0, GV.GetDegree(target.transform.position - gameObject.transform.position) - 90);
             GetComponent<Rigidbody2D>().velocity = (target.transform.position - gameObject.transform.position).normalized * speed;
         }
         else

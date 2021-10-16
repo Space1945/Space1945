@@ -6,15 +6,18 @@ public class Normal : MonoBehaviour
 {
     // 그냥 아무런 효과가 없는 탄환
     // 충돌시 데미지
+    float shot_angle;
     Vector2 normalized_angle;
     float speed;
     int crash_damage;
 
     void Start()
     {
-        normalized_angle = GV.GetVector2(transform.parent.GetComponent<ButtInfo>().angle).normalized;
+        shot_angle = GetComponent<BulletInfo>().shot_angle;
+        normalized_angle = GV.GetVector2(shot_angle).normalized;
         speed = GetComponent<BulletInfo>().speed;
         crash_damage = GetComponent<BulletInfo>().crash_damage;
+        transform.rotation = Quaternion.Euler(0, 0, shot_angle - 90);
 
         GetComponent<Rigidbody2D>().velocity = normalized_angle * speed;
     }

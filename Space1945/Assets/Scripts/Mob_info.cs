@@ -56,14 +56,18 @@ public class Mob_info : MonoBehaviour
         }
     }
 
-    public void Attacked(float crash_damage)
+    public void BodyAttacked(float crash_damage)
     {
         if (!invincible)
         {
             invincible = true;
             StartCoroutine(InvincibleTime());
-            hp -= crash_damage;
+            Attacked(crash_damage);
         }
+    }
+    public void Attacked(float crash_damage)
+    {
+        hp -= crash_damage;
     }
 
     void FixedUpdate()
@@ -84,7 +88,7 @@ public class Mob_info : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col) // 플레이어 개체와의 충돌만 담당
     {
         switch (col.gameObject.tag)
         {
@@ -93,16 +97,16 @@ public class Mob_info : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "player":
-                col.gameObject.GetComponent<Player>().Attacked(crash_damage);
+                col.gameObject.GetComponent<Player>().BodyAttacked(crash_damage);
                 break;
         }
     }
-    void OnTriggerStay2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col) // 플레이어 개체와의 충돌만 담당
     {
         switch (col.gameObject.tag)
         {
             case "player":
-                col.gameObject.GetComponent<Player>().Attacked(crash_damage);
+                col.gameObject.GetComponent<Player>().BodyAttacked(crash_damage);
                 break;
         }
     }

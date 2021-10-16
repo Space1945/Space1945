@@ -9,7 +9,9 @@ public class AtkScript : MonoBehaviour
     public string explanation; // 해당 기체 설명
 
     public GameObject bullet;
-    public float[] angles;
+    public int fire_cnt_per_shot;
+    public float max_angle;
+    public float min_angle;
 
     public float crash_damage { get; set; }
     public float speed { get; set; }
