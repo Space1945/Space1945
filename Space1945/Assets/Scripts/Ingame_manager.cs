@@ -111,6 +111,7 @@ public class Ingame_manager : MonoBehaviour
         UpdateUltimateBar();
         Ultimate.enabled = false;
     }
+
     public void UpdateUltimateBar()
     {
         Ultimate.GetComponent<Image>().fillAmount = cUg / mUg;
@@ -179,15 +180,11 @@ public class Ingame_manager : MonoBehaviour
                 DB_Manager.Instance.stage_clear = true;
                 SceneManager.LoadScene("GameEnd");
             }
-        }
-    }
-
-    void FixedUpdate() // 인게임의 종료조건을 계속 확인
-    {
-        if (player_clone == null) // 사망
-        {
-            DB_Manager.Instance.stage_clear = false;
-            SceneManager.LoadScene("GameEnd");
+            if (player_clone == null) // 사망
+            {
+                DB_Manager.Instance.stage_clear = false;
+                SceneManager.LoadScene("GameEnd");
+            }
         }
     }
 }

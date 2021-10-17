@@ -31,14 +31,15 @@ public class GameEndListener : MonoBehaviour
         PlayerPrefs.SetInt("gold", PlayerPrefs.GetInt("gold") + DB_Manager.Instance.gold_earned);
 
         int max_exp = PlayerPrefs.GetInt("max_exp");
+        int max_level = PlayerPrefs.GetInt("max_level");
         int level = PlayerPrefs.GetInt("pilot_level");
-        if (level < PlayerPrefs.GetInt("max_level"))
+        if (level < max_level)
         {
-            int exp = PlayerPrefs.GetInt("pilot_exp");
+            int exp = PlayerPrefs.GetInt("pilot_exp") + DB_Manager.Instance.exp_earned;
             bool level_up = false;
-            while (exp + DB_Manager.Instance.exp_earned >= max_exp)
+            while (exp >= max_exp)
             {
-                exp = exp + DB_Manager.Instance.exp_earned - max_exp;
+                exp -= max_exp;
                 max_exp = (int)(max_exp * 1.2f);
                 level++;
                 level_up = true;
@@ -52,9 +53,10 @@ public class GameEndListener : MonoBehaviour
             }
             else
                 PlayerPrefs.SetInt("pilot_exp", exp + DB_Manager.Instance.exp_earned);
+
+            if (level >= max_level)
+                PlayerPrefs.SetInt("pilot_exp", max_exp);
         }
-        else
-            PlayerPrefs.SetInt("pilot_exp", max_exp);
 
         score_text.text = "ÃÑ È¹µæÇÑ ½ºÄÚ¾î: " + DB_Manager.Instance.score_earned;
         best_score_text.text = "ÃÖ°í Á¡¼ö: " + PlayerPrefs.GetInt(stage_score);

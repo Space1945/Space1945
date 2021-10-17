@@ -73,6 +73,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Scripts\PanelListeners\ExitButtonListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Spread.cs" />
     <Compile Include="Assets\Scripts\PanelListeners\LaboratoryPanelListener.cs" />
     <Compile Include="Assets\Scripts\Normal_Patterns.cs" />
     <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Guided.cs" />
@@ -141,7 +142,6 @@
     <Compile Include="Assets\Scripts\MainCameraListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\MainCanvasListener.cs" />
-    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Spread.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

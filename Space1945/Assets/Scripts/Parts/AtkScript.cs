@@ -9,14 +9,12 @@ public class AtkScript : MonoBehaviour
 
     public GameObject bullet;
     public float fire_rate; // 초당
-    public int fire_cnt_per_shot;
+    public int fire_cnt_per_shot; // 한번에 발사하는 탄환수
     public float max_angle;
     public float min_angle;
 
     public float crash_damage { get; set; }
     public float speed { get; set; }
-
-    List<Transform> butts;
 
     void Start()
     {

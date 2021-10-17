@@ -5,31 +5,36 @@ using UnityEngine;
 public class Boom : MonoBehaviour
 {
     public float max_range; // 폭발 최대 범위
+    public float delta_range; // 프레임당 커지는 크기
     public float boom_damage; //충돌 데미지
 
     float range; // 현재 폭발 범위
-    float delta_range;
     HashSet<int> collided;
 
     void Start()
     {
         Initiate();
+
+        StartCoroutine(Attack());
     }
 
     void Initiate()
     {
         range = 0;
-        delta_range = max_range / 10;
         collided = new HashSet<int>();
     }
 
-    void FixedUpdate()
+    IEnumerator Attack()
     {
-        range += delta_range;
-        transform.localScale = new Vector2(range, range); //폭파 범위를 설정
+        while (range < max_range)
+        {
+            range += delta_range;
+            transform.localScale = new Vector2(range, range); //폭파 범위를 설정
 
-        if (range >= max_range)
-            Destroy(gameObject);
+            yield return null;
+        }
+
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D col)

@@ -139,4 +139,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_range: 15
+  delta_range: 0.75
   boom_damage: 250

@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     Vector2 touch_began;
     Touch touch;
 
+    ParticleSystem par_die;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,8 @@ public class Player : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         col = GetComponent<PolygonCollider2D>();
+
+        par_die = Resources.Load<ParticleSystem>("Particle/Enemy_die_particle");
 
         airframe = DB_Manager.Instance.using_airframe;
         airframe_crash_damage = airframe.GetComponent<AirframeScript>().crash_damage;
@@ -86,6 +90,8 @@ public class Player : MonoBehaviour
         if (cur_hp <= 0)
         {
             // 사운드 출력
+            ParticleSystem par = Instantiate(par_die);
+            par.transform.position = transform.position; // 사망 효과
             Destroy(gameObject);
         }
 
