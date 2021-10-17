@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crash_damage: 50
-  speed: 8
+  speed: 12
 --- !u!114 &5348032971675979087
 MonoBehaviour:
   m_ObjectHideFlags: 0

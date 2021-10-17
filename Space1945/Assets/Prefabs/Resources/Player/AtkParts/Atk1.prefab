@@ -96,6 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a394a60e168081439e691601db98362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  butts_pos:
+  - {x: -0.2, y: 0}
+  - {x: 0.2, y: 0}
   fire_rate: 0.25
   gold: 0
   explanation: "\uC77C\uBC18 \uACF5\uACA9 \uD0C0\uC785"

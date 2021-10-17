@@ -45,13 +45,6 @@ public class Boom : MonoBehaviour
                     else
                         col.gameObject.GetComponent<Mob_info>().Attacked(boom_damage / 2);
                     break;
-                case "player":
-                    collided.Add(col.GetInstanceID());
-                    if (range <= max_range / 2)
-                        col.gameObject.GetComponent<Player>().Attacked(boom_damage);
-                    else
-                        col.gameObject.GetComponent<Player>().Attacked(boom_damage / 2);
-                    break;
             }
         }
     }

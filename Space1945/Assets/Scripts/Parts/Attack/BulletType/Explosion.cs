@@ -35,7 +35,7 @@ public class Explosion : MonoBehaviour
                 break;
             case "enemy":
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
-                Instantiate(boom, gameObject.transform.position, Quaternion.identity, transform);
+                Instantiate(boom, transform.position, Quaternion.identity);
                 Destroy(gameObject);
                 break;
         }

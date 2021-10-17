@@ -392,6 +392,7 @@ MonoBehaviour:
   - {fileID: 1879745996}
   - {fileID: 1415621560}
   - {fileID: 547188069}
+  check_rate: 3
   Ultimate: {fileID: 1532023739}
   HealthBar: {fileID: 744698552}
 --- !u!20 &519420031

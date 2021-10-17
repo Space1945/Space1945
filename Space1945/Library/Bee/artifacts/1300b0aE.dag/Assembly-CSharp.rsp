@@ -390,6 +390,7 @@
 "Assets/Scripts/Parts/Attack/BulletType/Normal.cs"
 "Assets/Scripts/Parts/Attack/BulletType/NormalRush.cs"
 "Assets/Scripts/Parts/Attack/BulletType/Penetrate.cs"
+"Assets/Scripts/Parts/Attack/BulletType/Spread.cs"
 "Assets/Scripts/Parts/DefScript.cs"
 "Assets/Scripts/Parts/SubScript.cs"
 "Assets/Scripts/Player.cs"

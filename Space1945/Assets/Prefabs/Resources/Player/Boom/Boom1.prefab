@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2340877167840637770}
   - component: {fileID: 2340877167840637773}
-  - component: {fileID: 1609154622542617911}
   - component: {fileID: 2680486615078314384}
+  - component: {fileID: 1609154622542617911}
   m_Layer: 16
   m_Name: Boom1
   m_TagString: boom
@@ -85,20 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1609154622542617911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2340877167840637775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5b86c13de6c31048a87f0770018319f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max_range: 10
-  boom_damage: 250
 --- !u!60 &2680486615078314384
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -140,3 +126,17 @@ PolygonCollider2D:
       - {x: 0.15234375, y: -0.060546875}
       - {x: 0.16992188, y: -0.02734375}
       - {x: 0.17382812, y: -0.005859375}
+--- !u!114 &1609154622542617911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2340877167840637775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b86c13de6c31048a87f0770018319f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_range: 15
+  boom_damage: 250

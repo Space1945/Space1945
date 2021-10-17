@@ -7,15 +7,14 @@ using UnityEngine.SceneManagement;
 public class Ingame_manager : MonoBehaviour
 {
     public GameObject[] spwan_points;
+    public float check_rate;
 
     public HashSet<GameObject> enemys { get; set; }
-
-    int time = 0;
 
     string selected_chapter;
     string selected_stage;
     List<GameObject> normals; // 출현할 일반몹
-    List<int> normals_time; // 출현할 일반몹 시간 
+    List<int> normals_time; // 출현할 일반몹 시간
     List<GameObject> elites; // 출현할 엘리트
     int elite_emer_cnt; // 엘리트 출현 마릿수
     GameObject boss;
@@ -40,7 +39,7 @@ public class Ingame_manager : MonoBehaviour
         selected_chapter = DB_Manager.Instance.selected_chapter.ToString();
         selected_stage = DB_Manager.Instance.selected_stage.ToString();
 
-        Allocate();
+        Initiate();
         ReadStage();
         DB_Manager.Instance.InitStageDB();
 
@@ -55,16 +54,16 @@ public class Ingame_manager : MonoBehaviour
         Ultimate.enabled = false;
 
         StartCoroutine(CreateNormalEnemy());
+        StartCoroutine(CheckGameEnd(check_rate));
     }
 
-    void Allocate()
+    void Initiate()
     {
         enemys = new HashSet<GameObject>();
 
         normals = new List<GameObject>();
         normals_time = new List<int>();
         elites = new List<GameObject>();
-        elite_emer_cnt = PlayerPrefs.GetInt("Stage1_1ElitesEmerCnt");
     }
 
     void ReadStage()
@@ -82,6 +81,7 @@ public class Ingame_manager : MonoBehaviour
         string[] elites = PlayerPrefs.GetString(stage + "Elites").Split(' ');
         for (int i = 0; i < elites.Length; i++)
             this.elites.Add(Resources.Load<GameObject>("Enemy/Elite/" + stage_type + "/" + elites[i]));
+        elite_emer_cnt = PlayerPrefs.GetInt("Stage" + selected_chapter + "_" + selected_stage + "ElitesEmerCnt");
 
         if (PlayerPrefs.HasKey(stage + "Boss"))
         {
@@ -168,6 +168,19 @@ public class Ingame_manager : MonoBehaviour
             yield return new WaitForSeconds(interval_sec);
         }
     }
+    IEnumerator CheckGameEnd(float check_rate) // 인게임의 종료조건을 계속 확인
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(check_rate);
+
+            if (enemys.Count == 0)
+            {
+                DB_Manager.Instance.stage_clear = true;
+                SceneManager.LoadScene("GameEnd");
+            }
+        }
+    }
 
     void FixedUpdate() // 인게임의 종료조건을 계속 확인
     {
@@ -176,11 +189,5 @@ public class Ingame_manager : MonoBehaviour
             DB_Manager.Instance.stage_clear = false;
             SceneManager.LoadScene("GameEnd");
         }
-        else if (enemys.Count == 0 && time >= 500) // 클리어
-        {
-            DB_Manager.Instance.stage_clear = true;
-            SceneManager.LoadScene("GameEnd");
-        }
-        time++;
     }
 }
