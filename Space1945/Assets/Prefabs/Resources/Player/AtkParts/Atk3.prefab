@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a394a60e168081439e691601db98362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire_rate: 0.2
   gold: 130000
   explanation: "\uB808\uC774\uC800 \uACF5\uACA9 \uD0C0\uC785"
-  bullet: {fileID: 0}
-  fire_cnt_per_shot: 10
-  max_angle: 91
-  min_angle: 89
+  bullet: {fileID: 1435227160981585394, guid: bd4c2e53b2be7934f90c2b99c376ddcc, type: 3}
+  fire_rate: 3
+  fire_cnt_per_shot: 1
+  max_angle: 90
+  min_angle: 90

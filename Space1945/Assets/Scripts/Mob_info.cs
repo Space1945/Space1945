@@ -51,7 +51,10 @@ public class Mob_info : MonoBehaviour
         while (true)
         {
             for (int i = 0; i < butts.Length; i++)
-                Instantiate(bullet, butts[i].position, Quaternion.identity, butts[i]);
+            {
+                GameObject bc = Instantiate(bullet, butts[i].position, Quaternion.identity, butts[i]);
+            }
+
             yield return new WaitForSeconds(fire_rate);
         }
     }

@@ -12,7 +12,7 @@ public class Spread : MonoBehaviour
     float speed;
     float shot_angle;
     Vector2 normalized_angle;
-    int crash_damage;
+    float crash_damage;
 
     void Start()
     {

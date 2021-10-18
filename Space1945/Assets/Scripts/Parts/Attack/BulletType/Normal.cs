@@ -9,7 +9,7 @@ public class Normal : MonoBehaviour
     float shot_angle;
     Vector2 normalized_angle;
     float speed;
-    int crash_damage;
+    float crash_damage;
 
     void Start()
     {

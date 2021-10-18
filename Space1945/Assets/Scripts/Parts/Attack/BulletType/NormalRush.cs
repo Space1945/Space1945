@@ -7,7 +7,7 @@ public class NormalRush : MonoBehaviour
     // 가장 가까운 적을 타겟으로 직선 공격
     // 충돌시 데미지
     float speed;
-    int crash_damage;
+    float crash_damage;
     GameObject target;
 
     void Start()

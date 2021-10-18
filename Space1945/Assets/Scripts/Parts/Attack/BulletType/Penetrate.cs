@@ -6,13 +6,10 @@ public class Penetrate : MonoBehaviour
 {
     //관통 탄환
     //충돌해도 계속 직진
-    public Vector2 abs_dis_from_body;
-    public float backward_speed;
-
     float shot_angle;
     Vector2 normalized_angle;
     float speed;
-    int crash_damage;
+    float crash_damage;
     Vector3 player_pos;
 
     void Start()
@@ -24,35 +21,22 @@ public class Penetrate : MonoBehaviour
         player_pos = Camera.main.GetComponent<Ingame_manager>().player_clone.transform.position;
         transform.rotation = Quaternion.Euler(0, 0, shot_angle - 90);
 
-        StartCoroutine(MoveBackward());
+        StartCoroutine(Attack());
     }
 
-    IEnumerator MoveBackward()
+    IEnumerator Attack()
     {
-        Vector3 target_pos = Vector3.zero;
+        Vector3 target_pos = gameObject.transform.position;
 
-        if (transform.parent.GetComponent<ButtInfo>().butt_idx == 0) // 왼쪽 총구
-        {
-            target_pos.x = player_pos.x - abs_dis_from_body.x;
-            target_pos.y = player_pos.y - abs_dis_from_body.y;
-        }
-        else // 오른쪽 총구
-        {
-            target_pos.x = player_pos.x + abs_dis_from_body.x;
-            target_pos.y = player_pos.y - abs_dis_from_body.y;
-        }
+        target_pos.y = player_pos.y - 0.75f;
 
         while (transform.position != target_pos)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target_pos, backward_speed);
+            transform.position = Vector2.MoveTowards(transform.position, target_pos, 0.05f);
 
             yield return null;
         }
 
-        StartCoroutine(MoveForward());
-    }
-    IEnumerator MoveForward()
-    {
         while (true)
         {
             GetComponent<Rigidbody2D>().AddForce(normalized_angle * speed);

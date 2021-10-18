@@ -44,7 +44,8 @@ public class DB_Manager
     public int selected_chapter { get; set; } // 현재 선택한 챕터
     public int selected_stage { get; set; }
 
-    public struct ex_status
+    [Serializable]
+    public struct ex_stats
     {
         public float ex_hp;
         public float ex_def;
@@ -57,12 +58,12 @@ public class DB_Manager
         public float ex_exp;
         public float ex_drop;
     }
-    public ex_status total;
+    public ex_stats ex_total;
 
     DB_Manager()
     {
         LoadAllParts();
-        total = new ex_status();
+        ex_total = new ex_stats();
     }
 
     public static DB_Manager Instance

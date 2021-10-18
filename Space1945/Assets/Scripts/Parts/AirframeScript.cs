@@ -6,15 +6,17 @@ public class AirframeScript : MonoBehaviour
 {
     public Transform[] butts;
     public float max_hp;
+    public float basic_def;
     public float crash_damage;
     public int gold;
 
-    public GameObject atk { get; set; }
-    public GameObject def { get; set; }
-    public GameObject sub_left { get; set; }
-    public GameObject sub_right { get; set; }
+    GameObject atk;
+    GameObject def;
+    GameObject sub_left;
+    GameObject sub_right;
 
     GameObject bullet;
+    float bullet_damage;
     float fire_rate;
     int fire_cnt_per_shot;
     float max_angle;
@@ -30,6 +32,7 @@ public class AirframeScript : MonoBehaviour
         sub_right = DB_Manager.Instance.using_sub_right;
 
         bullet = atk.GetComponent<AtkScript>().bullet;
+        bullet_damage = bullet.GetComponent<BulletInfo>().crash_damage;
         fire_rate = atk.GetComponent<AtkScript>().fire_rate;
         fire_cnt_per_shot = atk.GetComponent<AtkScript>().fire_cnt_per_shot;
         max_angle = atk.GetComponent<AtkScript>().max_angle;
@@ -38,13 +41,16 @@ public class AirframeScript : MonoBehaviour
         atk_coroutine = StartCoroutine(Attack());
     }
 
-    IEnumerator Attack()
+    public IEnumerator Attack()
     {
         while (true)
         {
             for (int i = 0; i < butts.Length; i++)
                 for (int j = 0; j < fire_cnt_per_shot; j++)
-                    Instantiate(bullet, butts[i].position, Quaternion.identity, butts[i]).GetComponent<BulletInfo>().shot_angle = Random.Range(min_angle, max_angle);
+                {
+                    GameObject bc = Instantiate(bullet, butts[i].position, Quaternion.identity);
+                    bc.GetComponent<BulletInfo>().shot_angle = Random.Range(min_angle, max_angle);
+                }
 
             yield return new WaitForSeconds(fire_rate);
         }

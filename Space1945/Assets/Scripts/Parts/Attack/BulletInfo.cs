@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletInfo : MonoBehaviour
 {
-    public int crash_damage;
+    public float crash_damage;
     public float speed;
     public float shot_angle { get; set; }
 }

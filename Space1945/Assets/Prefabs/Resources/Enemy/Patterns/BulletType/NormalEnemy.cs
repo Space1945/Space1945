@@ -7,7 +7,7 @@ public class NormalEnemy : MonoBehaviour
     // 그냥 아무런 효과가 없는 탄환
     // 충돌시 데미지
     float speed;
-    int crash_damage;
+    float crash_damage;
 
     void Start()
     {

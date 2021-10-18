@@ -98,7 +98,6 @@ public class Player : MonoBehaviour
         Move();
     }
 
-
     void OnTriggerEnter2D(Collider2D col) // 적 개체와의 충돌만 담당
     {
         switch (col.gameObject.tag)

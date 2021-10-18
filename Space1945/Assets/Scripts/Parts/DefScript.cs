@@ -5,4 +5,6 @@ using UnityEngine;
 public class DefScript : MonoBehaviour
 {
     public int gold;
+    public float add_hp;
+    public float add_def;
 }

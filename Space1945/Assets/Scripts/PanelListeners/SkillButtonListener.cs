@@ -20,7 +20,7 @@ public class SkillButtonListener : MonoBehaviour, IPointerDownHandler, IPointerU
     public int pre_skill;
     public string skill_explain;
 
-    private DB_Manager.ex_status status = new DB_Manager.ex_status();
+    private DB_Manager.ex_stats status = new DB_Manager.ex_stats();
     public bool skill_active = false;
     private bool isBtnDown = false;
     int cou = 0;
