@@ -158,7 +158,7 @@ MonoBehaviour:
   exp: 30
   gold: 80
   add_guage: 10
-  invincible_time: 0.2
+  invincible_time: 1
   instantiate_count: 5
   kind: Normal
   instantiate_point: 

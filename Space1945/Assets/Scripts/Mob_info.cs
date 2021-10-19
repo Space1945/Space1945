@@ -42,8 +42,8 @@ public class Mob_info : MonoBehaviour
 
     IEnumerator InvincibleTime()
     {
+        invincible = true;
         yield return new WaitForSeconds(invincible_time);
-
         invincible = false;
     }
     IEnumerator Attack()
@@ -61,12 +61,8 @@ public class Mob_info : MonoBehaviour
 
     public void BodyAttacked(float crash_damage)
     {
-        if (!invincible)
-        {
-            invincible = true;
-            StartCoroutine(InvincibleTime());
-            Attacked(crash_damage);
-        }
+        StartCoroutine(InvincibleTime());
+        Attacked(crash_damage);
     }
     public void Attacked(float crash_damage)
     {
@@ -99,9 +95,7 @@ public class Mob_info : MonoBehaviour
                 Camera.main.GetComponent<Ingame_manager>().enemys.Remove(gameObject);
                 Destroy(gameObject);
                 break;
-            case "player":
-                col.gameObject.GetComponent<Player>().BodyAttacked(crash_damage);
-                break;
+            
         }
     }
     void OnTriggerStay2D(Collider2D col) // 플레이어 개체와의 충돌만 담당
@@ -109,7 +103,11 @@ public class Mob_info : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "player":
-                col.gameObject.GetComponent<Player>().BodyAttacked(crash_damage);
+                if (!invincible)
+                {
+                    col.gameObject.GetComponent<Player>().Attacked(crash_damage);
+                    BodyAttacked(col.gameObject.GetComponent<AirframeScript>().crash_damage);
+                }
                 break;
         }
     }

@@ -9,6 +9,7 @@ public class Ingame_manager : MonoBehaviour
     public GameObject[] spwan_points;
     public float check_rate;
 
+    public bool ultimate_use { get; set; }
     public HashSet<GameObject> enemys { get; set; }
 
     string selected_chapter;
@@ -95,19 +96,23 @@ public class Ingame_manager : MonoBehaviour
     /*                 궁극기                  */
     public void AddUltimateGuage(float ultimate_guage) // 궁극기 게이지 추가
     {
-        cUg = (cUg + ultimate_guage) < mUg ? cUg + ultimate_guage : mUg;
-
-        UpdateUltimateBar();
-
-        if (cUg >= 100)
+        if (!ultimate_use)
         {
-            //특정 이미지 출력
-            Ultimate.enabled = true;
+            cUg = (cUg + ultimate_guage) < mUg ? cUg + ultimate_guage : mUg;
+
+            UpdateUltimateBar();
+
+            if (cUg >= 100)
+            {
+                //특정 이미지 출력
+                Ultimate.enabled = true;
+            }
         }
     }
     public void UseUltimate() // 궁극기 사용
     {
         cUg = 0;
+        StartCoroutine(player_clone.GetComponent<UltimateInterface>().Ultimate());
         UpdateUltimateBar();
         Ultimate.enabled = false;
     }

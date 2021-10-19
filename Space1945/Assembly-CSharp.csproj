@@ -131,6 +131,7 @@
     <Compile Include="Assets\Scripts\PanelListeners\ItemsPanelListener.cs" />
     <Compile Include="Assets\Scripts\PanelListeners\StageButtonListener.cs" />
     <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\Move\Elite\MoveStop.cs" />
+    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Lazer2.cs" />
     <Compile Include="Assets\Scripts\Parts\SubScript.cs" />
     <Compile Include="Assets\Scripts\ItemInfo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
@@ -141,7 +142,10 @@
     <Compile Include="Assets\Scripts\MainCameraListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\MainCanvasListener.cs" />
-    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Lazer2.cs" />
+    <Compile Include="Assets\Prefabs\Resources\Player\UltimateSkill\GatlingShot.cs" />
+    <Compile Include="Assets\Prefabs\Resources\Player\UltimateSkill\UltimateInterface.cs" />
+    <Compile Include="Assets\Prefabs\Resources\Player\UltimateSkill\ThrowEnergySphere.cs" />
+    <Compile Include="Assets\Prefabs\Resources\Player\UltimateSkill\ES.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

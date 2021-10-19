@@ -7,13 +7,11 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public float cur_hp { get; set; }
-    public float invincible_time; // 해당 시간동안 무적
     
     Rigidbody2D rigid;
     PolygonCollider2D col;
     GameObject airframe;
     float airframe_crash_damage;
-    bool invincible;
 
     Vector2 touch_began;
     Touch touch;
@@ -38,32 +36,13 @@ public class Player : MonoBehaviour
 
         cur_hp = airframe.GetComponent<AirframeScript>().max_hp;
         touch_began = new Vector2(0, 0);
-
-        invincible = false;
     }
 
-    IEnumerator InvincibleTime()
-    {
-        yield return new WaitForSeconds(invincible_time);
-
-        invincible = false;
-    }
-    
-    public void BodyAttacked(float crash_damage)
-    {
-        if (!invincible)
-        {
-            invincible = true;
-            StartCoroutine(InvincibleTime());
-            Attacked(crash_damage);
-        }
-    }
     public void Attacked(float crash_damage)
     {
         cur_hp -= crash_damage;
         Camera.main.GetComponent<Ingame_manager>().UpdatePlayersHP();
     }
-
     void Move()
     {
         if (Input.touchCount == 1)
@@ -92,28 +71,10 @@ public class Player : MonoBehaviour
             // 사운드 출력
             ParticleSystem par = Instantiate(par_die);
             par.transform.position = transform.position; // 사망 효과
+            StopAllCoroutines();
             Destroy(gameObject);
         }
 
         Move();
-    }
-
-    void OnTriggerEnter2D(Collider2D col) // 적 개체와의 충돌만 담당
-    {
-        switch (col.gameObject.tag)
-        {
-            case "enemy":
-                col.gameObject.GetComponent<Mob_info>().BodyAttacked(airframe_crash_damage);
-                break;
-        }
-    }
-    void OnTriggerStay2D(Collider2D col) // 적 개체와의 충돌만 담당
-    {
-        switch (col.gameObject.tag)
-        {
-            case "enemy":
-                col.gameObject.GetComponent<Mob_info>().BodyAttacked(airframe_crash_damage);
-                break;
-        }
     }
 }

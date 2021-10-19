@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 1284084121258118277}
   - component: {fileID: 2928319803325478870}
   - component: {fileID: 4514299220261809202}
+  - component: {fileID: 771849725318683338}
   m_Layer: 6
   m_Name: Ship2
   m_TagString: player
@@ -288,6 +289,7 @@ MonoBehaviour:
   - {fileID: 3742930705781724158}
   - {fileID: 6876167145884593136}
   max_hp: 150
+  basic_def: 0
   crash_damage: 10
   gold: 0
 --- !u!114 &4514299220261809202
@@ -302,4 +304,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ad9475727e24840af2da42f5727bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invincible_time: 1
+--- !u!114 &771849725318683338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9041209992465218530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b82c688d89e934bba11c3382587eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  es: {fileID: 3298893019938817072, guid: 94dca927debbac440a4e0530e44377d2, type: 3}

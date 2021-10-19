@@ -17,8 +17,8 @@ public class AirframeScript : MonoBehaviour
 
     GameObject bullet;
     float bullet_damage;
-    float fire_rate;
-    int fire_cnt_per_shot;
+    public float fire_rate { get; set; }
+    public int fire_cnt_per_shot { get; set; }
     float max_angle;
     float min_angle;
 
@@ -38,10 +38,10 @@ public class AirframeScript : MonoBehaviour
         max_angle = atk.GetComponent<AtkScript>().max_angle;
         min_angle = atk.GetComponent<AtkScript>().min_angle;
 
-        atk_coroutine = StartCoroutine(Attack());
+        atk_coroutine = StartCoroutine(Attack(fire_rate, fire_cnt_per_shot));
     }
 
-    public IEnumerator Attack()
+    public IEnumerator Attack(float fire_rate, int fire_cnt_per_shot)
     {
         while (true)
         {

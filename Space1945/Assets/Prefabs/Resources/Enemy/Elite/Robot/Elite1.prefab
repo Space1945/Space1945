@@ -331,7 +331,7 @@ MonoBehaviour:
   exp: 250
   gold: 550
   add_guage: 5
-  invincible_time: 0.2
+  invincible_time: 1
   instantiate_count: 1
   kind: Elite
   instantiate_point: 
