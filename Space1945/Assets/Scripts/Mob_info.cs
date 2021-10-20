@@ -81,6 +81,8 @@ public class Mob_info : MonoBehaviour
             Camera.main.GetComponent<Ingame_manager>().KillEnemy(score, exp, gold);
             Camera.main.GetComponent<Ingame_manager>().enemys.Remove(gameObject);
 
+            StopAllCoroutines();
+
             //사운드 출력
             //일정몹이 아이템 뿌리기
             Destroy(gameObject);
@@ -105,7 +107,8 @@ public class Mob_info : MonoBehaviour
             case "player":
                 if (!invincible)
                 {
-                    col.gameObject.GetComponent<Player>().Attacked(crash_damage);
+                    float new_crash_damage = crash_damage - col.gameObject.GetComponent<AirframeScript>().basic_def;
+                    col.gameObject.GetComponent<Player>().Attacked(new_crash_damage > 0 ? new_crash_damage : 0);
                     BodyAttacked(col.gameObject.GetComponent<AirframeScript>().crash_damage);
                 }
                 break;

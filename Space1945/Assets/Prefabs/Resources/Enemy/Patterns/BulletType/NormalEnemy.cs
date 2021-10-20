@@ -35,7 +35,8 @@ public class NormalEnemy : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "player":
-                col.gameObject.GetComponent<Player>().Attacked(crash_damage);
+                float new_crash_damage = crash_damage - col.gameObject.GetComponent<AirframeScript>().basic_def;
+                col.gameObject.GetComponent<Player>().Attacked(new_crash_damage > 0 ? new_crash_damage : 0);
                 Destroy(gameObject);
                 break;
         }

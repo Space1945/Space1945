@@ -289,7 +289,7 @@ MonoBehaviour:
   - {fileID: 3742930705781724158}
   - {fileID: 6876167145884593136}
   max_hp: 150
-  basic_def: 0
+  basic_def: 5
   crash_damage: 10
   gold: 0
 --- !u!114 &4514299220261809202

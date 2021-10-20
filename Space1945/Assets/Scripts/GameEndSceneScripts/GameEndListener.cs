@@ -28,14 +28,17 @@ public class GameEndListener : MonoBehaviour
         int score = PlayerPrefs.GetInt(stage_score);
         if (score < DB_Manager.Instance.score_earned)
             PlayerPrefs.SetInt(stage_score, DB_Manager.Instance.score_earned);
-        PlayerPrefs.SetInt("gold", PlayerPrefs.GetInt("gold") + DB_Manager.Instance.gold_earned);
+
+        int gold_earned = (int)(DB_Manager.Instance.gold_earned * (1 + DB_Manager.Instance.ex_total.ex_gold / 100f));
+        PlayerPrefs.SetInt("gold", PlayerPrefs.GetInt("gold") + gold_earned);
 
         int max_exp = PlayerPrefs.GetInt("max_exp");
         int max_level = PlayerPrefs.GetInt("max_level");
         int level = PlayerPrefs.GetInt("pilot_level");
+        int exp_earned = (int)(DB_Manager.Instance.exp_earned * (1 + DB_Manager.Instance.ex_total.ex_exp / 100f));
         if (level < max_level)
         {
-            int exp = PlayerPrefs.GetInt("pilot_exp") + DB_Manager.Instance.exp_earned;
+            int exp = PlayerPrefs.GetInt("pilot_exp") + exp_earned;
             bool level_up = false;
             while (exp >= max_exp)
             {
@@ -60,8 +63,8 @@ public class GameEndListener : MonoBehaviour
 
         score_text.text = "ÃÑ È¹µæÇÑ ½ºÄÚ¾î: " + DB_Manager.Instance.score_earned;
         best_score_text.text = "ÃÖ°í Á¡¼ö: " + PlayerPrefs.GetInt(stage_score);
-        exp_text.text = "ÃÑ È¹µæÇÑ °æÇèÄ¡: " + DB_Manager.Instance.exp_earned;
-        gold_text.text = "ÃÑ È¹µæÇÑ °ñµå: " + DB_Manager.Instance.gold_earned;
+        exp_text.text = "ÃÑ È¹µæÇÑ °æÇèÄ¡: " + exp_earned;
+        gold_text.text = "ÃÑ È¹µæÇÑ °ñµå: " + gold_earned;
         clear_or_not_text.text = DB_Manager.Instance.stage_clear ? "Âü ÀßÇÏ¼Ì½À´Ï´Ù!" : "¤»¤»¤»¤»¤»¤»¤»¤»¤»";
     }
 

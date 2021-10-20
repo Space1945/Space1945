@@ -44,6 +44,7 @@ public class Ingame_manager : MonoBehaviour
         ReadStage();
         DB_Manager.Instance.InitStageDB();
 
+        DB_Manager.Instance.Reinforce();
         player = DB_Manager.Instance.using_airframe;
         player_clone = Instantiate(player); // º¹Á¦
         
@@ -183,11 +184,14 @@ public class Ingame_manager : MonoBehaviour
             if (enemys.Count == 0)
             {
                 DB_Manager.Instance.stage_clear = true;
+                player_clone.GetComponent<AirframeScript>().StopAllCoroutines();
+                StopAllCoroutines();
                 SceneManager.LoadScene("GameEnd");
             }
-            if (player_clone == null) // »ç¸Á
+            else if (player_clone == null) // »ç¸Á
             {
                 DB_Manager.Instance.stage_clear = false;
+                StopAllCoroutines();
                 SceneManager.LoadScene("GameEnd");
             }
         }

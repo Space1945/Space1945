@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e178f80fc4b5e44b9a64779a60eb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crash_damage: 300
+  crash_damage: 250
   speed: 6
 --- !u!114 &3969933912629508489
 MonoBehaviour:
@@ -167,5 +167,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77cb4e9dba93bbf4a9c05a3f036268ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abs_dis_from_body: {x: 0.5, y: 0.5}
-  backward_speed: 0.05

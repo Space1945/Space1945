@@ -12,13 +12,4 @@ public class AtkScript : MonoBehaviour
     public int fire_cnt_per_shot; // 한번에 발사하는 탄환수
     public float max_angle;
     public float min_angle;
-
-    public float crash_damage { get; set; }
-    public float speed { get; set; }
-
-    void Start()
-    {
-        crash_damage = bullet.GetComponent<BulletInfo>().crash_damage;
-        speed = bullet.GetComponent<BulletInfo>().speed;
-    }
 }

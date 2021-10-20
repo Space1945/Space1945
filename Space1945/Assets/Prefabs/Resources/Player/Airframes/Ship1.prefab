@@ -276,7 +276,7 @@ MonoBehaviour:
   - {fileID: 5794423726923561067}
   - {fileID: 9191952871395967202}
   max_hp: 250
-  basic_def: 1
+  basic_def: 10
   crash_damage: 25
   gold: 0
 --- !u!114 &4514299220261809202
@@ -291,7 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ad9475727e24840af2da42f5727bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invincible_time: 1
 --- !u!114 &7691240773885018276
 MonoBehaviour:
   m_ObjectHideFlags: 0

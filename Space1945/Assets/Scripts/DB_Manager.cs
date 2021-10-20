@@ -60,6 +60,52 @@ public class DB_Manager
     }
     public ex_stats ex_total;
 
+    public void Reinforce()
+    {
+        // 초기화
+        ex_total.ex_hp = 0;
+        ex_total.ex_def = 0;
+        ex_total.ex_crash_dmg = 0;
+        ex_total.ex_bullet_dmg = 0;
+        ex_total.ex_fire_rate = 0;
+        ex_total.ex_crit_chance = 0;
+        ex_total.ex_crit_dmg = 0;
+        ex_total.ex_gold = 0;
+        ex_total.ex_exp = 0;
+        ex_total.ex_drop = 0;
+
+        // 공격 파츠
+        // 추가 증가량 없음
+
+        // 방어 파츠
+        Instance.ex_total.ex_hp += using_def.GetComponent<DefScript>().add_hp;
+        Instance.ex_total.ex_def += using_def.GetComponent<DefScript>().add_def;
+
+        // 왼쪽 서브 파츠
+        Instance.ex_total.ex_hp += using_sub_left.GetComponent<SubScript>().adds.ex_hp;
+        Instance.ex_total.ex_def += using_sub_left.GetComponent<SubScript>().adds.ex_def;
+        Instance.ex_total.ex_crash_dmg += using_sub_left.GetComponent<SubScript>().adds.ex_crash_dmg;
+        Instance.ex_total.ex_bullet_dmg += using_sub_left.GetComponent<SubScript>().adds.ex_bullet_dmg;
+        Instance.ex_total.ex_fire_rate += using_sub_left.GetComponent<SubScript>().adds.ex_fire_rate;
+        Instance.ex_total.ex_crit_chance += using_sub_left.GetComponent<SubScript>().adds.ex_crit_chance;
+        Instance.ex_total.ex_crit_dmg += using_sub_left.GetComponent<SubScript>().adds.ex_crit_dmg;
+        Instance.ex_total.ex_gold += using_sub_left.GetComponent<SubScript>().adds.ex_gold;
+        Instance.ex_total.ex_exp += using_sub_left.GetComponent<SubScript>().adds.ex_exp;
+        Instance.ex_total.ex_drop += using_sub_left.GetComponent<SubScript>().adds.ex_drop;
+
+        // 오른쪽 서브 파츠
+        Instance.ex_total.ex_hp += using_sub_right.GetComponent<SubScript>().adds.ex_hp;
+        Instance.ex_total.ex_def += using_sub_right.GetComponent<SubScript>().adds.ex_def;
+        Instance.ex_total.ex_crash_dmg += using_sub_right.GetComponent<SubScript>().adds.ex_crash_dmg;
+        Instance.ex_total.ex_bullet_dmg += using_sub_right.GetComponent<SubScript>().adds.ex_bullet_dmg;
+        Instance.ex_total.ex_fire_rate += using_sub_right.GetComponent<SubScript>().adds.ex_fire_rate;
+        Instance.ex_total.ex_crit_chance += using_sub_right.GetComponent<SubScript>().adds.ex_crit_chance;
+        Instance.ex_total.ex_crit_dmg += using_sub_right.GetComponent<SubScript>().adds.ex_crit_dmg;
+        Instance.ex_total.ex_gold += using_sub_right.GetComponent<SubScript>().adds.ex_gold;
+        Instance.ex_total.ex_exp += using_sub_right.GetComponent<SubScript>().adds.ex_exp;
+        Instance.ex_total.ex_drop += using_sub_right.GetComponent<SubScript>().adds.ex_drop;
+    }
+
     DB_Manager()
     {
         LoadAllParts();

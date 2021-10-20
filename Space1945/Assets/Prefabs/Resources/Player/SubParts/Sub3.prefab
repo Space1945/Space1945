@@ -105,6 +105,6 @@ MonoBehaviour:
     ex_fire_rate: 0
     ex_crit_chance: 0
     ex_crit_dmg: 0
-    ex_gold: 0
-    ex_exp: 0
+    ex_gold: 35
+    ex_exp: 25
     ex_drop: 0
