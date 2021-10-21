@@ -25,31 +25,25 @@ public class BulletInfo : MonoBehaviour
     }
 
     float angle;
-    bool crit = false;
+    bool crit;
 
-    public void Reinforce(bool inherit)
+    void Awake()
     {
         angle = Random.Range(transform.parent.GetComponent<AtkScript>().min_angle, transform.parent.GetComponent<AtkScript>().max_angle);
-        if (inherit)
-            crit_chance_p = transform.parent.GetComponent<BulletInfo>().crit_chance_p;
-        else
-            crit_chance_p += DB_Manager.Instance.ex_total.ex_crit_chance;
+        crit_chance_p += DB_Manager.Instance.ex_total.ex_crit_chance;
         if (crit_chance_p > 100f)
             crit_chance_p = 100f;
-
-        if (inherit)
-            crit_damage_p = transform.parent.GetComponent<BulletInfo>().crit_damage_p;
-        else
-            crit_damage_p = DB_Manager.Instance.ex_total.ex_crit_dmg;
+        crit_damage_p += DB_Manager.Instance.ex_total.ex_crit_dmg;
 
         if (Random.Range(1f, 100f) <= crit_chance_p) // 크리티컬일때
         {
+            crit = true;
             crash_damage = crash_damage * (1 + DB_Manager.Instance.ex_total.ex_crash_dmg / 100f) * (1 + crit_damage_p / 100f);
             GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
-            crit = true;
         }
         else
         {
+            crit = false;
             crash_damage = crash_damage * (1 + DB_Manager.Instance.ex_total.ex_crash_dmg / 100f);
         }
     }

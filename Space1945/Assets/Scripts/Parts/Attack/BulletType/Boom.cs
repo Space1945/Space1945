@@ -16,7 +16,6 @@ public class Boom : MonoBehaviour
         boom_damage = GetComponent<BulletInfo>().crash_damage;
         range = 0;
         collided = new HashSet<int>();
-        transform.parent = null;
 
         StartCoroutine(Attack());
     }

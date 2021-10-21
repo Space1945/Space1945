@@ -159,6 +159,7 @@ MonoBehaviour:
   speed: 6
   crit_chance_p: 5
   crit_damage_p: 30
+  derived_from_bullet: 0
 --- !u!114 &8622389619284765129
 MonoBehaviour:
   m_ObjectHideFlags: 0

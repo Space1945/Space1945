@@ -15,8 +15,15 @@ public class AtkScript : MonoBehaviour
 
     Coroutine atk_coroutine;
 
-    IEnumerator Attack(Transform[] butts)
+    void Start()
     {
+        atk_coroutine = StartCoroutine(Attack());
+    }
+
+    IEnumerator Attack()
+    {
+        Transform[] butts = transform.parent.GetComponent<AirframeScript>().butts;
+
         if (fire_rate < 0.05f) // 최대 공속
             fire_rate = 0.05f;
 
@@ -24,16 +31,15 @@ public class AtkScript : MonoBehaviour
         {
             for (int i = 0; i < butts.Length; i++)
                 for (int j = 0; j < fire_cnt_per_shot; j++)
-                {
-                    GameObject rbc = Instantiate(bullet, butts[i].position, Quaternion.identity, transform);
-                    rbc.GetComponent<BulletInfo>().Reinforce(false);
-                }
+                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform);
 
             yield return new WaitForSeconds(fire_rate);
         }
     }
-    IEnumerator Attack(Transform[] butts, float fire_rate, float fire_cnt_per_shot)
+    IEnumerator Attack(float fire_rate, float fire_cnt_per_shot)
     {
+        Transform[] butts = transform.parent.GetComponent<AirframeScript>().butts;
+
         if (fire_rate < 0.05f) // 최대 공속
             fire_rate = 0.05f;
 
@@ -41,10 +47,7 @@ public class AtkScript : MonoBehaviour
         {
             for (int i = 0; i < butts.Length; i++)
                 for (int j = 0; j < fire_cnt_per_shot; j++)
-                {
-                    GameObject rbc = Instantiate(bullet, butts[i].position, Quaternion.identity, transform);
-                    rbc.GetComponent<BulletInfo>().Reinforce(false);
-                }
+                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform);
 
             yield return new WaitForSeconds(fire_rate);
         }
@@ -54,12 +57,12 @@ public class AtkScript : MonoBehaviour
     {
         StopCoroutine(atk_coroutine);
     }
-    public void StartAttackCoroutine(Transform[] butts)
+    public void StartAttackCoroutine()
     {
-        atk_coroutine = StartCoroutine(Attack(butts));
+        atk_coroutine = StartCoroutine(Attack());
     }
-    public void StartAttackCoroutine(Transform[] butts, float fire_rate, float fire_cnt_per_shot)
+    public void StartAttackCoroutine(float fire_rate, float fire_cnt_per_shot)
     {
-        atk_coroutine = StartCoroutine(Attack(butts, fire_rate, fire_cnt_per_shot));
+        atk_coroutine = StartCoroutine(Attack(fire_rate, fire_cnt_per_shot));
     }
 }

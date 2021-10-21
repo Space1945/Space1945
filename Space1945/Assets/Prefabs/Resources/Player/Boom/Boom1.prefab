@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2340877167840637773}
   - component: {fileID: 2680486615078314384}
   - component: {fileID: 1609154622542617911}
-  - component: {fileID: 7305024690146282877}
+  - component: {fileID: 774229379747788730}
   m_Layer: 16
   m_Name: Boom1
   m_TagString: boom
@@ -141,8 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_range: 15
   delta_range: 0.75
-  boom_damage: 250
---- !u!114 &7305024690146282877
+--- !u!114 &774229379747788730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,10 +150,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2340877167840637775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e178f80fc4b5e44b9a64779a60eb03, type: 3}
+  m_Script: {fileID: 11500000, guid: b1afb2c7b06be65418657ac6c2a67897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   crash_damage: 250
   speed: 0
-  crit_chance_p: 0
-  crit_damage_p: 0

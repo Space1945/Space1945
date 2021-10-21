@@ -36,8 +36,7 @@ public class Explosion : MonoBehaviour
                 break;
             case "enemy":
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
-                GameObject bc = Instantiate(boom, transform.position, Quaternion.identity, transform);
-                bc.GetComponent<BulletInfo>().Reinforce(true);
+                Instantiate(boom, transform.position, Quaternion.identity);
                 Destroy(gameObject);
                 break;
         }

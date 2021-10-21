@@ -20,10 +20,9 @@ public class Penetrate : MonoBehaviour
         crash_damage = GetComponent<BulletInfo>().crash_damage;
         player_pos = Camera.main.GetComponent<Ingame_manager>().player_clone.transform.position;
         transform.rotation = Quaternion.Euler(0, 0, shot_angle - 90);
+        transform.parent = null;
 
         StartCoroutine(Attack());
-
-        transform.parent = null;
     }
 
     IEnumerator Attack()

@@ -44,17 +44,20 @@ public class AirframeScript : MonoBehaviour
     GameObject sl_;
     GameObject sr_;
 
-    void Start()
+    void Awake()
+    {
+        atk_ = Instantiate(DB_Manager.Instance.using_atk, transform);
+        atk_.GetComponent<SpriteRenderer>().sprite = null;
+        def_ = Instantiate(DB_Manager.Instance.using_def, transform);
+        def_.GetComponent<SpriteRenderer>().sprite = null;
+        sl_ = Instantiate(DB_Manager.Instance.using_sub_left, transform);
+        sl_.GetComponent<SpriteRenderer>().sprite = null;
+        sr_ = Instantiate(DB_Manager.Instance.using_sub_right, transform);
+        sr_.GetComponent<SpriteRenderer>().sprite = null;
+    }
+    void Start() // °­È­
     {
         max_hp *= 1 + DB_Manager.Instance.ex_total.ex_hp / 100f;
         basic_def *= 1 + DB_Manager.Instance.ex_total.ex_def / 100f;
-
-        atk_ = Instantiate(DB_Manager.Instance.using_atk, transform);
-        atk_.GetComponent<SpriteRenderer>().sprite = null;
-        def_ = DB_Manager.Instance.using_def;
-        sl_ = DB_Manager.Instance.using_sub_left;
-        sr_ = DB_Manager.Instance.using_sub_right;
-
-        atk_.GetComponent<AtkScript>().StartAttackCoroutine(butts);
     }
 }

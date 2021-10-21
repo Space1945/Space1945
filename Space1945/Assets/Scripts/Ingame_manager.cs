@@ -44,10 +44,9 @@ public class Ingame_manager : MonoBehaviour
         ReadStage();
         DB_Manager.Instance.InitStageDB();
 
-        DB_Manager.Instance.Reinforce();
         player = DB_Manager.Instance.using_airframe;
         player_clone = Instantiate(player); // 복제
-        
+
         mUg = 100; // 플레이어의 기체에 맞게 수정할것
 
         foreach (GameObject obj in BG)
@@ -66,6 +65,8 @@ public class Ingame_manager : MonoBehaviour
         normals = new List<GameObject>();
         normals_time = new List<int>();
         elites = new List<GameObject>();
+
+        DB_Manager.Instance.InitReinforce();
     }
 
     void ReadStage()

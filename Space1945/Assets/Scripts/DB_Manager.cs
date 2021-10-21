@@ -60,9 +60,8 @@ public class DB_Manager
     }
     public ex_stats ex_total;
 
-    public void Reinforce()
+    public void InitReinforce()
     {
-        // 초기화
         ex_total.ex_hp = 0;
         ex_total.ex_def = 0;
         ex_total.ex_crash_dmg = 0;
@@ -73,46 +72,6 @@ public class DB_Manager
         ex_total.ex_gold = 0;
         ex_total.ex_exp = 0;
         ex_total.ex_drop = 0;
-
-        // 공격 파츠
-        ex_total.ex_crit_chance += using_atk.GetComponent<AtkScript>().bullet.GetComponent<BulletInfo>().crit_chance_p;
-        ex_total.ex_crit_dmg += using_atk.GetComponent<AtkScript>().bullet.GetComponent<BulletInfo>().crit_damage_p;
-
-        // 방어 파츠
-        ex_total.ex_hp += using_def.GetComponent<DefScript>().add_hp;
-        ex_total.ex_def += using_def.GetComponent<DefScript>().add_def;
-
-        // 왼쪽 서브 파츠
-        ex_total.ex_hp += using_sub_left.GetComponent<SubScript>().adds.ex_hp;
-        ex_total.ex_def += using_sub_left.GetComponent<SubScript>().adds.ex_def;
-        ex_total.ex_crash_dmg += using_sub_left.GetComponent<SubScript>().adds.ex_crash_dmg;
-        ex_total.ex_bullet_dmg += using_sub_left.GetComponent<SubScript>().adds.ex_bullet_dmg;
-        ex_total.ex_fire_rate += using_sub_left.GetComponent<SubScript>().adds.ex_fire_rate;
-        ex_total.ex_crit_chance += using_sub_left.GetComponent<SubScript>().adds.ex_crit_chance;
-        ex_total.ex_crit_dmg += using_sub_left.GetComponent<SubScript>().adds.ex_crit_dmg;
-        ex_total.ex_gold += using_sub_left.GetComponent<SubScript>().adds.ex_gold;
-        ex_total.ex_exp += using_sub_left.GetComponent<SubScript>().adds.ex_exp;
-        ex_total.ex_drop += using_sub_left.GetComponent<SubScript>().adds.ex_drop;
-
-        // 오른쪽 서브 파츠
-        ex_total.ex_hp += using_sub_right.GetComponent<SubScript>().adds.ex_hp;
-        ex_total.ex_def += using_sub_right.GetComponent<SubScript>().adds.ex_def;
-        ex_total.ex_crash_dmg += using_sub_right.GetComponent<SubScript>().adds.ex_crash_dmg;
-        ex_total.ex_bullet_dmg += using_sub_right.GetComponent<SubScript>().adds.ex_bullet_dmg;
-        ex_total.ex_fire_rate += using_sub_right.GetComponent<SubScript>().adds.ex_fire_rate;
-        ex_total.ex_crit_chance += using_sub_right.GetComponent<SubScript>().adds.ex_crit_chance;
-        ex_total.ex_crit_dmg += using_sub_right.GetComponent<SubScript>().adds.ex_crit_dmg;
-        ex_total.ex_gold += using_sub_right.GetComponent<SubScript>().adds.ex_gold;
-        ex_total.ex_exp += using_sub_right.GetComponent<SubScript>().adds.ex_exp;
-        ex_total.ex_drop += using_sub_right.GetComponent<SubScript>().adds.ex_drop;
-
-        // 예외처리
-        if (ex_total.ex_crit_chance > 100f)
-            ex_total.ex_crit_chance = 100f;
-        if (ex_total.ex_fire_rate > 100f)
-            ex_total.ex_fire_rate = 100f;
-        if (ex_total.ex_drop > 100f)
-            ex_total.ex_drop = 100f;
     }
 
     DB_Manager()
