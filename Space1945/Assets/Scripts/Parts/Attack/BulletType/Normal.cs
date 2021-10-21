@@ -8,8 +8,8 @@ public class Normal : MonoBehaviour
     // 충돌시 데미지
     float shot_angle;
     Vector2 normalized_angle;
-    float speed;
     float crash_damage;
+    float speed;
 
     void Start()
     {
@@ -20,6 +20,8 @@ public class Normal : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, shot_angle - 90);
 
         GetComponent<Rigidbody2D>().velocity = normalized_angle * speed;
+
+        transform.parent = null;
     }
 
     void OnTriggerEnter2D(Collider2D col) // 기존 Mob info에 있던 충돌시 총알 삭제 관련 및 bullet info의 벽 충돌 관련 충돌처리를 가져옴

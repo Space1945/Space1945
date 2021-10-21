@@ -19,13 +19,13 @@ public class Lazer2 : MonoBehaviour
         speed = GetComponent<BulletInfo>().speed;
         crash_damage = GetComponent<BulletInfo>().crash_damage;
         transform.rotation = Quaternion.Euler(0, 0, shot_angle - 90);
+        transform.parent = null;
 
         StartCoroutine(Attack());
     }
 
     IEnumerator Attack()
     {
-
         transform.localScale = new Vector2(0f, 3f);
 
         yield return new WaitForSeconds(0.3f);

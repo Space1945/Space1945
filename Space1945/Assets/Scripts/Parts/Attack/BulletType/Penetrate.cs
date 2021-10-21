@@ -22,6 +22,8 @@ public class Penetrate : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, shot_angle - 90);
 
         StartCoroutine(Attack());
+
+        transform.parent = null;
     }
 
     IEnumerator Attack()

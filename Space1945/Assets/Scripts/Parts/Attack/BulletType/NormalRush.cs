@@ -24,6 +24,7 @@ public class NormalRush : MonoBehaviour
         else
             GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
 
+        transform.parent = null;
     }
 
     void FindTarget()

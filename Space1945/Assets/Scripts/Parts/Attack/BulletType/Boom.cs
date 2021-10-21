@@ -6,22 +6,19 @@ public class Boom : MonoBehaviour
 {
     public float max_range; // 폭발 최대 범위
     public float delta_range; // 프레임당 커지는 크기
-    public float boom_damage; //충돌 데미지
 
+    float boom_damage; //충돌 데미지
     float range; // 현재 폭발 범위
     HashSet<int> collided;
 
     void Start()
     {
-        Initiate();
-
-        StartCoroutine(Attack());
-    }
-
-    void Initiate()
-    {
+        boom_damage = GetComponent<BulletInfo>().crash_damage;
         range = 0;
         collided = new HashSet<int>();
+        transform.parent = null;
+
+        StartCoroutine(Attack());
     }
 
     IEnumerator Attack()
