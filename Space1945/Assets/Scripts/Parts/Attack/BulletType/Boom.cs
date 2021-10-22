@@ -11,11 +11,15 @@ public class Boom : MonoBehaviour
     float range; // 현재 폭발 범위
     HashSet<int> collided;
 
+    void Awake()
+    {
+        collided = new HashSet<int>();
+        range = 0;
+    }
+
     void Start()
     {
-        boom_damage = GetComponent<BulletInfo>().crash_damage;
-        range = 0;
-        collided = new HashSet<int>();
+        boom_damage = GetComponent<DerivedBulletInfo>().crash_damage;
 
         StartCoroutine(Attack());
     }

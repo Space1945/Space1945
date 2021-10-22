@@ -185,7 +185,6 @@ public class Ingame_manager : MonoBehaviour
             if (enemys.Count == 0)
             {
                 DB_Manager.Instance.stage_clear = true;
-                player_clone.GetComponent<AirframeScript>().StopAllCoroutines();
                 StopAllCoroutines();
                 SceneManager.LoadScene("GameEnd");
             }

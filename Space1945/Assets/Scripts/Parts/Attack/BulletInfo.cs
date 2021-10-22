@@ -27,9 +27,8 @@ public class BulletInfo : MonoBehaviour
     float angle;
     bool crit;
 
-    void Awake()
+    void Awake() // instantiate된 직후 최초실행
     {
-        angle = Random.Range(transform.parent.GetComponent<AtkScript>().min_angle, transform.parent.GetComponent<AtkScript>().max_angle);
         crit_chance_p += DB_Manager.Instance.ex_total.ex_crit_chance;
         if (crit_chance_p > 100f)
             crit_chance_p = 100f;
@@ -38,13 +37,18 @@ public class BulletInfo : MonoBehaviour
         if (Random.Range(1f, 100f) <= crit_chance_p) // 크리티컬일때
         {
             crit = true;
-            crash_damage = crash_damage * (1 + DB_Manager.Instance.ex_total.ex_crash_dmg / 100f) * (1 + crit_damage_p / 100f);
+            crash_damage = crash_damage * (1 + DB_Manager.Instance.ex_total.ex_bullet_dmg / 100f) * (1 + crit_damage_p / 100f);
             GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
         }
         else
         {
             crit = false;
-            crash_damage = crash_damage * (1 + DB_Manager.Instance.ex_total.ex_crash_dmg / 100f);
+            crash_damage = crash_damage * (1 + DB_Manager.Instance.ex_total.ex_bullet_dmg / 100f);
         }
+    }
+
+    public void Set(float shot_angle) // Awake 다음으로 실행, 그 이후 Start 실행
+    {
+        angle = shot_angle;
     }
 }

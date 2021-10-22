@@ -31,7 +31,7 @@ public class AtkScript : MonoBehaviour
         {
             for (int i = 0; i < butts.Length; i++)
                 for (int j = 0; j < fire_cnt_per_shot; j++)
-                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform);
+                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform).GetComponent<BulletInfo>().Set(Random.Range(min_angle, max_angle));
 
             yield return new WaitForSeconds(fire_rate);
         }
@@ -47,7 +47,7 @@ public class AtkScript : MonoBehaviour
         {
             for (int i = 0; i < butts.Length; i++)
                 for (int j = 0; j < fire_cnt_per_shot; j++)
-                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform);
+                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform).GetComponent<BulletInfo>().Set(Random.Range(min_angle, max_angle));
 
             yield return new WaitForSeconds(fire_rate);
         }

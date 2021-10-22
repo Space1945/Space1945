@@ -59,5 +59,6 @@ public class AirframeScript : MonoBehaviour
     {
         max_hp *= 1 + DB_Manager.Instance.ex_total.ex_hp / 100f;
         basic_def *= 1 + DB_Manager.Instance.ex_total.ex_def / 100f;
+        crash_damage *= 1 + DB_Manager.Instance.ex_total.ex_crash_dmg / 100f;
     }
 }
