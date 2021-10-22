@@ -10,6 +10,8 @@ public class StorePanelListener : MonoBehaviour
     public AudioClip button_clicked1;
     public AudioClip button_clicked2;
 
+    public Image[] face;
+
     public Button[] item_button;
     private GameObject[] item_objects; // 버튼에 올라간 gameobject
 
@@ -26,6 +28,8 @@ public class StorePanelListener : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        face_disable();
+        face[0].enabled = true;
         audio_source = GetComponent<AudioSource>();
         audio_source.playOnAwake = false; // 설정해주어야 클릭시에만 소리남
 
@@ -38,7 +42,12 @@ public class StorePanelListener : MonoBehaviour
 
         item_info_panel.SetActive(false);
     }
-
+    private void face_disable()
+    {
+        face[0].enabled = false;
+        face[1].enabled = false;
+        face[2].enabled = false;
+    }
     public void PlayEffectSound1()
     {
         audio_source.clip = button_clicked1;
@@ -75,18 +84,47 @@ public class StorePanelListener : MonoBehaviour
         {
             int rand = UnityEngine.Random.Range(0, 10001); // 0 ~ 10000
 
-            if (rand > 9999)
+            if (rand > 9990)
+            {
                 gold += 1000000;
+                face_disable();
+                face[1].enabled = true;
+            }
             else if (rand > 9900)
+            {
                 gold += 100000;
+                face_disable();
+                face[0].enabled = true;
+            }
             else if (rand > 9700)
+            {
                 gold += 50000;
+                face_disable();
+                face[0].enabled = true;
+            }
             else if (rand > 7500)
+            {
                 gold += 10000;
+                face_disable();
+                face[1].enabled = true;
+            }
             else if (rand > 5000)
+            {
                 gold += 5000;
+                face_disable();
+                face[0].enabled = true;
+            }
             else if (rand > 2500)
+            {
                 gold += 2500;
+                face_disable();
+                face[1].enabled = true;
+            }
+            else
+            {
+                face_disable();
+                face[2].enabled = true;
+            }
         }
 
         PlayerPrefs.SetInt("gold", gold - gotcha_gold);

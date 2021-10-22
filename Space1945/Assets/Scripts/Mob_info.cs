@@ -51,9 +51,7 @@ public class Mob_info : MonoBehaviour
         while (true)
         {
             for (int i = 0; i < butts.Length; i++)
-            {
-                GameObject bc = Instantiate(bullet, butts[i].position, Quaternion.identity, butts[i]);
-            }
+                Instantiate(bullet, butts[i].position, Quaternion.identity).GetComponent<BulletInfo>().Set(GV.GetDegree(transform.position, butts[i].position));
 
             yield return new WaitForSeconds(fire_rate);
         }

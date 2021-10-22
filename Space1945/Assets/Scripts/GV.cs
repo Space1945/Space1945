@@ -42,6 +42,15 @@ public class GV : MonoBehaviour
     {
         return Mathf.Atan(vector.y / vector.x) * Mathf.Rad2Deg;
     }
+    public static float GetDegree(Vector2 start, Vector2 end)
+    {
+        Vector2 v2 = end - start;
+        return Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg;
+    }
+ /*   public static float GetDegree(Vector2 from, Vector2 to) // from부터 to까지 회전(총알이 토네이도마냥 돌아가면서 날아감)
+    {
+        return Quaternion.FromToRotation(Vector2.up, to - from).eulerAngles.z;
+    }*/
     public static Vector2 GetVector2(float degree)
     {
         return new Vector2(Mathf.Cos(degree * Mathf.Deg2Rad), Mathf.Sin(degree * Mathf.Deg2Rad));

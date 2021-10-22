@@ -156,7 +156,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crash_damage: 35
-  speed: 6
+  speed: 10
+  crit_chance_p: 0
+  crit_damage_p: 0
 --- !u!114 &6620476214624019965
 MonoBehaviour:
   m_ObjectHideFlags: 0
