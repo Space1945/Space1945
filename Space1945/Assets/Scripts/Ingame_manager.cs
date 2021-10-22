@@ -127,7 +127,7 @@ public class Ingame_manager : MonoBehaviour
     /*                 체력바                  */
     public void UpdatePlayersHP() // 플레이어 피격판정 등 플레이어의 체력의 변동 발생
     {
-        HealthBar.fillAmount = (float)player_clone.GetComponent<Player>().cur_hp / player_clone.GetComponent<AirframeScript>().max_hp;
+        HealthBar.fillAmount = player_clone.GetComponent<AirframeScript>().cur_hp / player_clone.GetComponent<AirframeScript>().max_hp;
     }
 
     /*                 스코어, 경험치, 돈                  */

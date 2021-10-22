@@ -51,7 +51,7 @@ public class Mob_info : MonoBehaviour
         while (true)
         {
             for (int i = 0; i < butts.Length; i++)
-                Instantiate(bullet, butts[i].position, Quaternion.identity).GetComponent<BulletInfo>().Set(GV.GetDegree(transform.position, butts[i].position));
+                Instantiate(bullet, butts[i].position, Quaternion.identity).GetComponent<EnemyBulletInfo>().Set(GV.GetDegree(transform.position, butts[i].position));
 
             yield return new WaitForSeconds(fire_rate);
         }
@@ -106,7 +106,7 @@ public class Mob_info : MonoBehaviour
                 if (!invincible)
                 {
                     float new_crash_damage = crash_damage - col.gameObject.GetComponent<AirframeScript>().basic_def;
-                    col.gameObject.GetComponent<Player>().Attacked(new_crash_damage > 0 ? new_crash_damage : 0);
+                    col.gameObject.GetComponent<AirframeScript>().Attacked(new_crash_damage > 0 ? new_crash_damage : 0);
                     BodyAttacked(col.gameObject.GetComponent<AirframeScript>().crash_damage);
                 }
                 break;

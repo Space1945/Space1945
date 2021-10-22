@@ -54,3 +54,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Enemy
+    uniqueID: 3434240499
+    locked: 0
+  - name: PlayerUltimate
+    uniqueID: 3303299743
+    locked: 0
+  - name: Lazer_middle
+    uniqueID: 4031781133
+    locked: 0
+  - name: Lazer_edge
+    uniqueID: 944048487
+    locked: 0
+  - name: Player
+    uniqueID: 2420515425
+    locked: 0

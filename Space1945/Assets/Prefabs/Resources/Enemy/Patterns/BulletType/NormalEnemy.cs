@@ -13,10 +13,10 @@ public class NormalEnemy : MonoBehaviour
 
     void Start()
     {
-        shot_angle = GetComponent<BulletInfo>().shot_angle;
+        shot_angle = GetComponent<EnemyBulletInfo>().shot_angle;
         angle = GV.GetVector2(shot_angle).normalized;
-        speed = GetComponent<BulletInfo>().speed;
-        crash_damage = GetComponent<BulletInfo>().crash_damage;
+        speed = GetComponent<EnemyBulletInfo>().speed;
+        crash_damage = GetComponent<EnemyBulletInfo>().crash_damage;
         transform.rotation = Quaternion.Euler(0, 0, shot_angle - 90);
 
         GetComponent<Rigidbody2D>().velocity = angle * speed;
@@ -33,7 +33,8 @@ public class NormalEnemy : MonoBehaviour
                 break;
             case "player":
                 float new_crash_damage = crash_damage - col.gameObject.GetComponent<AirframeScript>().basic_def;
-                col.gameObject.GetComponent<Player>().Attacked(new_crash_damage > 0 ? new_crash_damage : 0);
+                if (new_crash_damage > 0)
+                    col.gameObject.GetComponent<AirframeScript>().Attacked(new_crash_damage);
                 Destroy(gameObject);
                 break;
         }

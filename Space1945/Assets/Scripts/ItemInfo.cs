@@ -32,7 +32,7 @@ public class ItemInfo : MonoBehaviour
             Destroy(this.gameObject);
         if (collision.gameObject.tag == "player")
         {
-            float cHp = collision.gameObject.GetComponent<Player>().cur_hp;
+            float cHp = collision.gameObject.GetComponent<AirframeScript>().cur_hp;
  //           float mHp = collision.gameObject.GetComponent<Player>().maxHp;
  //           collision.gameObject.GetComponent<Player>().curHp = (cHp + hp) < mHp ? cHp + hp : mHp;
             Camera.main.GetComponent<Ingame_manager>().UpdatePlayersHP();

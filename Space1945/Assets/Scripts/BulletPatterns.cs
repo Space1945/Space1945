@@ -59,7 +59,7 @@ public class BulletPatterns : MonoBehaviour
     }
     private void Start()
     {
-//        pattern = GetComponent<AtkScript>().pattern;
+//        pattern = GetComponent<BulletFire>().pattern;
     }
     // Update is called once per frame
     void FixedUpdate()

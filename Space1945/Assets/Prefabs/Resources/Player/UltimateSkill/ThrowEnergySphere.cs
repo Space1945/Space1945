@@ -5,13 +5,16 @@ using UnityEngine;
 public class ThrowEnergySphere : MonoBehaviour, UltimateInterface
 {
     public GameObject es;
+    public float during_time;
 
     IEnumerator UltimateInterface.Ultimate()
     {
-        GameObject clone = Instantiate(es);
-        clone.transform.position = new Vector2(0, -10);
-        clone.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1);
+        Camera.main.GetComponent<Ingame_manager>().ultimate_use = true;
+        GameObject esc = Instantiate(es);
 
-        yield return null;
+        yield return new WaitForSeconds(during_time);
+
+        Destroy(esc);
+        Camera.main.GetComponent<Ingame_manager>().ultimate_use = false;
     }
 }

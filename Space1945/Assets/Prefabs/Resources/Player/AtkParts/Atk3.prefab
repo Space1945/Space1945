@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4638062735873566300}
   - component: {fileID: 2232182596949577772}
-  - component: {fileID: 2890394679026798709}
+  - component: {fileID: -305770218280703000}
   m_Layer: 0
   m_Name: Atk3
   m_TagString: Untagged
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2890394679026798709
+--- !u!114 &-305770218280703000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,13 +93,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8842577352044744930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a394a60e168081439e691601db98362, type: 3}
+  m_Script: {fileID: 11500000, guid: 823677093c45d064d9e15ac6b5e6ad37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gold: 130000
-  explanation: "\uB808\uC774\uC800 \uACF5\uACA9 \uD0C0\uC785"
-  bullet: {fileID: 1435227160981585394, guid: bd4c2e53b2be7934f90c2b99c376ddcc, type: 3}
-  fire_rate: 3
-  fire_cnt_per_shot: 1
-  max_angle: 90
-  min_angle: 90
+  explanation: 
+  start: {fileID: 3158285493918531552, guid: b7ddbdfbf7331d14598471c715dbbdbb, type: 3}
+  middle: {fileID: 5531258567556517928, guid: 82186ad4ddc5eb24fa5f70a0a13877f9, type: 3}
+  end: {fileID: 1247839149667881599, guid: c7c9924b84f19ec48ae40a618d87c1d1, type: 3}
+  _fire_rate: 1
+  _fire_cnt_per_shot: 1
