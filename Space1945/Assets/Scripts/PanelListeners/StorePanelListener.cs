@@ -290,7 +290,7 @@ public class StorePanelListener : MonoBehaviour
                     }
                     break;
                 case 1:
-                    parts_gold = obj.GetComponent<AtkInterface>().gold;
+                    parts_gold = obj.GetComponent<AtkInterface>()._gold;
                     if (gold >= parts_gold)
                     {
                         gold -= parts_gold;
@@ -337,7 +337,7 @@ public class StorePanelListener : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         DateTime refresh = DateTime.ParseExact(PlayerPrefs.GetString("refresh"), "yyyyMMddHHmmss", null);
         TimeSpan remaining_time;

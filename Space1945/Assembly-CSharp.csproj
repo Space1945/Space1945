@@ -149,6 +149,8 @@
     <Compile Include="Assets\Scripts\MainCameraListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\MainCanvasListener.cs" />
+    <Compile Include="Assets\Prefabs\Resources\Player\UltimateSkill\CallInterceptors.cs" />
+    <Compile Include="Assets\Prefabs\Resources\Player\UltimateSkill\InterceptorScript.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

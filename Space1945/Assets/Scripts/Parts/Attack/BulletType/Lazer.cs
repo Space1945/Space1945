@@ -20,13 +20,13 @@ public class Lazer : MonoBehaviour
             else if (distance <= 15)
                 rayhit.collider.GetComponent<Mob_info>().hp -= GetComponent<BulletInfo>().crash_damage / fire_rate * 0.3f;
             transform.parent.GetChild(2).position = rayhit.point;
-            this.transform.localScale = new Vector2(transform.localScale.x, distance * 5); // 레이저 이미지 표시
+            transform.localScale = new Vector2(transform.localScale.x, distance * 5); // 레이저 이미지 표시
         }
         else
         {
             transform.parent.GetChild(2).position = new Vector2(1000, 1000);
 
-            this.transform.localScale = new Vector2(transform.localScale.x, 75); // 레이저 이미지 표시
+            transform.localScale = new Vector2(transform.localScale.x, 75); // 레이저 이미지 표시
         }
     }
     public void Set(float fire_rate)

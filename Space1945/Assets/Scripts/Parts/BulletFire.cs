@@ -4,23 +4,48 @@ using UnityEngine;
 
 public class BulletFire : MonoBehaviour, AtkInterface
 {
-    public int gold { get; set; }
+    public int gold;
     public string explanation; // 해당 기체 설명
 
     public GameObject bullet;
-    public float _fire_rate;
-    public int _fire_cnt_per_shot;
-    public float fire_rate { get; set; }// 초당
-    public int fire_cnt_per_shot { get; set; } // 한번에 발사하는 탄환수
+    public float fire_rate;
+    public int fire_cnt_per_shot;
+
+    // AtkInterface에 선언된 변수 get만 가능 -----------------------
+    public int _gold
+    {
+        get
+        {
+            return gold;
+        }
+    }
+    public float _fire_rate // 초당
+    {
+        get
+        {
+            return fire_rate;
+        }
+    }
+    public int _fire_cnt_per_shot // 한번에 발사하는 탄환수
+    {
+        get
+        {
+            return fire_cnt_per_shot;
+        }
+    }
+    // -----------------------------------------------------------
+
     public float max_angle;
     public float min_angle;
 
     Coroutine atk_coroutine;
 
+    void Awake() // 초기화
+    {
+
+    }
     void Start()
     {
-        fire_rate = _fire_rate;
-        fire_cnt_per_shot = _fire_cnt_per_shot;
         atk_coroutine = StartCoroutine(Attack());
     }
 
@@ -35,7 +60,7 @@ public class BulletFire : MonoBehaviour, AtkInterface
         {
             for (int i = 0; i < butts.Length; i++)
                 for (int j = 0; j < fire_cnt_per_shot; j++)
-                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform).GetComponent<BulletInfo>().Set(Random.Range(min_angle, max_angle));
+                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle));
 
             yield return new WaitForSeconds(fire_rate);
         }
@@ -51,7 +76,7 @@ public class BulletFire : MonoBehaviour, AtkInterface
         {
             for (int i = 0; i < butts.Length; i++)
                 for (int j = 0; j < fire_cnt_per_shot; j++)
-                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform).GetComponent<BulletInfo>().Set(Random.Range(min_angle, max_angle));
+                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle));
 
             yield return new WaitForSeconds(fire_rate);
         }

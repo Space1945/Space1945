@@ -4,9 +4,9 @@ using UnityEngine;
 
 public interface AtkInterface
 {
-    int gold { get; set; }
-    float fire_rate { get; set; }
-    int fire_cnt_per_shot { get; set; }
+    int _gold { get; }
+    float _fire_rate { get; }
+    int _fire_cnt_per_shot { get; }
 
     void StartAttackCoroutine();
     void StartAttackCoroutine(float fire_rate, int fire_cnt_per_shot);

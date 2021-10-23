@@ -97,9 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gold: 130000
-  explanation: 
+  explanation: "\uB808\uC774\uC800"
   start: {fileID: 3158285493918531552, guid: b7ddbdfbf7331d14598471c715dbbdbb, type: 3}
   middle: {fileID: 5531258567556517928, guid: 82186ad4ddc5eb24fa5f70a0a13877f9, type: 3}
   end: {fileID: 1247839149667881599, guid: c7c9924b84f19ec48ae40a618d87c1d1, type: 3}
-  _fire_rate: 1
-  _fire_cnt_per_shot: 1
+  fire_rate: 1
+  fire_cnt_per_shot: 1

@@ -13,10 +13,10 @@ public class NormalEnemy : MonoBehaviour
 
     void Start()
     {
-        shot_angle = GetComponent<EnemyBulletInfo>().shot_angle;
+        shot_angle = GetComponent<BulletInfo>().shot_angle;
         angle = GV.GetVector2(shot_angle).normalized;
-        speed = GetComponent<EnemyBulletInfo>().speed;
-        crash_damage = GetComponent<EnemyBulletInfo>().crash_damage;
+        speed = GetComponent<BulletInfo>().speed;
+        crash_damage = GetComponent<BulletInfo>().crash_damage;
         transform.rotation = Quaternion.Euler(0, 0, shot_angle - 90);
 
         GetComponent<Rigidbody2D>().velocity = angle * speed;

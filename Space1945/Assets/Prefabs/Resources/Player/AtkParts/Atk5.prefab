@@ -99,7 +99,7 @@ MonoBehaviour:
   gold: 260000
   explanation: "\uBBF8\uC0AC\uC77C \uACF5\uACA9 \uD0C0\uC785"
   bullet: {fileID: 6856463377662865109, guid: 4c631257c1cc0a4489e1d9740e6194da, type: 3}
-  _fire_rate: 2
-  _fire_cnt_per_shot: 1
+  fire_rate: 2
+  fire_cnt_per_shot: 1
   max_angle: 95
   min_angle: 85
