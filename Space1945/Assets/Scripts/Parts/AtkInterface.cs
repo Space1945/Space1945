@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface AtkInterface
 {
+    int gold { get; set; }
     float fire_rate { get; set; }
     int fire_cnt_per_shot { get; set; }
 

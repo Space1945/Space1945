@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletFire : MonoBehaviour, AtkInterface
 {
-    public int gold;
+    public int gold { get; set; }
     public string explanation; // 해당 기체 설명
 
     public GameObject bullet;

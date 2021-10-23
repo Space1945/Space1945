@@ -290,7 +290,7 @@ public class StorePanelListener : MonoBehaviour
                     }
                     break;
                 case 1:
-                    parts_gold = obj.GetComponent<BulletFire>().gold;
+                    parts_gold = obj.GetComponent<AtkInterface>().gold;
                     if (gold >= parts_gold)
                     {
                         gold -= parts_gold;

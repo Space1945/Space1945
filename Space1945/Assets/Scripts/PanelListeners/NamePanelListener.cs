@@ -19,7 +19,7 @@ public class NamePanelListener : MonoBehaviour
         PlayerPrefs.SetInt("pilot_level", 1);
         PlayerPrefs.SetInt("pilot_exp", 0);
         PlayerPrefs.SetString("pilot_skill", "100000000000000000000000000000000000000000000"); // ±Ê¿Ã 45
-        PlayerPrefs.SetInt("gold", 10000);
+        PlayerPrefs.SetInt("gold", 10000000);
         PlayerPrefs.SetInt("max_level", 30);
         PlayerPrefs.SetInt("max_exp", 200);
 
