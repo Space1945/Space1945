@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -1.5
   sprite:
-  - {fileID: 21300000, guid: 1673013d842e7964ea8b61b9555aca50, type: 3}
+  - {fileID: 21300000, guid: 612ccfcdd30017d4c948ae6d1b66147f, type: 3}
 --- !u!61 &7424422396028530201
 BoxCollider2D:
   m_ObjectHideFlags: 0
