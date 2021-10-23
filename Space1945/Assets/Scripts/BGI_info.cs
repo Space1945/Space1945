@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class BGI_info : MonoBehaviour
 {
-    Rigidbody2D rigid;
-    // Start is called before the first frame update
+    
+    public float speed;
+    public Sprite[] sprite;
+
     void Start()
     {
-        rigid = GetComponent<Rigidbody2D>();
-        rigid.velocity = new Vector2(0, -3);
+        Call_BG();
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
+    }
+
+    void Call_BG()
+    {
+        GetComponent<SpriteRenderer>().sprite = sprite[0];
     }
 
 
@@ -17,6 +24,9 @@ public class BGI_info : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "BG_E_line")
-            transform.position = new Vector3(0, transform.position.y + 60, 300);
+        {
+            Debug.Log(this.transform.position);
+            transform.position = new Vector2(0, 22.4f);
+        }
     }
 }
