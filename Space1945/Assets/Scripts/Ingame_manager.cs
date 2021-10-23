@@ -66,7 +66,7 @@ public class Ingame_manager : MonoBehaviour
         normals_time = new List<int>();
         elites = new List<GameObject>();
 
-        DB_Manager.Instance.InitReinforce();
+        //DB_Manager.Instance.InitReinforce();
     }
 
     void ReadStage()

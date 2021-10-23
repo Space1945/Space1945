@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SkillButtonListener : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class SkillButtonListener : MonoBehaviour
 {
     public GameObject lab_panel;
+
+    public int max_point;
+    public int cur_point;
 
     public float ex_hp;
     public float ex_def;
@@ -18,47 +21,49 @@ public class SkillButtonListener : MonoBehaviour, IPointerDownHandler, IPointerU
     public float ex_exp;
     public float ex_drop;
     public int pre_skill;
+    public int idx;
     public string skill_explain;
+    public string skill_name;
 
     private DB_Manager.ex_stats status = new DB_Manager.ex_stats();
     public bool skill_active = false;
-    private bool isBtnDown = false;
-    int cou = 0;
-    private void Start()
+    public void Call_Load_Skill_info()
     {
-        status.ex_hp = ex_hp;
-        status.ex_def = ex_def;
-        status.ex_crash_dmg = ex_crash_dmg;
-        status.ex_bullet_dmg = ex_bullet_dmg;
-        status.ex_fire_rate = ex_fire_rate;
-        status.ex_crit_chance = ex_crit_chance;
-        status.ex_crit_dmg = ex_crit_dmg;
-        status.ex_gold = ex_gold;
-        status.ex_exp = ex_exp;
-        status.ex_drop = ex_drop;
+        lab_panel.GetComponent<LaboratoryPanelListener>().Load_Skill_info(pre_skill, idx);
     }
-    private void FixedUpdate()
+    public void Status_Add()    //게임 시작시 스킬렙에 맞게 total 초기화
     {
-        if (isBtnDown)
+        DB_Manager.Instance.ex_total.ex_hp += ex_hp * cur_point;
+        DB_Manager.Instance.ex_total.ex_def += ex_def * cur_point;
+        DB_Manager.Instance.ex_total.ex_crash_dmg += ex_crash_dmg * cur_point;
+        DB_Manager.Instance.ex_total.ex_bullet_dmg += ex_bullet_dmg * cur_point;
+        DB_Manager.Instance.ex_total.ex_fire_rate += ex_fire_rate * cur_point;
+        DB_Manager.Instance.ex_total.ex_crit_chance += ex_crit_chance * cur_point;
+        DB_Manager.Instance.ex_total.ex_crit_dmg += ex_crit_dmg * cur_point;
+        DB_Manager.Instance.ex_total.ex_gold += ex_gold * cur_point;
+        DB_Manager.Instance.ex_total.ex_exp += ex_exp * cur_point;
+        DB_Manager.Instance.ex_total.ex_drop += ex_drop * cur_point;
+    }
+    public bool Ex_Status_Add() //스킬 찍을때 최대렙이 아니면 스탯증가
+    {
+        if (cur_point < max_point)
         {
-            cou++;
+            cur_point++;
+            skill_active = true;
+            DB_Manager.Instance.ex_total.ex_hp += ex_hp;
+            DB_Manager.Instance.ex_total.ex_def += ex_def;
+            DB_Manager.Instance.ex_total.ex_crash_dmg += ex_crash_dmg;
+            DB_Manager.Instance.ex_total.ex_bullet_dmg += ex_bullet_dmg;
+            DB_Manager.Instance.ex_total.ex_fire_rate += ex_fire_rate;
+            DB_Manager.Instance.ex_total.ex_crit_chance += ex_crit_chance;
+            DB_Manager.Instance.ex_total.ex_crit_dmg += ex_crit_dmg;
+            DB_Manager.Instance.ex_total.ex_gold += ex_gold;
+            DB_Manager.Instance.ex_total.ex_exp += ex_exp;
+            DB_Manager.Instance.ex_total.ex_drop += ex_drop;
+            lab_panel.GetComponent<LaboratoryPanelListener>().Save_Point();
+            lab_panel.GetComponent<LaboratoryPanelListener>().Show_remain_point();
+            return true;
         }
-        if (cou > 50)
-        {
-            lab_panel.GetComponent<LaboratoryPanelListener>().Load_Explain(skill_explain);
-        }
-    }
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        isBtnDown = true;
-    }
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        isBtnDown = false;
-        if (cou > 50)
-            lab_panel.GetComponent<LaboratoryPanelListener>().Check_Explain();
-        else if(!skill_active)
-            skill_active = lab_panel.GetComponent<LaboratoryPanelListener>().Skill_Active(pre_skill, status);
-        cou = 0;
+        return false;
     }
 }
