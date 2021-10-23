@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Lazer2 : MonoBehaviour
 {
-    // 그냥 아무런 효과가 없는 탄환
-    // 충돌시 데미지
     float shot_angle;
     Vector2 normalized_angle;
     float speed;

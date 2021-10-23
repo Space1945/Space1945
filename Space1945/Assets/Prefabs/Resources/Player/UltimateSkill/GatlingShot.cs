@@ -8,8 +8,8 @@ public class GatlingShot : MonoBehaviour, UltimateInterface
 
     IEnumerator UltimateInterface.Ultimate()
     {
-        float fire_rate = GetComponent<AirframeScript>().atk.GetComponent<AtkInterface>().fire_rate;
-        int fire_cnt_per_shot = GetComponent<AirframeScript>().atk.GetComponent<AtkInterface>().fire_cnt_per_shot;
+        float fire_rate = GetComponent<AirframeScript>().atk.GetComponent<AtkInterface>()._fire_rate;
+        int fire_cnt_per_shot = GetComponent<AirframeScript>().atk.GetComponent<AtkInterface>()._fire_cnt_per_shot;
 
         GetComponent<AirframeScript>().atk.GetComponent<AtkInterface>().StopAttackCoroutine();
         Camera.main.GetComponent<Ingame_manager>().ultimate_use = true;

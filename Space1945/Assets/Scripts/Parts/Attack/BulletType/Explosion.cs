@@ -36,7 +36,7 @@ public class Explosion : MonoBehaviour
                 break;
             case "enemy":
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
-                Instantiate(boom, transform.position, Quaternion.identity).GetComponent<DerivedBulletInfo>().Set(
+                Instantiate(boom, transform.position, Quaternion.identity).GetComponent<DerivedBulletInfo>().SetFromPlayer(
                     shot_angle, GetComponent<BulletInfo>().critical, GetComponent<BulletInfo>().crit_damage_p
                 );
                 Destroy(gameObject);

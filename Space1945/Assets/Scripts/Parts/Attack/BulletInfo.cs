@@ -29,6 +29,11 @@ public class BulletInfo : MonoBehaviour
 
     void Awake() // instantiate된 직후 최초실행
     {
+        
+    }
+    public void SetFromPlayer(float shot_angle) // 플레이어가 발사한 총알을 강화 및 다시 세팅
+    {
+        angle = shot_angle;
         crit_chance_p += DB_Manager.Instance.ex_total.ex_crit_chance;
         if (crit_chance_p > 100f)
             crit_chance_p = 100f;
@@ -46,9 +51,25 @@ public class BulletInfo : MonoBehaviour
             crash_damage = crash_damage * (1 + DB_Manager.Instance.ex_total.ex_bullet_dmg / 100f);
         }
     }
-
-    public void Set(float shot_angle) // Awake 다음으로 실행, 그 이후 Start 실행
+    public void SetFromEnemy(float shot_angle)
     {
         angle = shot_angle;
+        if (crit_chance_p > 100f)
+            crit_chance_p = 100f;
+
+        if (Random.Range(1f, 100f) <= crit_chance_p) // 크리티컬일때
+        {
+            crit = true;
+            crash_damage = crash_damage * (1 + crit_damage_p / 100f);
+            GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+        }
+        else
+        {
+            crit = false;
+        }
+    }
+    public void SetFromNone()
+    {
+
     }
 }

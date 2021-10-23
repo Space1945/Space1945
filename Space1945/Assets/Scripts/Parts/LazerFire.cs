@@ -4,16 +4,38 @@ using UnityEngine;
 
 public class LazerFire : MonoBehaviour, AtkInterface
 {
-    public int gold { get; set; }
+    public int gold;
     public string explanation; // 해당 기체 설명
 
     public GameObject start;
     public GameObject middle;
     public GameObject end;
-    public float _fire_rate;
-    public int _fire_cnt_per_shot;
-    public float fire_rate { get; set; }
-    public int fire_cnt_per_shot { get; set; }
+    public float fire_rate;
+    public int fire_cnt_per_shot;
+
+    // AtkInterface에 선언된 변수 get만 가능 -----------------------
+    public int _gold
+    {
+        get
+        {
+            return gold;
+        }
+    }
+    public float _fire_rate
+    {
+        get
+        {
+            return fire_rate;
+        }
+    }
+    public int _fire_cnt_per_shot
+    {
+        get
+        {
+            return fire_cnt_per_shot;
+        }
+    }
+    // -----------------------------------------------------------
 
     List<GameObject> lazers_start;
     List<GameObject> lazers_middle;
@@ -21,15 +43,17 @@ public class LazerFire : MonoBehaviour, AtkInterface
     Coroutine atk_coroutine;
 
     Transform[] butts;
-    void Start()
+
+    void Awake()
     {
-        fire_rate = _fire_rate;
-        fire_cnt_per_shot = _fire_cnt_per_shot;
         butts = transform.parent.GetComponent<AirframeScript>().butts;
         lazers_start = new List<GameObject>();
         lazers_middle = new List<GameObject>();
         lazers_end = new List<GameObject>();
+    }
 
+    void Start()
+    {
         atk_coroutine = StartCoroutine(Attack());
     }
 
