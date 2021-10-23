@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7333093810000158284}
   - component: {fileID: 190418499853349698}
-  - component: {fileID: 3461011862964816568}
   - component: {fileID: 8802273360604543419}
   - component: {fileID: 2001973725491518109}
-  m_Layer: 6
+  - component: {fileID: 3461011862964816568}
+  m_Layer: 17
   m_Name: Interceptor
-  m_TagString: player
+  m_TagString: player_interceptor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3461011862964816568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2800828415825775220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98922da74339c894dbd5a40a0a0798d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boom: {fileID: 2340877167840637775, guid: 74deda3aa5d01ca48ab9232383a6c2e0, type: 3}
 --- !u!50 &8802273360604543419
 Rigidbody2D:
   serializedVersion: 4
@@ -130,7 +117,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -261,3 +248,17 @@ PolygonCollider2D:
       - {x: 0.078125, y: -0.7109375}
       - {x: 0.140625, y: -0.6796875}
       - {x: 0.16796875, y: -0.640625}
+--- !u!114 &3461011862964816568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2800828415825775220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98922da74339c894dbd5a40a0a0798d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crash_damage: 300
+  boom: {fileID: 2340877167840637775, guid: 74deda3aa5d01ca48ab9232383a6c2e0, type: 3}

@@ -6,7 +6,6 @@ public class CallInterceptors : MonoBehaviour, UltimateInterface
 {
     public GameObject interceptor;
     public int interceptor_cnt;
-    public float multiple_damage_rate;
     public float ic_min_speed;
     public float ic_max_speed;
     public float create_interval_time;
@@ -14,16 +13,17 @@ public class CallInterceptors : MonoBehaviour, UltimateInterface
 
     IEnumerator UltimateInterface.Ultimate()
     {
+        Camera.main.GetComponent<Ingame_manager>().ultimate_use = true;
         for (int i = 0; i < interceptor_cnt; i++)
         {
             Instantiate(interceptor).GetComponent<InterceptorScript>().Set(
-                GetComponent<AirframeScript>().crash_damage * multiple_damage_rate,
                 Random.Range(ic_min_speed, ic_max_speed),
                 scale,
-                new Vector2(Random.Range(-3f, 8f), -10)
+                new Vector2(Random.Range(-3f, 3f), -10)
             );
 
             yield return new WaitForSeconds(create_interval_time);
         }
+        Camera.main.GetComponent<Ingame_manager>().ultimate_use = false;
     }
 }

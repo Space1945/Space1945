@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class InterceptorScript : MonoBehaviour
 {
+    public float crash_damage;
     public GameObject boom;
 
-    float crash_damage;
     float speed;
     float scale;
     Vector2 position;
@@ -15,10 +15,16 @@ public class InterceptorScript : MonoBehaviour
     {
 
     }
-    public void Set(float crash_damage, float speed, float scale, Vector2 position)
+    public void Set(float speed, float scale, Vector2 position)
     {
         this.speed = speed;
+        this.scale = scale;
+        this.position = position;
+    }
+    public void Set(float crash_damage, float speed, float scale, Vector2 position)
+    {
         this.crash_damage = crash_damage;
+        this.speed = speed;
         this.scale = scale;
         this.position = position;
     }
@@ -29,17 +35,22 @@ public class InterceptorScript : MonoBehaviour
         transform.position = position;
     }
 
-
-    void OnTriggerStay2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         switch (col.gameObject.tag)
         {
             case "end_line":
                 Destroy(gameObject);
                 break;
+        }
+    }
+    void OnTriggerStay2D(Collider2D col)
+    {
+        switch (col.gameObject.tag)
+        {
             case "enemy":
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
-                Instantiate(boom, transform.position, Quaternion.identity).GetComponent<DerivedBulletInfo>().SetFromNone(crash_damage, 0f, 0f, 0f, false);
+                Instantiate(boom, transform.position, Quaternion.identity).GetComponent<DerivedBulletInfo>().SetFromNone(200f, 0f, 0f, 0f, false);
                 Destroy(gameObject);
                 break;
         }

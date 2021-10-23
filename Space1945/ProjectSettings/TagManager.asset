@@ -17,6 +17,7 @@ TagManager:
   - LEFT
   - RIGHT
   - TOP
+  - player_interceptor
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - Enemy_origin
   - Spawn_line
   - Boom
-  - 
+  - Player_Interceptor
   - 
   - 
   - 

@@ -95,7 +95,6 @@ public class Mob_info : MonoBehaviour
                 Camera.main.GetComponent<Ingame_manager>().enemys.Remove(gameObject);
                 Destroy(gameObject);
                 break;
-            
         }
     }
     void OnTriggerStay2D(Collider2D col) // 플레이어 개체와의 충돌만 담당
