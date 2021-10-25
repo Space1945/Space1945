@@ -25,7 +25,6 @@ public class BGI_info : MonoBehaviour
     {
         if (collision.gameObject.name == "BG_E_line")
         {
-            Debug.Log(this.transform.position);
             transform.position = new Vector2(0, 22.4f);
         }
     }

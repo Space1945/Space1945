@@ -5,12 +5,7 @@ using UnityEngine;
 public class DefScript : MonoBehaviour
 {
     public int gold;
-    public float add_hp;
-    public float add_def;
-
-    void Awake()
-    {
-        DB_Manager.Instance.ex_total.ex_hp += add_hp;
-        DB_Manager.Instance.ex_total.ex_def += add_def;
-    }
+    public float ex_hp;
+    public float ex_def;
+    public float ex_crash_dmg;
 }

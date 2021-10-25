@@ -20,6 +20,7 @@ public class OpeningListener : MonoBehaviour
     }
     private void LoadScene()
     {
+        DB_Manager.Instance.First_Start();
         SceneManager.LoadScene("Menu");
     }
 }

@@ -31,7 +31,7 @@ public class EnemyBulletInfo : MonoBehaviour
     {
         if (crit_chance_p > 100f)
             crit_chance_p = 100f;
-        crit_damage_p += DB_Manager.Instance.ex_total.ex_crit_dmg;
+        crit_damage_p += Camera.main.GetComponent<Ingame_manager>().ex_total.ex_crit_dmg;
 
         if (Random.Range(1f, 100f) <= crit_chance_p) // 크리티컬일때
         {

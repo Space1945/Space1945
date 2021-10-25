@@ -20,7 +20,7 @@ public class Mob_info : MonoBehaviour
 
     Rigidbody2D rigid;
     PolygonCollider2D col;
-    ParticleSystem par_die;
+    //ParticleSystem par_die;
     bool invincible;
 
     // Start is called before the first frame update
@@ -36,7 +36,7 @@ public class Mob_info : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         col = GetComponent<PolygonCollider2D>();
-        par_die = Resources.Load<ParticleSystem>("Particle/Enemy_die_particle");
+        // par_die = Resources.Load<ParticleSystem>("Particle/Enemy_die_particle");
         invincible = false;
     }
 
@@ -72,8 +72,8 @@ public class Mob_info : MonoBehaviour
         if (hp <= 0) // »ç¸Á
         {
             Camera.main.GetComponent<Ingame_manager>().enemys.Remove(gameObject);
-            ParticleSystem par = Instantiate(par_die);
-            par.transform.position = transform.position; // Àû »ç¸Á È¿°ú
+            //ParticleSystem par = Instantiate(par_die);
+            //par.transform.position = transform.position; // Àû »ç¸Á È¿°ú
 
             Camera.main.GetComponent<Ingame_manager>().AddUltimateGuage(add_guage);
             Camera.main.GetComponent<Ingame_manager>().KillEnemy(score, exp, gold);

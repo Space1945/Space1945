@@ -9,6 +9,7 @@ public class Ingame_manager : MonoBehaviour
     public GameObject[] spwan_points;
     public float check_rate;
 
+    public DB_Manager.ex_stats ex_total;
     public bool ultimate_use { get; set; }
     public HashSet<GameObject> enemys { get; set; }
 
@@ -35,6 +36,11 @@ public class Ingame_manager : MonoBehaviour
     public Image HealthBar; // 플레이어 체력바
 
     // Start is called before the first frame update
+    void Awake()
+    {
+        ex_total = new DB_Manager.ex_stats();
+        ex_total = DB_Manager.Instance.InitReinforce();
+    }
     void Start()
     {
         selected_chapter = DB_Manager.Instance.selected_chapter.ToString();
@@ -65,8 +71,7 @@ public class Ingame_manager : MonoBehaviour
         normals = new List<GameObject>();
         normals_time = new List<int>();
         elites = new List<GameObject>();
-
-        //DB_Manager.Instance.InitReinforce();
+        
     }
 
     void ReadStage()
@@ -134,8 +139,8 @@ public class Ingame_manager : MonoBehaviour
     public void KillEnemy(int score, int exp, int gold)
     {
         DB_Manager.Instance.score_earned += score;
-        DB_Manager.Instance.exp_earned += exp;
-        DB_Manager.Instance.gold_earned += gold;
+        DB_Manager.Instance.exp_earned += (int)(exp * (1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_exp / 100f));
+        DB_Manager.Instance.gold_earned += (int)(gold * (1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_gold / 100f));
         DB_Manager.Instance.enemy_killed_cnt++;
 
         if (DB_Manager.Instance.enemy_killed_cnt >= elite_emer_cnt) // 일반몹 10킬당 엘리트 한마리씩 출현

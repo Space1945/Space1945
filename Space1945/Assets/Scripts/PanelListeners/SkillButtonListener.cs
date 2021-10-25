@@ -25,7 +25,6 @@ public class SkillButtonListener : MonoBehaviour
     public string skill_explain;
     public string skill_name;
 
-    private DB_Manager.ex_stats status = new DB_Manager.ex_stats();
     public bool skill_active = false;
     public void Call_Load_Skill_info()
     {
@@ -33,16 +32,16 @@ public class SkillButtonListener : MonoBehaviour
     }
     public void Status_Add()    //게임 시작시 스킬렙에 맞게 total 초기화
     {
-        DB_Manager.Instance.ex_total.ex_hp += ex_hp * cur_point;
-        DB_Manager.Instance.ex_total.ex_def += ex_def * cur_point;
-        DB_Manager.Instance.ex_total.ex_crash_dmg += ex_crash_dmg * cur_point;
-        DB_Manager.Instance.ex_total.ex_bullet_dmg += ex_bullet_dmg * cur_point;
-        DB_Manager.Instance.ex_total.ex_fire_rate += ex_fire_rate * cur_point;
-        DB_Manager.Instance.ex_total.ex_crit_chance += ex_crit_chance * cur_point;
-        DB_Manager.Instance.ex_total.ex_crit_dmg += ex_crit_dmg * cur_point;
-        DB_Manager.Instance.ex_total.ex_gold += ex_gold * cur_point;
-        DB_Manager.Instance.ex_total.ex_exp += ex_exp * cur_point;
-        DB_Manager.Instance.ex_total.ex_drop += ex_drop * cur_point;
+        lab_panel.GetComponent<LaboratoryPanelListener>().total_stat.ex_hp += ex_hp * cur_point;
+        lab_panel.GetComponent<LaboratoryPanelListener>().total_stat.ex_def += ex_def * cur_point;
+        lab_panel.GetComponent<LaboratoryPanelListener>().total_stat.ex_crash_dmg += ex_crash_dmg * cur_point;
+        lab_panel.GetComponent<LaboratoryPanelListener>().total_stat.ex_bullet_dmg += ex_bullet_dmg * cur_point;
+        lab_panel.GetComponent<LaboratoryPanelListener>().total_stat.ex_fire_rate += ex_fire_rate * cur_point;
+        lab_panel.GetComponent<LaboratoryPanelListener>().total_stat.ex_crit_chance += ex_crit_chance * cur_point;
+        lab_panel.GetComponent<LaboratoryPanelListener>().total_stat.ex_crit_dmg += ex_crit_dmg * cur_point;
+        lab_panel.GetComponent<LaboratoryPanelListener>().total_stat.ex_gold += ex_gold * cur_point;
+        lab_panel.GetComponent<LaboratoryPanelListener>().total_stat.ex_exp += ex_exp * cur_point;
+        lab_panel.GetComponent<LaboratoryPanelListener>().total_stat.ex_drop += ex_drop * cur_point;
     }
     public bool Ex_Status_Add() //스킬 찍을때 최대렙이 아니면 스탯증가
     {
@@ -50,16 +49,16 @@ public class SkillButtonListener : MonoBehaviour
         {
             cur_point++;
             skill_active = true;
-            DB_Manager.Instance.ex_total.ex_hp += ex_hp;
-            DB_Manager.Instance.ex_total.ex_def += ex_def;
-            DB_Manager.Instance.ex_total.ex_crash_dmg += ex_crash_dmg;
-            DB_Manager.Instance.ex_total.ex_bullet_dmg += ex_bullet_dmg;
-            DB_Manager.Instance.ex_total.ex_fire_rate += ex_fire_rate;
-            DB_Manager.Instance.ex_total.ex_crit_chance += ex_crit_chance;
-            DB_Manager.Instance.ex_total.ex_crit_dmg += ex_crit_dmg;
-            DB_Manager.Instance.ex_total.ex_gold += ex_gold;
-            DB_Manager.Instance.ex_total.ex_exp += ex_exp;
-            DB_Manager.Instance.ex_total.ex_drop += ex_drop;
+            DB_Manager.Instance.research_total.ex_hp += ex_hp;
+            DB_Manager.Instance.research_total.ex_def += ex_def;
+            DB_Manager.Instance.research_total.ex_crash_dmg += ex_crash_dmg;
+            DB_Manager.Instance.research_total.ex_bullet_dmg += ex_bullet_dmg;
+            DB_Manager.Instance.research_total.ex_fire_rate += ex_fire_rate;
+            DB_Manager.Instance.research_total.ex_crit_chance += ex_crit_chance;
+            DB_Manager.Instance.research_total.ex_crit_dmg += ex_crit_dmg;
+            DB_Manager.Instance.research_total.ex_gold += ex_gold;
+            DB_Manager.Instance.research_total.ex_exp += ex_exp;
+            DB_Manager.Instance.research_total.ex_drop += ex_drop;
             lab_panel.GetComponent<LaboratoryPanelListener>().Save_Point();
             lab_panel.GetComponent<LaboratoryPanelListener>().Show_remain_point();
             return true;

@@ -81,9 +81,9 @@ public class AirframeScript : MonoBehaviour
     }
     void Start() // °­È­
     {
-        max_hp *= 1 + DB_Manager.Instance.ex_total.ex_hp / 100f;
-        basic_def *= 1 + DB_Manager.Instance.ex_total.ex_def / 100f;
-        crash_damage *= 1 + DB_Manager.Instance.ex_total.ex_crash_dmg / 100f;
+        max_hp *= 1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_hp / 100f;
+        basic_def *= 1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_def / 100f;
+        crash_damage *= 1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_crash_dmg / 100f;
         
         cur_hp = max_hp;
 

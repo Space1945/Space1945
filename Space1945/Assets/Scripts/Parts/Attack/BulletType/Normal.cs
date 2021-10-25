@@ -10,7 +10,11 @@ public class Normal : MonoBehaviour
     Vector2 normalized_angle;
     float crash_damage;
     float speed;
-
+    ParticleSystem par_hit;
+    void Awake()
+    {
+        par_hit = Resources.Load<ParticleSystem>("Particle/EnemyHit");
+    }
     void Start()
     {
         shot_angle = GetComponent<BulletInfo>().shot_angle;
@@ -18,6 +22,7 @@ public class Normal : MonoBehaviour
         speed = GetComponent<BulletInfo>().speed;
         crash_damage = GetComponent<BulletInfo>().crash_damage;
         transform.rotation = Quaternion.Euler(0, 0, shot_angle - 90);
+
 
         GetComponent<Rigidbody2D>().velocity = normalized_angle * speed;
     }
@@ -30,6 +35,8 @@ public class Normal : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "enemy":
+                ParticleSystem par = Instantiate(par_hit);
+                par.transform.position = transform.position; 
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
                 Destroy(gameObject);
                 break;

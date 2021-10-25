@@ -15,9 +15,11 @@ public class RepairshopPanelListener : MonoBehaviour
 
     public GameObject items_panel;
 
-    void Start()
+    void Awake()
     {
         UpdateAllPartsButton();
+
+        DB_Manager.Instance.parts_status_init();
 
         items_panel.SetActive(false);
     }

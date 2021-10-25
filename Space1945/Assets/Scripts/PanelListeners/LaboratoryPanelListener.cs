@@ -9,12 +9,14 @@ public class LaboratoryPanelListener : MonoBehaviour
     public GameObject skill_info_panel;
     public GameObject remain_text;
     public GameObject[] skills_btn;
+    public DB_Manager.ex_stats total_stat;
     public int total_point{ get; set; }
     public int used_point { get; set; }
 
     string skills;
-    private void Start()
+    void Awake()
     {
+        total_stat = new DB_Manager.ex_stats();
         total_point = PlayerPrefs.GetInt("pilot_level");
         skills = PlayerPrefs.GetString("pilot_skill");
         for (int i = 0; i < 5; i++)     //제일 처음 스킬레벨을 받아와 초기화 해줌 버튼이 아직 5개 밖에 없음
@@ -26,8 +28,9 @@ public class LaboratoryPanelListener : MonoBehaviour
             skills_btn[i].GetComponent<SkillButtonListener>().idx = i;
             skills_btn[i].GetComponent<SkillButtonListener>().Status_Add();
         }
+        DB_Manager.Instance.research_total = total_stat;
         Show_remain_point();
-        remain_text.transform.SetAsFirstSibling();
+        remain_text.transform.SetAsLastSibling();
         skill_info_panel.SetActive(false);
     }
     public void Save_Point()

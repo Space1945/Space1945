@@ -119,6 +119,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Prefabs\Resources\Player\UltimateSkill\CallInterceptors.cs" />
     <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Normal.cs" />
+    <Compile Include="Assets\Scripts\PanelListeners\Skill_InfoPanelListener.cs" />
     <Compile Include="Assets\Scripts\Parts\Attack\DerivedBulletInfo.cs" />
     <Compile Include="Assets\Scripts\BulletPatterns.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
@@ -151,7 +152,8 @@
     <Compile Include="Assets\Scripts\MainCameraListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\MainCanvasListener.cs" />
-    <Compile Include="Assets\Scripts\PanelListeners\Skill_InfoPanelListener.cs" />
+    <Compile Include="Assets\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
+    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Chain.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -169,11 +171,14 @@
      <None Include="Assets\DB\Chapter2\Stage1.txt" />
      <None Include="Assets\DB\Chapter2\Stage4.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+     <None Include="Assets\EffectExamples\Misc Effects\Prefabs\Readme_Dissolve_Respawn_.txt" />
      <None Include="Assets\DB\Chapter4\Stage4.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\DB\Chapter4\Stage5.txt" />
      <None Include="Assets\DB\Chapter3\Stage2.txt" />
      <None Include="Assets\DB\Chapter1\Stage2.txt" />
+     <None Include="Assets\EffectExamples\Magic Effects\Shaders\Ice.shader" />
+     <None Include="Assets\EffectExamples\Misc Effects\Shaders\Respawn.shader" />
      <None Include="Assets\DB\Chapter3\Stage3.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -191,11 +196,13 @@
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\DB\Chapter1\Stage3.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\EffectExamples\Misc Effects\Shaders\FireFly.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\DB\Chapter2\Stage2.txt" />
+     <None Include="Assets\EffectExamples\Misc Effects\Shaders\Dissolve.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\DB\Chapter3\Stage5.txt" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />

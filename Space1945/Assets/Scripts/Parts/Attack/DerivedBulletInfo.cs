@@ -37,13 +37,13 @@ public class DerivedBulletInfo : MonoBehaviour
         if (parent_critical)
         {
             crit = true;
-            crash_damage = crash_damage * (1 + DB_Manager.Instance.ex_total.ex_crash_dmg / 100f) * (1 + crit_damage_p / 100f);
+            crash_damage = crash_damage * (1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_crash_dmg / 100f) * (1 + crit_damage_p / 100f);
             GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
         }
         else
         {
             crit = false;
-            crash_damage = crash_damage * (1 + DB_Manager.Instance.ex_total.ex_crash_dmg / 100f);
+            crash_damage = crash_damage * (1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_crash_dmg / 100f);
         }
     }
     public void SetFromEnemy(float shot_angle, bool parent_critical, float crit_damage_p) // 적이 발사한 총알을 부모로할 때

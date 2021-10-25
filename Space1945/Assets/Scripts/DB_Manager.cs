@@ -58,26 +58,45 @@ public class DB_Manager
         public float ex_exp;
         public float ex_drop;
     }
-    public ex_stats ex_total;
+    public ex_stats parts_total, research_total;
 
-    public void InitReinforce()
+    public ex_stats InitReinforce()
     {
-        ex_total.ex_hp = 0;
-        ex_total.ex_def = 0;
-        ex_total.ex_crash_dmg = 0;
-        ex_total.ex_bullet_dmg = 0;
-        ex_total.ex_fire_rate = 0;
-        ex_total.ex_crit_chance = 0;
-        ex_total.ex_crit_dmg = 0;
-        ex_total.ex_gold = 0;
-        ex_total.ex_exp = 0;
-        ex_total.ex_drop = 0;
+        ex_stats temp = new ex_stats();
+        temp.ex_bullet_dmg = parts_total.ex_bullet_dmg + research_total.ex_bullet_dmg;
+        temp.ex_crash_dmg = parts_total.ex_crash_dmg + research_total.ex_crash_dmg;
+        temp.ex_crit_chance = parts_total.ex_crit_chance + research_total.ex_crit_chance;
+        temp.ex_crit_dmg = parts_total.ex_crit_dmg + research_total.ex_crit_dmg;
+        temp.ex_def = parts_total.ex_def + research_total.ex_def;
+        temp.ex_drop = parts_total.ex_drop + research_total.ex_drop;
+        temp.ex_exp = parts_total.ex_exp + research_total.ex_exp;
+        temp.ex_fire_rate = parts_total.ex_fire_rate + research_total.ex_fire_rate;
+        temp.ex_gold = parts_total.ex_gold + research_total.ex_gold;
+        temp.ex_hp = parts_total.ex_hp + research_total.ex_hp;
+        return temp;
+    }
+    public void parts_status_init()
+    {
+        parts_total.ex_bullet_dmg = using_sub_left.GetComponent<SubScript>().adds.ex_bullet_dmg + using_sub_right.GetComponent<SubScript>().adds.ex_bullet_dmg;
+        parts_total.ex_crash_dmg = using_sub_left.GetComponent<SubScript>().adds.ex_crash_dmg + using_sub_right.GetComponent<SubScript>().adds.ex_crash_dmg + using_def.GetComponent<DefScript>().ex_crash_dmg;
+        parts_total.ex_crit_chance = using_sub_left.GetComponent<SubScript>().adds.ex_crit_chance + using_sub_right.GetComponent<SubScript>().adds.ex_crit_chance;
+        parts_total.ex_crit_dmg = using_sub_left.GetComponent<SubScript>().adds.ex_crit_dmg + using_sub_right.GetComponent<SubScript>().adds.ex_crit_dmg;
+        parts_total.ex_def = using_sub_left.GetComponent<SubScript>().adds.ex_def + using_sub_right.GetComponent<SubScript>().adds.ex_def + using_def.GetComponent<DefScript>().ex_def;
+        parts_total.ex_drop = using_sub_left.GetComponent<SubScript>().adds.ex_drop + using_sub_right.GetComponent<SubScript>().adds.ex_drop;
+        parts_total.ex_exp = using_sub_left.GetComponent<SubScript>().adds.ex_exp + using_sub_right.GetComponent<SubScript>().adds.ex_exp;
+        parts_total.ex_fire_rate = using_sub_left.GetComponent<SubScript>().adds.ex_fire_rate + using_sub_right.GetComponent<SubScript>().adds.ex_fire_rate;
+        parts_total.ex_gold = using_sub_left.GetComponent<SubScript>().adds.ex_gold + using_sub_right.GetComponent<SubScript>().adds.ex_gold;
+        parts_total.ex_hp = using_sub_left.GetComponent<SubScript>().adds.ex_hp + using_sub_right.GetComponent<SubScript>().adds.ex_hp + using_def.GetComponent<DefScript>().ex_hp;
     }
 
+    public void First_Start()
+    {
+    }
     DB_Manager()
     {
         LoadAllParts();
-        ex_total = new ex_stats();
+        parts_total = new ex_stats();
+        research_total = new ex_stats();
     }
 
     public static DB_Manager Instance
@@ -175,6 +194,8 @@ public class DB_Manager
             else
                 locked_subs.Add(subs[i]);
         }
+
+        //parts_status_init();
 
         total_prefab_cnt = airframes.Length + atks.Length + defs.Length + subs.Length;
     }

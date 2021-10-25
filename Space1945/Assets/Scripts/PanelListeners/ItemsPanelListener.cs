@@ -130,6 +130,7 @@ public class ItemsPanelListener : MonoBehaviour
                 }
                 DB_Manager.Instance.using_def = clicked_obj;
                 DB_Manager.Instance.unlocked_defs.Remove(clicked_obj);
+                DB_Manager.Instance.parts_status_init();
                 PlayerPrefs.SetString(clicked_obj.name, "using");
                 transform.parent.GetComponent<RepairshopPanelListener>().UpdatePartsButton(2);
                 DeleteAllItemsImage();
@@ -144,6 +145,7 @@ public class ItemsPanelListener : MonoBehaviour
                 }
                 DB_Manager.Instance.using_sub_left = clicked_obj;
                 DB_Manager.Instance.unlocked_subs.Remove(clicked_obj);
+                DB_Manager.Instance.parts_status_init();
                 PlayerPrefs.SetString(clicked_obj.name, "using_left");
                 transform.parent.GetComponent<RepairshopPanelListener>().UpdatePartsButton(3);
                 DeleteAllItemsImage();
@@ -158,6 +160,7 @@ public class ItemsPanelListener : MonoBehaviour
                 }
                 DB_Manager.Instance.using_sub_right = clicked_obj;
                 DB_Manager.Instance.unlocked_subs.Remove(clicked_obj);
+                DB_Manager.Instance.parts_status_init();
                 PlayerPrefs.SetString(clicked_obj.name, "using_right");
                 transform.parent.GetComponent<RepairshopPanelListener>().UpdatePartsButton(4);
                 DeleteAllItemsImage();
