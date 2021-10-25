@@ -18,9 +18,10 @@ public class Mob_info : MonoBehaviour
     public GameObject bullet;
     public float fire_rate;
 
+    SpriteRenderer sprite;
     Rigidbody2D rigid;
     PolygonCollider2D col;
-    //ParticleSystem par_die;
+    ParticleSystem par_die;
     bool invincible;
 
     // Start is called before the first frame update
@@ -34,9 +35,10 @@ public class Mob_info : MonoBehaviour
 
     void Initiate()
     {
+        sprite = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
         col = GetComponent<PolygonCollider2D>();
-        // par_die = Resources.Load<ParticleSystem>("Particle/Enemy_die_particle");
+        par_die = Resources.Load<ParticleSystem>("Particle/TinyExplosion");
         invincible = false;
     }
 
@@ -65,15 +67,25 @@ public class Mob_info : MonoBehaviour
     public void Attacked(float crash_damage)
     {
         hp -= crash_damage;
+        if (gameObject != null)
+        {
+            sprite.color = Color.red;
+            Invoke("Return_Color", 0.1f);
+        }
     }
+    void Return_Color()
+    {
+        if (gameObject != null)
+            sprite.color = Color.white;
+    }    
 
     void FixedUpdate()
     {
         if (hp <= 0) // »ç¸Á
         {
             Camera.main.GetComponent<Ingame_manager>().enemys.Remove(gameObject);
-            //ParticleSystem par = Instantiate(par_die);
-            //par.transform.position = transform.position; // Àû »ç¸Á È¿°ú
+            ParticleSystem par = Instantiate(par_die);
+            par.transform.position = transform.position; // Àû »ç¸Á È¿°ú
 
             Camera.main.GetComponent<Ingame_manager>().AddUltimateGuage(add_guage);
             Camera.main.GetComponent<Ingame_manager>().KillEnemy(score, exp, gold);

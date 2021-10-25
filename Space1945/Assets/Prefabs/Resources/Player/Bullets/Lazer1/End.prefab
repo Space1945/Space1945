@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 407512407103247067}
   - component: {fileID: 1298458817726067007}
-  - component: {fileID: 8153321652888722669}
+  - component: {fileID: 8775607808266210460}
   m_Layer: 0
   m_Name: End
   m_TagString: Untagged
@@ -71,20 +71,20 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 944048487
-  m_SortingLayer: 4
+  m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: baaed480f2618cf48905a7d646705034, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8, y: 0.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8153321652888722669
+--- !u!95 &8775607808266210460
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 1247839149667881599}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2e27a9ce10a135a47b1f23c9dda49c23, type: 2}
+  m_Controller: {fileID: 9100000, guid: b51c940669a721047a2239d3bf3a2d9f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

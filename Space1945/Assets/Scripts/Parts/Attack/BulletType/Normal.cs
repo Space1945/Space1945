@@ -10,10 +10,10 @@ public class Normal : MonoBehaviour
     Vector2 normalized_angle;
     float crash_damage;
     float speed;
-    ParticleSystem par_hit;
+    ParticleSystem par_hit1;
     void Awake()
     {
-        par_hit = Resources.Load<ParticleSystem>("Particle/EnemyHit");
+        par_hit1 = Resources.Load<ParticleSystem>("Particle/EnemyHit");
     }
     void Start()
     {
@@ -35,8 +35,8 @@ public class Normal : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "enemy":
-                ParticleSystem par = Instantiate(par_hit);
-                par.transform.position = transform.position; 
+                ParticleSystem par1 = Instantiate(par_hit1);
+                par1.transform.position = transform.position;
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
                 Destroy(gameObject);
                 break;
