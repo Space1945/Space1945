@@ -16,8 +16,10 @@ public class MainPanelListener : MonoBehaviour
     AudioSource audio_source;
     public AudioClip button_clicked;
 
-    private void Start()
+    void Start()
     {
+        Debug.Log("메인패널 활성화");
+
         audio_source = GetComponent<AudioSource>();
         audio_source.clip = button_clicked;
         audio_source.playOnAwake = false;

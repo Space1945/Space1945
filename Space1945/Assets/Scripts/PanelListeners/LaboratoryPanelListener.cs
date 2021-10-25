@@ -14,8 +14,11 @@ public class LaboratoryPanelListener : MonoBehaviour
     public int used_point { get; set; }
 
     string skills;
-    void Awake()
+
+    void Start()
     {
+        Debug.Log("베이스먼트패널/래버래토리패널 활성화");
+
         total_stat = new DB_Manager.ex_stats();
         total_point = PlayerPrefs.GetInt("pilot_level");
         skills = PlayerPrefs.GetString("pilot_skill");
@@ -26,14 +29,14 @@ public class LaboratoryPanelListener : MonoBehaviour
                 used_point += int.Parse(skills[i].ToString());
             skills_btn[i].GetComponent<SkillButtonListener>().skill_active = skills[i] != '0';
             skills_btn[i].GetComponent<SkillButtonListener>().idx = i;
-            skills_btn[i].GetComponent<SkillButtonListener>().Status_Add();
+            skills_btn[i].GetComponent<SkillButtonListener>().StatusAdd();
         }
         DB_Manager.Instance.research_total = total_stat;
-        Show_remain_point();
+        ShowRemainPoint();
         remain_text.transform.SetAsLastSibling();
         skill_info_panel.SetActive(false);
     }
-    public void Save_Point()
+    public void SavePoint()
     {
         for (int i = 0; i < 5; i++) //스킬 찍은후 변화된 값들 저장 이것도 버튼이 5개 밖에없어서 5로 고정
         {
@@ -47,11 +50,11 @@ public class LaboratoryPanelListener : MonoBehaviour
         }
         PlayerPrefs.SetString("pilot_skill", skills);
     }
-    public void Show_remain_point()
+    public void ShowRemainPoint()
     {
         remain_text.GetComponent<Text>().text = (total_point - used_point).ToString();
     }
-    public void Load_Skill_info(int pre_skill, int idx)    //스킬 정보창을 불러옴
+    public void LoadSkillInfo(int pre_skill, int idx)    //스킬 정보창을 불러옴
     {
         skill_info_panel.SetActive(true);
         skill_info_panel.GetComponent<Skill_InfoPanelListener>().selected_btn = skills_btn[idx];

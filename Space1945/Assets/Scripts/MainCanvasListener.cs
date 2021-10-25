@@ -17,6 +17,8 @@ public class MainCanvasListener : MonoBehaviour
     public Button to_store;
     public Button to_configuration;
 
+    GameObject opening_panel;
+
     void Start()
     {
         // 초기 화면
@@ -24,6 +26,7 @@ public class MainCanvasListener : MonoBehaviour
         basement_panel.SetActive(false);
         store_panel.SetActive(false);
         configuration_panel.SetActive(false);
+        opening_panel = main_panel;
 
         state_panel.SetActive(true); // 항상 보임
         button_panel.SetActive(true); // 항상 보임
@@ -33,30 +36,26 @@ public class MainCanvasListener : MonoBehaviour
 
     public void ActivateMain()
     {
+        opening_panel.SetActive(false);
         main_panel.SetActive(true);
-        basement_panel.SetActive(false);
-        store_panel.SetActive(false);
-        configuration_panel.SetActive(false);
+        opening_panel = main_panel;
     }
     public void ActivateBasement()
     {
-        main_panel.SetActive(false);
+        opening_panel.SetActive(false);
         basement_panel.SetActive(true);
-        store_panel.SetActive(false);
-        configuration_panel.SetActive(false);
+        opening_panel = basement_panel;
     }
     public void ActivateStore()
     {
-        main_panel.SetActive(false);
-        basement_panel.SetActive(false);
+        opening_panel.SetActive(false);
         store_panel.SetActive(true);
-        configuration_panel.SetActive(false);
+        opening_panel = store_panel;
     }
     public void ActivateConfiguration()
     {
-        main_panel.SetActive(false);
-        basement_panel.SetActive(false);
-        store_panel.SetActive(false);
+        opening_panel.SetActive(false);
         configuration_panel.SetActive(true);
+        opening_panel = configuration_panel;
     }
 }

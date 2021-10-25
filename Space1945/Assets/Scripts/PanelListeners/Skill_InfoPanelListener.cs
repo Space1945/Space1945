@@ -24,15 +24,15 @@ public class Skill_InfoPanelListener : MonoBehaviour
     }
     public void Research_click()
     {
-        StartCoroutine(Research_coroutine());
+        StartCoroutine(ResearchCoroutine());
     }
-    IEnumerator Research_coroutine()
+    IEnumerator ResearchCoroutine()
     {
         if (remain_point)
         {
             if (pre_skill)
             {
-                if (!selected_btn.GetComponent<SkillButtonListener>().Ex_Status_Add())
+                if (!selected_btn.GetComponent<SkillButtonListener>().ExStatusAdd())
                 {
                     explain.SetActive(true);
                     explain.GetComponent<Text>().text = "최대 레벨입니다.";

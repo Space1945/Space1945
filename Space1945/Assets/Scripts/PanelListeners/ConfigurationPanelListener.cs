@@ -18,6 +18,8 @@ public class ConfigurationPanelListener : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("환경설정패널 활성화");
+
         audio_source_se = GetComponent<AudioSource>();
         audio_source_se.clip = button_clicked;
         audio_source_se.playOnAwake = false;

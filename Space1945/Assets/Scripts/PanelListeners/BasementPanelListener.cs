@@ -14,6 +14,8 @@ public class BasementPanelListener : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("베이스먼트패널 활성화");
+
         repairshop_panel.SetActive(true);
         laboratory_panel.SetActive(false);
     }

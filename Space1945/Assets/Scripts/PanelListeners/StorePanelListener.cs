@@ -28,6 +28,8 @@ public class StorePanelListener : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("스토어패널 활성화");
+
         face_disable();
         face[0].enabled = true;
         audio_source = GetComponent<AudioSource>();

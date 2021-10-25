@@ -3681,6 +3681,17 @@ MonoBehaviour:
   - {fileID: 1728225830}
   - {fileID: 1981092595}
   - {fileID: 1885223130}
+  total_stat:
+    ex_hp: 0
+    ex_def: 0
+    ex_crash_dmg: 0
+    ex_bullet_dmg: 0
+    ex_fire_rate: 0
+    ex_crit_chance: 0
+    ex_crit_dmg: 0
+    ex_gold: 0
+    ex_exp: 0
+    ex_drop: 0
 --- !u!1 &347938491
 GameObject:
   m_ObjectHideFlags: 0
@@ -5970,6 +5981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lab_panel: {fileID: 342968314}
   max_point: 1
+  cur_point: 0
   ex_hp: 0
   ex_def: 0
   ex_crash_dmg: 0
@@ -6031,7 +6043,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 600180387}
         m_TargetAssemblyTypeName: SkillButtonListener, Assembly-CSharp
-        m_MethodName: Call_Load_Skill_info
+        m_MethodName: CallLoadSkillInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8549,7 +8561,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 978695496}
         m_TargetAssemblyTypeName: SkillButtonListener, Assembly-CSharp
-        m_MethodName: Call_Load_Skill_info
+        m_MethodName: CallLoadSkillInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8611,6 +8623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lab_panel: {fileID: 342968314}
   max_point: 0
+  cur_point: 0
   ex_hp: 0
   ex_def: 0
   ex_crash_dmg: 0
@@ -14864,6 +14877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lab_panel: {fileID: 342968314}
   max_point: 1
+  cur_point: 0
   ex_hp: 10
   ex_def: 0
   ex_crash_dmg: 0
@@ -14925,7 +14939,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1728225832}
         m_TargetAssemblyTypeName: SkillButtonListener, Assembly-CSharp
-        m_MethodName: Call_Load_Skill_info
+        m_MethodName: CallLoadSkillInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16210,6 +16224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lab_panel: {fileID: 342968314}
   max_point: 1
+  cur_point: 0
   ex_hp: 0
   ex_def: 10
   ex_crash_dmg: 0
@@ -16271,7 +16286,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1885223131}
         m_TargetAssemblyTypeName: SkillButtonListener, Assembly-CSharp
-        m_MethodName: Call_Load_Skill_info
+        m_MethodName: CallLoadSkillInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16799,6 +16814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lab_panel: {fileID: 342968314}
   max_point: 1
+  cur_point: 0
   ex_hp: 0
   ex_def: 0
   ex_crash_dmg: 0
@@ -16860,7 +16876,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1981092597}
         m_TargetAssemblyTypeName: SkillButtonListener, Assembly-CSharp
-        m_MethodName: Call_Load_Skill_info
+        m_MethodName: CallLoadSkillInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
