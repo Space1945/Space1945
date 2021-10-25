@@ -14,6 +14,7 @@ public class DB_Manager
     public GameObject[] atks { get; set; }
     public GameObject[] defs { get; set; }
     public GameObject[] subs { get; set; }
+    GameObject[] empty { get; set; }
 
     // 사용 중인 장비
     public GameObject using_airframe;
@@ -77,6 +78,12 @@ public class DB_Manager
     }
     public void parts_status_init()
     {
+        if (using_def == null)
+            using_def = empty[0];
+        if (using_sub_left == null)
+            using_sub_left = empty[1];
+        if (using_sub_right == null)
+            using_sub_right = empty[1];
         parts_total.ex_bullet_dmg = using_sub_left.GetComponent<SubScript>().adds.ex_bullet_dmg + using_sub_right.GetComponent<SubScript>().adds.ex_bullet_dmg;
         parts_total.ex_crash_dmg = using_sub_left.GetComponent<SubScript>().adds.ex_crash_dmg + using_sub_right.GetComponent<SubScript>().adds.ex_crash_dmg + using_def.GetComponent<DefScript>().ex_crash_dmg;
         parts_total.ex_crit_chance = using_sub_left.GetComponent<SubScript>().adds.ex_crit_chance + using_sub_right.GetComponent<SubScript>().adds.ex_crit_chance;
@@ -123,6 +130,7 @@ public class DB_Manager
         atks = Resources.LoadAll<GameObject>("Player/AtkParts/");
         defs = Resources.LoadAll<GameObject>("Player/DefParts/");
         subs = Resources.LoadAll<GameObject>("Player/SubParts/");
+        empty = Resources.LoadAll<GameObject>("Player/EmptyParts/");
 
         using_airframe = null;
         using_atk = null;
