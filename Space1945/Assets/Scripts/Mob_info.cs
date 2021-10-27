@@ -67,17 +67,7 @@ public class Mob_info : MonoBehaviour
     public void Attacked(float crash_damage)
     {
         hp -= crash_damage;
-        if (gameObject != null)
-        {
-            sprite.color = Color.red;
-            Invoke("Return_Color", 0.1f);
-        }
     }
-    void Return_Color()
-    {
-        if (gameObject != null)
-            sprite.color = Color.white;
-    }    
 
     void FixedUpdate()
     {

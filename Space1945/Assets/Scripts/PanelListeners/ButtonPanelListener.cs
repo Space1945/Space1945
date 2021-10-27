@@ -8,11 +8,17 @@ public class ButtonPanelListener : MonoBehaviour
     public AudioClip button_clicked;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        gameObject.SetActive(true);
+
         audio_source = GetComponent<AudioSource>();
         audio_source.clip = button_clicked;
         audio_source.playOnAwake = false;
+    }
+    void Start()
+    {
+        
     }
 
     public void PlayEffectSound()

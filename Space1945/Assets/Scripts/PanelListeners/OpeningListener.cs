@@ -12,15 +12,14 @@ public class OpeningListener : MonoBehaviour
     public void ClickedAnywhere()
     {
         if (!PlayerPrefs.HasKey("pilot_name"))
-        {
             name_panel.SetActive(true);
-        }
         else
             LoadScene();
     }
-    private void LoadScene()
+
+    void LoadScene()
     {
-        DB_Manager.Instance.First_Start();
+        DB_Manager.Instance.Activate();
         SceneManager.LoadScene("Menu");
     }
 }

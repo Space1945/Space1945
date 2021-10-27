@@ -10,11 +10,15 @@ public class StatePanelListener : MonoBehaviour
     public Image exp_bar;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        gameObject.SetActive(true);
+
         gold.fontSize = 50;
         level.fontSize = 100;
-
+    }
+    void Start()
+    {
         DisplayStateInfo();
     }
 

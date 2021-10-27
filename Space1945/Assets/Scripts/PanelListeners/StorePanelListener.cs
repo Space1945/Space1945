@@ -25,12 +25,11 @@ public class StorePanelListener : MonoBehaviour
 
     public Sprite none;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        Debug.Log("스토어패널 활성화");
+        gameObject.SetActive(false);
 
-        face_disable();
+        SetFaceDisable();
         face[0].enabled = true;
         audio_source = GetComponent<AudioSource>();
         audio_source.playOnAwake = false; // 설정해주어야 클릭시에만 소리남
@@ -44,7 +43,12 @@ public class StorePanelListener : MonoBehaviour
 
         item_info_panel.SetActive(false);
     }
-    private void face_disable()
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+    void SetFaceDisable()
     {
         face[0].enabled = false;
         face[1].enabled = false;
@@ -89,42 +93,42 @@ public class StorePanelListener : MonoBehaviour
             if (rand > 9990)
             {
                 gold += 1000000;
-                face_disable();
+                SetFaceDisable();
                 face[1].enabled = true;
             }
             else if (rand > 9900)
             {
                 gold += 100000;
-                face_disable();
+                SetFaceDisable();
                 face[0].enabled = true;
             }
             else if (rand > 9700)
             {
                 gold += 50000;
-                face_disable();
+                SetFaceDisable();
                 face[0].enabled = true;
             }
             else if (rand > 7500)
             {
                 gold += 10000;
-                face_disable();
+                SetFaceDisable();
                 face[1].enabled = true;
             }
             else if (rand > 5000)
             {
                 gold += 5000;
-                face_disable();
+                SetFaceDisable();
                 face[0].enabled = true;
             }
             else if (rand > 2500)
             {
                 gold += 2500;
-                face_disable();
+                SetFaceDisable();
                 face[1].enabled = true;
             }
             else
             {
-                face_disable();
+                SetFaceDisable();
                 face[2].enabled = true;
             }
         }

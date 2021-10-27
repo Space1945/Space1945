@@ -15,15 +15,14 @@ public class RepairshopPanelListener : MonoBehaviour
 
     public GameObject items_panel;
 
+    void Awake()
+    {
+        gameObject.SetActive(false);
+        items_panel.SetActive(false);
+    }
     void Start()
     {
-        Debug.Log("베이스먼트패널/리페어샵패널 활성화");
-
         UpdateAllPartsButton();
-
-        DB_Manager.Instance.parts_status_init();
-
-        items_panel.SetActive(false);
     }
 
     public void AirframeButtonClicked()

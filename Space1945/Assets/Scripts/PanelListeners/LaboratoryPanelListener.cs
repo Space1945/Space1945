@@ -15,11 +15,14 @@ public class LaboratoryPanelListener : MonoBehaviour
 
     string skills;
 
+    void Awake()
+    {
+        skill_info_panel.SetActive(false);
+        gameObject.SetActive(false);
+    }
+
     void Start()
     {
-        Debug.Log("베이스먼트패널/래버래토리패널 활성화");
-
-        total_stat = new DB_Manager.ex_stats();
         total_point = PlayerPrefs.GetInt("pilot_level");
         skills = PlayerPrefs.GetString("pilot_skill");
         for (int i = 0; i < 5; i++)     //제일 처음 스킬레벨을 받아와 초기화 해줌 버튼이 아직 5개 밖에 없음
@@ -28,14 +31,11 @@ public class LaboratoryPanelListener : MonoBehaviour
             if (i > 0 && i < 41)    //첫번재 스킬과 레벨에따라 해금되는 서브스킬 제외
                 used_point += int.Parse(skills[i].ToString());
             skills_btn[i].GetComponent<SkillButtonListener>().skill_active = skills[i] != '0';
-            skills_btn[i].GetComponent<SkillButtonListener>().idx = i;
-            skills_btn[i].GetComponent<SkillButtonListener>().StatusAdd();
         }
-        DB_Manager.Instance.research_total = total_stat;
         ShowRemainPoint();
         remain_text.transform.SetAsLastSibling();
-        skill_info_panel.SetActive(false);
     }
+
     public void SavePoint()
     {
         for (int i = 0; i < 5; i++) //스킬 찍은후 변화된 값들 저장 이것도 버튼이 5개 밖에없어서 5로 고정
@@ -50,15 +50,18 @@ public class LaboratoryPanelListener : MonoBehaviour
         }
         PlayerPrefs.SetString("pilot_skill", skills);
     }
+
     public void ShowRemainPoint()
     {
         remain_text.GetComponent<Text>().text = (total_point - used_point).ToString();
     }
-    public void LoadSkillInfo(int pre_skill, int idx)    //스킬 정보창을 불러옴
+
+    public void LoadSkillInfoPanel(int idx)    //스킬 정보창을 불러옴
     {
         skill_info_panel.SetActive(true);
+
         skill_info_panel.GetComponent<Skill_InfoPanelListener>().selected_btn = skills_btn[idx];
-        skill_info_panel.GetComponent<Skill_InfoPanelListener>().pre_skill = skills_btn[pre_skill].GetComponent<SkillButtonListener>().skill_active;
+        skill_info_panel.GetComponent<Skill_InfoPanelListener>().pre_skill_active = skills_btn[skills_btn[idx].GetComponent<SkillButtonListener>().pre_skill].GetComponent<SkillButtonListener>().skill_active;
         skill_info_panel.GetComponent<Skill_InfoPanelListener>().remain_point = total_point - used_point > 0;
         skill_info_panel.GetComponent<Skill_InfoPanelListener>().Initiate();
     }

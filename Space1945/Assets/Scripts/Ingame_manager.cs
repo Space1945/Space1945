@@ -9,7 +9,6 @@ public class Ingame_manager : MonoBehaviour
     public GameObject[] spwan_points;
     public float check_rate;
 
-    public DB_Manager.ex_stats ex_total;
     public bool ultimate_use { get; set; }
     public HashSet<GameObject> enemys { get; set; }
 
@@ -25,6 +24,7 @@ public class Ingame_manager : MonoBehaviour
 
     GameObject player;
     public GameObject player_clone { get; set; } // ¾îµð¼­µçÁö ÇÃ·¹ÀÌ¾î °´Ã¼ Á¢±Ù °¡´É
+    public DB_Manager.ex_stats ex_total { get; set; }
 
     /*
      ***** player ±Ã±Ø±â °ü¸® *****
@@ -38,8 +38,7 @@ public class Ingame_manager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        ex_total = new DB_Manager.ex_stats();
-        ex_total = DB_Manager.Instance.InitReinforce();
+        Reinforce();
     }
     void Start()
     {
@@ -71,7 +70,6 @@ public class Ingame_manager : MonoBehaviour
         normals = new List<GameObject>();
         normals_time = new List<int>();
         elites = new List<GameObject>();
-        
     }
 
     void ReadStage()
@@ -98,6 +96,22 @@ public class Ingame_manager : MonoBehaviour
         }
 
         BG = Resources.LoadAll<GameObject>("Maps/BG/");
+    }
+
+    void Reinforce()
+    {
+        ex_total = new DB_Manager.ex_stats();
+
+        ex_total.ex_hp = PlayerPrefs.GetFloat("ex_hp");
+        ex_total.ex_def = PlayerPrefs.GetFloat("ex_def");
+        ex_total.ex_crash_dmg = PlayerPrefs.GetFloat("ex_crash_dmg");
+        ex_total.ex_bullet_dmg = PlayerPrefs.GetFloat("ex_bullet_dmg");
+        ex_total.ex_fire_rate = PlayerPrefs.GetFloat("ex_fire_rate");
+        ex_total.ex_crit_chance = PlayerPrefs.GetFloat("ex_crit_chance");
+        ex_total.ex_crit_dmg = PlayerPrefs.GetFloat("ex_crit_dmg");
+        ex_total.ex_gold = PlayerPrefs.GetFloat("ex_gold");
+        ex_total.ex_exp = PlayerPrefs.GetFloat("ex_exp");
+        ex_total.ex_drop = PlayerPrefs.GetFloat("ex_drop");
     }
 
     /*                 ±Ã±Ø±â                  */

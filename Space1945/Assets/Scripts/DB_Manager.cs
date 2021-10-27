@@ -46,7 +46,7 @@ public class DB_Manager
     public int selected_stage { get; set; }
 
     [Serializable]
-    public struct ex_stats
+    public class ex_stats
     {
         public float ex_hp;
         public float ex_def;
@@ -59,51 +59,14 @@ public class DB_Manager
         public float ex_exp;
         public float ex_drop;
     }
-    public ex_stats parts_total, research_total;
 
-    public ex_stats InitReinforce()
+    public void Activate()
     {
-        ex_stats temp = new ex_stats();
-        temp.ex_bullet_dmg = parts_total.ex_bullet_dmg + research_total.ex_bullet_dmg;
-        temp.ex_crash_dmg = parts_total.ex_crash_dmg + research_total.ex_crash_dmg;
-        temp.ex_crit_chance = parts_total.ex_crit_chance + research_total.ex_crit_chance;
-        temp.ex_crit_dmg = parts_total.ex_crit_dmg + research_total.ex_crit_dmg;
-        temp.ex_def = parts_total.ex_def + research_total.ex_def;
-        temp.ex_drop = parts_total.ex_drop + research_total.ex_drop;
-        temp.ex_exp = parts_total.ex_exp + research_total.ex_exp;
-        temp.ex_fire_rate = parts_total.ex_fire_rate + research_total.ex_fire_rate;
-        temp.ex_gold = parts_total.ex_gold + research_total.ex_gold;
-        temp.ex_hp = parts_total.ex_hp + research_total.ex_hp;
-        return temp;
-    }
-    public void parts_status_init()
-    {
-        if (using_def == null)
-            using_def = empty[0];
-        if (using_sub_left == null)
-            using_sub_left = empty[1];
-        if (using_sub_right == null)
-            using_sub_right = empty[1];
-        parts_total.ex_bullet_dmg = using_sub_left.GetComponent<SubScript>().adds.ex_bullet_dmg + using_sub_right.GetComponent<SubScript>().adds.ex_bullet_dmg;
-        parts_total.ex_crash_dmg = using_sub_left.GetComponent<SubScript>().adds.ex_crash_dmg + using_sub_right.GetComponent<SubScript>().adds.ex_crash_dmg + using_def.GetComponent<DefScript>().ex_crash_dmg;
-        parts_total.ex_crit_chance = using_sub_left.GetComponent<SubScript>().adds.ex_crit_chance + using_sub_right.GetComponent<SubScript>().adds.ex_crit_chance;
-        parts_total.ex_crit_dmg = using_sub_left.GetComponent<SubScript>().adds.ex_crit_dmg + using_sub_right.GetComponent<SubScript>().adds.ex_crit_dmg;
-        parts_total.ex_def = using_sub_left.GetComponent<SubScript>().adds.ex_def + using_sub_right.GetComponent<SubScript>().adds.ex_def + using_def.GetComponent<DefScript>().ex_def;
-        parts_total.ex_drop = using_sub_left.GetComponent<SubScript>().adds.ex_drop + using_sub_right.GetComponent<SubScript>().adds.ex_drop;
-        parts_total.ex_exp = using_sub_left.GetComponent<SubScript>().adds.ex_exp + using_sub_right.GetComponent<SubScript>().adds.ex_exp;
-        parts_total.ex_fire_rate = using_sub_left.GetComponent<SubScript>().adds.ex_fire_rate + using_sub_right.GetComponent<SubScript>().adds.ex_fire_rate;
-        parts_total.ex_gold = using_sub_left.GetComponent<SubScript>().adds.ex_gold + using_sub_right.GetComponent<SubScript>().adds.ex_gold;
-        parts_total.ex_hp = using_sub_left.GetComponent<SubScript>().adds.ex_hp + using_sub_right.GetComponent<SubScript>().adds.ex_hp + using_def.GetComponent<DefScript>().ex_hp;
     }
 
-    public void First_Start()
-    {
-    }
     DB_Manager()
     {
         LoadAllParts();
-        parts_total = new ex_stats();
-        research_total = new ex_stats();
     }
 
     public static DB_Manager Instance
@@ -124,13 +87,13 @@ public class DB_Manager
         enemy_killed_cnt = 0;
         stage_clear = false;
     }
-    private void LoadAllParts()
+    void LoadAllParts()
     {
         airframes = Resources.LoadAll<GameObject>("Player/Airframes/");
         atks = Resources.LoadAll<GameObject>("Player/AtkParts/");
         defs = Resources.LoadAll<GameObject>("Player/DefParts/");
         subs = Resources.LoadAll<GameObject>("Player/SubParts/");
-        empty = Resources.LoadAll<GameObject>("Player/EmptyParts/");
+        empty = Resources.LoadAll<GameObject>("Player/EmptyParts/"); //*****
 
         using_airframe = null;
         using_atk = null;
@@ -203,8 +166,51 @@ public class DB_Manager
                 locked_subs.Add(subs[i]);
         }
 
-        //parts_status_init();
-
         total_prefab_cnt = airframes.Length + atks.Length + defs.Length + subs.Length;
+    }
+
+    public void UpdateDefExStats(GameObject prev_obj, GameObject next_obj)
+    {
+        if (prev_obj != null)
+        {
+            PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") - prev_obj.GetComponent<DefScript>().ex_hp);
+            PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") - prev_obj.GetComponent<DefScript>().ex_def);
+            PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") - prev_obj.GetComponent<DefScript>().ex_crash_dmg);
+        }
+        if (next_obj != null)
+        {
+            PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") + next_obj.GetComponent<DefScript>().ex_hp);
+            PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") + next_obj.GetComponent<DefScript>().ex_def);
+            PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") + next_obj.GetComponent<DefScript>().ex_crash_dmg);
+        }
+    }
+    public void UpdateSubExStats(GameObject prev_obj, GameObject next_obj)
+    {
+        if (prev_obj != null)
+        {
+            PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") - prev_obj.GetComponent<SubScript>().adds.ex_hp);
+            PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") - prev_obj.GetComponent<SubScript>().adds.ex_def);
+            PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") - prev_obj.GetComponent<SubScript>().adds.ex_crash_dmg);
+            PlayerPrefs.SetFloat("ex_bullet_dmg", PlayerPrefs.GetFloat("ex_bullet_dmg") - prev_obj.GetComponent<SubScript>().adds.ex_bullet_dmg);
+            PlayerPrefs.SetFloat("ex_fire_rate", PlayerPrefs.GetFloat("ex_fire_rate") - prev_obj.GetComponent<SubScript>().adds.ex_fire_rate);
+            PlayerPrefs.SetFloat("ex_crit_chance", PlayerPrefs.GetFloat("ex_crit_chance") - prev_obj.GetComponent<SubScript>().adds.ex_crit_chance);
+            PlayerPrefs.SetFloat("ex_crit_dmg", PlayerPrefs.GetFloat("ex_crit_dmg") - prev_obj.GetComponent<SubScript>().adds.ex_crit_dmg);
+            PlayerPrefs.SetFloat("ex_gold", PlayerPrefs.GetFloat("ex_gold") - prev_obj.GetComponent<SubScript>().adds.ex_gold);
+            PlayerPrefs.SetFloat("ex_exp", PlayerPrefs.GetFloat("ex_exp") - prev_obj.GetComponent<SubScript>().adds.ex_exp);
+            PlayerPrefs.SetFloat("ex_drop", PlayerPrefs.GetFloat("ex_drop") - prev_obj.GetComponent<SubScript>().adds.ex_drop);
+        }
+        if (next_obj != null)
+        {
+            PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") + next_obj.GetComponent<SubScript>().adds.ex_hp);
+            PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") + next_obj.GetComponent<SubScript>().adds.ex_def);
+            PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") + next_obj.GetComponent<SubScript>().adds.ex_crash_dmg);
+            PlayerPrefs.SetFloat("ex_bullet_dmg", PlayerPrefs.GetFloat("ex_bullet_dmg") + next_obj.GetComponent<SubScript>().adds.ex_bullet_dmg);
+            PlayerPrefs.SetFloat("ex_fire_rate", PlayerPrefs.GetFloat("ex_fire_rate") + next_obj.GetComponent<SubScript>().adds.ex_fire_rate);
+            PlayerPrefs.SetFloat("ex_crit_chance", PlayerPrefs.GetFloat("ex_crit_chance") + next_obj.GetComponent<SubScript>().adds.ex_crit_chance);
+            PlayerPrefs.SetFloat("ex_crit_dmg", PlayerPrefs.GetFloat("ex_crit_dmg") + next_obj.GetComponent<SubScript>().adds.ex_crit_dmg);
+            PlayerPrefs.SetFloat("ex_gold", PlayerPrefs.GetFloat("ex_gold") + next_obj.GetComponent<SubScript>().adds.ex_gold);
+            PlayerPrefs.SetFloat("ex_exp", PlayerPrefs.GetFloat("ex_exp") + next_obj.GetComponent<SubScript>().adds.ex_exp);
+            PlayerPrefs.SetFloat("ex_drop", PlayerPrefs.GetFloat("ex_drop") + next_obj.GetComponent<SubScript>().adds.ex_drop);
+        }
     }
 }

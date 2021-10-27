@@ -16,9 +16,9 @@ public class MainPanelListener : MonoBehaviour
     AudioSource audio_source;
     public AudioClip button_clicked;
 
-    void Start()
+    void Awake()
     {
-        Debug.Log("메인패널 활성화");
+        gameObject.SetActive(true);
 
         audio_source = GetComponent<AudioSource>();
         audio_source.clip = button_clicked;
@@ -28,7 +28,9 @@ public class MainPanelListener : MonoBehaviour
         chapter2_scrollview.SetActive(false);
         chapter3_scrollview.SetActive(false);
         chapter4_scrollview.SetActive(false);
-
+    }
+    void Start()
+    {
         for (int i = 0; i < ch_list.Length; i++)
         {
             string chapter = PlayerPrefs.GetString("chapter" + (i + 1).ToString());

@@ -8,7 +8,7 @@ public class NamePanelListener : MonoBehaviour
     public InputField name_field;
     public Button submit_btn;
 
-    void Start()
+    void Awake()
     {
         gameObject.SetActive(false);
     }
@@ -41,6 +41,17 @@ public class NamePanelListener : MonoBehaviour
 
         PlayerPrefs.SetString("Atk1", "using");
         PlayerPrefs.SetString("Ship1", "using");
+
+        PlayerPrefs.SetFloat("ex_hp", 0);
+        PlayerPrefs.SetFloat("ex_def", 0);
+        PlayerPrefs.SetFloat("ex_crash_dmg", 0);
+        PlayerPrefs.SetFloat("ex_bullet_dmg", 0);
+        PlayerPrefs.SetFloat("ex_fire_rate", 0);
+        PlayerPrefs.SetFloat("ex_crit_chance", 0);
+        PlayerPrefs.SetFloat("ex_crit_dmg", 0);
+        PlayerPrefs.SetFloat("ex_gold", 0);
+        PlayerPrefs.SetFloat("ex_exp", 0);
+        PlayerPrefs.SetFloat("ex_drop", 0);
 
         gameObject.SetActive(false);
     }

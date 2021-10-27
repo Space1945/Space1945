@@ -15,10 +15,9 @@ public class ConfigurationPanelListener : MonoBehaviour
     AudioSource audio_source_se;
     public AudioClip button_clicked;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        Debug.Log("환경설정패널 활성화");
+        gameObject.SetActive(false);
 
         audio_source_se = GetComponent<AudioSource>();
         audio_source_se.clip = button_clicked;
@@ -40,6 +39,11 @@ public class ConfigurationPanelListener : MonoBehaviour
         {
             Debug.Log("ConfigurtionPanelListener/Start() Error");
         }
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     public void ActivateBGM()

@@ -19,19 +19,10 @@ public class MainCanvasListener : MonoBehaviour
 
     GameObject opening_panel;
 
-    void Start()
+    void Awake()
     {
         // 초기 화면
-        main_panel.SetActive(true);
-        basement_panel.SetActive(false);
-        store_panel.SetActive(false);
-        configuration_panel.SetActive(false);
         opening_panel = main_panel;
-
-        state_panel.SetActive(true); // 항상 보임
-        button_panel.SetActive(true); // 항상 보임
-
-        state_panel.GetComponent<StatePanelListener>().DisplayStateInfo();
     }
 
     public void ActivateMain()
