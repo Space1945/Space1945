@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Boom.cs" />
     <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\Move\Elite\Fix.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\ChainHit.cs" />
     <Compile Include="Assets\Scripts\NormalMobInfo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
@@ -154,7 +155,6 @@
     <Compile Include="Assets\Scripts\MainCameraListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\MainCanvasListener.cs" />
-    <Compile Include="Assets\Scripts\Parts\Attack\BulletType\ChainHit.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
