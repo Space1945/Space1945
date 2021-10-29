@@ -23,7 +23,6 @@ public class Normal : MonoBehaviour
         crash_damage = GetComponent<BulletInfo>().crash_damage;
         transform.rotation = Quaternion.Euler(0, 0, shot_angle - 90);
 
-
         GetComponent<Rigidbody2D>().velocity = normalized_angle * speed;
     }
 

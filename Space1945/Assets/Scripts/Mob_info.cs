@@ -24,21 +24,19 @@ public class Mob_info : MonoBehaviour
     ParticleSystem par_die;
     bool invincible;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Initiate();
-
-        if (butts.Length > 0)
-            StartCoroutine(Attack());
-    }
-
-    void Initiate()
+    void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
         col = GetComponent<PolygonCollider2D>();
         par_die = Resources.Load<ParticleSystem>("Particle/TinyExplosion");
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (butts.Length > 0)
+            StartCoroutine(Attack());
+
         invincible = false;
     }
 

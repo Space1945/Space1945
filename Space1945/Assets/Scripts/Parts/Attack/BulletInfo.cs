@@ -8,7 +8,6 @@ public class BulletInfo : MonoBehaviour
     public float speed;
     public float crit_chance_p;
     public float crit_damage_p;
-    
     public float shot_angle
     {
         get
@@ -23,7 +22,6 @@ public class BulletInfo : MonoBehaviour
             return crit;
         }
     }
-
     float angle;
     bool crit;
 

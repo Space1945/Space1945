@@ -95,8 +95,8 @@ public class AirframeScript : MonoBehaviour
         if (cur_hp <= 0)
         {
             // 사운드 출력
-            ParticleSystem par = Instantiate(par_die);
-            par.transform.position = transform.position; // 사망 효과
+            //ParticleSystem par = Instantiate(par_die);
+            //par.transform.position = transform.position; // 사망 효과
             StopAllCoroutines();
             Destroy(gameObject);
         }

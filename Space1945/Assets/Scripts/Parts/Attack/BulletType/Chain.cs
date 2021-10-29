@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Chain : MonoBehaviour
 {
@@ -12,51 +13,70 @@ public class Chain : MonoBehaviour
     float shot_angle;
     float crash_damage;
     float distance; // 목표까지의 거리
-    Collider2D[] near_enemy; // 주변 적들의 집합
+    HashSet<GameObject> shocked_enemies;
 
-    private void Start()
+    void Awake()
     {
         crash_damage = GetComponent<BulletInfo>().crash_damage;
-
-        Shot_lightning(gameObject, chain_cnt);
-
-        Invoke("Delete", 0.6f);
+        shocked_enemies = new HashSet<GameObject>();
+    }
+    void Start()
+    {
+        StartCoroutine(ShotLightning());
     }
 
-    void Delete()
+    IEnumerator ShotLightning() // 시작점, 남은 튕김횟수
     {
-        Destroy(gameObject);
-    }
-    void Shot_lightning(GameObject start, int chain_cnt) // 시작점, 남은 튕김횟수
-    {
-        if (chain_cnt == 0) return;
+        GameObject target = gameObject;
+        List<GameObject> enemies = new List<GameObject>();
+        List<GameObject> middles = new List<GameObject>();
 
-        float min_dis = 9999999;
-        GameObject nearest = null;
-        near_enemy = Physics2D.OverlapCircleAll(start.transform.position, radius, LayerMask.GetMask("Enemy")); // radius 범위 내에 있는 모든 적 기체의 collider 수집
-        foreach (Collider2D col in near_enemy)
+        for (int i = 0; i < chain_cnt; i++)
         {
-            if (col.gameObject != start) // 방금 맞았던 놈 어케 무시? 싯팔 모르겠다
-            {
-                float dis = Vector2.Distance(start.transform.position, col.transform.position); // 거리비교
-                if (min_dis > dis)
+            // 타겟 찾음
+            float min_dis = 9999999;
+            GameObject nearest = null;
+            if (target == null)
+                break;
+            Collider2D[] near_enemy = Physics2D.OverlapCircleAll(target.transform.position, radius, LayerMask.GetMask("Enemy")); // radius 범위 내에 있는 모든 적 기체의 collider 수집
+
+            foreach (Collider2D col in near_enemy)
+                if (col.gameObject != target && !shocked_enemies.Contains(col.gameObject))
                 {
-                    min_dis = dis;
-                    nearest = col.gameObject;
+                    float dis = Vector2.Distance(target.transform.position, col.transform.position); // 거리비교
+                    if (min_dis > dis)
+                    {
+                        min_dis = dis;
+                        nearest = col.gameObject;
+                    }
                 }
-            }
+            if (nearest == null)
+                break;
+            shocked_enemies.Add(nearest);
+            enemies.Add(nearest);
+
+            distance = Vector2.Distance(target.transform.position, nearest.transform.position);
+            shot_angle = GV.GetDegree(target.transform.position, nearest.transform.position);
+
+            for (int j = 0; j < distance; j++)
+                middles.Add(Instantiate(middle, (Vector2)target.transform.position + GV.GetVector2(shot_angle).normalized * (j + 0.5f), Quaternion.Euler(0, 0, shot_angle), transform));
+
+            yield return new WaitForSeconds(0.05f);
+
+            for (int j = 0; j < middles.Count; j++)
+                Destroy(middles[j]);
+            middles.Clear();
+
+            target = nearest;
         }
-        if (nearest != null)
+
+        for (int i = 0; i < enemies.Count; i++)
         {
-            distance = Vector2.Distance(start.transform.position, nearest.transform.position);
-            shot_angle = GV.GetDegree(start.transform.position, nearest.transform.position);
-
-            for (int i = 0; i < distance; i++)
-                Instantiate(middle, (Vector2)start.transform.position + GV.GetVector2(shot_angle).normalized * (i + 0.5f), Quaternion.Euler(0, 0, shot_angle), transform);
-
-            Instantiate(hit, nearest.transform.position, Quaternion.Euler(0, 0, 0), nearest.transform);
-
-            Shot_lightning(nearest, chain_cnt - 1);
+            if (enemies[i] != null)
+            {
+                GameObject hc = Instantiate(hit, enemies[i].transform.position, Quaternion.identity, enemies[i].transform);
+                hc.GetComponent<ChainHit>().StartAttackCoroutine(enemies[i], crash_damage);
+            }
         }
     }
 }

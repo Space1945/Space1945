@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1951915125687479296}
   - component: {fileID: -7922286945837407761}
   - component: {fileID: 1602120664364844791}
+  - component: {fileID: 3200695764054849690}
   m_Layer: 0
   m_Name: ChainHit
   m_TagString: Untagged
@@ -103,3 +104,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3200695764054849690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9083764095725973220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fdceb54f6ac3774c9de5a2d57e76e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack_rate: 0.2
+  shocked_cnt: 10
