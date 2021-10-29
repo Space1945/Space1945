@@ -14,14 +14,12 @@ public class Chain : MonoBehaviour
     float crash_damage;
     float distance; // 목표까지의 거리
     HashSet<GameObject> shocked_enemies;
-
-    void Awake()
+    
+    void Start()
     {
         crash_damage = GetComponent<BulletInfo>().crash_damage;
         shocked_enemies = new HashSet<GameObject>();
-    }
-    void Start()
-    {
+
         StartCoroutine(ShotLightning());
     }
 
@@ -61,7 +59,7 @@ public class Chain : MonoBehaviour
             for (int j = 0; j < distance; j++)
                 middles.Add(Instantiate(middle, (Vector2)target.transform.position + GV.GetVector2(shot_angle).normalized * (j + 0.5f), Quaternion.Euler(0, 0, shot_angle), transform));
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
 
             for (int j = 0; j < middles.Count; j++)
                 Destroy(middles[j]);

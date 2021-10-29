@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3913dd54fd6cfa46a0d936046300c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 7
-  chain_cnt: 5
+  radius: 8
+  chain_cnt: 4
   middle: {fileID: 3491412338467479408, guid: 5e91d670ddca91841a09bbc4f6227433, type: 3}
   hit: {fileID: 9083764095725973220, guid: 8d19de5dfe02c9d4b9afd32cbb3c1a86, type: 3}
 --- !u!114 &4802287442241807842
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e178f80fc4b5e44b9a64779a60eb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crash_damage: 30
+  crash_damage: 10
   speed: 0
-  crit_chance_p: 5
-  crit_damage_p: 10
+  crit_chance_p: 10
+  crit_damage_p: 20

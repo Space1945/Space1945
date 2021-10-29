@@ -15,11 +15,11 @@ C:/Users/SAMSUNG/Desktop/Space1945/Space1945
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-55051
+55113
 Successfully changed project path to: C:/Users/SAMSUNG/Desktop/Space1945/Space1945
 C:/Users/SAMSUNG/Desktop/Space1945/Space1945
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 142.19 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 145.72 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.7f1 (d91830b65d9b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.1.7f1/Editor/Data/Resources/UnitySubsystems
@@ -35,79 +35,43 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.1.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.1.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.1.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56848
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56968
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.007992 seconds.
+Registered in 0.011690 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 123.90 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 129.12 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.639 seconds
+- Completed reload, in  2.798 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.009141 seconds.
+Registered in 0.008311 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\SAMSUNG\Desktop\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\SAMSUNG\Desktop\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 120.77 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 128.80 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.666 seconds
+- Completed reload, in  1.637 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 0.91 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3590 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 229.7 MB.
-System memory in use after: 230.0 MB.
+System memory in use before: 229.8 MB.
+System memory in use after: 230.1 MB.
 
 Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 4062.
-Total: 2.847600 ms (FindLiveObjects: 0.271500 ms CreateObjectMapping: 0.177300 ms MarkObjects: 2.338500 ms  DeleteObjects: 0.059100 ms)
+Total: 2.766500 ms (FindLiveObjects: 0.303800 ms CreateObjectMapping: 0.250700 ms MarkObjects: 2.165900 ms  DeleteObjects: 0.044900 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Images/Parts/KakaoTalk_20211029_220152290.png
-  artifactKey: Guid(a4d1b574549ea274dbbf0d34ecb246e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Parts/KakaoTalk_20211029_220152290.png using Guid(a4d1b574549ea274dbbf0d34ecb246e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3c128122fc192228778f0fc8047b1bb') in 0.153832 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.570471 seconds.
-  path: Assets/Images/Parts/Sub5 ingame.png
-  artifactKey: Guid(a4d1b574549ea274dbbf0d34ecb246e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Parts/Sub5 ingame.png using Guid(a4d1b574549ea274dbbf0d34ecb246e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e73f7f82277c651dd47aa5b236cf117f') in 0.035390 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 19.726671 seconds.
-  path: Assets/Images/EnemyImages/KakaoTalk_20211029_154339641.png
-  artifactKey: Guid(c435b740e5a9921478007a990c9c78fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/EnemyImages/KakaoTalk_20211029_154339641.png using Guid(c435b740e5a9921478007a990c9c78fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89ceba4292fc845c0fa506f6e6036695') in 0.075276 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000394 seconds.
-  path: Assets/Images/EnemyImages/KakaoTalk_20211029_154339641_03.png
-  artifactKey: Guid(079f39e477fd2dd4e8b842e83918f9f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/EnemyImages/KakaoTalk_20211029_154339641_03.png using Guid(079f39e477fd2dd4e8b842e83918f9f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02021bf3a48c0d991019f8c1e2be05f7') in 0.022506 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000268 seconds.
-  path: Assets/Images/EnemyImages/KakaoTalk_20211029_154339641_02.png
-  artifactKey: Guid(69898aac544e3c744988eb085502b253) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/EnemyImages/KakaoTalk_20211029_154339641_02.png using Guid(69898aac544e3c744988eb085502b253) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f26a2f68ac0d67c1388992772cd2a0e5') in 0.032943 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000279 seconds.
-  path: Assets/Images/EnemyImages/KakaoTalk_20211029_154339641_01.png
-  artifactKey: Guid(c1000a88e900fe8409672de0f9518067) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/EnemyImages/KakaoTalk_20211029_154339641_01.png using Guid(c1000a88e900fe8409672de0f9518067) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88886c7d48a55c3ee1451bee45a13ecd') in 0.059320 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 9.370646 seconds.
-  path: Assets/Images/Airframes/KakaoTalk_20211029_154342603.png
-  artifactKey: Guid(3c209b10cb548e744b25b131f85b77f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Airframes/KakaoTalk_20211029_154342603.png using Guid(3c209b10cb548e744b25b131f85b77f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba4a9b74a3ac04bc73b54315e970ff52') in 0.017402 seconds 
+  path: Assets/Images/Skills/KakaoTalk_20211029_154351443.png
+  artifactKey: Guid(a2b56cebd7246e346864b6d2f2c0eaf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/Skills/KakaoTalk_20211029_154351443.png using Guid(a2b56cebd7246e346864b6d2f2c0eaf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '609e7ec0d7df15c28af59a43dcdafd4d') in 0.163339 seconds 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
