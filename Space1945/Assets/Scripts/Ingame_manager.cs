@@ -35,6 +35,10 @@ public class Ingame_manager : MonoBehaviour
 
     public Image HealthBar; // 플레이어 체력바
 
+    Coroutine addtional_gold_exp;
+    float adtl_gold;
+    float adtl_exp;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -52,12 +56,11 @@ public class Ingame_manager : MonoBehaviour
         player = DB_Manager.Instance.using_airframe;
         player_clone = Instantiate(player); // 복제
 
-        mUg = 100; // 플레이어의 기체에 맞게 수정할것
+        cUg = 0f;
+        mUg = 100f; // 플레이어의 기체에 맞게 수정할것
 
         foreach (GameObject obj in BG)
             Instantiate(obj);
-
-        Ultimate.enabled = false;
 
         StartCoroutine(CreateNormalEnemy());
         StartCoroutine(CheckGameEnd(check_rate));
@@ -70,6 +73,13 @@ public class Ingame_manager : MonoBehaviour
         normals = new List<GameObject>();
         normals_time = new List<int>();
         elites = new List<GameObject>();
+
+        addtional_gold_exp = null;
+        Ultimate.enabled = false;
+        ultimate_use = false;
+
+        adtl_gold = 1f;
+        adtl_exp = 1f;
     }
 
     void ReadStage()
@@ -153,8 +163,8 @@ public class Ingame_manager : MonoBehaviour
     public void KillEnemy(int score, int exp, int gold)
     {
         DB_Manager.Instance.score_earned += score;
-        DB_Manager.Instance.exp_earned += (int)(exp * (1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_exp / 100f));
-        DB_Manager.Instance.gold_earned += (int)(gold * (1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_gold / 100f));
+        DB_Manager.Instance.exp_earned += (int)(exp * (1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_exp / 100f) * adtl_exp);
+        DB_Manager.Instance.gold_earned += (int)(gold * (1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_gold / 100f) * adtl_gold);
         DB_Manager.Instance.enemy_killed_cnt++;
 
         if (DB_Manager.Instance.enemy_killed_cnt >= elite_emer_cnt) // 일반몹 10킬당 엘리트 한마리씩 출현
@@ -214,5 +224,22 @@ public class Ingame_manager : MonoBehaviour
                 SceneManager.LoadScene("GameEnd");
             }
         }
+    }
+    IEnumerator AGE(float duration, float adtl_gold, float adtl_exp)
+    {
+        float origin_gold = this.adtl_gold;
+        float origin_exp = this.adtl_exp;
+
+        this.adtl_gold = adtl_gold;
+        this.adtl_exp = adtl_exp;
+
+        yield return new WaitForSeconds(duration);
+
+        this.adtl_gold = origin_gold;
+        this.adtl_exp = origin_exp;
+    }
+    public void AdditionalGoldExp(float duration, float adtl_gold, float adtl_exp)
+    {
+        addtional_gold_exp = StartCoroutine(AGE(duration, adtl_gold, adtl_exp));
     }
 }

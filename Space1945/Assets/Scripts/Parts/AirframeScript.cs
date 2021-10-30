@@ -58,7 +58,7 @@ public class AirframeScript : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         col = GetComponent<PolygonCollider2D>();
 
-        par_die = Resources.Load<ParticleSystem>("Particle/Enemy_die_particle");
+        //par_die = Resources.Load<ParticleSystem>("Particle/Enemy_die_particle");
 
         // ÆÄÃ÷ È°¼ºÈ­
         atk_ = Instantiate(DB_Manager.Instance.using_atk, transform);
@@ -104,6 +104,23 @@ public class AirframeScript : MonoBehaviour
         Move();
     }
 
+    IEnumerator TR(float duration, float new_def, float new_crash_damage)
+    {
+        float origin_def = basic_def;
+        float origin_crash_damage = crash_damage;
+
+        basic_def = new_def;
+        crash_damage = new_crash_damage;
+
+        yield return new WaitForSeconds(duration);
+
+        basic_def = origin_def;
+        crash_damage = origin_crash_damage;
+    }
+    public void TemporaryReinforce(float duration, float new_def, float new_crash_damage)
+    {
+        StartCoroutine(TR(duration, new_def, new_crash_damage));
+    }
     public void Attacked(float crash_damage)
     {
         cur_hp -= crash_damage;

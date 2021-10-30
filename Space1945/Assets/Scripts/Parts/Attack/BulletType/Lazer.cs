@@ -7,7 +7,7 @@ public class Lazer : MonoBehaviour
     float fire_rate;
     float crash_damage;
 
-    private void Start()
+    void Start()
     {
         crash_damage = GetComponent<BulletInfo>().crash_damage;
     }

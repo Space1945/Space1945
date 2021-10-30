@@ -60,9 +60,7 @@ public class DB_Manager
         public float ex_drop;
     }
 
-    public void Activate()
-    {
-    }
+    public void Activate() {}
 
     DB_Manager()
     {

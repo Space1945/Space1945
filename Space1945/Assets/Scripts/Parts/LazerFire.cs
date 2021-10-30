@@ -43,6 +43,8 @@ public class LazerFire : MonoBehaviour, AtkInterface
     Coroutine atk_coroutine;
 
     Transform[] butts;
+    float adtl_crit_chance_p;
+    float adtl_crit_damage_p;
 
     void Awake()
     {
@@ -72,23 +74,8 @@ public class LazerFire : MonoBehaviour, AtkInterface
         }
         yield return null;
     }
-    IEnumerator Attack(float fire_rate, int fire_cnt_per_shot)
-    {
-        for (int i = 0; i < butts.Length; i++)
-        {
-            lazers_start.Add(Instantiate(start, butts[i].position, Quaternion.identity, butts[i]));
-            for (int j = 0; j < fire_cnt_per_shot; j++)
-            {
-                GameObject mc = Instantiate(middle, butts[i].position, Quaternion.identity, butts[i]);
-                mc.GetComponent<Lazer>().Set(fire_rate);
-                lazers_middle.Add(mc);
-            }
-            lazers_end.Add(Instantiate(end, new Vector2(1000, 1000), Quaternion.identity, butts[i]));
-        }
-        yield return null;
-    }
 
-    void AtkInterface.StopAttackCoroutine()
+    IEnumerator TemporaryReinforce(float during_time, float new_fire_rate, int new_fire_cnt_per_shot, float new_adtl_crit_chance_p, float new_adtl_crit_damage_p)
     {
         for (int i = 0; i < butts.Length; i++)
         {
@@ -100,14 +87,46 @@ public class LazerFire : MonoBehaviour, AtkInterface
         lazers_start.Clear();
         lazers_middle.Clear();
         lazers_end.Clear();
+
         StopCoroutine(atk_coroutine);
-    }
-    void AtkInterface.StartAttackCoroutine()
-    {
+
+        float origin_fire_rate = fire_rate;
+        int origin_fire_cnt_per_shot = fire_cnt_per_shot;
+        float origin_adtl_crit_chance_p = adtl_crit_chance_p;
+        float origin_adtl_crit_damage_p = adtl_crit_damage_p;
+
+        fire_rate = new_fire_rate;
+        fire_cnt_per_shot = new_fire_cnt_per_shot;
+        adtl_crit_chance_p = new_adtl_crit_chance_p;
+        adtl_crit_damage_p = new_adtl_crit_damage_p;
+
+        atk_coroutine = StartCoroutine(Attack());
+
+        yield return new WaitForSeconds(during_time);
+
+        for (int i = 0; i < butts.Length; i++)
+        {
+            Destroy(lazers_start[i]);
+            Destroy(lazers_end[i]);
+        }
+        foreach (GameObject obj in lazers_middle)
+            Destroy(obj);
+        lazers_start.Clear();
+        lazers_middle.Clear();
+        lazers_end.Clear();
+
+        StopCoroutine(atk_coroutine);
+
+        fire_rate = origin_fire_rate;
+        fire_cnt_per_shot = origin_fire_cnt_per_shot;
+        adtl_crit_chance_p = origin_adtl_crit_chance_p;
+        adtl_crit_damage_p = origin_adtl_crit_damage_p;
+
         atk_coroutine = StartCoroutine(Attack());
     }
-    void AtkInterface.StartAttackCoroutine(float fire_rate, int fire_cnt_per_shot)
+
+    void AtkInterface.TemporaryReinforce(float during_time, float new_fire_rate, int new_fire_cnt_per_shot, float new_adtl_crit_chance_p, float new_adtl_crit_damage_p)
     {
-        atk_coroutine = StartCoroutine(Attack(fire_rate, fire_cnt_per_shot));
+        StartCoroutine(TemporaryReinforce(during_time, new_fire_rate, new_fire_cnt_per_shot, new_adtl_crit_chance_p, new_adtl_crit_damage_p));
     }
 }

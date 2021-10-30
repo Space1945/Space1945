@@ -38,60 +38,60 @@ public class BulletFire : MonoBehaviour, AtkInterface
     public float max_angle;
     public float min_angle;
 
-    Coroutine atk_coroutine;
+    Transform[] butts;
+    float adtl_crit_chance_p;
+    float adtl_crit_damage_p;
 
     void Awake() // 초기화
     {
-
+        butts = transform.parent.GetComponent<AirframeScript>().butts;
+        adtl_crit_chance_p = 0f;
+        adtl_crit_damage_p = 1f;
     }
     void Start()
     {
-        atk_coroutine = StartCoroutine(Attack());
+        if (fire_rate < 0.05f) // 최대 공속
+            fire_rate = 0.05f;
+        StartCoroutine(Attack());
     }
 
     IEnumerator Attack()
     {
-        Transform[] butts = transform.parent.GetComponent<AirframeScript>().butts;
-
-        if (fire_rate < 0.05f) // 최대 공속
-            fire_rate = 0.05f;
-
         while (true)
         {
             for (int i = 0; i < butts.Length; i++)
                 for (int j = 0; j < fire_cnt_per_shot; j++)
-                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle));
-
-            yield return new WaitForSeconds(fire_rate);
-        }
-    }
-    IEnumerator Attack(float fire_rate, float fire_cnt_per_shot)
-    {
-        Transform[] butts = transform.parent.GetComponent<AirframeScript>().butts;
-
-        if (fire_rate < 0.05f) // 최대 공속
-            fire_rate = 0.05f;
-
-        while (true)
-        {
-            for (int i = 0; i < butts.Length; i++)
-                for (int j = 0; j < fire_cnt_per_shot; j++)
-                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle));
+                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle), adtl_crit_chance_p, adtl_crit_damage_p);
 
             yield return new WaitForSeconds(fire_rate);
         }
     }
 
-    void AtkInterface.StopAttackCoroutine()
+    IEnumerator TemporaryReinforce(float during_time, float new_fire_rate, int new_fire_cnt_per_shot, float new_adtl_crit_chance_p, float new_adtl_crit_damage_p)
     {
-        StopCoroutine(atk_coroutine);
-    }
-    void AtkInterface.StartAttackCoroutine()
+        float origin_fire_rate = fire_rate;
+        int origin_fire_cnt_per_shot = fire_cnt_per_shot;
+        float origin_adtl_crit_chance_p = adtl_crit_chance_p;
+        float origin_adtl_crit_damage_p = adtl_crit_damage_p;
+
+        fire_rate = new_fire_rate;
+        fire_cnt_per_shot = new_fire_cnt_per_shot;
+        adtl_crit_chance_p = new_adtl_crit_chance_p;
+        adtl_crit_damage_p = new_adtl_crit_damage_p;
+
+        if (fire_rate < 0.05f) // 최대 공속
+            fire_rate = 0.05f;
+
+        yield return new WaitForSeconds(during_time);
+
+        fire_rate = origin_fire_rate;
+        fire_cnt_per_shot = origin_fire_cnt_per_shot;
+        adtl_crit_chance_p = origin_adtl_crit_chance_p;
+        adtl_crit_damage_p = origin_adtl_crit_damage_p;
+    }    
+
+    void AtkInterface.TemporaryReinforce(float during_time, float new_fire_rate, int new_fire_cnt_per_shot, float adtl_crit_chance_p, float adtl_crit_damage_p)
     {
-        atk_coroutine = StartCoroutine(Attack());
-    }
-    void AtkInterface.StartAttackCoroutine(float fire_rate, int fire_cnt_per_shot)
-    {
-        atk_coroutine = StartCoroutine(Attack(fire_rate, fire_cnt_per_shot));
+        StartCoroutine(TemporaryReinforce(during_time, new_fire_rate, new_fire_cnt_per_shot, adtl_crit_chance_p, adtl_crit_damage_p));
     }
 }
