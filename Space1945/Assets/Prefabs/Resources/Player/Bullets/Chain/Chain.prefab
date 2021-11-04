@@ -143,4 +143,4 @@ MonoBehaviour:
   crash_damage: 10
   speed: 0
   crit_chance_p: 10
-  crit_damage_p: 20
+  crit_damage_p: 1.2

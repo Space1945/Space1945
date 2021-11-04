@@ -42,16 +42,16 @@ public class NamePanelListener : MonoBehaviour
         PlayerPrefs.SetString("Atk1", "using");
         PlayerPrefs.SetString("Ship1", "using");
 
-        PlayerPrefs.SetFloat("ex_hp", 0);
-        PlayerPrefs.SetFloat("ex_def", 0);
-        PlayerPrefs.SetFloat("ex_crash_dmg", 0);
-        PlayerPrefs.SetFloat("ex_bullet_dmg", 0);
-        PlayerPrefs.SetFloat("ex_fire_rate", 0);
-        PlayerPrefs.SetFloat("ex_crit_chance", 0);
-        PlayerPrefs.SetFloat("ex_crit_dmg", 0);
-        PlayerPrefs.SetFloat("ex_gold", 0);
-        PlayerPrefs.SetFloat("ex_exp", 0);
-        PlayerPrefs.SetFloat("ex_drop", 0);
+        PlayerPrefs.SetFloat("ex_hp", 1f);
+        PlayerPrefs.SetFloat("ex_def", 1f);
+        PlayerPrefs.SetFloat("ex_crash_dmg", 1f);
+        PlayerPrefs.SetFloat("ex_bullet_dmg", 1f);
+        PlayerPrefs.SetFloat("ex_fire_rate", 1f);
+        PlayerPrefs.SetFloat("ex_crit_chance", 0f);
+        PlayerPrefs.SetFloat("ex_crit_dmg", 1f);
+        PlayerPrefs.SetFloat("ex_gold", 1f);
+        PlayerPrefs.SetFloat("ex_exp", 1f);
+        PlayerPrefs.SetFloat("ex_drop", 1f);
 
         gameObject.SetActive(false);
     }

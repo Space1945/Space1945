@@ -137,15 +137,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   temp_adds:
     ex_hp: 0
-    ex_def: 50
-    ex_crash_dmg: 50
-    ex_bullet_dmg: 0
-    ex_fire_rate: 0
+    ex_def: 1.5
+    ex_crash_dmg: 1.5
+    ex_bullet_dmg: 1
+    ex_fire_rate: 1
     ex_crit_chance: 0
-    ex_crit_dmg: 0
-    ex_gold: 0
-    ex_exp: 0
-    ex_drop: 0
+    ex_crit_dmg: 1
+    ex_gold: 1
+    ex_exp: 1
+    ex_drop: 1
   add_guage: 0
   effect_time: 10
   item_move_speed: 4

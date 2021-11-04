@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gold: 100000
-  ex_hp: 20
-  ex_def: 20
-  ex_crash_dmg: 0
+  ex_hp: 1.2
+  ex_def: 1.2
+  ex_crash_dmg: 1.2

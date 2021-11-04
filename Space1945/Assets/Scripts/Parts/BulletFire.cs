@@ -19,34 +19,22 @@ public class BulletFire : MonoBehaviour, AtkInterface
             return gold;
         }
     }
-    public float _fire_rate // 초당
-    {
-        get
-        {
-            return fire_rate;
-        }
-    }
-    public int _fire_cnt_per_shot // 한번에 발사하는 탄환수
-    {
-        get
-        {
-            return fire_cnt_per_shot;
-        }
-    }
     // -----------------------------------------------------------
 
     public float max_angle;
     public float min_angle;
 
+    Dictionary<string, float> reinforce = new Dictionary<string, float>
+    {
+        { "fr", 1f },
+        { "fcps", 1f }
+    };
+
     Transform[] butts;
-    float adtl_crit_chance_p;
-    float adtl_crit_damage_p;
 
     void Awake() // 초기화
     {
         butts = transform.parent.GetComponent<AirframeScript>().butts;
-        adtl_crit_chance_p = 0f;
-        adtl_crit_damage_p = 1f;
     }
     void Start()
     {
@@ -60,38 +48,29 @@ public class BulletFire : MonoBehaviour, AtkInterface
         while (true)
         {
             for (int i = 0; i < butts.Length; i++)
-                for (int j = 0; j < fire_cnt_per_shot; j++)
-                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle), adtl_crit_chance_p, adtl_crit_damage_p);
+                for (int j = 0; j < fire_cnt_per_shot * reinforce["fcps"]; j++)
+                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle));
 
-            yield return new WaitForSeconds(fire_rate);
+            yield return new WaitForSeconds(fire_rate * reinforce["fr"]);
         }
     }
 
-    IEnumerator TemporaryReinforce(float during_time, float new_fire_rate, int new_fire_cnt_per_shot, float new_adtl_crit_chance_p, float new_adtl_crit_damage_p)
+    IEnumerator TR(float duration, string name, float percentage)
     {
-        float origin_fire_rate = fire_rate;
-        int origin_fire_cnt_per_shot = fire_cnt_per_shot;
-        float origin_adtl_crit_chance_p = adtl_crit_chance_p;
-        float origin_adtl_crit_damage_p = adtl_crit_damage_p;
+        if (reinforce.ContainsKey(name))
+        {
+            reinforce[name] *= percentage;
 
-        fire_rate = new_fire_rate;
-        fire_cnt_per_shot = new_fire_cnt_per_shot;
-        adtl_crit_chance_p = new_adtl_crit_chance_p;
-        adtl_crit_damage_p = new_adtl_crit_damage_p;
+            if (fire_rate < 0.05f) // 최대 공속
+                fire_rate = 0.05f;
 
-        if (fire_rate < 0.05f) // 최대 공속
-            fire_rate = 0.05f;
+            yield return new WaitForSeconds(duration);
 
-        yield return new WaitForSeconds(during_time);
-
-        fire_rate = origin_fire_rate;
-        fire_cnt_per_shot = origin_fire_cnt_per_shot;
-        adtl_crit_chance_p = origin_adtl_crit_chance_p;
-        adtl_crit_damage_p = origin_adtl_crit_damage_p;
-    }    
-
-    void AtkInterface.TemporaryReinforce(float during_time, float new_fire_rate, int new_fire_cnt_per_shot, float adtl_crit_chance_p, float adtl_crit_damage_p)
+            reinforce[name] /= percentage;
+        }
+    }
+    void AtkInterface.TemporaryReinforce(float duration, string name, float percentage)
     {
-        StartCoroutine(TemporaryReinforce(during_time, new_fire_rate, new_fire_cnt_per_shot, adtl_crit_chance_p, adtl_crit_damage_p));
+        StartCoroutine(TR(duration, name, percentage));
     }
 }

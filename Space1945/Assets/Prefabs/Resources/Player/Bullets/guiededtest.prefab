@@ -279,7 +279,7 @@ MonoBehaviour:
   crash_damage: 40
   speed: 14
   crit_chance_p: 5
-  crit_damage_p: 20
+  crit_damage_p: 1.2
 --- !u!114 &8179136440902835813
 MonoBehaviour:
   m_ObjectHideFlags: 0

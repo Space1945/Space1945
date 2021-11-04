@@ -21,21 +21,13 @@ public class LazerFire : MonoBehaviour, AtkInterface
             return gold;
         }
     }
-    public float _fire_rate
-    {
-        get
-        {
-            return fire_rate;
-        }
-    }
-    public int _fire_cnt_per_shot
-    {
-        get
-        {
-            return fire_cnt_per_shot;
-        }
-    }
     // -----------------------------------------------------------
+
+    Dictionary<string, float> reinforce = new Dictionary<string, float>
+    {
+        { "fr", 1f },
+        { "fcps", 1f }
+    };
 
     List<GameObject> lazers_start;
     List<GameObject> lazers_middle;
@@ -64,10 +56,10 @@ public class LazerFire : MonoBehaviour, AtkInterface
         for (int i = 0; i < butts.Length; i++)
         {
             lazers_start.Add(Instantiate(start, butts[i].position, Quaternion.identity, butts[i]));
-            for (int j = 0; j < fire_cnt_per_shot; j++)
+            for (int j = 0; j < fire_cnt_per_shot * reinforce["fcps"]; j++)
             {
                 GameObject mc = Instantiate(middle, butts[i].position, Quaternion.identity, butts[i]);
-                mc.GetComponent<Lazer>().Set(fire_rate);
+                mc.GetComponent<Lazer>().Set(fire_rate * reinforce["fr"]);
                 lazers_middle.Add(mc);
             }
             lazers_end.Add(Instantiate(end, new Vector2(1000, 1000), Quaternion.identity, butts[i]));
@@ -75,58 +67,50 @@ public class LazerFire : MonoBehaviour, AtkInterface
         yield return null;
     }
 
-    IEnumerator TemporaryReinforce(float during_time, float new_fire_rate, int new_fire_cnt_per_shot, float new_adtl_crit_chance_p, float new_adtl_crit_damage_p)
+    IEnumerator TR(float duration, string name, float percentage)
     {
-        for (int i = 0; i < butts.Length; i++)
+        if (reinforce.ContainsKey(name))
         {
-            Destroy(lazers_start[i]);
-            Destroy(lazers_end[i]);
+            for (int i = 0; i < butts.Length; i++)
+            {
+                Destroy(lazers_start[i]);
+                Destroy(lazers_end[i]);
+            }
+            foreach (GameObject obj in lazers_middle)
+                Destroy(obj);
+            lazers_start.Clear();
+            lazers_middle.Clear();
+            lazers_end.Clear();
+
+            StopCoroutine(atk_coroutine);
+
+            reinforce[name] *= percentage;
+
+            atk_coroutine = StartCoroutine(Attack());
+
+            yield return new WaitForSeconds(duration);
+
+            for (int i = 0; i < butts.Length; i++)
+            {
+                Destroy(lazers_start[i]);
+                Destroy(lazers_end[i]);
+            }
+            foreach (GameObject obj in lazers_middle)
+                Destroy(obj);
+            lazers_start.Clear();
+            lazers_middle.Clear();
+            lazers_end.Clear();
+
+            StopCoroutine(atk_coroutine);
+
+            reinforce[name] /= percentage;
+
+            atk_coroutine = StartCoroutine(Attack());
         }
-        foreach (GameObject obj in lazers_middle)
-            Destroy(obj);
-        lazers_start.Clear();
-        lazers_middle.Clear();
-        lazers_end.Clear();
-
-        StopCoroutine(atk_coroutine);
-
-        float origin_fire_rate = fire_rate;
-        int origin_fire_cnt_per_shot = fire_cnt_per_shot;
-        float origin_adtl_crit_chance_p = adtl_crit_chance_p;
-        float origin_adtl_crit_damage_p = adtl_crit_damage_p;
-
-        fire_rate = new_fire_rate;
-        fire_cnt_per_shot = new_fire_cnt_per_shot;
-        adtl_crit_chance_p = new_adtl_crit_chance_p;
-        adtl_crit_damage_p = new_adtl_crit_damage_p;
-
-        atk_coroutine = StartCoroutine(Attack());
-
-        yield return new WaitForSeconds(during_time);
-
-        for (int i = 0; i < butts.Length; i++)
-        {
-            Destroy(lazers_start[i]);
-            Destroy(lazers_end[i]);
-        }
-        foreach (GameObject obj in lazers_middle)
-            Destroy(obj);
-        lazers_start.Clear();
-        lazers_middle.Clear();
-        lazers_end.Clear();
-
-        StopCoroutine(atk_coroutine);
-
-        fire_rate = origin_fire_rate;
-        fire_cnt_per_shot = origin_fire_cnt_per_shot;
-        adtl_crit_chance_p = origin_adtl_crit_chance_p;
-        adtl_crit_damage_p = origin_adtl_crit_damage_p;
-
-        atk_coroutine = StartCoroutine(Attack());
     }
 
-    void AtkInterface.TemporaryReinforce(float during_time, float new_fire_rate, int new_fire_cnt_per_shot, float new_adtl_crit_chance_p, float new_adtl_crit_damage_p)
+    void AtkInterface.TemporaryReinforce(float duration, string name, float percentage)
     {
-        StartCoroutine(TemporaryReinforce(during_time, new_fire_rate, new_fire_cnt_per_shot, new_adtl_crit_chance_p, new_adtl_crit_damage_p));
+        StartCoroutine(TR(duration, name, percentage));
     }
 }

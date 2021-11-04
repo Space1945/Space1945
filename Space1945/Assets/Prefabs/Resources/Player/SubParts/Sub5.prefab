@@ -97,3 +97,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gold: 135000
+  adds:
+    ex_hp: 1
+    ex_def: 1
+    ex_crash_dmg: 1
+    ex_bullet_dmg: 1
+    ex_fire_rate: 1
+    ex_crit_chance: 0
+    ex_crit_dmg: 1
+    ex_gold: 1
+    ex_exp: 1
+    ex_drop: 1

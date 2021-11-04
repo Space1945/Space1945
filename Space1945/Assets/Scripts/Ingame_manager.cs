@@ -163,8 +163,8 @@ public class Ingame_manager : MonoBehaviour
     public void KillEnemy(int score, int exp, int gold)
     {
         DB_Manager.Instance.score_earned += score;
-        DB_Manager.Instance.exp_earned += (int)(exp * (1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_exp / 100f) * adtl_exp);
-        DB_Manager.Instance.gold_earned += (int)(gold * (1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_gold / 100f) * adtl_gold);
+        DB_Manager.Instance.exp_earned += (int)(exp * Camera.main.GetComponent<Ingame_manager>().ex_total.ex_exp * adtl_exp);
+        DB_Manager.Instance.gold_earned += (int)(gold * Camera.main.GetComponent<Ingame_manager>().ex_total.ex_gold * adtl_gold);
         DB_Manager.Instance.enemy_killed_cnt++;
 
         if (DB_Manager.Instance.enemy_killed_cnt >= elite_emer_cnt) // 일반몹 10킬당 엘리트 한마리씩 출현

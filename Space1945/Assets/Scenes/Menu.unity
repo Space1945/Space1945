@@ -7515,16 +7515,16 @@ MonoBehaviour:
   max_point: 1
   cur_point: 0
   adds:
-    ex_hp: 0
-    ex_def: 0
-    ex_crash_dmg: 0
-    ex_bullet_dmg: 0
-    ex_fire_rate: 0
+    ex_hp: 1
+    ex_def: 1
+    ex_crash_dmg: 1
+    ex_bullet_dmg: 1.2
+    ex_fire_rate: 1
     ex_crit_chance: 0
-    ex_crit_dmg: 0
-    ex_gold: 0
-    ex_exp: 0
-    ex_drop: 0
+    ex_crit_dmg: 1
+    ex_gold: 1
+    ex_exp: 1
+    ex_drop: 1
   pre_skill: 0
   skill_explain: atk
   skill_name: atk
@@ -10642,16 +10642,16 @@ MonoBehaviour:
   max_point: 0
   cur_point: 0
   adds:
-    ex_hp: 0
-    ex_def: 0
-    ex_crash_dmg: 0
-    ex_bullet_dmg: 0
-    ex_fire_rate: 0
+    ex_hp: 1
+    ex_def: 1
+    ex_crash_dmg: 1
+    ex_bullet_dmg: 1
+    ex_fire_rate: 1
     ex_crit_chance: 0
-    ex_crit_dmg: 0
-    ex_gold: 0
-    ex_exp: 0
-    ex_drop: 0
+    ex_crit_dmg: 1
+    ex_gold: 1
+    ex_exp: 1
+    ex_drop: 1
   pre_skill: 0
   skill_explain: pilot
   skill_name: pilot
@@ -19690,16 +19690,16 @@ MonoBehaviour:
   max_point: 1
   cur_point: 0
   adds:
-    ex_hp: 0
-    ex_def: 0
-    ex_crash_dmg: 0
-    ex_bullet_dmg: 0
-    ex_fire_rate: 0
+    ex_hp: 1.2
+    ex_def: 1
+    ex_crash_dmg: 1
+    ex_bullet_dmg: 1
+    ex_fire_rate: 1
     ex_crit_chance: 0
-    ex_crit_dmg: 0
-    ex_gold: 0
-    ex_exp: 0
-    ex_drop: 0
+    ex_crit_dmg: 1
+    ex_gold: 1
+    ex_exp: 1
+    ex_drop: 1
   pre_skill: 0
   skill_explain: hp
   skill_name: hp
@@ -21846,16 +21846,16 @@ MonoBehaviour:
   max_point: 1
   cur_point: 0
   adds:
-    ex_hp: 0
-    ex_def: 0
-    ex_crash_dmg: 0
-    ex_bullet_dmg: 0
-    ex_fire_rate: 0
+    ex_hp: 1
+    ex_def: 1
+    ex_crash_dmg: 1
+    ex_bullet_dmg: 1
+    ex_fire_rate: 1
     ex_crit_chance: 0
-    ex_crit_dmg: 0
-    ex_gold: 0
-    ex_exp: 0
-    ex_drop: 0
+    ex_crit_dmg: 1
+    ex_gold: 1
+    ex_exp: 1
+    ex_drop: 1
   pre_skill: 2
   skill_explain: def
   skill_name: def
@@ -22759,16 +22759,16 @@ MonoBehaviour:
   max_point: 1
   cur_point: 0
   adds:
-    ex_hp: 0
-    ex_def: 0
-    ex_crash_dmg: 0
-    ex_bullet_dmg: 0
-    ex_fire_rate: 0
+    ex_hp: 1
+    ex_def: 1
+    ex_crash_dmg: 1
+    ex_bullet_dmg: 1
+    ex_fire_rate: 1
     ex_crit_chance: 0
-    ex_crit_dmg: 0
-    ex_gold: 0
-    ex_exp: 0
-    ex_drop: 0
+    ex_crit_dmg: 1
+    ex_gold: 1
+    ex_exp: 1
+    ex_drop: 1
   pre_skill: 1
   skill_explain: rate
   skill_name: rate

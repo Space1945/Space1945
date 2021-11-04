@@ -41,7 +41,7 @@ public class ItemInfo : MonoBehaviour
             Destroy(gameObject);
         else if (col.tag == "player") // 곱연산 적용
         {
-            if (!Camera.main.GetComponent<Ingame_manager>().ultimate_use) // 궁 사용중이 아닐때만 템 먹을 수 있음
+            /*if (!Camera.main.GetComponent<Ingame_manager>().ultimate_use) // 궁 사용중이 아닐때만 템 먹을 수 있음
             {
                 col.GetComponent<AirframeScript>().cur_hp += col.GetComponent<AirframeScript>().max_hp / 100f * temp_adds.ex_hp;
                 col.GetComponent<AirframeScript>().atk.GetComponent<AtkInterface>().TemporaryReinforce(
@@ -60,7 +60,7 @@ public class ItemInfo : MonoBehaviour
                 Camera.main.GetComponent<Ingame_manager>().AdditionalGoldExp(effect_time, temp_adds.ex_gold, temp_adds.ex_exp);
 
                 Destroy(gameObject);
-            }
+            }*/
         }
     }
 }

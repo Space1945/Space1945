@@ -29,25 +29,24 @@ public class BulletInfo : MonoBehaviour
     {
         
     }
-    public void SetFromPlayer(float shot_angle, float additional_crit_chance_p = 0f, float additional_crit_damage_p = 1f) // 플레이어가 발사한 총알을 강화 및 다시 세팅
+    public void SetFromPlayer(float shot_angle) // 플레이어가 발사한 총알을 강화 및 다시 세팅
     {
         angle = shot_angle;
-        crit_chance_p += Camera.main.GetComponent<Ingame_manager>().ex_total.ex_crit_chance + additional_crit_chance_p;
+        crit_chance_p += Camera.main.GetComponent<Ingame_manager>().ex_total.ex_crit_chance;
         if (crit_chance_p > 100f)
             crit_chance_p = 100f;
-        crit_damage_p += Camera.main.GetComponent<Ingame_manager>().ex_total.ex_crit_dmg;
-        crit_damage_p *= 1 + additional_crit_damage_p / 100f;
+        crit_damage_p *= Camera.main.GetComponent<Ingame_manager>().ex_total.ex_crit_dmg;
 
         if (Random.Range(1f, 100f) <= crit_chance_p) // 크리티컬일때
         {
             crit = true;
-            crash_damage = crash_damage * (1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_bullet_dmg / 100f) * (1 + crit_damage_p / 100f);
+            crash_damage *= Camera.main.GetComponent<Ingame_manager>().ex_total.ex_bullet_dmg * crit_damage_p;
             GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
         }
         else
         {
             crit = false;
-            crash_damage = crash_damage * (1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_bullet_dmg / 100f);
+            crash_damage *= Camera.main.GetComponent<Ingame_manager>().ex_total.ex_bullet_dmg;
         }
     }
     public void SetFromEnemy(float shot_angle)
@@ -59,7 +58,7 @@ public class BulletInfo : MonoBehaviour
         if (Random.Range(1f, 100f) <= crit_chance_p) // 크리티컬일때
         {
             crit = true;
-            crash_damage = crash_damage * (1 + crit_damage_p / 100f);
+            crash_damage *= crit_damage_p;
             GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
         }
         else

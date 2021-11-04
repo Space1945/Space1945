@@ -40,6 +40,12 @@ public class AirframeScript : MonoBehaviour
         }
     }
 
+    Dictionary<string, float> reinforce = new Dictionary<string, float>
+    {
+        { "def", 1f },
+        { "crashd", 1f }
+    };
+
     Rigidbody2D rigid;
     PolygonCollider2D col;
 
@@ -52,6 +58,9 @@ public class AirframeScript : MonoBehaviour
     GameObject def_;
     GameObject sl_;
     GameObject sr_;
+
+    float bd;
+    float cd;
 
     void Awake()
     {
@@ -81,17 +90,23 @@ public class AirframeScript : MonoBehaviour
     }
     void Start() // 강화
     {
-        max_hp *= 1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_hp / 100f;
-        basic_def *= 1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_def / 100f;
-        crash_damage *= 1 + Camera.main.GetComponent<Ingame_manager>().ex_total.ex_crash_dmg / 100f;
+        max_hp *= Camera.main.GetComponent<Ingame_manager>().ex_total.ex_hp;
+        basic_def *= Camera.main.GetComponent<Ingame_manager>().ex_total.ex_def;
+        crash_damage *= Camera.main.GetComponent<Ingame_manager>().ex_total.ex_crash_dmg;
         
         cur_hp = max_hp;
 
         touch_began = new Vector2(0, 0);
+
+        bd = basic_def;
+        cd = crash_damage;
     }
 
     void FixedUpdate()
     {
+        basic_def = bd * reinforce["def"];
+        crash_damage = cd * reinforce["crashd"];
+
         if (cur_hp <= 0)
         {
             // 사운드 출력
@@ -104,22 +119,21 @@ public class AirframeScript : MonoBehaviour
         Move();
     }
 
-    IEnumerator TR(float duration, float new_def, float new_crash_damage)
+    IEnumerator TR(float duration, string name, float percentage)
     {
-        float origin_def = basic_def;
-        float origin_crash_damage = crash_damage;
+        if (reinforce.ContainsKey(name))
+        {
+            reinforce[name] *= percentage;
 
-        basic_def = new_def;
-        crash_damage = new_crash_damage;
+            yield return new WaitForSeconds(duration);
 
-        yield return new WaitForSeconds(duration);
-
-        basic_def = origin_def;
-        crash_damage = origin_crash_damage;
+            reinforce[name] /= percentage;
+        }
     }
-    public void TemporaryReinforce(float duration, float new_def, float new_crash_damage)
+    public void TemporaryReinforce(float duration, string name, float percentage)
     {
-        StartCoroutine(TR(duration, new_def, new_crash_damage));
+        StartCoroutine(TR(duration, name, percentage));
+        atk.GetComponent<AtkInterface>().TemporaryReinforce(duration, name, percentage);
     }
     public void Attacked(float crash_damage)
     {

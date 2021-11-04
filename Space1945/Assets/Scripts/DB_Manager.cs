@@ -171,44 +171,44 @@ public class DB_Manager
     {
         if (prev_obj != null)
         {
-            PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") - prev_obj.GetComponent<DefScript>().ex_hp);
-            PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") - prev_obj.GetComponent<DefScript>().ex_def);
-            PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") - prev_obj.GetComponent<DefScript>().ex_crash_dmg);
+            PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") / prev_obj.GetComponent<DefScript>().ex_hp);
+            PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") / prev_obj.GetComponent<DefScript>().ex_def);
+            PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") / prev_obj.GetComponent<DefScript>().ex_crash_dmg);
         }
         if (next_obj != null)
         {
-            PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") + next_obj.GetComponent<DefScript>().ex_hp);
-            PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") + next_obj.GetComponent<DefScript>().ex_def);
-            PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") + next_obj.GetComponent<DefScript>().ex_crash_dmg);
+            PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") * next_obj.GetComponent<DefScript>().ex_hp);
+            PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") * next_obj.GetComponent<DefScript>().ex_def);
+            PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") * next_obj.GetComponent<DefScript>().ex_crash_dmg);
         }
     }
     public void UpdateSubExStats(GameObject prev_obj, GameObject next_obj)
     {
         if (prev_obj != null)
         {
-            PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") - prev_obj.GetComponent<SubScript>().adds.ex_hp);
-            PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") - prev_obj.GetComponent<SubScript>().adds.ex_def);
-            PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") - prev_obj.GetComponent<SubScript>().adds.ex_crash_dmg);
-            PlayerPrefs.SetFloat("ex_bullet_dmg", PlayerPrefs.GetFloat("ex_bullet_dmg") - prev_obj.GetComponent<SubScript>().adds.ex_bullet_dmg);
-            PlayerPrefs.SetFloat("ex_fire_rate", PlayerPrefs.GetFloat("ex_fire_rate") - prev_obj.GetComponent<SubScript>().adds.ex_fire_rate);
+            PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") / prev_obj.GetComponent<SubScript>().adds.ex_hp);
+            PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") / prev_obj.GetComponent<SubScript>().adds.ex_def);
+            PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") / prev_obj.GetComponent<SubScript>().adds.ex_crash_dmg);
+            PlayerPrefs.SetFloat("ex_bullet_dmg", PlayerPrefs.GetFloat("ex_bullet_dmg") / prev_obj.GetComponent<SubScript>().adds.ex_bullet_dmg);
+            PlayerPrefs.SetFloat("ex_fire_rate", PlayerPrefs.GetFloat("ex_fire_rate") / prev_obj.GetComponent<SubScript>().adds.ex_fire_rate);
             PlayerPrefs.SetFloat("ex_crit_chance", PlayerPrefs.GetFloat("ex_crit_chance") - prev_obj.GetComponent<SubScript>().adds.ex_crit_chance);
-            PlayerPrefs.SetFloat("ex_crit_dmg", PlayerPrefs.GetFloat("ex_crit_dmg") - prev_obj.GetComponent<SubScript>().adds.ex_crit_dmg);
-            PlayerPrefs.SetFloat("ex_gold", PlayerPrefs.GetFloat("ex_gold") - prev_obj.GetComponent<SubScript>().adds.ex_gold);
-            PlayerPrefs.SetFloat("ex_exp", PlayerPrefs.GetFloat("ex_exp") - prev_obj.GetComponent<SubScript>().adds.ex_exp);
-            PlayerPrefs.SetFloat("ex_drop", PlayerPrefs.GetFloat("ex_drop") - prev_obj.GetComponent<SubScript>().adds.ex_drop);
+            PlayerPrefs.SetFloat("ex_crit_dmg", PlayerPrefs.GetFloat("ex_crit_dmg") / prev_obj.GetComponent<SubScript>().adds.ex_crit_dmg);
+            PlayerPrefs.SetFloat("ex_gold", PlayerPrefs.GetFloat("ex_gold") / prev_obj.GetComponent<SubScript>().adds.ex_gold);
+            PlayerPrefs.SetFloat("ex_exp", PlayerPrefs.GetFloat("ex_exp") / prev_obj.GetComponent<SubScript>().adds.ex_exp);
+            PlayerPrefs.SetFloat("ex_drop", PlayerPrefs.GetFloat("ex_drop") / prev_obj.GetComponent<SubScript>().adds.ex_drop);
         }
         if (next_obj != null)
         {
-            PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") + next_obj.GetComponent<SubScript>().adds.ex_hp);
-            PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") + next_obj.GetComponent<SubScript>().adds.ex_def);
-            PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") + next_obj.GetComponent<SubScript>().adds.ex_crash_dmg);
-            PlayerPrefs.SetFloat("ex_bullet_dmg", PlayerPrefs.GetFloat("ex_bullet_dmg") + next_obj.GetComponent<SubScript>().adds.ex_bullet_dmg);
-            PlayerPrefs.SetFloat("ex_fire_rate", PlayerPrefs.GetFloat("ex_fire_rate") + next_obj.GetComponent<SubScript>().adds.ex_fire_rate);
+            PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") * next_obj.GetComponent<SubScript>().adds.ex_hp);
+            PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") * next_obj.GetComponent<SubScript>().adds.ex_def);
+            PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") * next_obj.GetComponent<SubScript>().adds.ex_crash_dmg);
+            PlayerPrefs.SetFloat("ex_bullet_dmg", PlayerPrefs.GetFloat("ex_bullet_dmg") * next_obj.GetComponent<SubScript>().adds.ex_bullet_dmg);
+            PlayerPrefs.SetFloat("ex_fire_rate", PlayerPrefs.GetFloat("ex_fire_rate") * next_obj.GetComponent<SubScript>().adds.ex_fire_rate);
             PlayerPrefs.SetFloat("ex_crit_chance", PlayerPrefs.GetFloat("ex_crit_chance") + next_obj.GetComponent<SubScript>().adds.ex_crit_chance);
-            PlayerPrefs.SetFloat("ex_crit_dmg", PlayerPrefs.GetFloat("ex_crit_dmg") + next_obj.GetComponent<SubScript>().adds.ex_crit_dmg);
-            PlayerPrefs.SetFloat("ex_gold", PlayerPrefs.GetFloat("ex_gold") + next_obj.GetComponent<SubScript>().adds.ex_gold);
-            PlayerPrefs.SetFloat("ex_exp", PlayerPrefs.GetFloat("ex_exp") + next_obj.GetComponent<SubScript>().adds.ex_exp);
-            PlayerPrefs.SetFloat("ex_drop", PlayerPrefs.GetFloat("ex_drop") + next_obj.GetComponent<SubScript>().adds.ex_drop);
+            PlayerPrefs.SetFloat("ex_crit_dmg", PlayerPrefs.GetFloat("ex_crit_dmg") * next_obj.GetComponent<SubScript>().adds.ex_crit_dmg);
+            PlayerPrefs.SetFloat("ex_gold", PlayerPrefs.GetFloat("ex_gold") * next_obj.GetComponent<SubScript>().adds.ex_gold);
+            PlayerPrefs.SetFloat("ex_exp", PlayerPrefs.GetFloat("ex_exp") * next_obj.GetComponent<SubScript>().adds.ex_exp);
+            PlayerPrefs.SetFloat("ex_drop", PlayerPrefs.GetFloat("ex_drop") * next_obj.GetComponent<SubScript>().adds.ex_drop);
         }
     }
 }
