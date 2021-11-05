@@ -300,6 +300,7 @@ MonoBehaviour:
   - {fileID: 8832364959543764546}
   - {fileID: 592685115049037310}
   max_hp: 100
+  max_guage: 100
   basic_def: 0
   crash_damage: 0
   gold: 1500000

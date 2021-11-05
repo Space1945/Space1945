@@ -232,7 +232,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -860726797
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2d3d1e69c28b2cc4c828e671550389aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -330,7 +330,7 @@ MonoBehaviour:
   score: 200
   exp: 250
   gold: 550
-  add_guage: 5
+  add_guage: 3
   invincible_time: 1
   instantiate_count: 1
   kind: Elite
@@ -346,6 +346,7 @@ MonoBehaviour:
   - {fileID: 8143503231598874621}
   bullet: {fileID: 5357842813024714320, guid: 5d61c7dff94b693489e3a2a03fc16532, type: 3}
   fire_rate: 2
+  item: {fileID: 2567215057302374601, guid: 45c2898630ee41f4ca729c0dd15e34f5, type: 3}
 --- !u!114 &886046506823352944
 MonoBehaviour:
   m_ObjectHideFlags: 0

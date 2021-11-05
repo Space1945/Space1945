@@ -30,9 +30,6 @@ public class Ingame_manager : MonoBehaviour
      ***** player 궁극기 관리 *****
      */
     public Button Ultimate;
-    float mUg; // 최대 궁극기 게이지 양
-    float cUg; // 현재 궁극기 게이지 양
-
     public Image HealthBar; // 플레이어 체력바
 
     Coroutine addtional_gold_exp;
@@ -55,9 +52,6 @@ public class Ingame_manager : MonoBehaviour
 
         player = DB_Manager.Instance.using_airframe;
         player_clone = Instantiate(player); // 복제
-
-        cUg = 0f;
-        mUg = 100f; // 플레이어의 기체에 맞게 수정할것
 
         foreach (GameObject obj in BG)
             Instantiate(obj);
@@ -125,15 +119,16 @@ public class Ingame_manager : MonoBehaviour
     }
 
     /*                 궁극기                  */
-    public void AddUltimateGuage(float ultimate_guage) // 궁극기 게이지 추가
+    public void AddUltimateGuage(float ag) // 궁극기 게이지 추가
     {
         if (!ultimate_use)
         {
-            cUg = (cUg + ultimate_guage) < mUg ? cUg + ultimate_guage : mUg;
+            var r = player_clone.GetComponent<AirframeScript>().reinforce_add;
+            r["cg"] = (r["cg"] + ag) < r["mg"] ? r["cg"] + ag : r["mg"];
 
-            UpdateUltimateBar();
+            UpdateUltimateBar(r["cg"], r["mg"]);
 
-            if (cUg >= 100)
+            if (r["cg"] >= r["mg"])
             {
                 //특정 이미지 출력
                 Ultimate.enabled = true;
@@ -142,29 +137,26 @@ public class Ingame_manager : MonoBehaviour
     }
     public void UseUltimate() // 궁극기 사용
     {
-        cUg = 0;
+        var r = player_clone.GetComponent<AirframeScript>().reinforce_add;
+        r["cg"] = 0f;
         StartCoroutine(player_clone.GetComponent<UltimateInterface>().Ultimate());
-        UpdateUltimateBar();
+        UpdateUltimateBar(0f, player_clone.GetComponent<AirframeScript>().max_guage);
         Ultimate.enabled = false;
     }
 
-    public void UpdateUltimateBar()
+    public void UpdateUltimateBar(float cg, float mg)
     {
-        Ultimate.GetComponent<Image>().fillAmount = cUg / mUg;
-    }
-
-    /*                 체력바                  */
-    public void UpdatePlayersHP() // 플레이어 피격판정 등 플레이어의 체력의 변동 발생
-    {
-        HealthBar.fillAmount = player_clone.GetComponent<AirframeScript>().cur_hp / player_clone.GetComponent<AirframeScript>().max_hp;
+        Ultimate.GetComponent<Image>().fillAmount = cg / mg;
     }
 
     /*                 스코어, 경험치, 돈                  */
     public void KillEnemy(int score, int exp, int gold)
     {
+        var ex_total = Camera.main.GetComponent<Ingame_manager>().ex_total;
+
         DB_Manager.Instance.score_earned += score;
-        DB_Manager.Instance.exp_earned += (int)(exp * Camera.main.GetComponent<Ingame_manager>().ex_total.ex_exp * adtl_exp);
-        DB_Manager.Instance.gold_earned += (int)(gold * Camera.main.GetComponent<Ingame_manager>().ex_total.ex_gold * adtl_gold);
+        DB_Manager.Instance.exp_earned += (int)(exp * ex_total.ex_exp * adtl_exp);
+        DB_Manager.Instance.gold_earned += (int)(gold * ex_total.ex_gold * adtl_gold);
         DB_Manager.Instance.enemy_killed_cnt++;
 
         if (DB_Manager.Instance.enemy_killed_cnt >= elite_emer_cnt) // 일반몹 10킬당 엘리트 한마리씩 출현
@@ -241,5 +233,21 @@ public class Ingame_manager : MonoBehaviour
     public void AdditionalGoldExp(float duration, float adtl_gold, float adtl_exp)
     {
         addtional_gold_exp = StartCoroutine(AGE(duration, adtl_gold, adtl_exp));
+    }
+
+    IEnumerator UHPBar()
+    {
+        var afs = player_clone.GetComponent<AirframeScript>();
+
+        while (true)
+        {
+            HealthBar.fillAmount = afs.reinforce_add["chp"] / afs.max_hp;
+
+            yield return null;
+        }
+    }
+    public void UpdatePlayersHPBar()
+    {
+        StartCoroutine(UHPBar());
     }
 }

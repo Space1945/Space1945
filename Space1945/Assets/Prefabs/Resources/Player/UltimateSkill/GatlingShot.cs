@@ -8,10 +8,13 @@ public class GatlingShot : MonoBehaviour, UltimateInterface
 
     IEnumerator UltimateInterface.Ultimate()
     {
-        Camera.main.GetComponent<Ingame_manager>().ultimate_use = true;
-        GetComponent<AirframeScript>().atk.GetComponent<AtkInterface>().TemporaryReinforce(duration, "fr", 0.3f);
-        GetComponent<AirframeScript>().atk.GetComponent<AtkInterface>().TemporaryReinforce(duration, "fcps", 2f);
+        var atk_if = GetComponent<AirframeScript>().atk.GetComponent<AtkInterface>();
+        var camera_im = Camera.main.GetComponent<Ingame_manager>();
+
+        camera_im.ultimate_use = true;
+        atk_if.TemporaryReinforce(duration, "fr", 0.3f);
+        atk_if.TemporaryReinforce(duration, "fcps", 2f);
         yield return new WaitForSeconds(duration);
-        Camera.main.GetComponent<Ingame_manager>().ultimate_use = false;
+        camera_im.ultimate_use = false;
     }
 }

@@ -17,6 +17,7 @@ public class Mob_info : MonoBehaviour
     public Transform[] butts; // 총구있는 오브젝트만 사용
     public GameObject bullet;
     public float fire_rate;
+    public GameObject item;
 
     SpriteRenderer sprite;
     Rigidbody2D rigid;
@@ -71,15 +72,20 @@ public class Mob_info : MonoBehaviour
     {
         if (hp <= 0) // 사망
         {
-            Camera.main.GetComponent<Ingame_manager>().enemys.Remove(gameObject);
+            var im = Camera.main.GetComponent<Ingame_manager>();
+
+            im.enemys.Remove(gameObject);
             ParticleSystem par = Instantiate(par_die);
             par.transform.position = transform.position; // 적 사망 효과
 
-            Camera.main.GetComponent<Ingame_manager>().AddUltimateGuage(add_guage);
-            Camera.main.GetComponent<Ingame_manager>().KillEnemy(score, exp, gold);
-            Camera.main.GetComponent<Ingame_manager>().enemys.Remove(gameObject);
+            im.AddUltimateGuage(add_guage);
+            im.KillEnemy(score, exp, gold);
+            im.enemys.Remove(gameObject);
 
             StopAllCoroutines();
+
+            if (Random.Range(0f, 100f) < item.GetComponent<ItemInfo>().drop_rate)
+                Instantiate(item, transform.position, Quaternion.identity);
 
             //사운드 출력
             //일정몹이 아이템 뿌리기
@@ -104,9 +110,11 @@ public class Mob_info : MonoBehaviour
             case "player":
                 if (!invincible)
                 {
-                    float new_crash_damage = crash_damage - col.gameObject.GetComponent<AirframeScript>().basic_def;
-                    col.gameObject.GetComponent<AirframeScript>().Attacked(new_crash_damage > 0 ? new_crash_damage : 0);
-                    BodyAttacked(col.gameObject.GetComponent<AirframeScript>().crash_damage);
+                    var afs = col.gameObject.GetComponent<AirframeScript>();
+
+                    float new_crash_damage = crash_damage - afs.basic_def;
+                    afs.Attacked(new_crash_damage > 0 ? new_crash_damage : 0);
+                    BodyAttacked(afs.crash_damage);
                 }
                 break;
         }

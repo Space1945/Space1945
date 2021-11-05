@@ -24,10 +24,16 @@ public class BulletFire : MonoBehaviour, AtkInterface
     public float max_angle;
     public float min_angle;
 
-    Dictionary<string, float> reinforce = new Dictionary<string, float>
+    Dictionary<string, float> reinforce_mul = new Dictionary<string, float>
     {
         { "fr", 1f },
-        { "fcps", 1f }
+        { "fcps", 1f },
+        { "bd", 1f },
+        { "cd", 1f }
+    };
+    Dictionary<string, float> reinforce_add = new Dictionary<string, float>
+    {
+        { "cc", 0f },
     };
 
     Transform[] butts;
@@ -48,29 +54,41 @@ public class BulletFire : MonoBehaviour, AtkInterface
         while (true)
         {
             for (int i = 0; i < butts.Length; i++)
-                for (int j = 0; j < fire_cnt_per_shot * reinforce["fcps"]; j++)
-                    Instantiate(bullet, butts[i].position, Quaternion.identity, transform).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle));
+                for (int j = 0; j < fire_cnt_per_shot * reinforce_mul["fcps"]; j++)
+                    Instantiate(bullet, butts[i].position, Quaternion.identity).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle), reinforce_mul["bd"], reinforce_add["cc"], reinforce_mul["cd"]);
 
-            yield return new WaitForSeconds(fire_rate * reinforce["fr"]);
+            yield return new WaitForSeconds(fire_rate * reinforce_mul["fr"]);
         }
     }
 
-    IEnumerator TR(float duration, string name, float percentage)
+    IEnumerator TRMul(float duration, string name, float percentage)
     {
-        if (reinforce.ContainsKey(name))
+        if (reinforce_mul.ContainsKey(name))
         {
-            reinforce[name] *= percentage;
+            reinforce_mul[name] *= percentage;
 
             if (fire_rate < 0.05f) // 최대 공속
                 fire_rate = 0.05f;
 
             yield return new WaitForSeconds(duration);
 
-            reinforce[name] /= percentage;
+            reinforce_mul[name] /= percentage;
+        }
+    }
+    void TRAdd(string name, float percentage)
+    {
+        if (reinforce_add.ContainsKey(name))
+        {
+            float adtl = reinforce_add["m" + name] * percentage;
+            if (reinforce_add["c" + name] + adtl > reinforce_add["m" + name])
+                reinforce_add["c" + name] = reinforce_add["m" + name];
+            else
+                reinforce_add["c" + name] += adtl;
         }
     }
     void AtkInterface.TemporaryReinforce(float duration, string name, float percentage)
     {
-        StartCoroutine(TR(duration, name, percentage));
+        StartCoroutine(TRMul(duration, name, percentage));
+        TRAdd(name, percentage);
     }
 }

@@ -6,10 +6,10 @@ public class AirframeScript : MonoBehaviour
 {
     public Transform[] butts;
     public float max_hp;
+    public float max_guage;
     public float basic_def;
     public float crash_damage;
     public int gold;
-    public float cur_hp { get; set; }
 
     public GameObject atk
     {
@@ -40,10 +40,15 @@ public class AirframeScript : MonoBehaviour
         }
     }
 
-    Dictionary<string, float> reinforce = new Dictionary<string, float>
+    public Dictionary<string, float> reinforce_mul = new Dictionary<string, float>
     {
         { "def", 1f },
-        { "crashd", 1f }
+        { "crashd", 1f },
+    };
+    public Dictionary<string, float> reinforce_add = new Dictionary<string, float>
+    {
+        { "hp", -1f },
+        { "g", -1f }
     };
 
     Rigidbody2D rigid;
@@ -61,6 +66,8 @@ public class AirframeScript : MonoBehaviour
 
     float bd;
     float cd;
+
+    Ingame_manager im;
 
     void Awake()
     {
@@ -87,27 +94,34 @@ public class AirframeScript : MonoBehaviour
             sr_ = Instantiate(DB_Manager.Instance.using_sub_right, transform);
             sr_.GetComponent<SpriteRenderer>().sprite = null;
         }
+
+        im = Camera.main.GetComponent<Ingame_manager>();
     }
     void Start() // 강화
     {
-        max_hp *= Camera.main.GetComponent<Ingame_manager>().ex_total.ex_hp;
-        basic_def *= Camera.main.GetComponent<Ingame_manager>().ex_total.ex_def;
-        crash_damage *= Camera.main.GetComponent<Ingame_manager>().ex_total.ex_crash_dmg;
+        max_hp *= im.ex_total.ex_hp;
+        basic_def *= im.ex_total.ex_def;
+        crash_damage *= im.ex_total.ex_crash_dmg;
         
-        cur_hp = max_hp;
+        reinforce_add.Add("mhp", max_hp);
+        reinforce_add.Add("chp", max_hp);
+        reinforce_add.Add("mg", max_guage);
+        reinforce_add.Add("cg", 0f);
 
         touch_began = new Vector2(0, 0);
 
         bd = basic_def;
         cd = crash_damage;
+
+        im.UpdatePlayersHPBar();
     }
 
     void FixedUpdate()
     {
-        basic_def = bd * reinforce["def"];
-        crash_damage = cd * reinforce["crashd"];
+        basic_def = bd * reinforce_mul["def"];
+        crash_damage = cd * reinforce_mul["crashd"];
 
-        if (cur_hp <= 0)
+        if (reinforce_add["chp"] <= 0)
         {
             // 사운드 출력
             //ParticleSystem par = Instantiate(par_die);
@@ -119,26 +133,37 @@ public class AirframeScript : MonoBehaviour
         Move();
     }
 
-    IEnumerator TR(float duration, string name, float percentage)
+    IEnumerator TRMul(float duration, string name, float percentage)
     {
-        if (reinforce.ContainsKey(name))
+        if (reinforce_mul.ContainsKey(name))
         {
-            reinforce[name] *= percentage;
+            reinforce_mul[name] *= percentage;
 
             yield return new WaitForSeconds(duration);
 
-            reinforce[name] /= percentage;
+            reinforce_mul[name] /= percentage;
+        }
+    }
+    void TRAdd(string name, float percentage)
+    {
+        if (reinforce_add.ContainsKey(name))
+        {
+            float adtl = reinforce_add["m" + name] * percentage;
+            if (reinforce_add["c" + name] + adtl > reinforce_add["m" + name])
+                reinforce_add["c" + name] = reinforce_add["m" + name];
+            else
+                reinforce_add["c" + name] += adtl;
         }
     }
     public void TemporaryReinforce(float duration, string name, float percentage)
     {
-        StartCoroutine(TR(duration, name, percentage));
+        StartCoroutine(TRMul(duration, name, percentage));
+        TRAdd(name, percentage);
         atk.GetComponent<AtkInterface>().TemporaryReinforce(duration, name, percentage);
     }
     public void Attacked(float crash_damage)
     {
-        cur_hp -= crash_damage;
-        Camera.main.GetComponent<Ingame_manager>().UpdatePlayersHP();
+        reinforce_add["chp"] -= crash_damage;
     }
     void Move()
     {

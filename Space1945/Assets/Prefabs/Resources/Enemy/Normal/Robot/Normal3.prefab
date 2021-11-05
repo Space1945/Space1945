@@ -160,7 +160,7 @@ MonoBehaviour:
   score: 80
   exp: 50
   gold: 120
-  add_guage: 15
+  add_guage: 1
   invincible_time: 1
   instantiate_count: 3
   kind: Normal
@@ -168,6 +168,7 @@ MonoBehaviour:
   butts: []
   bullet: {fileID: 0}
   fire_rate: 0
+  item: {fileID: 2567215057302374601, guid: a7a321fe4c65a6648bedb31441ff6bcc, type: 3}
 --- !u!114 &1979392157789763060
 MonoBehaviour:
   m_ObjectHideFlags: 0
