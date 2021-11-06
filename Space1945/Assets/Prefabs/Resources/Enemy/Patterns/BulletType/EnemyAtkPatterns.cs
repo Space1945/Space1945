@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class EnemyAtkPatterns : MonoBehaviour
 {
-    public IEnumerator Attack(GameObject obj)
-    {
-        Mob_info mis = obj.GetComponent<Mob_info>();
-
-        while (true)
-        {
-            for (int i = 0; i < mis.butts.Length; i++)
-                Instantiate(mis.bullet, mis.butts[i].position, Quaternion.identity).GetComponent<BulletInfo>().SetFromEnemy(GV.GetDegree(transform.position, mis.butts[i].position));
-
-            yield return new WaitForSeconds(mis.fire_rate);
-        }
-    }
     public IEnumerator AttackSpread(GameObject obj)
     {
         Mob_info mis = obj.GetComponent<Mob_info>();

@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PanelListeners\ChapterScrollViewListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
+    <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\BulletType\EliteRobot1.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Scripts\Mob_info.cs" />
     <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Explosion.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\Scripts\Parts\Attack\BulletType\ChainHit.cs" />
     <Compile Include="Assets\Scripts\NormalMobInfo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
+    <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\BulletType\EnemyAtkPatterns.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\Prefabs\Resources\Player\UltimateSkill\GatlingShot.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
@@ -154,8 +156,6 @@
     <Compile Include="Assets\Scripts\MainCameraListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\MainCanvasListener.cs" />
-    <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\BulletType\EnemyAtkPatterns.cs" />
-    <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\BulletType\EliteRobot1.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

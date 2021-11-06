@@ -38,9 +38,6 @@ public class Mob_info : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (butts.Length > 0)
-            StartCoroutine(Attack());
-
         invincible = false;
     }
 
@@ -49,16 +46,6 @@ public class Mob_info : MonoBehaviour
         invincible = true;
         yield return new WaitForSeconds(invincible_time);
         invincible = false;
-    }
-    IEnumerator Attack()
-    {
-        while (true)
-        {
-            for (int i = 0; i < butts.Length; i++)
-                Instantiate(bullet, butts[i].position, Quaternion.identity).GetComponent<BulletInfo>().SetFromEnemy(GV.GetDegree(transform.position, butts[i].position));
-
-            yield return new WaitForSeconds(fire_rate);
-        }
     }
 
     public void BodyAttacked(float crash_damage)
