@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -860726797
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b4f830d5b936f6640bdb8593cffa5932, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b6fc80785fffe742abe6a279bc5ff77, type: 3}
   m_Color: {r: 0.8196079, g: 0.8196079, b: 0.8196079, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +125,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -133,16 +133,54 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.445, y: 0.415}
-      - {x: -0.42, y: 0.415}
-      - {x: -0.625, y: 0.375}
-      - {x: -0.625, y: 0.085}
-      - {x: -0.38, y: -0.345}
-      - {x: -0.37, y: -0.355}
-      - {x: 0.38, y: -0.355}
-      - {x: 0.39, y: -0.345}
-      - {x: 0.635, y: 0.12}
-      - {x: 0.635, y: 0.36499998}
+    - - {x: 0.52, y: -0.75}
+      - {x: 0.71, y: -0.66999996}
+      - {x: 0.79999995, y: -0.57}
+      - {x: 0.87, y: -0.45999998}
+      - {x: 0.96, y: -0.25}
+      - {x: 0.98999995, y: 0.049999997}
+      - {x: 0.98999995, y: 0.55}
+      - {x: 0.97999996, y: 0.59999996}
+      - {x: 0.88, y: 0.74}
+      - {x: 0.94, y: 0.81}
+      - {x: 0.96, y: 0.94}
+      - {x: 0.84999996, y: 1.09}
+      - {x: 0.71999997, y: 1.13}
+      - {x: 0.59999996, y: 1.13}
+      - {x: 0.48, y: 1.1999999}
+      - {x: 0.37, y: 1.23}
+      - {x: -0.24, y: 1.23}
+      - {x: -0.39, y: 1.15}
+      - {x: -0.42999998, y: 1.12}
+      - {x: -0.62, y: 1.12}
+      - {x: -0.78, y: 0.97999996}
+      - {x: -0.78999996, y: 0.9}
+      - {x: -0.90999997, y: 0.85999995}
+      - {x: -1.04, y: 0.74}
+      - {x: -1.16, y: 0.68}
+      - {x: -1.18, y: 0.65999997}
+      - {x: -1.1899999, y: -0.01}
+      - {x: -1.1899999, y: -0.22}
+      - {x: -1.13, y: -0.32}
+      - {x: -0.75, y: -0.37}
+      - {x: -0.61, y: -0.58}
+      - {x: -0.48999998, y: -0.7}
+      - {x: -0.35, y: -0.75}
+      - {x: -0.22999999, y: -1.01}
+      - {x: -0.17, y: -1.0799999}
+      - {x: 0.04, y: -1.23}
+      - {x: 0.11, y: -1.23}
+      - {x: 0.34, y: -1.09}
+      - {x: 0.39999998, y: -1.01}
+      - {x: 0.42999998, y: -0.84999996}
+    - - {x: 0.08, y: 1.0799999}
+      - {x: 0.089999996, y: 1.09}
+      - {x: 0.089999996, y: 1.12}
+      - {x: 0.08, y: 1.12}
+      - {x: 0.08, y: 1.09}
+      - {x: 0.089999996, y: 1.0799999}
+      - {x: 0.089999996, y: 1.06}
+      - {x: 0.089999996, y: 1.0699999}
 --- !u!114 &7552330838592330946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,20 +193,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8134ef961487fa4eb225a8cd5dcdfde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 150
-  crash_damage: 40
+  hp: 200
+  crash_damage: 35
   score: 80
-  exp: 50
-  gold: 120
-  add_guage: 1
+  exp: 55
+  gold: 125
+  add_guage: 2
   invincible_time: 1
-  instantiate_count: 3
+  instantiate_count: 2
   kind: Normal
   instantiate_point: 
   butts: []
   bullet: {fileID: 0}
   fire_rate: 0
-  item: {fileID: 2567215057302374601, guid: a7a321fe4c65a6648bedb31441ff6bcc, type: 3}
+  item: {fileID: 2567215057302374601, guid: 0ff925caecfb7584cacf4691bf3e8b67, type: 3}
 --- !u!114 &1979392157789763060
 MonoBehaviour:
   m_ObjectHideFlags: 0

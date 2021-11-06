@@ -69,7 +69,6 @@
     <Compile Include="Assets\Scripts\GV.cs" />
     <Compile Include="Assets\Prefabs\Resources\Player\UltimateSkill\ThrowEnergySphere.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
-    <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\EnemyBulletInfo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\Move\Normal\Straight.cs" />
     <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Lazer.cs" />

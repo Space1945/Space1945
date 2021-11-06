@@ -344,7 +344,6 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/EffectExamples/Misc Effects/Scripts/SpawnEffect.cs"
 "Assets/Prefabs/Resources/Enemy/Patterns/BulletType/NormalEnemy.cs"
-"Assets/Prefabs/Resources/Enemy/Patterns/EnemyBulletInfo.cs"
 "Assets/Prefabs/Resources/Enemy/Patterns/Move/Elite/Fix.cs"
 "Assets/Prefabs/Resources/Enemy/Patterns/Move/Elite/MoveStop.cs"
 "Assets/Prefabs/Resources/Enemy/Patterns/Move/Elite/RandomMove.cs"

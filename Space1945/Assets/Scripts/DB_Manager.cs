@@ -91,7 +91,6 @@ public class DB_Manager
         atks = Resources.LoadAll<GameObject>("Player/AtkParts/");
         defs = Resources.LoadAll<GameObject>("Player/DefParts/");
         subs = Resources.LoadAll<GameObject>("Player/SubParts/");
-        empty = Resources.LoadAll<GameObject>("Player/EmptyParts/"); //*****
 
         using_airframe = null;
         using_atk = null;

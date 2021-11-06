@@ -43,7 +43,7 @@ public class AirframeScript : MonoBehaviour
     public Dictionary<string, float> reinforce_mul = new Dictionary<string, float>
     {
         { "def", 1f },
-        { "crashd", 1f },
+        { "crashd", 1f }
     };
     public Dictionary<string, float> reinforce_add = new Dictionary<string, float>
     {
