@@ -1055,6 +1055,7 @@ MonoBehaviour:
   - {fileID: 3899051516593657423}
   bullet: {fileID: 5357842813024714320, guid: 5d61c7dff94b693489e3a2a03fc16532, type: 3}
   fire_rate: 0.8
+  burst_cnt: 4
   item: {fileID: 2567215057302374601, guid: c3981dc34934bd94a88e3379789706f4, type: 3}
 --- !u!114 &886046506823352944
 MonoBehaviour:

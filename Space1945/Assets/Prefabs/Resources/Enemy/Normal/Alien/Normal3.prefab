@@ -204,6 +204,7 @@ MonoBehaviour:
   butts: []
   bullet: {fileID: 0}
   fire_rate: 0
+  burst_cnt: 0
   item: {fileID: 2567215057302374601, guid: bdfcd8c08bdc40f4aaedb00c08faa8db, type: 3}
 --- !u!114 &5130798978813180020
 MonoBehaviour:

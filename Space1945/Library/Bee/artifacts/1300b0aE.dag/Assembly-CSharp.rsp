@@ -343,6 +343,8 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/EffectExamples/Misc Effects/Scripts/SpawnEffect.cs"
+"Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EliteRobot1.cs"
+"Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemyAtkPatterns.cs"
 "Assets/Prefabs/Resources/Enemy/Patterns/BulletType/NormalEnemy.cs"
 "Assets/Prefabs/Resources/Enemy/Patterns/Move/Elite/Fix.cs"
 "Assets/Prefabs/Resources/Enemy/Patterns/Move/Elite/MoveStop.cs"

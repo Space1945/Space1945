@@ -1029,6 +1029,7 @@ MonoBehaviour:
   - {fileID: 8919350577861637242}
   bullet: {fileID: 5357842813024714320, guid: 5d61c7dff94b693489e3a2a03fc16532, type: 3}
   fire_rate: 3
+  burst_cnt: 4
   item: {fileID: 2567215057302374601, guid: 1fff5b46599a3bf419fad9feec565920, type: 3}
 --- !u!114 &886046506823352944
 MonoBehaviour:

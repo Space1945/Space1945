@@ -17,6 +17,7 @@ public class Mob_info : MonoBehaviour
     public Transform[] butts; // 총구있는 오브젝트만 사용
     public GameObject bullet;
     public float fire_rate;
+    public int burst_cnt;
     public GameObject item;
 
     SpriteRenderer sprite;
@@ -24,6 +25,7 @@ public class Mob_info : MonoBehaviour
     PolygonCollider2D col;
     ParticleSystem par_die;
     bool invincible;
+    Ingame_manager ims;
 
     void Awake()
     {
@@ -31,6 +33,7 @@ public class Mob_info : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         col = GetComponent<PolygonCollider2D>();
         par_die = Resources.Load<ParticleSystem>("Particle/TinyExplosion");
+        ims = Camera.main.GetComponent<Ingame_manager>();
     }
     // Start is called before the first frame update
     void Start()
@@ -72,15 +75,13 @@ public class Mob_info : MonoBehaviour
     {
         if (hp <= 0) // 사망
         {
-            var im = Camera.main.GetComponent<Ingame_manager>();
-
-            im.enemys.Remove(gameObject);
+            ims.enemys.Remove(gameObject);
             ParticleSystem par = Instantiate(par_die);
             par.transform.position = transform.position; // 적 사망 효과
 
-            im.AddUltimateGuage(add_guage);
-            im.KillEnemy(score, exp, gold);
-            im.enemys.Remove(gameObject);
+            ims.AddUltimateGuage(add_guage);
+            ims.KillEnemy(score, exp, gold);
+            ims.enemys.Remove(gameObject);
 
             StopAllCoroutines();
 
