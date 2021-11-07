@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2021.1/staging' branch; Version is '2021.1.7f1 (d91830b65d9b) revision 14227504'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home; OS build 22000.282; Version 2009; 64bit' Language: 'ko' Physical Memory: 16179 MB
+OS: 'Windows 10 Home; OS build 19043.1288; Version 2009; 64bit' Language: 'ko' Physical Memory: 8105 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
@@ -11,1006 +11,213 @@ C:\Program Files\Unity\Hub\Editor\2021.1.7f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/ssigg/OneDrive/바탕 화면/project/Space1945/Space1945
+C:/Users/SAMSUNG/Desktop/Space1945/Space1945
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-13775
-Successfully changed project path to: C:/Users/ssigg/OneDrive/바탕 화면/project/Space1945/Space1945
-C:/Users/ssigg/OneDrive/바탕 화면/project/Space1945/Space1945
+56828
+Successfully changed project path to: C:/Users/SAMSUNG/Desktop/Space1945/Space1945
+C:/Users/SAMSUNG/Desktop/Space1945/Space1945
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 151.75 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 159.35 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.7f1 (d91830b65d9b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.1.7f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/ssigg/OneDrive/바탕 화면/project/Space1945/Space1945/Assets
+[Subsystems] Discovering subsystems at path C:/Users/SAMSUNG/Desktop/Space1945/Space1945/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: Intel(R) UHD Graphics 620 (ID=0x3ea0)
-    Vendor:   Intel
-    VRAM:     8089 MB
-    Driver:   25.20.100.6577
+    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c8d)
+    Vendor:   NVIDIA
+    VRAM:     4021 MB
+    Driver:   24.21.13.9907
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.1.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.1.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.1.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56728
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56868
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002883 seconds.
+Registered in 0.008387 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 195.78 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 126.17 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.080 seconds
+- Completed reload, in  2.783 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007672 seconds.
+Registered in 0.008500 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\SAMSUNG\Desktop\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\SAMSUNG\Desktop\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 177.78 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 124.44 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.183 seconds
+- Completed reload, in  1.686 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 1.01 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3589 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 233.9 MB.
-System memory in use after: 234.1 MB.
+Unloading 3591 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 229.8 MB.
+System memory in use after: 230.0 MB.
 
-Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 4061.
-Total: 3.439500 ms (FindLiveObjects: 0.440700 ms CreateObjectMapping: 0.308800 ms MarkObjects: 2.651600 ms  DeleteObjects: 0.036700 ms)
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 4063.
+Total: 2.934800 ms (FindLiveObjects: 0.302400 ms CreateObjectMapping: 0.200200 ms MarkObjects: 2.400500 ms  DeleteObjects: 0.030500 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Scripts/Mob_info.cs
-  artifactKey: Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Mob_info.cs using Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa5c3e9a49747adb8427c99ad30c4159') in 0.056554 seconds 
+  path: Assets/Scenes/GameEnd.unity
+  artifactKey: Guid(cc7d6d930367ff44b819dcf9fb2874ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GameEnd.unity using Guid(cc7d6d930367ff44b819dcf9fb2874ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15a3f2499993cc2d6a367d747d4f9aee') in 0.024044 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 62.813877 seconds.
-  path: Assets/Scripts/Mob_info.cs
-  artifactKey: Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Mob_info.cs using Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bd9a364b7ac617269e89658b616787d') in 0.021662 seconds 
+  Time since last request: 0.000292 seconds.
+  path: Assets/Scenes/Ingame.unity
+  artifactKey: Guid(7d6c7591cd474974b89e16dc9f2efe21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Ingame.unity using Guid(7d6c7591cd474974b89e16dc9f2efe21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd98852fc502d3a0dc9a2fcd3028d9670') in 0.006080 seconds 
 ========================================================================
-Received Import Request.
-  Time since last request: 17.851447 seconds.
-  path: Assets/Scripts/Mob_info.cs
-  artifactKey: Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Mob_info.cs using Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ca097cd8c0479f26b2a892a435423c4') in 0.007478 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 22.030136 seconds.
-  path: Assets/Scripts/Mob_info.cs
-  artifactKey: Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Mob_info.cs using Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '220d4dbb32b02e32f3ff3d4cc797e2a0') in 0.007800 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 13.005395 seconds.
-  path: Assets/Scripts/Mob_info.cs
-  artifactKey: Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Mob_info.cs using Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f054d8edba93ccead591942f5cbc5dcf') in 0.007629 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 17.328698 seconds.
-  path: Assets/Scripts/Mob_info.cs
-  artifactKey: Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Mob_info.cs using Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a825db39d4fc03172399e617762cc8e0') in 0.007332 seconds 
+Received Prepare
+Refreshing native plugins compatible for Editor in 19.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 22 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 157.2 MB.
+System memory in use after: 157.5 MB.
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 4063.
+Total: 3.013900 ms (FindLiveObjects: 0.277000 ms CreateObjectMapping: 0.190300 ms MarkObjects: 2.491700 ms  DeleteObjects: 0.054100 ms)
+
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006140 seconds.
+Registered in 0.008186 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\SAMSUNG\Desktop\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\SAMSUNG\Desktop\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.88 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.84 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.252 seconds
+- Completed reload, in  1.570 seconds
 Platform modules already initialized, skipping
 Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.96 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3565 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 231.1 MB.
-System memory in use after: 231.3 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4065.
-Total: 3.121200 ms (FindLiveObjects: 0.263600 ms CreateObjectMapping: 0.218100 ms MarkObjects: 2.619700 ms  DeleteObjects: 0.018900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 94.738962 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Elite/Robot/Elite1.prefab
-  artifactKey: Guid(52e76b6af59cc384e9499f308896dc77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Elite/Robot/Elite1.prefab using Guid(52e76b6af59cc384e9499f308896dc77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c336308620878a7628c6277fce05d06') in 0.109323 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.684544 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Elite/Robot/Elite1.prefab
-  artifactKey: Guid(52e76b6af59cc384e9499f308896dc77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Elite/Robot/Elite1.prefab using Guid(52e76b6af59cc384e9499f308896dc77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8e352cec0426229042f0f6c0895c1b6') in 0.036353 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.419537 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Elite/alien/Elite1.prefab
-  artifactKey: Guid(341c60213066714448cb83edf51fe07e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Elite/alien/Elite1.prefab using Guid(341c60213066714448cb83edf51fe07e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87e7b235da50ec8c68ff23a26c7cf30c') in 0.025639 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000579 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Elite/alien/Elite3.prefab
-  artifactKey: Guid(88894a5e5b214fd47baea68faa12d3a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Elite/alien/Elite3.prefab using Guid(88894a5e5b214fd47baea68faa12d3a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '321d50a0286074748c3f9be3609fee60') in 0.028123 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000552 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Elite/alien/Elite2.prefab
-  artifactKey: Guid(645da39034a9bb8499a921a9bc91c26b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Elite/alien/Elite2.prefab using Guid(645da39034a9bb8499a921a9bc91c26b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cea5ba97b31047d209b71d461ba81d9') in 0.053389 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.434044 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Elite/alien/Elite1.prefab
-  artifactKey: Guid(341c60213066714448cb83edf51fe07e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Elite/alien/Elite1.prefab using Guid(341c60213066714448cb83edf51fe07e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '207c014d161113b54f78e9396dbba953') in 0.038757 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.682864 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Elite/alien/Elite2.prefab
-  artifactKey: Guid(645da39034a9bb8499a921a9bc91c26b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Elite/alien/Elite2.prefab using Guid(645da39034a9bb8499a921a9bc91c26b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cd165c9b177e2cc73a2dd153b6c5879') in 0.037837 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.876526 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Elite/alien/Elite3.prefab
-  artifactKey: Guid(88894a5e5b214fd47baea68faa12d3a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Elite/alien/Elite3.prefab using Guid(88894a5e5b214fd47baea68faa12d3a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2eb4dbd79ba2a5c4b979c35926d4a556') in 0.042320 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003592 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.390 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 1.45 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3565 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.3 MB.
-System memory in use after: 235.6 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4076.
-Total: 2.566500 ms (FindLiveObjects: 0.266200 ms CreateObjectMapping: 0.132300 ms MarkObjects: 2.150600 ms  DeleteObjects: 0.016500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 158.343402 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType
-  artifactKey: Guid(a42f588979fa2b74987e7c9f439ec1d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType using Guid(a42f588979fa2b74987e7c9f439ec1d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f9377971165763fcf0fd8c3a84c77d2') in 0.015952 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 117.137784 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal1.prefab
-  artifactKey: Guid(693e1afeff741c74fb191e6b14d53830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal1.prefab using Guid(693e1afeff741c74fb191e6b14d53830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '689458d4ab8627db13d018fb98a073b3') in 0.068229 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000366 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal3.prefab
-  artifactKey: Guid(f4005260ccc1ddd429fe81a9ee08065d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal3.prefab using Guid(f4005260ccc1ddd429fe81a9ee08065d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee02f567037747b44e7ed164117f2cb2') in 0.053391 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000342 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal4.prefab
-  artifactKey: Guid(ba9b23f74275250449cfe011d3f3d1bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal4.prefab using Guid(ba9b23f74275250449cfe011d3f3d1bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed33447c26b45f686d41a9126f4ac4af') in 0.059122 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000366 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal2.prefab
-  artifactKey: Guid(daf2f85d3a272c9499ee7c60205cca46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal2.prefab using Guid(daf2f85d3a272c9499ee7c60205cca46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5189787ff8defc5a24ae7c163c6bddf') in 0.053122 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.837203 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal1.prefab
-  artifactKey: Guid(298574d6c91b02249a875aeed0757cb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal1.prefab using Guid(298574d6c91b02249a875aeed0757cb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54007e62d6c63c2f2a862282357301ef') in 0.014755 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000342 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal4.prefab
-  artifactKey: Guid(95ae05d80bc494c4097080eefb557a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal4.prefab using Guid(95ae05d80bc494c4097080eefb557a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ed0169c999fe94bb8768c9e7754dc04') in 0.050217 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000392 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal2.prefab
-  artifactKey: Guid(8a35a7575bd530e4fb56f3365ac1d90c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal2.prefab using Guid(8a35a7575bd530e4fb56f3365ac1d90c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f56f9d76740da95ed6e7f68253eeb24') in 0.053424 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000421 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal3.prefab
-  artifactKey: Guid(85ba44fbe13be9940b5c05b31b1282aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal3.prefab using Guid(85ba44fbe13be9940b5c05b31b1282aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab024c2795c8e335e3465c053875cd41') in 0.047654 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 21.239995 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Elite/Robot
-  artifactKey: Guid(c6cc8c20a256fa346bf3d3ddbf1a4b04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Elite/Robot using Guid(c6cc8c20a256fa346bf3d3ddbf1a4b04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23b9a61df2ed5219ad1d60d9835f4ff3') in 0.017258 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 21.237154 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemyAtkInterface.cs
-  artifactKey: Guid(aa02a09451db9844e90ee3f25f6b95c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemyAtkInterface.cs using Guid(aa02a09451db9844e90ee3f25f6b95c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d75e249e785b4ecb8a9bcda0725d0a8') in 0.016188 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004437 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.330 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 1.40 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3566 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.4 MB.
-System memory in use after: 235.6 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4082.
-Total: 3.080000 ms (FindLiveObjects: 0.397300 ms CreateObjectMapping: 0.283700 ms MarkObjects: 2.339200 ms  DeleteObjects: 0.058800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003621 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.90 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.302 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3566 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.4 MB.
-System memory in use after: 235.7 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4086.
-Total: 2.875700 ms (FindLiveObjects: 0.307600 ms CreateObjectMapping: 0.137700 ms MarkObjects: 2.410700 ms  DeleteObjects: 0.018900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 66.818564 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemyAtkInterface.cs
-  artifactKey: Guid(aa02a09451db9844e90ee3f25f6b95c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemyAtkInterface.cs using Guid(aa02a09451db9844e90ee3f25f6b95c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be0059a339ba918bf85ff09403899c61') in 0.007955 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.669764 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/Spread.cs
-  artifactKey: Guid(a37a6fcb29acb9b4383dfe07bcebdff9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/Spread.cs using Guid(a37a6fcb29acb9b4383dfe07bcebdff9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '653a79dc917626377adf29a2bb1e48be') in 0.019771 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005297 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.93 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.713 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3566 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.4 MB.
-System memory in use after: 235.7 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4090.
-Total: 3.668000 ms (FindLiveObjects: 0.520800 ms CreateObjectMapping: 0.175500 ms MarkObjects: 2.948200 ms  DeleteObjects: 0.022500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 34.748615 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemySpread.cs
-  artifactKey: Guid(9a0c58a4cef3e6b4686a787888491d1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemySpread.cs using Guid(9a0c58a4cef3e6b4686a787888491d1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b5d11452fd854adc88fab3ffdde8705') in 0.024095 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010085 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.12 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.390 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.95 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3567 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.5 MB.
-System memory in use after: 235.7 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4095.
-Total: 3.299700 ms (FindLiveObjects: 0.287500 ms CreateObjectMapping: 0.166100 ms MarkObjects: 2.816600 ms  DeleteObjects: 0.028200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 72.480874 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemySpread.cs
-  artifactKey: Guid(9a0c58a4cef3e6b4686a787888491d1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemySpread.cs using Guid(9a0c58a4cef3e6b4686a787888491d1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c3c86f689c35772943277543d460fd7') in 0.009598 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005823 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.14 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.805 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.90 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3565 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.4 MB.
-System memory in use after: 235.7 MB.
-
-Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 4097.
-Total: 3.240700 ms (FindLiveObjects: 0.307800 ms CreateObjectMapping: 0.220700 ms MarkObjects: 2.686600 ms  DeleteObjects: 0.024500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005555 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.90 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.283 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3566 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.5 MB.
-System memory in use after: 235.7 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4102.
-Total: 4.192300 ms (FindLiveObjects: 0.460200 ms CreateObjectMapping: 0.345100 ms MarkObjects: 3.357500 ms  DeleteObjects: 0.027800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004505 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.13 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.472 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.90 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3566 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.5 MB.
-System memory in use after: 235.7 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4106.
-Total: 3.347900 ms (FindLiveObjects: 0.455000 ms CreateObjectMapping: 0.155500 ms MarkObjects: 2.717600 ms  DeleteObjects: 0.018900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 1044.272551 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemyAtkInterface.cs
-  artifactKey: Guid(aa02a09451db9844e90ee3f25f6b95c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemyAtkInterface.cs using Guid(aa02a09451db9844e90ee3f25f6b95c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7beb07dfdc271637ffa0ae563e3a4848') in 0.008004 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 56.180053 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/NormalRobot1.cs
-  artifactKey: Guid(b8b543f3b260f0448abdb2bb7ab8882e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/NormalRobot1.cs using Guid(b8b543f3b260f0448abdb2bb7ab8882e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb47f04dcae15782e68732ec2bb65b8d') in 0.017780 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004649 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.85 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.140 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.92 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3567 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.5 MB.
-System memory in use after: 235.7 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4111.
-Total: 4.012900 ms (FindLiveObjects: 0.319700 ms CreateObjectMapping: 0.152300 ms MarkObjects: 3.491200 ms  DeleteObjects: 0.048100 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 761.156035 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/NormalRobot1.cs
-  artifactKey: Guid(b8b543f3b260f0448abdb2bb7ab8882e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/NormalRobot1.cs using Guid(b8b543f3b260f0448abdb2bb7ab8882e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd556e839005d44710f1db19d40c7e923') in 0.013140 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004238 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.519 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 1.33 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3566 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.5 MB.
-System memory in use after: 235.7 MB.
-
-Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 4114.
-Total: 3.703300 ms (FindLiveObjects: 0.272800 ms CreateObjectMapping: 0.228800 ms MarkObjects: 3.180100 ms  DeleteObjects: 0.020700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 111.744289 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/Patterns.cs
-  artifactKey: Guid(8fa17e66efc93724592748952bbce8f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/Patterns.cs using Guid(8fa17e66efc93724592748952bbce8f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '512b0f616fe53e851cb58541ef7a968d') in 0.021992 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007974 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.94 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.567 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3567 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.5 MB.
-System memory in use after: 235.8 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4119.
-Total: 3.233900 ms (FindLiveObjects: 0.331600 ms CreateObjectMapping: 0.180100 ms MarkObjects: 2.682600 ms  DeleteObjects: 0.038500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003851 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.95 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.621 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3566 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.5 MB.
-System memory in use after: 235.7 MB.
-
-Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 4122.
-Total: 2.607300 ms (FindLiveObjects: 0.266400 ms CreateObjectMapping: 0.126300 ms MarkObjects: 2.196100 ms  DeleteObjects: 0.017800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 29.255444 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/AtkPatterns.cs
-  artifactKey: Guid(98e4d6713cf22d243902e172ab6a332d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/AtkPatterns.cs using Guid(98e4d6713cf22d243902e172ab6a332d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc4768e55000c13d2d8139dbdf12d8b0') in 0.028691 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004244 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.83 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.237 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.92 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3567 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.5 MB.
-System memory in use after: 235.8 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4127.
-Total: 3.392500 ms (FindLiveObjects: 0.489600 ms CreateObjectMapping: 0.289900 ms MarkObjects: 2.587800 ms  DeleteObjects: 0.023800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004410 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.79 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.607 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 1.25 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3566 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.5 MB.
-System memory in use after: 235.8 MB.
-
-Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 4130.
-Total: 2.586500 ms (FindLiveObjects: 0.275000 ms CreateObjectMapping: 0.144600 ms MarkObjects: 2.120600 ms  DeleteObjects: 0.045400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 76.346452 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemyAtkPatterns.cs
-  artifactKey: Guid(ad8ddd8f0683acb49912ac7764431bbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemyAtkPatterns.cs using Guid(ad8ddd8f0683acb49912ac7764431bbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdaa508548225fdd2c09509713d87b02') in 0.022725 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004214 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.89 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.430 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.95 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3567 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.6 MB.
-System memory in use after: 235.8 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4135.
-Total: 3.523200 ms (FindLiveObjects: 0.487200 ms CreateObjectMapping: 0.301700 ms MarkObjects: 2.707200 ms  DeleteObjects: 0.025900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006215 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.29 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.571 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3567 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.6 MB.
-System memory in use after: 235.8 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4139.
-Total: 4.395900 ms (FindLiveObjects: 0.535600 ms CreateObjectMapping: 0.257300 ms MarkObjects: 3.557400 ms  DeleteObjects: 0.044200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 372.631220 seconds.
-  path: Assets/Prefabs/Resources/Items/Item5.prefab
-  artifactKey: Guid(bdfcd8c08bdc40f4aaedb00c08faa8db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Items/Item5.prefab using Guid(bdfcd8c08bdc40f4aaedb00c08faa8db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5ef2cd2db730b3295599fb8866a40d1') in 0.072451 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000392 seconds.
-  path: Assets/Prefabs/Resources/Items/Item1.prefab
-  artifactKey: Guid(45c2898630ee41f4ca729c0dd15e34f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Items/Item1.prefab using Guid(45c2898630ee41f4ca729c0dd15e34f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffaf6d0bd2bc94d51edc9c2f5a8cc4b9') in 0.023324 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000525 seconds.
-  path: Assets/Prefabs/Resources/Items/Item7.prefab
-  artifactKey: Guid(1fff5b46599a3bf419fad9feec565920) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Items/Item7.prefab using Guid(1fff5b46599a3bf419fad9feec565920) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecac4c55cf54d90b62f4bf000e74b743') in 0.043150 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000435 seconds.
-  path: Assets/Prefabs/Resources/Items/Item4.prefab
-  artifactKey: Guid(a7a321fe4c65a6648bedb31441ff6bcc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Items/Item4.prefab using Guid(a7a321fe4c65a6648bedb31441ff6bcc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f4db8f5c478000c6aeb9fa3ef83c03d') in 0.036200 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000421 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemyAtkPatterns.cs
-  artifactKey: Guid(ad8ddd8f0683acb49912ac7764431bbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EnemyAtkPatterns.cs using Guid(ad8ddd8f0683acb49912ac7764431bbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dba5423dcb726d4efc62cd3178a7722e') in 0.005804 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000681 seconds.
-  path: Assets/Prefabs/Resources/Items/Item2.prefab
-  artifactKey: Guid(0ff925caecfb7584cacf4691bf3e8b67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Items/Item2.prefab using Guid(0ff925caecfb7584cacf4691bf3e8b67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffc47712720c85c245d8f70c1988b33b') in 0.026318 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000492 seconds.
-  path: Assets/Prefabs/Resources/Items/Item6.prefab
-  artifactKey: Guid(c3981dc34934bd94a88e3379789706f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Items/Item6.prefab using Guid(c3981dc34934bd94a88e3379789706f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e86915ce6dcca24533c559437402559') in 0.029101 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000706 seconds.
-  path: Assets/Prefabs/Resources/Items/Item3.prefab
-  artifactKey: Guid(4cf7ee9fa846c114eb4ce907e7e75ab4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Items/Item3.prefab using Guid(4cf7ee9fa846c114eb4ce907e7e75ab4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1143c3dcc19f54fd1e0a4918518e5da') in 0.027999 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 21.116654 seconds.
-  path: Assets/Scenes/Menu.unity
-  artifactKey: Guid(dc8cd665a142ff543acb5abddfb1b3b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Menu.unity using Guid(dc8cd665a142ff543acb5abddfb1b3b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36bb18aabf5ee3ad161f4c6c3eb9fcee') in 0.015483 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.523905 seconds.
-  path: Assets/Prefabs/Resources/Player/AtkParts/임시.prefab
-  artifactKey: Guid(151bb58cb28e707418b2b7746c68086a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Player/AtkParts/임시.prefab using Guid(151bb58cb28e707418b2b7746c68086a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4d0ed7800ca6f6a1f86027c57cc486c') in 0.025314 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 19.053308 seconds.
-  path: Assets/Prefabs/Resources/Player/Bullets/guiededtest.prefab
-  artifactKey: Guid(fc9c9bd1b7f62bd4691d375031edbd5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Player/Bullets/guiededtest.prefab using Guid(fc9c9bd1b7f62bd4691d375031edbd5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb4e0b00b408dd7b291b4cf0ad89e804') in 0.024029 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 17.270088 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/NormalRobot1.cs
-  artifactKey: Guid(b8b543f3b260f0448abdb2bb7ab8882e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/NormalRobot1.cs using Guid(b8b543f3b260f0448abdb2bb7ab8882e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a7b8c029ce6075842cb2567ea0902bd') in 0.006000 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004015 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.94 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.691 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.92 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3566 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.6 MB.
-System memory in use after: 235.9 MB.
-
-Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4143.
-Total: 3.449300 ms (FindLiveObjects: 0.452300 ms CreateObjectMapping: 0.217900 ms MarkObjects: 2.649800 ms  DeleteObjects: 0.128400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 85.330778 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EliteRobot1.cs
-  artifactKey: Guid(0bc007831ab3077478240459660e2015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EliteRobot1.cs using Guid(0bc007831ab3077478240459660e2015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e05c0ef11c48fde949f67f80c06a8d3c') in 0.022339 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004313 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.94 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.377 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3567 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.7 MB.
-System memory in use after: 235.9 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4148.
-Total: 2.871300 ms (FindLiveObjects: 0.309400 ms CreateObjectMapping: 0.129100 ms MarkObjects: 2.414100 ms  DeleteObjects: 0.017700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005323 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.87 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.630 seconds
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 1.00 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3567 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.7 MB.
-System memory in use after: 235.9 MB.
+System memory in use before: 227.0 MB.
+System memory in use after: 227.2 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4152.
-Total: 3.339000 ms (FindLiveObjects: 0.446700 ms CreateObjectMapping: 0.158800 ms MarkObjects: 2.693500 ms  DeleteObjects: 0.039200 ms)
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4067.
+Total: 2.888900 ms (FindLiveObjects: 0.328000 ms CreateObjectMapping: 0.209500 ms MarkObjects: 2.309800 ms  DeleteObjects: 0.040400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
 Received Import Request.
-  Time since last request: 204.923355 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EliteRobot1.cs
-  artifactKey: Guid(0bc007831ab3077478240459660e2015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EliteRobot1.cs using Guid(0bc007831ab3077478240459660e2015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cea2682aaa85d91b5e868ac18bcdd96') in 0.008252 seconds 
+  Time since last request: 122.552928 seconds.
+  path: Assets/Scripts/PanelListeners/OpeningListener.cs
+  artifactKey: Guid(7f2f313e5c1d8a842b97399f5b80b476) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/PanelListeners/OpeningListener.cs using Guid(7f2f313e5c1d8a842b97399f5b80b476) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5f7961e194999d19049a95978b3e915') in 0.389882 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 125.893365 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Elite/Robot/Elite1.prefab
-  artifactKey: Guid(52e76b6af59cc384e9499f308896dc77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Elite/Robot/Elite1.prefab using Guid(52e76b6af59cc384e9499f308896dc77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23214506e3e1e8a3886c500e8d81c838') in 0.070575 seconds 
+  Time since last request: 63.328495 seconds.
+  path: Assets/Scripts/PanelListeners/NamePanelListener.cs
+  artifactKey: Guid(016ee24d64691d746988c915a739566e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/PanelListeners/NamePanelListener.cs using Guid(016ee24d64691d746988c915a739566e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eaf264bb36df1fd14223d1b7062129f1') in 0.005742 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005649 seconds.
+Registered in 0.113083 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\SAMSUNG\Desktop\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\SAMSUNG\Desktop\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.99 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.72 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.330 seconds
+- Completed reload, in  2.081 seconds
 Platform modules already initialized, skipping
 Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
 Refreshing native plugins compatible for Editor in 0.89 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3567 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.6 MB.
-System memory in use after: 235.9 MB.
+System memory in use before: 227.0 MB.
+System memory in use after: 227.3 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4157.
-Total: 3.503400 ms (FindLiveObjects: 0.375200 ms CreateObjectMapping: 0.246000 ms MarkObjects: 2.805600 ms  DeleteObjects: 0.075300 ms)
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4071.
+Total: 4.059700 ms (FindLiveObjects: 0.283400 ms CreateObjectMapping: 0.181700 ms MarkObjects: 3.557200 ms  DeleteObjects: 0.036100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
 Received Import Request.
-  Time since last request: 21.940050 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal3.prefab
-  artifactKey: Guid(f4005260ccc1ddd429fe81a9ee08065d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal3.prefab using Guid(f4005260ccc1ddd429fe81a9ee08065d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fcac3b9cc66d4ef36695abd5c4e3c2b') in 0.068367 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000421 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal4.prefab
-  artifactKey: Guid(ba9b23f74275250449cfe011d3f3d1bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal4.prefab using Guid(ba9b23f74275250449cfe011d3f3d1bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd189249ad464e5d9f9d1b4bd797cb59d') in 0.027920 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000439 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal1.prefab
-  artifactKey: Guid(693e1afeff741c74fb191e6b14d53830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal1.prefab using Guid(693e1afeff741c74fb191e6b14d53830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d7f431e30909b9c0ce3c54bb02d8a2d') in 0.028208 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000476 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal2.prefab
-  artifactKey: Guid(daf2f85d3a272c9499ee7c60205cca46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal2.prefab using Guid(daf2f85d3a272c9499ee7c60205cca46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aacdee6290b133a33b6b124deca448d6') in 0.028314 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.730115 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal1.prefab
-  artifactKey: Guid(298574d6c91b02249a875aeed0757cb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal1.prefab using Guid(298574d6c91b02249a875aeed0757cb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9262be36340e0e270ca5b33017abee91') in 0.033749 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000511 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal4.prefab
-  artifactKey: Guid(95ae05d80bc494c4097080eefb557a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal4.prefab using Guid(95ae05d80bc494c4097080eefb557a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6aa2406b632d791db38aba90b3c718d4') in 0.051705 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000383 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal2.prefab
-  artifactKey: Guid(8a35a7575bd530e4fb56f3365ac1d90c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal2.prefab using Guid(8a35a7575bd530e4fb56f3365ac1d90c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db1dd5bd053f7c465dfeac67c2a72e5d') in 0.017196 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000451 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal3.prefab
-  artifactKey: Guid(85ba44fbe13be9940b5c05b31b1282aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal3.prefab using Guid(85ba44fbe13be9940b5c05b31b1282aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5803bd8e9493561dc3186fb496072ec5') in 0.039789 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.891826 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal1.prefab
-  artifactKey: Guid(298574d6c91b02249a875aeed0757cb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal1.prefab using Guid(298574d6c91b02249a875aeed0757cb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd91b38a0b97950fc01b0dc38fe374157') in 0.029754 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000570 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal4.prefab
-  artifactKey: Guid(95ae05d80bc494c4097080eefb557a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal4.prefab using Guid(95ae05d80bc494c4097080eefb557a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb4fccd1a2d70d8e26b96c1490330fab') in 0.018309 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000426 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal2.prefab
-  artifactKey: Guid(8a35a7575bd530e4fb56f3365ac1d90c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal2.prefab using Guid(8a35a7575bd530e4fb56f3365ac1d90c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c8d97c6023998fdf9648a67b725d644') in 0.026184 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000477 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal3.prefab
-  artifactKey: Guid(85ba44fbe13be9940b5c05b31b1282aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Alien/Normal3.prefab using Guid(85ba44fbe13be9940b5c05b31b1282aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2783fc40afd47797ddfb3acbc80ec87a') in 0.047395 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.061342 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal1.prefab
-  artifactKey: Guid(693e1afeff741c74fb191e6b14d53830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal1.prefab using Guid(693e1afeff741c74fb191e6b14d53830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e0ae0fb31c3a5b7d251e71e9ce0a8f5') in 0.033977 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000544 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal3.prefab
-  artifactKey: Guid(f4005260ccc1ddd429fe81a9ee08065d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal3.prefab using Guid(f4005260ccc1ddd429fe81a9ee08065d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d8cb9d61fd79a09cb8aa305e78a5fdd') in 0.016446 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000462 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal4.prefab
-  artifactKey: Guid(ba9b23f74275250449cfe011d3f3d1bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal4.prefab using Guid(ba9b23f74275250449cfe011d3f3d1bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '657939aeedc63345873fe9d65bb404dd') in 0.046396 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000552 seconds.
-  path: Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal2.prefab
-  artifactKey: Guid(daf2f85d3a272c9499ee7c60205cca46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Resources/Enemy/Normal/Robot/Normal2.prefab using Guid(daf2f85d3a272c9499ee7c60205cca46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be2d0171b157a957620496a2b350f69c') in 0.038079 seconds 
+  Time since last request: 33.010442 seconds.
+  path: Assets/Scripts/PanelListeners/NamePanelListener.cs
+  artifactKey: Guid(016ee24d64691d746988c915a739566e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/PanelListeners/NamePanelListener.cs using Guid(016ee24d64691d746988c915a739566e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eaf264bb36df1fd14223d1b7062129f1') in 0.013822 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.004845 seconds.
+Registered in 0.010419 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\ssigg\OneDrive\바탕 화면\project\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\SAMSUNG\Desktop\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\SAMSUNG\Desktop\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.79 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.96 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.605 seconds
+- Completed reload, in  2.292 seconds
 Platform modules already initialized, skipping
 Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 1.00 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.93 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3567 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 235.7 MB.
-System memory in use after: 235.9 MB.
+System memory in use before: 227.1 MB.
+System memory in use after: 227.3 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4162.
-Total: 3.136200 ms (FindLiveObjects: 0.330800 ms CreateObjectMapping: 0.157700 ms MarkObjects: 2.603400 ms  DeleteObjects: 0.043500 ms)
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4075.
+Total: 2.864900 ms (FindLiveObjects: 0.289100 ms CreateObjectMapping: 0.224800 ms MarkObjects: 2.326400 ms  DeleteObjects: 0.023400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 793.767974 seconds.
+  path: Assets/Scripts/Mob_info.cs
+  artifactKey: Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Mob_info.cs using Guid(a8134ef961487fa4eb225a8cd5dcdfde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '408caaa3db8c91636326cddc46078a00') in 0.009267 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.674773 seconds.
+  path: Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EliteRobot1.cs
+  artifactKey: Guid(0bc007831ab3077478240459660e2015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Resources/Enemy/Patterns/BulletType/EliteRobot1.cs using Guid(0bc007831ab3077478240459660e2015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce344020d0172c4967a88815400829db') in 0.007149 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009766 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\SAMSUNG\Desktop\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\SAMSUNG\Desktop\Space1945\Space1945\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.98 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.915 seconds
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.87 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3567 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.1 MB.
+System memory in use after: 227.3 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 4079.
+Total: 2.957000 ms (FindLiveObjects: 0.331600 ms CreateObjectMapping: 0.210500 ms MarkObjects: 2.391200 ms  DeleteObjects: 0.022400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000

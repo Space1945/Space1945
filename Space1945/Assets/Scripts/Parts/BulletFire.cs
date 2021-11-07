@@ -40,6 +40,7 @@ public class BulletFire : MonoBehaviour, AtkInterface
 
     void Awake() // √ ±‚»≠
     {
+        Camera.main.GetComponent<ObjectPool>().Make_bulletplayer(bullet);
         butts = transform.parent.GetComponent<AirframeScript>().butts;
     }
     void Start()
@@ -55,8 +56,12 @@ public class BulletFire : MonoBehaviour, AtkInterface
         {
             for (int i = 0; i < butts.Length; i++)
                 for (int j = 0; j < fire_cnt_per_shot * reinforce_mul["fcps"]; j++)
-                    Instantiate(bullet, butts[i].position, Quaternion.identity).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle), reinforce_mul["bd"], reinforce_add["cc"], reinforce_mul["cd"]);
-
+                {
+                    GameObject bullet_p = Camera.main.GetComponent<ObjectPool>().GetPlayerBullet();
+                    bullet_p.GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle), reinforce_mul["bd"], reinforce_add["cc"], reinforce_mul["cd"]);
+                    bullet_p.transform.position = butts[i].position;
+                    // Instantiate(bullet, butts[i].position, Quaternion.identity).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle), reinforce_mul["bd"], reinforce_add["cc"], reinforce_mul["cd"]);
+                }
             yield return new WaitForSeconds(fire_rate * reinforce_mul["fr"]);
         }
     }

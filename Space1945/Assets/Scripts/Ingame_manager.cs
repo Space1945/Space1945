@@ -36,25 +36,36 @@ public class Ingame_manager : MonoBehaviour
     float adtl_gold;
     float adtl_exp;
 
+    ObjectPool ops;
+
     // Start is called before the first frame update
     void Awake()
     {
-        Reinforce();
+        Reinforce(); // 강화
+        ReadStage();
     }
     void Start()
     {
+        ops = GetComponent<ObjectPool>();
+
         selected_chapter = DB_Manager.Instance.selected_chapter.ToString();
         selected_stage = DB_Manager.Instance.selected_stage.ToString();
 
         Initiate();
-        ReadStage();
         DB_Manager.Instance.InitStageDB();
 
         player = DB_Manager.Instance.using_airframe;
         player_clone = Instantiate(player); // 복제
+        
 
-        foreach (GameObject obj in BG)
-            Instantiate(obj);
+        foreach (GameObject obj in BG) Instantiate(obj);
+
+        ops.Make_enemy_normal(ref normals);
+        ops.Make_enemy_elite(ref elites);
+        ops.Make_bulletenemy1();
+        //ops.Make_bulletsub1();
+        //ops.Make_bulletsub2();
+        //ops.Make_enemydead();
 
         StartCoroutine(CreateNormalEnemy());
         StartCoroutine(CheckGameEnd(check_rate));
@@ -84,6 +95,7 @@ public class Ingame_manager : MonoBehaviour
         string[] normals = PlayerPrefs.GetString(stage + "Normals").Split(' ');
         for (int i = 0; i < normals.Length; i++)
             this.normals.Add(Resources.Load<GameObject>("Enemy/Normal/" + stage_type + "/" + normals[i]));
+
         string[] normals_time = PlayerPrefs.GetString(stage + "NormalsTime").Split(' ');
         for (int i = 0; i < normals_time.Length; i++)
             this.normals_time.Add(int.Parse(normals_time[i]));
