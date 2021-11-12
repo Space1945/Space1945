@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8134ef961487fa4eb225a8cd5dcdfde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  max_hp: 120
   hp: 120
   crash_damage: 10
   score: 50

@@ -62,14 +62,6 @@ public class Ingame_manager : MonoBehaviour
         
         foreach (GameObject obj in BG) Instantiate(obj);
 
-        // pool 생성(최적화)
-        ops.Make_enemy_normal(ref normals);
-        ops.Make_enemy_elite(ref elites);
-        //ops.Make_bulletenemy1(); < 위로 합병
-        //ops.Make_bulletsub1();
-        //ops.Make_bulletsub2();
-        //ops.Make_enemydead(); < 파티클 시스템은 GameObject랑 호환이 안되서 못함
-
         StartCoroutine(CreateNormalEnemy());
         StartCoroutine(CheckGameEnd(check_rate));
     }
@@ -181,7 +173,7 @@ public class Ingame_manager : MonoBehaviour
             int rand_idx = Random.Range(0, elites.Count);
             int rand_point_idx = Random.Range(0, spwan_points.Length);
 
-            StartCoroutine(InstantiateEnemy(elites[rand_idx], spwan_points[rand_point_idx], 1, 0f));
+            StartCoroutine(InstantiateEnemy(elites[rand_idx] , spwan_points[rand_point_idx],1,0f));
         }
     }
 
@@ -191,16 +183,14 @@ public class Ingame_manager : MonoBehaviour
         {
             int rand_idx = Random.Range(0, normals.Count);
             int rand_point_idx = Random.Range(0, spwan_points.Length);
-
-            GameObject enemy = normals[rand_idx];
-
-            StartCoroutine(InstantiateEnemy(enemy, spwan_points[rand_point_idx], enemy.GetComponent<Mob_info>().instantiate_count, 0.5f));
+            int cnt = normals[rand_idx].GetComponent<Mob_info>().instantiate_count;
+            StartCoroutine(InstantiateEnemy(normals[rand_idx], spwan_points[rand_point_idx], cnt , 0.5f));
 
             yield return new WaitForSeconds(normals_time[i]);
         }
     }
 
-    IEnumerator InstantiateEnemy(GameObject enemy, GameObject point, int cnt, float interval_sec)
+    IEnumerator InstantiateEnemy(GameObject enemy, GameObject point,int cnt, float interval_sec)
     {
         for (int i = 0; i < cnt; i++)
         {
@@ -212,7 +202,7 @@ public class Ingame_manager : MonoBehaviour
             yield return new WaitForSeconds(interval_sec);
         }
     }
-    IEnumerator CheckGameEnd(float check_rate) // 인게임의 종료조건을 계속 확인
+        IEnumerator CheckGameEnd(float check_rate) // 인게임의 종료조건을 계속 확인
     {
         while (true)
         {

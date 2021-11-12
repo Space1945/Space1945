@@ -13,8 +13,13 @@ public class Spread : MonoBehaviour
     float shot_angle;
     Vector2 normalized_angle;
     float crash_damage;
+    ObjectPool ops;
 
-    void Start()
+    void Awake()
+    {
+        ops = Camera.main.GetComponent<ObjectPool>();
+    }
+    void OnEnable()
     {
         shot_angle = GetComponent<BulletInfo>().shot_angle;
         normalized_angle = GV.GetVector2(shot_angle).normalized;
@@ -32,11 +37,11 @@ public class Spread : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "end_line":
-                Destroy(gameObject);
+                ops.ReturnBullet(transform.parent.gameObject);
                 break;
             case "enemy":
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
-                Destroy(gameObject);
+                ops.ReturnBullet(transform.parent.gameObject);
                 break;
         }
     }

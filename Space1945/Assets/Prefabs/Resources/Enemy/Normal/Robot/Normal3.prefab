@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8134ef961487fa4eb225a8cd5dcdfde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 200
+  max_hp: 200
   crash_damage: 35
   score: 80
   exp: 55

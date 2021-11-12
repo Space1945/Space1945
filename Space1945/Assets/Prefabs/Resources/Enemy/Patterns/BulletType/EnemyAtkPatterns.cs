@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAtkPatterns : MonoBehaviour
 {
+    Coroutine coroutine;
     public IEnumerator AttackSpread(GameObject obj)
     {
         Mob_info mis = obj.GetComponent<Mob_info>();
@@ -29,7 +30,7 @@ public class EnemyAtkPatterns : MonoBehaviour
             {
                 for (int i = 0; i < mis.butts.Length; i++)
                 {
-                    GameObject bullet_e = Camera.main.GetComponent<ObjectPool>().GetEnemyBullet();
+                    GameObject bullet_e = Camera.main.GetComponent<ObjectPool>().GetBullet(mis.bullet);
                     bullet_e.GetComponent<BulletInfo>().SetFromEnemy(GV.GetDegree(mis.butts[i].position, pos));
                     bullet_e.transform.position = mis.butts[i].position;
                     //Instantiate(mis.bullet, mis.butts[i].position, Quaternion.identity).GetComponent<BulletInfo>().SetFromEnemy(GV.GetDegree(mis.butts[i].position, pos));
@@ -61,5 +62,14 @@ public class EnemyAtkPatterns : MonoBehaviour
             }
             yield return new WaitForSeconds(mis.fire_rate);
         }
+    }
+
+    public void StartSpread(GameObject obj)
+    {
+        coroutine = StartCoroutine(AttackSpread(obj));
+    }
+    public void StopSpread()
+    {
+        StopCoroutine(coroutine);
     }
 }

@@ -13,8 +13,13 @@ public class Explosion : MonoBehaviour
     Vector2 normalized_angle;
     float speed;
     float crash_damage;
+    ObjectPool ops;
 
-    void Start()
+    void Awake()
+    {
+        ops = Camera.main.GetComponent<ObjectPool>();
+    }
+    void OnEnable()
     {
         shot_angle = GetComponent<BulletInfo>().shot_angle;
         normalized_angle = GV.GetVector2(shot_angle).normalized;
@@ -32,14 +37,14 @@ public class Explosion : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "end_line":
-                Destroy(gameObject);
+                ops.ReturnBullet(transform.parent.gameObject);
                 break;
             case "enemy":
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
                 Instantiate(boom, transform.position, Quaternion.identity).GetComponent<DerivedBulletInfo>().SetFromPlayer(
                     shot_angle, GetComponent<BulletInfo>().critical, GetComponent<BulletInfo>().crit_damage_p
                 );
-                Destroy(gameObject);
+                ops.ReturnBullet(transform.parent.gameObject);
                 break;
         }
     }

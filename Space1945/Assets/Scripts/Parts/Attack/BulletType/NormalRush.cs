@@ -9,8 +9,13 @@ public class NormalRush : MonoBehaviour
     float speed;
     float crash_damage;
     GameObject target;
+    ObjectPool ops;
 
-    void Start()
+    void Awake()
+    {
+        ops = Camera.main.GetComponent<ObjectPool>();
+    }
+    void OnEnable()
     {
         speed = GetComponent<BulletInfo>().speed;
         crash_damage = GetComponent<BulletInfo>().crash_damage;
@@ -49,11 +54,11 @@ public class NormalRush : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "end_line":
-                Destroy(gameObject);
+                ops.ReturnBullet(transform.parent.gameObject);
                 break;
             case "enemy":
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
-                Destroy(gameObject);
+                ops.ReturnBullet(transform.parent.gameObject);
                 break;
         }
     }

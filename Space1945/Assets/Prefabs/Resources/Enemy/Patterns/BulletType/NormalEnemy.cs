@@ -11,7 +11,13 @@ public class NormalEnemy : MonoBehaviour
     float shot_angle;
     Vector2 angle;
 
-    void Start()
+    ObjectPool ops;
+    void Awake()
+    {
+        ops = Camera.main.GetComponent<ObjectPool>();
+    }
+
+    void OnEnable()
     {
         shot_angle = GetComponent<BulletInfo>().shot_angle;
         angle = GV.GetVector2(shot_angle).normalized;
@@ -29,13 +35,13 @@ public class NormalEnemy : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "end_line":
-                gameObject.SetActive(false);
+                ops.ReturnBullet(transform.parent.gameObject);
                 break;
             case "player":
                 float new_crash_damage = crash_damage - col.gameObject.GetComponent<AirframeScript>().basic_def;
                 if (new_crash_damage > 0)
                     col.gameObject.GetComponent<AirframeScript>().Attacked(new_crash_damage);
-                gameObject.SetActive(false);
+                ops.ReturnBullet(transform.parent.gameObject);
                 break;
         }
     }

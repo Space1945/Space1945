@@ -11,9 +11,14 @@ public class Guided : MonoBehaviour
     Collider2D[] near_enemy;
     Rigidbody2D rigid;
     int rate = 0;
+    ObjectPool ops;
 
+    void Awake()
+    {
+        ops = Camera.main.GetComponent<ObjectPool>();
+    }
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         crash_damage = GetComponent<BulletInfo>().crash_damage;
         rigid = GetComponent<Rigidbody2D>();
@@ -61,11 +66,11 @@ public class Guided : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "end_line":
-                Destroy(gameObject);
+                ops.ReturnBullet(gameObject);
                 break;
             case "enemy":
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
-                Destroy(gameObject);
+                ops.ReturnBullet(gameObject);
                 break;
         }
     }

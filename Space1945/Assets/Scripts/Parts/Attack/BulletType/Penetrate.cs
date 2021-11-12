@@ -11,8 +11,13 @@ public class Penetrate : MonoBehaviour
     float speed;
     float crash_damage;
     Vector3 player_pos;
+    ObjectPool ops;
 
-    void Start()
+    void Awake()
+    {
+        ops = Camera.main.GetComponent<ObjectPool>();
+    }
+    void OnEnable()
     {
         shot_angle = GetComponent<BulletInfo>().shot_angle;
         normalized_angle = GV.GetVector2(shot_angle).normalized;
@@ -51,7 +56,7 @@ public class Penetrate : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "end_line":
-                Destroy(gameObject);
+                ops.ReturnBullet(transform.parent.gameObject);
                 break;
             case "enemy":
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);

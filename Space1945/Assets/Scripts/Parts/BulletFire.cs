@@ -11,6 +11,8 @@ public class BulletFire : MonoBehaviour, AtkInterface
     public float fire_rate;
     public int fire_cnt_per_shot;
 
+    ObjectPool ops;
+
     // AtkInterface에 선언된 변수 get만 가능 -----------------------
     public int _gold
     {
@@ -40,7 +42,7 @@ public class BulletFire : MonoBehaviour, AtkInterface
 
     void Awake() // 초기화
     {
-        Camera.main.GetComponent<ObjectPool>().Make_bulletplayer(bullet);
+        ops = Camera.main.GetComponent<ObjectPool>();
         butts = transform.parent.GetComponent<AirframeScript>().butts;
     }
     void Start()
@@ -57,11 +59,10 @@ public class BulletFire : MonoBehaviour, AtkInterface
             for (int i = 0; i < butts.Length; i++)
                 for (int j = 0; j < fire_cnt_per_shot * reinforce_mul["fcps"]; j++)
                 {
-                    GameObject bullet_p = Camera.main.GetComponent<ObjectPool>().GetPlayerBullet();
+                    GameObject bullet_p = ops.GetBullet(bullet);
                     bullet_p.GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle), reinforce_mul["bd"], reinforce_add["cc"], reinforce_mul["cd"]);
                     bullet_p.transform.position = butts[i].position;
-                    bullet_p.GetComponent<Bullet_Move>().Move();
-                    // Instantiate(bullet, butts[i].position, Quaternion.identity).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle), reinforce_mul["bd"], reinforce_add["cc"], reinforce_mul["cd"]);
+                    bullet_p.SetActive(true);
                 }
             yield return new WaitForSeconds(fire_rate * reinforce_mul["fr"]);
         }

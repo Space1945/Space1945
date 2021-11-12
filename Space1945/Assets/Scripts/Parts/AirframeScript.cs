@@ -74,8 +74,6 @@ public class AirframeScript : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         col = GetComponent<PolygonCollider2D>();
 
-        //par_die = Resources.Load<ParticleSystem>("Particle/Enemy_die_particle");
-
         // ÆÄÃ÷ È°¼ºÈ­
         atk_ = Instantiate(DB_Manager.Instance.using_atk, transform);
         atk_.GetComponent<SpriteRenderer>().sprite = null;

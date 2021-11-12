@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Mob_info : MonoBehaviour
 {
-    public float hp;
+    public float max_hp;
+    float hp;
     public float crash_damage; // 충돌 데미지
     public int score;
     public int exp;
@@ -35,9 +36,10 @@ public class Mob_info : MonoBehaviour
         ims = Camera.main.GetComponent<Ingame_manager>();
     }
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         invincible = false;
+        hp = max_hp;
     }
 
     IEnumerator InvincibleTime()
@@ -70,7 +72,7 @@ public class Mob_info : MonoBehaviour
             if (Random.Range(0f, 100f) < item.GetComponent<ItemInfo>().drop_rate)
                 Instantiate(item, transform.position, Quaternion.identity);
 
-            this.gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 
@@ -80,7 +82,7 @@ public class Mob_info : MonoBehaviour
         {
             case "end_line":
                 Camera.main.GetComponent<Ingame_manager>().enemys.Remove(gameObject);
-                this.gameObject.SetActive(false);
+                Destroy(gameObject);
                 break;
         }
     }
