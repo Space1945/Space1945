@@ -60,6 +60,7 @@ public class BulletFire : MonoBehaviour, AtkInterface
                     GameObject bullet_p = Camera.main.GetComponent<ObjectPool>().GetPlayerBullet();
                     bullet_p.GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle), reinforce_mul["bd"], reinforce_add["cc"], reinforce_mul["cd"]);
                     bullet_p.transform.position = butts[i].position;
+                    bullet_p.GetComponent<Bullet_Move>().Move();
                     // Instantiate(bullet, butts[i].position, Quaternion.identity).GetComponent<BulletInfo>().SetFromPlayer(Random.Range(min_angle, max_angle), reinforce_mul["bd"], reinforce_add["cc"], reinforce_mul["cd"]);
                 }
             yield return new WaitForSeconds(fire_rate * reinforce_mul["fr"]);

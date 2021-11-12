@@ -32,7 +32,6 @@ public class Mob_info : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
         col = GetComponent<PolygonCollider2D>();
-        par_die = Resources.Load<ParticleSystem>("Particle/TinyExplosion");
         ims = Camera.main.GetComponent<Ingame_manager>();
     }
     // Start is called before the first frame update
@@ -62,10 +61,6 @@ public class Mob_info : MonoBehaviour
     {
         if (hp <= 0) // 사망
         {
-            ims.enemys.Remove(gameObject);
-            ParticleSystem par = Instantiate(par_die);
-            par.transform.position = transform.position; // 적 사망 효과
-
             ims.AddUltimateGuage(add_guage);
             ims.KillEnemy(score, exp, gold);
             ims.enemys.Remove(gameObject);
@@ -75,9 +70,7 @@ public class Mob_info : MonoBehaviour
             if (Random.Range(0f, 100f) < item.GetComponent<ItemInfo>().drop_rate)
                 Instantiate(item, transform.position, Quaternion.identity);
 
-            //사운드 출력
-            //일정몹이 아이템 뿌리기
-            Destroy(gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 
@@ -87,7 +80,7 @@ public class Mob_info : MonoBehaviour
         {
             case "end_line":
                 Camera.main.GetComponent<Ingame_manager>().enemys.Remove(gameObject);
-                Destroy(gameObject);
+                this.gameObject.SetActive(false);
                 break;
         }
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Normal : MonoBehaviour
+public class Normal : MonoBehaviour, Bullet_Move
 {
     // 그냥 아무런 효과가 없는 탄환
     // 충돌시 데미지
@@ -10,18 +10,18 @@ public class Normal : MonoBehaviour
     Vector2 normalized_angle;
     float crash_damage;
     float speed;
-    ParticleSystem par_hit1;
-    void Awake()
-    {
-        par_hit1 = Resources.Load<ParticleSystem>("Particle/EnemyHit");
-    }
+
     void Start()
+    {
+        crash_damage = GetComponent<BulletInfo>().crash_damage;
+        transform.rotation = Quaternion.Euler(0, 0, shot_angle - 90);
+    }
+
+    public void Move()
     {
         shot_angle = GetComponent<BulletInfo>().shot_angle;
         normalized_angle = GV.GetVector2(shot_angle).normalized;
         speed = GetComponent<BulletInfo>().speed;
-        crash_damage = GetComponent<BulletInfo>().crash_damage;
-        transform.rotation = Quaternion.Euler(0, 0, shot_angle - 90);
 
         GetComponent<Rigidbody2D>().velocity = normalized_angle * speed;
     }
@@ -31,13 +31,11 @@ public class Normal : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "end_line":
-                Destroy(gameObject);
+                this.gameObject.SetActive(false);
                 break;
             case "enemy":
-                ParticleSystem par1 = Instantiate(par_hit1);
-                par1.transform.position = transform.position;
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
-                Destroy(gameObject);
+                this.gameObject.SetActive(false);
                 break;
         }
     }

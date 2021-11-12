@@ -16,12 +16,14 @@ public class ObjectPool : MonoBehaviour
     GameObject[] bulletsub1; // ¼­ºêÆÄÃ÷¿ë
     GameObject[] bulletsub2; // ¼­ºêÆÄÃ÷¿ë
 
-    GameObject[] enemydead;
+    ParticleSystem[] enemydead;
+    ParticleSystem par_die;
 
     Ingame_manager ims;
-
-    void Start()
+    public void Make_Pool()
     {
+        par_die = Resources.Load<ParticleSystem>("Particle/TinyExplosion");
+
         ims = GetComponent<Ingame_manager>();
 
         bulletenemy1 = new GameObject[200];
@@ -30,7 +32,7 @@ public class ObjectPool : MonoBehaviour
         bulletsub1 = new GameObject[100];
         bulletsub2 = new GameObject[100];
 
-        enemydead = new GameObject[60];
+        enemydead = new ParticleSystem[60];
     }
     // ¸÷
     public void Make_enemy_list(int normal_enemy_kind, int elite_enemy_kind) // ¸÷Á¾·ù ¼ö
@@ -50,9 +52,9 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < normal.Count; i++)
         {
             enemy_normal.Add(new List<GameObject>());
-            for (int j = 0; j < 50; i++)
+            for (int j = 0; j < 50; j++)
             {
-                enemy_normal[i][j] = Instantiate(normal[i]);
+                enemy_normal[i].Add(Instantiate(normal[i]));
                 enemy_normal[i][j].SetActive(false);
             }
         }
@@ -64,14 +66,22 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < elite.Count; i++)
         {
             enemy_elite.Add(new List<GameObject>());
-            for (int j = 0; j < elite.Count; i++)
+            for (int j = 0; j < elite.Count; j++)
             {
-                enemy_elite[i][j] = Instantiate(elite[i]);
+                enemy_elite[i].Add(Instantiate(elite[i]));
                 enemy_elite[i][j].SetActive(false);
             }
         }
+
+        Mob_info mis = enemy_elite[0][0].GetComponent<Mob_info>();
+
+        for (int i = 0; i < bulletenemy1.Length; i++)
+        {
+            bulletenemy1[i] = Instantiate(mis.bullet);
+            bulletenemy1[i].SetActive(false);
+        }
     }
-    public void Make_bulletenemy1()
+    /*public void Make_bulletenemy1()
     {
         //ÃÑ¾Ë
         for (int i = 0; i < bulletenemy1.Length; i++)
@@ -79,7 +89,7 @@ public class ObjectPool : MonoBehaviour
             //bulletenemy1[i] = Instantiate(ÇØ´ç ¸Ê¿¡ ÇØ´çµÇ´Â ÀûÀÌ ¹ß»çÇÏ´Â ÃÑ¾Ë);
             bulletenemy1[i].SetActive(false);
         }
-    }
+    }*/
     public void Make_bulletplayer(GameObject bullet)
     {
         for (int i = 0; i < bulletplayer.Length; i++)
@@ -108,8 +118,8 @@ public class ObjectPool : MonoBehaviour
     {
         for (int i = 0; i < enemydead.Length; i++)
         {
-            //enemydead[i] = Instantiate(Àû »ç¸Á½Ã ÆÄÆ¼Å¬);
-            enemydead[i].SetActive(false);
+            enemydead[i] = Instantiate(par_die);
+            //enemydead[i]. (false); ??????
         }
     }
     public GameObject GetPlayerBullet()
@@ -119,6 +129,16 @@ public class ObjectPool : MonoBehaviour
             {
                 bulletplayer[i].SetActive(true);
                 return bulletplayer[i];
+            }
+        return null;
+    }
+    public GameObject GetEnemyBullet()
+    {
+        for (int i = 0; i < bulletenemy1.Length; i++)
+            if (!bulletenemy1[i].activeSelf)
+            {
+                bulletenemy1[i].SetActive(true);
+                return bulletenemy1[i];
             }
         return null;
     }

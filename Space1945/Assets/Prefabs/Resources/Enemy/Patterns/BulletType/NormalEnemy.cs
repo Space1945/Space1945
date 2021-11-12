@@ -29,13 +29,13 @@ public class NormalEnemy : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "end_line":
-                Destroy(gameObject);
+                gameObject.SetActive(false);
                 break;
             case "player":
                 float new_crash_damage = crash_damage - col.gameObject.GetComponent<AirframeScript>().basic_def;
                 if (new_crash_damage > 0)
                     col.gameObject.GetComponent<AirframeScript>().Attacked(new_crash_damage);
-                Destroy(gameObject);
+                gameObject.SetActive(false);
                 break;
         }
     }
