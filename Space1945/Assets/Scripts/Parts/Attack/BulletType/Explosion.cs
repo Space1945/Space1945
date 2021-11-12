@@ -14,10 +14,12 @@ public class Explosion : MonoBehaviour
     float speed;
     float crash_damage;
     ObjectPool ops;
+    GameObject bullet_key;
 
     void Awake()
     {
         ops = Camera.main.GetComponent<ObjectPool>();
+        bullet_key = DB_Manager.Instance.using_atk.GetComponent<BulletFire>().bullet;
     }
     void OnEnable()
     {
@@ -37,14 +39,14 @@ public class Explosion : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "end_line":
-                ops.ReturnBullet(transform.parent.gameObject);
+                ops.ReturnBullet(bullet_key, gameObject);
                 break;
             case "enemy":
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
                 Instantiate(boom, transform.position, Quaternion.identity).GetComponent<DerivedBulletInfo>().SetFromPlayer(
                     shot_angle, GetComponent<BulletInfo>().critical, GetComponent<BulletInfo>().crit_damage_p
                 );
-                ops.ReturnBullet(transform.parent.gameObject);
+                ops.ReturnBullet(bullet_key, gameObject);
                 break;
         }
     }

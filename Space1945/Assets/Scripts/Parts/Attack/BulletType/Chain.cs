@@ -73,7 +73,7 @@ public class Chain : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
 
             for (int j = 0; j < middles.Count; j++)
-                ops.ReturnBullet(middles[j].transform.parent.gameObject);
+                ops.ReturnBullet(middle, middles[j]);
             middles.Clear();
 
             target = nearest;

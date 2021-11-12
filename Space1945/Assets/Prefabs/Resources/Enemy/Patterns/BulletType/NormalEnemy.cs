@@ -12,6 +12,7 @@ public class NormalEnemy : MonoBehaviour
     Vector2 angle;
 
     ObjectPool ops;
+    public GameObject bullet_key { get; set; }
     void Awake()
     {
         ops = Camera.main.GetComponent<ObjectPool>();
@@ -29,19 +30,19 @@ public class NormalEnemy : MonoBehaviour
 
         transform.parent = null;
     }
-
+    
     void OnTriggerEnter2D(Collider2D col) // 기존 Mob info에 있던 충돌시 총알 삭제 관련 및 bullet info의 벽 충돌 관련 충돌처리를 가져옴
     {
         switch (col.gameObject.tag)
         {
             case "end_line":
-                ops.ReturnBullet(transform.parent.gameObject);
+                ops.ReturnBullet(bullet_key, gameObject);
                 break;
             case "player":
                 float new_crash_damage = crash_damage - col.gameObject.GetComponent<AirframeScript>().basic_def;
                 if (new_crash_damage > 0)
                     col.gameObject.GetComponent<AirframeScript>().Attacked(new_crash_damage);
-                ops.ReturnBullet(transform.parent.gameObject);
+                ops.ReturnBullet(bullet_key, gameObject);
                 break;
         }
     }

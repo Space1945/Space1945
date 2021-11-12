@@ -44,6 +44,7 @@ public class EliteRobot1 : MonoBehaviour
                 GameObject bullet_e = ops.GetBullet(mis.bullet);
                 bullet_e.GetComponent<BulletInfo>().SetFromEnemy(j * 12);
                 bullet_e.transform.position = mis.butts[i].position;
+                bullet_e.GetComponent<NormalEnemy>().bullet_key = GetComponent<Mob_info>().bullet;
                 bullet_e.SetActive(true);
             }
     }
@@ -59,6 +60,7 @@ public class EliteRobot1 : MonoBehaviour
                 GameObject bullet_e = ops.GetBullet(mis.bullet);
                 bullet_e.GetComponent<BulletInfo>().SetFromEnemy(GV.GetDegree(mis.butts[i].position, pos));
                 bullet_e.transform.position = mis.butts[i].position;
+                bullet_e.GetComponent<NormalEnemy>().bullet_key = GetComponent<Mob_info>().bullet;
                 bullet_e.SetActive(true);
             }
             yield return new WaitForSeconds(0.1f);

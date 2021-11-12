@@ -33,6 +33,7 @@ public class EnemyAtkPatterns : MonoBehaviour
                     GameObject bullet_e = Camera.main.GetComponent<ObjectPool>().GetBullet(mis.bullet);
                     bullet_e.GetComponent<BulletInfo>().SetFromEnemy(GV.GetDegree(mis.butts[i].position, pos));
                     bullet_e.transform.position = mis.butts[i].position;
+                    bullet_e.SetActive(true);
                     //Instantiate(mis.bullet, mis.butts[i].position, Quaternion.identity).GetComponent<BulletInfo>().SetFromEnemy(GV.GetDegree(mis.butts[i].position, pos));
                 }
                 yield return new WaitForSeconds(0.1f);

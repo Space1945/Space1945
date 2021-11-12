@@ -10,10 +10,12 @@ public class NormalRush : MonoBehaviour
     float crash_damage;
     GameObject target;
     ObjectPool ops;
+    GameObject bullet_key;
 
     void Awake()
     {
         ops = Camera.main.GetComponent<ObjectPool>();
+        bullet_key = DB_Manager.Instance.using_atk.GetComponent<BulletFire>().bullet;
     }
     void OnEnable()
     {
@@ -54,11 +56,11 @@ public class NormalRush : MonoBehaviour
         switch (col.gameObject.tag)
         {
             case "end_line":
-                ops.ReturnBullet(transform.parent.gameObject);
+                ops.ReturnBullet(bullet_key, gameObject);
                 break;
             case "enemy":
                 col.gameObject.GetComponent<Mob_info>().Attacked(crash_damage);
-                ops.ReturnBullet(transform.parent.gameObject);
+                ops.ReturnBullet(bullet_key, gameObject);
                 break;
         }
     }

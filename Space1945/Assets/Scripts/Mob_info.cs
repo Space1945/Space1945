@@ -40,7 +40,6 @@ public class Mob_info : MonoBehaviour
     {
         invincible = false;
         hp = max_hp;
-        Debug.Log(bullet.GetInstanceID());
     }
 
     IEnumerator InvincibleTime()
