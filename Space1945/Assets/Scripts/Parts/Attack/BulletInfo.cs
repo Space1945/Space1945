@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletInfo : MonoBehaviour
 {
+    public int key;
     public float crash_damage;
     public float speed;
     public float crit_chance_p;

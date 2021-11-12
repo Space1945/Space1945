@@ -196,7 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_hp: 120
-  hp: 120
   crash_damage: 10
   score: 50
   exp: 30
