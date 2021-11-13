@@ -141,4 +141,4 @@ MonoBehaviour:
   bound_count: 3
   reinforces:
   - name: fr
-    value: 0.5
+    value: 0.7

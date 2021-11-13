@@ -22,6 +22,8 @@ public class EliteRobot1 : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(mis.fire_rate);
+
             int rand = Random.Range(0, 2);
             if (rand == 0)
             {
@@ -31,8 +33,6 @@ public class EliteRobot1 : MonoBehaviour
             {
                 StartCoroutine(AttackRush());
             }
-
-            yield return new WaitForSeconds(mis.fire_rate);
         }
     }
 

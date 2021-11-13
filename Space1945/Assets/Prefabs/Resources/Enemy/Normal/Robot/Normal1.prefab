@@ -200,7 +200,7 @@ MonoBehaviour:
   score: 50
   exp: 30
   gold: 80
-  add_guage: 1
+  add_guage: 5
   invincible_time: 1
   instantiate_count: 5
   kind: Normal

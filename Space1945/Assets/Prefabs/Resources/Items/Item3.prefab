@@ -141,4 +141,4 @@ MonoBehaviour:
   bound_count: 3
   reinforces:
   - name: bd
-    value: 1.3
+    value: 1.2

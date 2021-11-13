@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletInfo : MonoBehaviour
 {
-    public int key;
     public float crash_damage;
     public float speed;
     public float crit_chance_p;
@@ -26,9 +25,15 @@ public class BulletInfo : MonoBehaviour
     float angle;
     bool crit;
 
+    float origin_crash_damage;
+    float origin_crit_chance_p;
+    float origin_crit_damage_p;
+
     void Awake() // instantiate된 직후 최초실행
     {
-        
+        origin_crash_damage = crash_damage;
+        origin_crit_chance_p = crit_chance_p;
+        origin_crit_damage_p = crit_damage_p;
     }
     public void SetFromPlayer(float shot_angle, float adtl_crashd, float adtl_cc, float adtl_cd) // 플레이어가 발사한 총알을 강화 및 다시 세팅
     {
@@ -70,5 +75,15 @@ public class BulletInfo : MonoBehaviour
     public void SetFromNone()
     {
 
+    }
+
+    public void RollBackFromPlayer()
+    {
+        crash_damage = origin_crash_damage;
+        crit_chance_p = origin_crit_chance_p;
+        crit_damage_p = origin_crit_damage_p;
+
+        if (crit) // 크리티컬 총알이었다면 다시 원래 색깔로
+            GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
     }
 }

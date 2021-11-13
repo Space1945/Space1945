@@ -20,7 +20,7 @@ public class Chain : MonoBehaviour
     {
         ops = Camera.main.GetComponent<ObjectPool>();
     }
-    void Start()
+    void OnEnable()
     {
         crash_damage = GetComponent<BulletInfo>().crash_damage;
         shocked_enemies = new HashSet<GameObject>();

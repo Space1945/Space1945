@@ -141,4 +141,4 @@ MonoBehaviour:
   bound_count: 3
   reinforces:
   - name: cc
-    value: 40
+    value: 30

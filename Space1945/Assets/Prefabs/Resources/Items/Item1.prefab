@@ -141,4 +141,4 @@ MonoBehaviour:
   bound_count: 3
   reinforces:
   - name: hp
-    value: 0.2
+    value: 0.1

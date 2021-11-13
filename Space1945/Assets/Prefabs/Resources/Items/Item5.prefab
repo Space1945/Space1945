@@ -141,6 +141,6 @@ MonoBehaviour:
   bound_count: 3
   reinforces:
   - name: def
-    value: 1.5
+    value: 1.2
   - name: crashd
-    value: 1.5
+    value: 1.2

@@ -51,7 +51,7 @@ public class Ingame_manager : MonoBehaviour
         Reinforce(); // 강화
         ReadStage();
 
-        ops.Make_Pool();
+        ops.MakePool();
     }
     void Start()
     {
@@ -202,7 +202,7 @@ public class Ingame_manager : MonoBehaviour
             yield return new WaitForSeconds(interval_sec);
         }
     }
-        IEnumerator CheckGameEnd(float check_rate) // 인게임의 종료조건을 계속 확인
+    IEnumerator CheckGameEnd(float check_rate) // 인게임의 종료조건을 계속 확인
     {
         while (true)
         {
@@ -212,12 +212,14 @@ public class Ingame_manager : MonoBehaviour
             {
                 DB_Manager.Instance.stage_clear = true;
                 StopAllCoroutines();
+                ops.Free(); // 오브젝트 풀에 담긴 모든 객체 destroy
                 SceneManager.LoadScene("GameEnd");
             }
             else if (player_clone == null) // 사망
             {
                 DB_Manager.Instance.stage_clear = false;
                 StopAllCoroutines();
+                ops.Free(); // 오브젝트 풀에 담긴 모든 객체 destroy
                 SceneManager.LoadScene("GameEnd");
             }
         }

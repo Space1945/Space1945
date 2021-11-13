@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    List<List<GameObject>> bulletenemy;
-
     Dictionary<GameObject, HashSet<GameObject>> bullets_using = new Dictionary<GameObject, HashSet<GameObject>>();
     Dictionary<GameObject, Queue<GameObject>> bullets_not_using = new Dictionary<GameObject, Queue<GameObject>>();
 
     Ingame_manager ims;
-    public void Make_Pool()
+
+    public void MakePool()
     {
         ims = GetComponent<Ingame_manager>();
     }
@@ -38,6 +37,17 @@ public class ObjectPool : MonoBehaviour
     {
         bullets_using[bullet].Remove(bullet_clone);
         bullets_not_using[bullet].Enqueue(bullet_clone);
+        bullet_clone.GetComponent<BulletInfo>().RollBackFromPlayer();
         bullet_clone.SetActive(false);
+    }
+
+    public void Free()
+    {
+        foreach (var dic in bullets_using)
+            foreach (var obj in dic.Value)
+                Destroy(obj);
+        foreach (var dic in bullets_not_using)
+            foreach (var obj in dic.Value)
+                Destroy(obj);
     }
 }

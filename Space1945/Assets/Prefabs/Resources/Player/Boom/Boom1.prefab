@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_range: 15
-  delta_range: 0.75
+  delta_range: 1
 --- !u!114 &774229379747788730
 MonoBehaviour:
   m_ObjectHideFlags: 0

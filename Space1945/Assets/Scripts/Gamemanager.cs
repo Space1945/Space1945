@@ -6,7 +6,7 @@ public class Gamemanager : MonoBehaviour
 {
     public static Gamemanager instance;
 
-    private void Awake()
+    void Awake()
     {
         instance = this;
         Debug.Log("124124");
