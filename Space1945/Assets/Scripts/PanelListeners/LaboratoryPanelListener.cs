@@ -25,7 +25,7 @@ public class LaboratoryPanelListener : MonoBehaviour
     {
         total_point = PlayerPrefs.GetInt("pilot_level");
         skills = PlayerPrefs.GetString("pilot_skill");
-        for (int i = 0; i < 5; i++)     //제일 처음 스킬레벨을 받아와 초기화 해줌 버튼이 아직 5개 밖에 없음
+        for (int i = 0; i < 5; i++)
         {
             skills_btn[i].GetComponent<SkillButtonListener>().cur_point = int.Parse(skills[i].ToString());
             if (i > 0 && i < 41)    //첫번재 스킬과 레벨에따라 해금되는 서브스킬 제외
@@ -38,7 +38,7 @@ public class LaboratoryPanelListener : MonoBehaviour
 
     public void SavePoint()
     {
-        for (int i = 0; i < 5; i++) //스킬 찍은후 변화된 값들 저장 이것도 버튼이 5개 밖에없어서 5로 고정
+        for (int i = 0; i < 5; i++) 
         {
             char change = (char)(skills_btn[i].GetComponent<SkillButtonListener>().cur_point + '0');
             if (skills[i] != change)

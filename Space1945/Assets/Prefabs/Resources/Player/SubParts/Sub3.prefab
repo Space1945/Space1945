@@ -98,13 +98,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gold: 90000
   adds:
-    ex_hp: 1
-    ex_def: 1
-    ex_crash_dmg: 1
-    ex_bullet_dmg: 1
-    ex_fire_rate: 1
+    ex_hp: 0
+    ex_def: 0
+    ex_crash_dmg: 0
+    ex_bullet_dmg: 0
+    ex_fire_rate: 0
     ex_crit_chance: 0
-    ex_crit_dmg: 1
-    ex_gold: 1.35
-    ex_exp: 1.25
-    ex_drop: 1
+    ex_crit_dmg: 0
+    ex_gold: 0.35
+    ex_exp: 0.25
+    ex_drop: 0

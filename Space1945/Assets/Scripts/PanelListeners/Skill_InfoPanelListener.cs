@@ -41,18 +41,18 @@ public class Skill_InfoPanelListener : MonoBehaviour
                 {
                     explain.GetComponent<Text>().text = "연구 완료.";
                     selected_btn.GetComponent<SkillButtonListener>().cur_point++;
-                    selected_btn.GetComponent<SkillButtonListener>().skill_active = true;
+                    selected_btn.GetComponent<SkillButtonListener>().skill_active = selected_btn.GetComponent<SkillButtonListener>().max_point == selected_btn.GetComponent<SkillButtonListener>().cur_point;
 
-                    PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") * selected_btn.GetComponent<SkillButtonListener>().adds.ex_hp);
-                    PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") * selected_btn.GetComponent<SkillButtonListener>().adds.ex_def);
-                    PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") * selected_btn.GetComponent<SkillButtonListener>().adds.ex_crash_dmg);
-                    PlayerPrefs.SetFloat("ex_bullet_dmg", PlayerPrefs.GetFloat("ex_bullet_dmg") * selected_btn.GetComponent<SkillButtonListener>().adds.ex_bullet_dmg);
-                    PlayerPrefs.SetFloat("ex_fire_rate", PlayerPrefs.GetFloat("ex_fire_rate") * selected_btn.GetComponent<SkillButtonListener>().adds.ex_fire_rate);
+                    PlayerPrefs.SetFloat("ex_hp", PlayerPrefs.GetFloat("ex_hp") + selected_btn.GetComponent<SkillButtonListener>().adds.ex_hp);
+                    PlayerPrefs.SetFloat("ex_def", PlayerPrefs.GetFloat("ex_def") + selected_btn.GetComponent<SkillButtonListener>().adds.ex_def);
+                    PlayerPrefs.SetFloat("ex_crash_dmg", PlayerPrefs.GetFloat("ex_crash_dmg") + selected_btn.GetComponent<SkillButtonListener>().adds.ex_crash_dmg);
+                    PlayerPrefs.SetFloat("ex_bullet_dmg", PlayerPrefs.GetFloat("ex_bullet_dmg") + selected_btn.GetComponent<SkillButtonListener>().adds.ex_bullet_dmg);
+                    PlayerPrefs.SetFloat("ex_fire_rate", PlayerPrefs.GetFloat("ex_fire_rate") - selected_btn.GetComponent<SkillButtonListener>().adds.ex_fire_rate);
                     PlayerPrefs.SetFloat("ex_crit_chance", PlayerPrefs.GetFloat("ex_crit_chance") + selected_btn.GetComponent<SkillButtonListener>().adds.ex_crit_chance);
-                    PlayerPrefs.SetFloat("ex_crit_dmg", PlayerPrefs.GetFloat("ex_crit_dmg") * selected_btn.GetComponent<SkillButtonListener>().adds.ex_crit_dmg);
-                    PlayerPrefs.SetFloat("ex_gold", PlayerPrefs.GetFloat("ex_gold") * selected_btn.GetComponent<SkillButtonListener>().adds.ex_gold);
-                    PlayerPrefs.SetFloat("ex_exp", PlayerPrefs.GetFloat("ex_exp") * selected_btn.GetComponent<SkillButtonListener>().adds.ex_exp);
-                    PlayerPrefs.SetFloat("ex_drop", PlayerPrefs.GetFloat("ex_drop") * selected_btn.GetComponent<SkillButtonListener>().adds.ex_drop);
+                    PlayerPrefs.SetFloat("ex_crit_dmg", PlayerPrefs.GetFloat("ex_crit_dmg") + selected_btn.GetComponent<SkillButtonListener>().adds.ex_crit_dmg);
+                    PlayerPrefs.SetFloat("ex_gold", PlayerPrefs.GetFloat("ex_gold") + selected_btn.GetComponent<SkillButtonListener>().adds.ex_gold);
+                    PlayerPrefs.SetFloat("ex_exp", PlayerPrefs.GetFloat("ex_exp") + selected_btn.GetComponent<SkillButtonListener>().adds.ex_exp);
+                    PlayerPrefs.SetFloat("ex_drop", PlayerPrefs.GetFloat("ex_drop") + selected_btn.GetComponent<SkillButtonListener>().adds.ex_drop);
                 }
                 else
                     explain.GetComponent<Text>().text = "최대 레벨입니다.";

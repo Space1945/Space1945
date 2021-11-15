@@ -12,6 +12,7 @@ public class BulletFire : MonoBehaviour, AtkInterface
     public int fire_cnt_per_shot;
 
     ObjectPool ops;
+    Ingame_manager ims;
 
     // AtkInterface에 선언된 변수 get만 가능 -----------------------
     public int _gold
@@ -42,11 +43,13 @@ public class BulletFire : MonoBehaviour, AtkInterface
 
     void Awake() // 초기화
     {
+        ims = Camera.main.GetComponent<Ingame_manager>();
         ops = Camera.main.GetComponent<ObjectPool>();
         butts = transform.parent.GetComponent<AirframeScript>().butts;
     }
     void Start()
     {
+        fire_rate *= ims.ex_total.ex_fire_rate;
         if (fire_rate < 0.05f) // 최대 공속
             fire_rate = 0.05f;
         StartCoroutine(Attack());
