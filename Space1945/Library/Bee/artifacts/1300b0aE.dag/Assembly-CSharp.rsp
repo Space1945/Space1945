@@ -385,6 +385,7 @@
 "Assets/Scripts/PanelListeners/NamePanelListener.cs"
 "Assets/Scripts/PanelListeners/OpeningListener.cs"
 "Assets/Scripts/PanelListeners/RepairshopPanelListener.cs"
+"Assets/Scripts/PanelListeners/SelectPanelListener.cs"
 "Assets/Scripts/PanelListeners/SkillButtonListener.cs"
 "Assets/Scripts/PanelListeners/Skill_InfoPanelListener.cs"
 "Assets/Scripts/PanelListeners/StageButtonListener.cs"

@@ -19,6 +19,7 @@ public class MainPanelListener : MonoBehaviour
     void Awake()
     {
         gameObject.SetActive(true);
+        Select_panel.SetActive(false);
 
         audio_source = GetComponent<AudioSource>();
         audio_source.clip = button_clicked;
@@ -28,7 +29,16 @@ public class MainPanelListener : MonoBehaviour
     {
         
     }
-
+    public void Chapter_Scene_Load()
+    {
+        SceneManager.LoadScene("Chapter");
+    }
+    public void Active_Select_Panel()
+    {
+        foreach (Transform child in gameObject.transform)
+            child.GetComponent<Button>().interactable = false;
+        Select_panel.SetActive(true);
+    }
     public void Active_Configuration_Panel()
     {
         foreach (Transform child in gameObject.transform)
