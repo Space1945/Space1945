@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class ConfigurationPanelListener : MonoBehaviour
 {
+    public GameObject Main_Panel;
     public Button BGM_on_button;
     public Button BGM_off_button;
     public Button ES_on_button;
     public Button ES_off_button;
+    public Button Confirm_button;
 
     public Sprite[] sprites;
 
@@ -68,6 +70,12 @@ public class ConfigurationPanelListener : MonoBehaviour
     {
         PlayerPrefs.SetString("es", "false");
         ConvertImageWhenESOffClicked();
+    }
+    public void Confirm()
+    {
+        foreach (Transform child in Main_Panel.transform)
+            child.GetComponent<Button>().interactable = true;
+        gameObject.SetActive(false);
     }
 
     void ConvertImageWhenBGMOnClicked()
