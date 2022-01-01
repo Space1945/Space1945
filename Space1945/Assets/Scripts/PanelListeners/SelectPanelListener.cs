@@ -7,12 +7,10 @@ using UnityEngine.EventSystems;
 public class SelectPanelListener : MonoBehaviour
 {
     public Button cancel_button;
-
     public GameObject item_button_frame;
     public GameObject Main_Panel;
 
     List<GameObject> items;
-    int btn_idx;
 
     void Awake()
     {
@@ -34,19 +32,18 @@ public class SelectPanelListener : MonoBehaviour
         }
 
         Destroy(item_button_frame);
+        gameObject.SetActive(false);
     }
-
-    public void LoadItems(int btn_number)
+    public void LoadItems()
     {
-        btn_idx = btn_number;
-        int unlocked_cnt = 0;
-        int locked_cnt = 0;
+        int unlocked_cnt = DB_Manager.Instance.unlocked_airframes.Count;
+        int locked_cnt = DB_Manager.Instance.locked_airframes.Count;
 
         items[0].GetComponent<Button>().enabled = true;
         items[0].GetComponent<ItemButtonsObject>().obj = DB_Manager.Instance.using_airframe;
         items[0].GetComponent<ItemButtonsObject>().idx = 0;
         items[0].transform.Find("ItemImage").GetComponent<Image>().sprite = items[0].GetComponent<ItemButtonsObject>().obj.GetComponent<SpriteRenderer>().sprite;
-        unlocked_cnt = DB_Manager.Instance.unlocked_airframes.Count;
+
         for (int i = 1; i <= unlocked_cnt; i++)
         {
             items[i].GetComponent<Button>().enabled = true;
@@ -54,8 +51,8 @@ public class SelectPanelListener : MonoBehaviour
             items[i].GetComponent<ItemButtonsObject>().idx = i;
             items[i].transform.Find("ItemImage").GetComponent<Image>().sprite = items[i].GetComponent<ItemButtonsObject>().obj.GetComponent<SpriteRenderer>().sprite;
         }
-        locked_cnt = DB_Manager.Instance.locked_airframes.Count;
-        for (int i = unlocked_cnt + 1; i <= locked_cnt; i++)
+
+        for (int i = unlocked_cnt + 1; i <= unlocked_cnt + locked_cnt; i++)
         {
             items[i].GetComponent<Button>().enabled = true;
             items[i].GetComponent<ItemButtonsObject>().obj = DB_Manager.Instance.locked_airframes[i - unlocked_cnt - 1];
@@ -70,19 +67,29 @@ public class SelectPanelListener : MonoBehaviour
             child.GetComponent<Button>().interactable = true;
         gameObject.SetActive(false);
     }
-    public void EquipButtonClicked()
+    public void AirframeClicked()
     {
+        Debug.Log("µø¿€");
         GameObject button = EventSystem.current.currentSelectedGameObject;
-        GameObject clicked_obj = null;
+        GameObject clicked_obj = button.GetComponent<ItemButtonsObject>().obj;
 
-        clicked_obj = button.GetComponent<ItemButtonsObject>().obj;
-        DB_Manager.Instance.unlocked_airframes.Add(DB_Manager.Instance.using_airframe);
-        PlayerPrefs.SetString(DB_Manager.Instance.using_airframe.name, "unlocked");
-        DB_Manager.Instance.using_airframe = clicked_obj;
-        DB_Manager.Instance.unlocked_airframes.Remove(clicked_obj);
-        PlayerPrefs.SetString(clicked_obj.name, "using");
-        transform.parent.GetComponent<RepairshopPanelListener>().UpdatePartsButton(0);
+        if (PlayerPrefs.GetString(clicked_obj.name) == "locked")
+        {
+            Main_Panel.GetComponent<MainPanelListener>().Update_Airframe(clicked_obj, false);
+        }
+        else
+        {
+            DB_Manager.Instance.unlocked_airframes.Add(DB_Manager.Instance.using_airframe);
+            PlayerPrefs.SetString(DB_Manager.Instance.using_airframe.name, "unlocked");
+            DB_Manager.Instance.using_airframe = clicked_obj;
+            DB_Manager.Instance.unlocked_airframes.Remove(clicked_obj);
+            PlayerPrefs.SetString(clicked_obj.name, "using");
+            Main_Panel.GetComponent<MainPanelListener>().Update_Airframe(clicked_obj, true);
+        }
+
         DeleteAllItemsImage();
+        foreach (Transform child in Main_Panel.transform)
+            child.GetComponent<Button>().interactable = true;
         gameObject.SetActive(false);
     }
 
