@@ -10,6 +10,7 @@ public class RepairshopPanelListener : MonoBehaviour
     public Button def_button;
     public Button sub1_button;
     public Button sub2_button;
+    public Button confirm_button;
 
     public Sprite none;
 
@@ -19,17 +20,13 @@ public class RepairshopPanelListener : MonoBehaviour
     {
         gameObject.SetActive(false);
         items_panel.SetActive(false);
+        airframe_button.GetComponent<Button>().interactable = false;
     }
     void Start()
     {
         UpdateAllPartsButton();
     }
 
-    public void AirframeButtonClicked()
-    {
-        items_panel.SetActive(true);
-        items_panel.GetComponent<ItemsPanelListener>().LoadItems(0);
-    }
     public void AtkButtonClicked()
     {
         items_panel.SetActive(true);
@@ -49,6 +46,10 @@ public class RepairshopPanelListener : MonoBehaviour
     {
         items_panel.SetActive(true);
         items_panel.GetComponent<ItemsPanelListener>().LoadItems(4);
+    }
+    public void ConfirmButtonClicked()
+    {
+        gameObject.SetActive(false);
     }
 
     public void UpdatePartsButton(int idx)

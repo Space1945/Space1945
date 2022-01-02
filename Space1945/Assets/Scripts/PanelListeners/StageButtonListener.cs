@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class StageButtonListener : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int stage_number;
+    public int difficulty { get; set; }
+    public int layer { get; set; }
 
     public void LoadStage()
     {
-        DB_Manager.Instance.selected_stage = stage_number;
         SceneManager.LoadScene("Ingame");
     }
 }
