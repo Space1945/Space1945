@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class StageButtonListener : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject main_canvas;
+
     public int difficulty { get; set; }
     public int layer { get; set; }
+    public string type{ get; set; }
 
     public void LoadStage()
     {

@@ -61,6 +61,7 @@
     <Compile Include="Assets\Prefabs\Resources\Enemy\Patterns\BulletType\EliteRobot1.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Scripts\Mob_info.cs" />
+    <Compile Include="Assets\Scripts\ChapterCanvasListener.cs" />
     <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Explosion.cs" />
     <Compile Include="Assets\Prefabs\Resources\Player\UltimateSkill\InterceptorScript.cs" />
     <Compile Include="Assets\Scripts\PanelListeners\SelectPanelListener.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Prefabs\Resources\Player\UltimateSkill\CallInterceptors.cs" />
+    <Compile Include="Assets\Scripts\PanelListeners\ChapterMainPanelListener.cs" />
     <Compile Include="Assets\Scripts\Parts\Attack\BulletType\Normal.cs" />
     <Compile Include="Assets\Scripts\PanelListeners\Skill_InfoPanelListener.cs" />
     <Compile Include="Assets\Scripts\Parts\Attack\DerivedBulletInfo.cs" />
@@ -159,8 +161,6 @@
     <Compile Include="Assets\Scripts\MainCameraListener.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\MainCanvasListener.cs" />
-    <Compile Include="Assets\Scripts\ChapterCanvasListener.cs" />
-    <Compile Include="Assets\Scripts\PanelListeners\ChapterMainPanelListener.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
