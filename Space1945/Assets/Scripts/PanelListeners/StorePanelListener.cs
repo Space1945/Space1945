@@ -16,7 +16,6 @@ public class StorePanelListener : MonoBehaviour
     private GameObject[] item_objects; // 버튼에 올라간 gameobject
 
     public Button refresh_button;
-    public Text remaining_time_text;
 
     public Text[] item_cost_text;
     public Text refresh_cost_text;
@@ -33,9 +32,6 @@ public class StorePanelListener : MonoBehaviour
         face[0].enabled = true;
         audio_source = GetComponent<AudioSource>();
         audio_source.playOnAwake = false; // 설정해주어야 클릭시에만 소리남
-
-        remaining_time_text.fontSize = 50;
-        remaining_time_text.color = new Color(255, 255, 255);
 
         item_objects = new GameObject[6];
 
@@ -340,25 +336,6 @@ public class StorePanelListener : MonoBehaviour
         catch
         {
             Debug.Log("StorePanelListener/BuyClicked Error");
-        }
-    }
-
-    void FixedUpdate()
-    {
-        DateTime refresh = DateTime.ParseExact(PlayerPrefs.GetString("refresh"), "yyyyMMddHHmmss", null);
-        TimeSpan remaining_time;
-
-        if (refresh <= DateTime.Now) // 남은 시간이 없는 경우
-        {
-            PlayerPrefs.SetString("refresh", DateTime.Now.AddDays(0.5).ToString("yyyyMMddHHmmss", null)); // 12시간 뒤에 버튼 활성화
-
-            // 템 리스트 변경
-            UpdateAllItems();
-        }
-        else
-        {
-            remaining_time = refresh - DateTime.Now;
-            remaining_time_text.text = string.Format("{0:D2}:{1:D2}:{2:D2}", remaining_time.Hours, remaining_time.Minutes, remaining_time.Seconds);
         }
     }
 }

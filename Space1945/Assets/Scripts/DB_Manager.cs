@@ -43,7 +43,7 @@ public class DB_Manager
     public bool stage_clear { get; set; }
 
     public int selected_chapter { get; set; } // 현재 선택한 챕터
-    public int selected_stage { get; set; }
+    public GameObject selected_stage { get; set; }
 
     [Serializable]
     public class ex_stats

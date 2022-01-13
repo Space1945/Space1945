@@ -13,6 +13,12 @@ public class StageButtonListener : MonoBehaviour
 
     public void LoadStage()
     {
-        SceneManager.LoadScene("Ingame");
+        DB_Manager.Instance.selected_stage = this.gameObject;
+        if (type == "store")
+            main_canvas.GetComponent<ChapterCanvasListener>().store_panel.SetActive(true);
+        else if (type == "upgrade")
+            main_canvas.GetComponent<ChapterCanvasListener>().upgrade_panel.SetActive(true);
+        else
+            SceneManager.LoadScene("Ingame");
     }
 }
