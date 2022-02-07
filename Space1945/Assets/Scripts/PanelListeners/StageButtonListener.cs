@@ -7,9 +7,9 @@ public class StageButtonListener : MonoBehaviour
 {
     public GameObject main_canvas;
 
-    public int difficulty { get; set; }
+    public int difficulty;
     public int layer { get; set; }
-    public string type{ get; set; }
+    public string type;
 
     public void LoadStage()
     {
